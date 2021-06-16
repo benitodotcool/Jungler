@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'team.jungler@gmail.com'
+  default from: 'thpkata2021@gmail.com'
   layout 'mailer'
 
 
