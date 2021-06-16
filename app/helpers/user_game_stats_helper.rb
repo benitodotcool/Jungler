@@ -1,0 +1,2 @@
+module UserGameStatsHelper
+end
