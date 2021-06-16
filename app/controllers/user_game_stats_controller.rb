@@ -64,6 +64,6 @@ class UserGameStatsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_game_stat_params
-      params.fetch(:user_game_stat, {})
+      params.require(:user_game_stat).permit(:level, :summoner_id, :primary_role, :secondary_role, :description)
     end
 end
