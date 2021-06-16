@@ -8,4 +8,12 @@ class User < ApplicationRecord
   validates :email, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
   validates :summoner_name, uniqueness: true, presence: true, on: :update
   
+
+  after_create :welcome_send
+
+  def welcome_send
+    UserMailer.welcome_email(self).deliver_now
+  end
+
+  
 end
