@@ -21,4 +21,14 @@ body {
   background-color: var(--green-bg-color);
   font-family: 'Inter', sans-serif;
 }
-  
+
+
+/* HIDE SCROLLBAR */
+.main-wrapper::-webkit-scrollbar {
+  display: none;
+}
+.main-wrapper {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+/* HIDE SCROLLBAR */
