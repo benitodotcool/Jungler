@@ -1,0 +1,11 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  width: 100vw;
+  height: 100vh;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
