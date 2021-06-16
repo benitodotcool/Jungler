@@ -1,33 +1,48 @@
 :root {
-  --blue-bg-color: rgba(26, 32, 48, 1);
-  --blue-color: rgba(92, 128, 188, 1);
-  --blue-color-shadow: rgba(92, 128, 188, 1);
+  --main-bg-dark-color: rgba(26, 28, 31, 1);
+  --secondary-dark-color: rgba(33, 35, 41, 1);
 
-  --orange-bg-color: rgb(38, 24, 21, 1);
+  --blue-color: rgba(65, 130, 236, 1);
+  --blue-color-shadow: rgba(92, 128, 188, 0.15);
+
   --orange-color: rgba(255, 111, 0, 1);
-  --orange-color-shadow: rgba(255, 111, 0, 1);
+  --orange-color-shadow: rgba(255, 111, 0, 0.15);
 
-  --green-bg-color: rgb(32, 34, 34);
   --green-color: rgba(9, 188, 138, 1);
   --green-color-shadow: rgba(9, 188, 138, 0.15);
 
-  --white10-color: rgba(240, 240, 240, 0.1);
-  --white25-color: rgba(240, 240, 240, 0.25);
-  --white90-color: rgba(240, 240, 240, 0.90);
-  --white50-color: rgb(240, 240, 240);
+  --light-grey-color: rgba(233, 233, 233, 1);
+  --medium-grey-color: rgb(97, 97, 97);
+  --dark-grey-color: rgb(57, 57, 57);
+
+  --small-padding: 2vw;
+  --medium-padding: 4vw;
+
+  --small-border-radius: 10px;
+  --medium-border-radius: 18px;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
   
 body {
-  background-color: var(--green-bg-color);
+  background-color: var(--main-bg-dark-color);
   font-family: 'Inter', sans-serif;
+  color: var(--light-grey-color);
 }
 
 
 /* HIDE SCROLLBAR */
-.main-wrapper::-webkit-scrollbar {
+.main-wrapper::-webkit-scrollbar,
+.aside-content::-webkit-scrollbar {
   display: none;
 }
-.main-wrapper {
+
+.main-wrapper,
+.aside-content {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }

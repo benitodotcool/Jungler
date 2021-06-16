@@ -1,6 +1,6 @@
 main {
   position: relative;
-  grid-area: 1 / 2 / 6 / 10;
+  grid-area: 1 / 2 / 2 / 7;
 
   .main-wrapper {
     position: absolute;
@@ -10,7 +10,7 @@ main {
     padding-right: 2.5rem;
     padding-left: 2.5rem;
     display: grid;
-    grid-template-rows: 10% 1fr;
+    grid-template-rows: 100px 1fr;
 
     .main-head {
       grid-area: 1 / 1 / 2 / 2;
@@ -33,7 +33,7 @@ main {
       padding-bottom: 2.5rem;
 
       & * {
-        background-color: var(--white10-color);
+        background-color: var(--secondary-dark-color);
         border-radius: 2rem;
       }
 

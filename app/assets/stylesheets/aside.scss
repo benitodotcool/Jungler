@@ -1,8 +1,8 @@
 aside {
-  grid-area: 1 / 10 / 6 / 13;
+  grid-area: 1 / 7 / 2 / 9;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 10% 1fr;
+  grid-template-rows: 100px 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 
@@ -15,13 +15,13 @@ aside {
     display: grid;
     grid-auto-flow: column;
     justify-self: end;
-    grid-column-gap: 2rem;
+    grid-column-gap: 60px;
     padding-right: 1.25rem;
   }
 
   .aside-container {
     position: relative;
-    background-color: var(--white10-color);
+    background-color: var(--light-grey-color);
     border-radius: 2rem 2rem 0 2rem;
   }
 
@@ -37,7 +37,7 @@ aside {
     & * {
       height: 100px;
       width: 100%;
-      background-color: var(--white10-color);
+      background-color: var(--medium-grey-color);
     }
 
   }
@@ -49,7 +49,7 @@ aside {
     bottom: 0;
     width: 100%;
     height: 14%;
-    background-color: var(--white25-color);
+    background-color: var(--light-grey-color);
     border-radius: 2rem 2rem 0 2rem;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
