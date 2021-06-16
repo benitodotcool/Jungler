@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_16_072502) do
+ActiveRecord::Schema.define(version: 2021_06_16_083808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "user_game_stats", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "level"
+    t.string "summoner_id"
+    t.string "primary_role"
+    t.string "secondary_role"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_game_stats_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "summoner_name"
