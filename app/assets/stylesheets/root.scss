@@ -1,0 +1,24 @@
+:root {
+  --blue-bg-color: rgba(26, 32, 48, 1);
+  --blue-color: rgba(92, 128, 188, 1);
+  --blue-color-shadow: rgba(92, 128, 188, 1);
+
+  --orange-bg-color: rgb(38, 24, 21, 1);
+  --orange-color: rgba(255, 111, 0, 1);
+  --orange-color-shadow: rgba(255, 111, 0, 1);
+
+  --green-bg-color: rgb(32, 34, 34);
+  --green-color: rgba(9, 188, 138, 1);
+  --green-color-shadow: rgba(9, 188, 138, 0.15);
+
+  --white10-color: rgba(240, 240, 240, 0.1);
+  --white25-color: rgba(240, 240, 240, 0.25);
+  --white90-color: rgba(240, 240, 240, 0.90);
+  --white50-color: rgb(240, 240, 240);
+}
+  
+body {
+  background-color: var(--green-bg-color);
+  font-family: 'Inter', sans-serif;
+}
+  

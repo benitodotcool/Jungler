@@ -1,0 +1,21 @@
+nav {
+  grid-area: 1 / 1 / 6 / 2;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 10% 1fr 10%;
+  border-right: 1px solid var(--white10-color);
+
+  .navbar-info {
+    display: grid;
+    place-items: center;
+
+    .navbar-icons {
+      display: grid;
+      place-items: center;
+      grid-row-gap: 2rem;
+
+    }
+
+  }
+
+}
