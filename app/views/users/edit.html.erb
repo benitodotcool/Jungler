@@ -1,6 +1,6 @@
 <h1>Editing User</h1>
 
 <%= render 'form', user: @user %>
-<%#render form from user_game_stats%>
+<%= render 'user_game_stats/form', user_game_stat: @user_game_stat %>
 <%= link_to 'Show', @user %> |
 <%= link_to 'Back', users_path %>
