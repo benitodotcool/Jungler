@@ -32,7 +32,7 @@ lol_roles = ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle
     summoner_id: Faker::Lorem.characters(number: 63),
     primary_role: lol_roles.sample,
     secondary_role: lol_roles.sample,
-    description: Faker::Lorem.sentence
+    description: Faker::Lorem.sentence(word_count:10)
   )
 end
 
