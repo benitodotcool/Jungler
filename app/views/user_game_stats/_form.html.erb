@@ -23,12 +23,14 @@
 
           <div class="field">
           <%= form.label :primary_role %>
-          <%= form.text_field :description%>
+          <%= form.select :desired_attribute, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]%>
+
         </div>
 
           <div class="field">
+          
           <%= form.label :secondary_role %>
-          <%= form.text_field :description%>
+          <%= form.select :desired_attribute, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]%>
         </div>
 
   <div class="actions">
