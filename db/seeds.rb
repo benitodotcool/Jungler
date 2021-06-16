@@ -22,3 +22,26 @@ end
     password: "0123456789"
   )
 end
+
+lol_roles = ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]
+
+17.times do |i|
+  user_game_stats = UserGameStat.create!(
+    user_id: i+1,
+    level: Faker::Number.between(from: 1, to: 3100),
+    summoner_id: Faker::Lorem.characters(number: 63),
+    primary_role: lol_roles.sample,
+    secondary_role: lol_roles.sample,
+    description: Faker::Lorem.sentence
+  )
+end
+
+3.times do 
+  user_game_stats = UserGameStat.create!(
+    level: Faker::Number.between(from: 2900, to: 3500),
+    summoner_id: Faker::Lorem.characters(number: 63),
+    primary_role: lol_roles.sample,
+    secondary_role: lol_roles.sample,
+    description: Faker::Lorem.characters(number: 10)
+  )
+end
