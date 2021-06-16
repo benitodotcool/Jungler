@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
-
+  before_action :set_user_game_stat, only: %i[ show edit update destroy ]
   # GET /users or /users.json
   def index
     @users = User.all
@@ -36,6 +36,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
+    
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: "User was successfully updated." }
@@ -65,5 +66,9 @@ class UsersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:summoner_name)
+    end
+
+    def set_user_game_stat
+      @user_game_stat = UserGameStat.find_by(user_id:@user.id)
     end
 end
