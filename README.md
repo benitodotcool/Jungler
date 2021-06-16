@@ -158,13 +158,15 @@ Les utilisateurs de Jungler auraient le choix entre quatre objectifs:
 
 Manu aKa *“Aide Moussaillons”* sur le discord
 
-## X. Jeux envisagées
+## 7. Jeux envisagées
 
 * League Of Legends
-* Rocket League
-* CSGO
-* Fortnite
-* Apex Legends
-* Warzone
-* Fifa 21
-* CoD Cold War
+
+## 8. Liens utiles
+
+Executive Summary :
+* https://docs.google.com/document/d/1ZrUvCgAX_t_tUI4eBxj2L8EY6-BQ_yFWLFN2T4e7nSc/
+Heroku App :
+* https://jungler-thp.herokuapp.com/
+Trello :
+* https://trello.com/b/wNGE7wl8/projet-final-jungler
