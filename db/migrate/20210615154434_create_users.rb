@@ -4,6 +4,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
 
       t.string :summoner_name
       t.timestamps
+
+      
     end
   end
 end
