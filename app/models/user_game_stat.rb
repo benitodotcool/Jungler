@@ -1,0 +1,2 @@
+class UserGameStat < ApplicationRecord
+end
