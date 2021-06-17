@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   # GET /users or /users.json
   def index
     @users = User.all
-    @user_select = User.all.sample.where.not(id: current_user.id)
+    @user_select = User.all.sample
   end
 
   # GET /users/1 or /users/1.json
@@ -37,6 +37,7 @@ class UsersController < ApplicationController
       end
     end
   end
+
 
   # PATCH/PUT /users/1 or /users/1.json
   def update

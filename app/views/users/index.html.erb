@@ -116,9 +116,11 @@
                     <div class="swipe-cards"><h1>E</h1></div>
                 </div>
 
-                <button class="btn" id="yes" data-remote = "true">OUI</button>
-                <button class="btn" id='no' data-remote = "true">NON</button>
 
+                <p><%= link_to "OUI ", matches_path(:requestor_id => current_user.id,:receiver_id => @user_select.id, :status=> true), method: :post%></p>
+                <p><%= link_to "NON", matches_path(:requestor_id => current_user.id,:receiver_id => @user_select.id, :status=> false), method: :post%></p>
+
+              
             </div>
 
         </main>

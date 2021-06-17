@@ -25,7 +25,7 @@ class MatchesController < ApplicationController
 
     respond_to do |format|
       if @match.save
-        @match.is_set? #tododev
+        is_set? #tododev
         format.html { redirect_to @match, notice: "Match was successfully created." }
         format.json { render :show, status: :created, location: @match }
       else
@@ -65,19 +65,19 @@ class MatchesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def match_params
-      params.fetch(:match, {})
+      params.permit(:requestor_id,:receiver_id,:status)
     end
 
     def is_set?
-    #  @current_user = current_user #à vérifier #tododev
+    @current_user_id = params[:requestor_id]
       
-    @user_swipped =  params[:@user_select] #tododev
+    @user_swipped_id =  params[:receiver_id] #tododev
 
-      @condition_1 = Match.exists?(requestor_id:@current_user, receiver_id:@user_swipped.id, status: true)#tododev
-      @condition_2 = Match.exists?(requestor_id:@user_swipped, receiver_id:@current_user, status: true)#tododev
+      @condition_1 = Match.exists?(requestor_id: @current_user_id, receiver_id:@user_swipped_id, status: true)#tododev
+      @condition_2 = Match.exists?(requestor_id:@user_swipped_id, receiver_id:@current_user_id, status: true)#tododev
 
       if @condition_1 == true && @condition_2 == true #tododev
-        Conversation.create!(participant_a:@current_user.id, participant_b: @user_swipped.id) #tododev
+        Conversation.create!(participant_a:@current_user_id, participant_b: @user_swipped_id) #tododev
       end
     end
 end
