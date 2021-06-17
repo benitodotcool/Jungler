@@ -1,9 +1,9 @@
 nav {
-  grid-area: 1 / 1 / 6 / 2;
+  grid-area: 1 / 1 / 2 / 2;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 10% 1fr 10%;
-  border-right: 1px solid var(--white10-color);
+  grid-template-rows: 100px 1fr 100px;
+  border-right: 1px solid var(--dark-grey-color);
 
   .navbar-info {
     display: grid;
@@ -12,8 +12,7 @@ nav {
     .navbar-icons {
       display: grid;
       place-items: center;
-      grid-row-gap: 2rem;
-
+      grid-row-gap: 20px;
     }
 
   }

@@ -4,10 +4,14 @@ class UsersController < ApplicationController
   # GET /users or /users.json
   def index
     @users = User.all
+    @user_select = User.all.sample
   end
 
   # GET /users/1 or /users/1.json
   def show
+    respond_to do |format|
+      format.js { }
+    end
   end
 
   # GET /users/new

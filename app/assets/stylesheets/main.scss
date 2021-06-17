@@ -1,6 +1,6 @@
 main {
   position: relative;
-  grid-area: 1 / 2 / 6 / 10;
+  grid-area: 1 / 2 / 2 / 7;
 
   .main-wrapper {
     position: absolute;
@@ -10,7 +10,7 @@ main {
     padding-right: 2.5rem;
     padding-left: 2.5rem;
     display: grid;
-    grid-template-rows: 10% 1fr;
+    grid-template-rows: 100px 1fr;
 
     .main-head {
       grid-area: 1 / 1 / 2 / 2;
@@ -33,7 +33,7 @@ main {
       padding-bottom: 2.5rem;
 
       & * {
-        background-color: var(--white10-color);
+        background-color: var(--secondary-dark-color);
         border-radius: 2rem;
       }
 
@@ -54,6 +54,44 @@ main {
       .div15 { grid-area: 10 / 1 / 11 / 2; }
     }
 
+  }
+
+}
+
+.swipe-wrapper {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+
+  .swipe-cards {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    width: 300px;
+    height: 500px;
+    background-color: var(--secondary-dark-color);
+    border-radius: var(--medium-border-radius);
+  }
+
+  & :nth-child(5) {
+    z-index: -100;
+  }
+  & :nth-child(4) {
+    z-index: -90;
+  }
+  & :nth-child(3) {
+    z-index: -80;
+  }
+  & :nth-child(2) {
+    z-index: -70;
+  }
+
+  button {
+    position: absolute;
+    padding: 10px;
+    bottom: 80px;
   }
 
 }
