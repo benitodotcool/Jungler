@@ -6,7 +6,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
     <body>
@@ -122,6 +122,17 @@
                     <div class="div15"></div>                
                 </div>
 
+                <div class="swipe-wrapper">
+                    <div class="swipe-cards"><h1>A</h1></div>
+                    <div class="swipe-cards"><h1>B</h1></div>
+                    <div class="swipe-cards"><h1>C</h1></div>
+                    <div class="swipe-cards"><h1>D</h1></div>
+                    <div class="swipe-cards"><h1>E</h1></div>
+                </div>
+
+                <button class="btn" id="yes">OUI</button>
+                <button class="btn" id='no'>NON</button>
+
             </div>
 
         </main>
@@ -204,7 +215,9 @@
 
 
     <%= yield %>
+    
     </body>
 
+    <%= javascript_include_tag 'application' %>
 
 </html>
