@@ -97,32 +97,18 @@
     }
     .div4:hover
     {
-        -webkit-transform: scale(0.9);
-        -ms-transform: scale(0.9);
+        -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
         transform: scale(0.9);
-        transition: 0.3s;
+        transition: 0.5s;
     }
     .div5 { 
         grid-area: 3 / 1 / 4 / 2;
         height:100%;
         width:100%; }
-    .div5:hover{
-        -webkit-transform: scale(0.9);
-        -ms-transform: scale(0.9);
-        transform: scale(0.9);
-        transition: 0.3s;
-    }
-
     .div6 { 
         grid-area: 4 / 1 / 5 / 2;
         height:100%;
-        width:100%; 
-    }
-    .div6:hover {
-        -webkit-transform: scale(0.9);
-        -ms-transform: scale(0.9);
-        transform: scale(0.9);
-        transition: 0.3s;
-    }
+        width:100%; }
 
         
