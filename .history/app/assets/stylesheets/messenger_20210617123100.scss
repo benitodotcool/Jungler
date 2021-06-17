@@ -22,24 +22,12 @@
         border-radius: 50%;
         margin-left:10px;
         float:left;
-        margin-right:30px;
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     }
     & .name {
-       margin-top:5px;
+       background-color: aqua;
        color: #fff;
     }
-
-    & .lastmsg
-    {
-        padding-top:30px;
-        color:darkgrey;
-    }
-    .time
-    {
-        float:right;
-        padding-right:10px;
-    }
+    
 
     
     .div1 { 
