@@ -22,11 +22,11 @@ class MatchesController < ApplicationController
   # POST /matches or /matches.json
   def create
     @match = Match.new(match_params)
-
+    @user_swipped_id =  params[:receiver_id]
     respond_to do |format|
       if @match.save
         is_set? #tododev
-        format.html { redirect_to @match, notice: "Match was successfully created." }
+        format.html { redirect_to :root, notice: "Match was successfully created." }
         format.json { render :show, status: :created, location: @match }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -71,7 +71,7 @@ class MatchesController < ApplicationController
     def is_set?
     @current_user_id = params[:requestor_id]
       
-    @user_swipped_id =  params[:receiver_id] #tododev
+     #tododev
 
       @condition_1 = Match.exists?(requestor_id: @current_user_id, receiver_id:@user_swipped_id, status: true)#tododev
       @condition_2 = Match.exists?(requestor_id:@user_swipped_id, receiver_id:@current_user_id, status: true)#tododev
