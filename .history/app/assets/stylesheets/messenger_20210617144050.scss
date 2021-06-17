@@ -1,12 +1,13 @@
 
 
 .parent {
+    height:100vh;
+    width:100%;
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 1fr;
     grid-column-gap: 20px;
-    width: 100%;
-    height: 100vh;
+
 
     
     & * {
@@ -58,17 +59,18 @@
 .chats {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr repeat(3, 1fr);
+    grid-template-rows: 2fr repeat(3, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    
+    height:100vh;
+    width:100%;
     }
     
     .div3 { 
         grid-area: 1 / 1 / 1 / 2;
         height:60%;
         width:100%;
-        
+        background-color: darkred;
 
         
         & h3 {
@@ -90,10 +92,10 @@
         }
         }
     .div4 { 
-        grid-area: 2 / 1 / 2 / 2;
+        grid-area: 2 / 1 / 3 / 2;
         height:50%;
         width:100%; 
-        padding-bottom:30px;
+        background-color:red;
     }
     .div4:hover
     {
