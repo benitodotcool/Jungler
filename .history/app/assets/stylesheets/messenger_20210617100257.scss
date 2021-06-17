@@ -1,0 +1,22 @@
+.parent {
+    height:100vh;
+    width:100vw;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 20px;
+
+    
+    & * {
+            background-color: var(--secondary-dark-color);
+    }
+    }
+
+    
+    .div1 { 
+        grid-area: 1 / 1 / 2 / 2; 
+    
+    }
+    .div2 { grid-area: 1 / 2 / 2 / 3; }
+
+    
