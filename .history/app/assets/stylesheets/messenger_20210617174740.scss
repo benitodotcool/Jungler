@@ -208,7 +208,7 @@
         display: flex;
         justify-content: space-between;
         padding: 10px;
-        border-bottom: white;
+        border-bottom: var(--border);
         background: #eee;
         color: #666;
       }
@@ -236,7 +236,7 @@
         float:right
       }
       .right-msg .msg-bubble {
-    
+        background: var(--right-msg-bg);
         color: #fff;
         border-bottom-right-radius: 0;
         float:right
