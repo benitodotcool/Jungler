@@ -136,8 +136,6 @@
         grid-template-rows: 1fr 2fr 1fr;
         grid-column-gap: 0px;
         grid-row-gap: 0px;
-        height:100%;
-        width:100%;
     
     & .div1 { 
         grid-area: 1 / 1 / 2 / 2;
@@ -159,13 +157,6 @@
         position: relative;
     }
 
-   & .div3 { 
-       grid-area: 3 / 1 / 4 / 2;
-       height:100%;
-       width:100%; 
-       background-color: darkred;
-     }
-
 
 & textarea {
     
@@ -174,6 +165,8 @@
     resize: none;
     border-radius: 0.5rem;
     margin: auto;
-    display: block;  
+    display: block;
+    
+
     }
   }

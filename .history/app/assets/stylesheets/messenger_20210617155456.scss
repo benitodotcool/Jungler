@@ -83,7 +83,7 @@
         }
         & .fa-plus {
             float:right;
-            opacity:0.8;
+            opacity:1;
             padding:10px;
             font-size: 16px;
             
@@ -133,11 +133,11 @@
     .showmessenger {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 2fr 1fr;
+        grid-template-rows: repeat(2, 1fr);
         grid-column-gap: 0px;
         grid-row-gap: 0px;
         height:100%;
-        width:100%;
+        width:100%; 
     
     & .div1 { 
         grid-area: 1 / 1 / 2 / 2;
@@ -156,24 +156,26 @@
         grid-area: 2 / 1 / 3 / 2; 
         height:100%;
         width:100%; 
-        position: relative;
+        
     }
+}
 
-   & .div3 { 
-       grid-area: 3 / 1 / 4 / 2;
-       height:100%;
-       width:100%; 
-       background-color: darkred;
-     }
-
-
-& textarea {
-    
-    width: 80%;
-    height: 40px;
+textarea {
+    width: 100%;
+    min-height: 100px;
     resize: none;
-    border-radius: 0.5rem;
-    margin: auto;
-    display: block;  
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    color: #666;
+    box-shadow: inset 0 0 0.25rem #ddd;
+    &:focus {
+      outline: none;
+      border: 1px solid darken(#ddd, 5%);
+      box-shadow: inset 0 0 0.5rem darken(#ddd, 5%);
+    }
+    &[placeholder] { 
+      font-style: italic;
+      font-size: 0.875rem;
     }
   }
