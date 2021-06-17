@@ -198,9 +198,9 @@
         max-width: 867px;
         margin: 25px 10px;
         height: calc(100% - 50px);
-        border: white;
+        border: var(--border);
         border-radius: 5px;
-        background: white;
+        background: var(--msger-bg);
         box-shadow: 0 15px 15px -5px rgba(0, 0, 0, 0.2);
       }
       
@@ -208,7 +208,7 @@
         display: flex;
         justify-content: space-between;
         padding: 10px;
-        border-bottom: white;
+        border-bottom: var(--border);
         background: #eee;
         color: #666;
       }
@@ -227,25 +227,67 @@
       .msger-chat::-webkit-scrollbar-thumb {
         background: #bdbdbd;
       }
-      
+      .msg {
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 10px;
+      }
       .msg:last-of-type {
         margin: 0;
       }
-     
-      .right-msg {
-        float:right
+      .msg-img {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+        background: #ddd;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        border-radius: 50%;
       }
-      .right-msg .msg-bubble {
-    
-        color: #fff;
-        border-bottom-right-radius: 0;
-        float:right
+      .msg-bubble {
+        max-width: 450px;
+        padding: 15px;
+        border-radius: 15px;
+        background: whit
       }
-      .right-msg .msg-img {
-        float:right
+      .msg-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      .msg-info-name {
+        margin-right: 10px;
+        font-weight: bold;
+      }
+      .msg-info-time {
+        font-size: 0.85em;
       }
       
-     
+      .left-msg .msg-bubble {
+        border-bottom-left-radius: 0;
+      }
+      
+      .right-msg {
+        flex-direction: row-reverse;
+      }
+      .right-msg .msg-bubble {
+        background: var(--right-msg-bg);
+        color: #fff;
+        border-bottom-right-radius: 0;
+      }
+      .right-msg .msg-img {
+        margin: 0 0 0 10px;
+      }
+      
+      .msger-inputarea {
+        display: flex;
+        padding: 10px;
+        border-top: var(--border);
+        background: #eee;
+      }
+    
     }
 
   

@@ -190,25 +190,12 @@
         margin-right:10px
 
     }    
-    .msger {
-        display: flex;
-        flex-flow: column wrap;
-        justify-content: space-between;
-        width: 100%;
-        max-width: 867px;
-        margin: 25px 10px;
-        height: calc(100% - 50px);
-        border: white;
-        border-radius: 5px;
-        background: white;
-        box-shadow: 0 15px 15px -5px rgba(0, 0, 0, 0.2);
-      }
-      
+
       .msger-header {
         display: flex;
         justify-content: space-between;
         padding: 10px;
-        border-bottom: white;
+        border-bottom: var(--border);
         background: #eee;
         color: #666;
       }
@@ -227,19 +214,24 @@
       .msger-chat::-webkit-scrollbar-thumb {
         background: #bdbdbd;
       }
-      
+      .msg {
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 10px;
+      }
       .msg:last-of-type {
         margin: 0;
       }
      
+
       .right-msg {
         float:right
       }
       .right-msg .msg-bubble {
-    
+        background: var(--right-msg-bg);
         color: #fff;
         border-bottom-right-radius: 0;
-        float:right
+         float:right
       }
       .right-msg .msg-img {
         float:right
