@@ -1,0 +1,39 @@
+.container {
+  display: grid;
+  grid-template-columns: 101px repeat(7, 1fr);
+  width: 100vw;
+  height: 100vh;
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+}
+
+.container-icons {
+  display: grid;
+  place-items: center;
+  height: 50px;
+  width: 50px;
+  background-color: none;
+  border-radius: var(--small-border-radius);
+  transition: all 0.4s ease-out;
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--blue-color);
+    box-shadow: 0px 15px 25px 10px var(--blue-color-shadow);
+    border-radius: var(--medium-border-radius);
+  }
+
+  &:hover svg#icon-home g,
+  &:hover svg#icon-arrow g,
+  &:hover svg#icon-message g,
+  &:hover svg#icon-category g,
+  &:hover svg#icon-discovery g,
+  &:hover svg#icon-notification g,
+  &:hover svg#icon-profile g {
+    stroke: var(--light-grey-color);
+  }
+
+}

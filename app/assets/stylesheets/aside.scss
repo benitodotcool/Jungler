@@ -1,8 +1,8 @@
 aside {
-  grid-area: 1 / 10 / 6 / 13;
+  grid-area: 1 / 7 / 2 / 9;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 10% 1fr;
+  grid-template-rows: 100px 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 
@@ -15,13 +15,13 @@ aside {
     display: grid;
     grid-auto-flow: column;
     justify-self: end;
-    grid-column-gap: 2rem;
-    padding-right: 1.25rem;
+    grid-column-gap: 20px;
+    padding-right: 25px;
   }
 
   .aside-container {
     position: relative;
-    background-color: var(--white10-color);
+    background-color: var(--secondary-dark-color);
     border-radius: 2rem 2rem 0 2rem;
   }
 
@@ -34,10 +34,10 @@ aside {
     border-radius: 2rem 2rem 0 2rem;
     overflow: scroll;
 
-    & * {
+    .notification-container {
       height: 100px;
       width: 100%;
-      background-color: var(--white10-color);
+      // background-color: var(--medium-grey-color);
     }
 
   }
@@ -48,17 +48,47 @@ aside {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 14%;
-    background-color: var(--white25-color);
+    height: 100px;
+    background-color: var(--dark-grey-color);
     border-radius: 2rem 2rem 0 2rem;
+    box-shadow: -15px 10px 25px 10px var(--blue-color-shadow);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+    grid-auto-flow: row;
 
-    & * {
+    .user-general {
+
+      display: grid;
+      place-items: center;
+      height: 100%;
       width: 100%;
-      justify-self: start;
-      padding-left: 1.25rem;
-      padding-right: 1.25rem;
+      padding: 25px;
+
+      .user-wrapper {
+
+        display: grid;
+        grid-auto-flow: column;
+        justify-self: start;
+        place-items: center;
+        grid-column-gap: 10px;
+  
+        .user-status {
+          width: 10px;
+          height: 10px;
+          border-radius: 10px;
+          background-color: var(--green-color);
+        }
+        
+        .user-name {
+          width: 100%; 
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis; 
+          font-weight: 500;
+        }
+
+      }
+
     }
 
   }

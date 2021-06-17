@@ -12,9 +12,8 @@
  *
  *= require reset
  *= require root
- *= require grid
+ *= require ui
  *= require nav
  *= require main
  *= require aside
  */
-
