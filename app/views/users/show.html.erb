@@ -1,5 +1,16 @@
+<div class="user-content">
 <p id="notice"><%= notice %></p>
+<div class="profil-title">
+<h1>Profil</h1>
+</div>
+
+<div class="team-content">
+         
+    <h3 class="title"><%= @user.email %><br></h3>
+
+</div>        
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+</div>
 
