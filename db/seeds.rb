@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #regular Users Seed
-17.times do
+20.times do
   user = User.create!(
     email: Faker::Internet.email,
     password: "0123456789",
@@ -16,16 +16,11 @@
 end
 
 #user tests without summoner_name to simulate incomplete profile
-3.times do |i|
-  user = User.create!(
-    email: "incomplete@profile#{i}.net",
-    password: "0123456789"
-  )
-end
+
 
 lol_roles = ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]
 
-17.times do |i|
+20.times do |i|
   user_game_stats = UserGameStat.create!(
     user_id: i+1,
     level: Faker::Number.between(from: 1, to: 3100),
@@ -36,12 +31,10 @@ lol_roles = ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle
   )
 end
 
-3.times do 
-  user_game_stats = UserGameStat.create!(
-    level: Faker::Number.between(from: 2900, to: 3500),
-    summoner_id: Faker::Lorem.characters(number: 63),
-    primary_role: lol_roles.sample,
-    secondary_role: lol_roles.sample,
-    description: Faker::Lorem.characters(number: 10)
+20.times do 
+  match = Match.create!(
+    requestor_id: Faker::Number.between(from: 1, to: 2),
+    receiver_id: Faker::Number.between(from: 1, to: 2),
+    status: Faker::Boolean.boolean
   )
 end
