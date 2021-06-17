@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   # GET /users or /users.json
   def index
     @users = User.all
-    @user_select = User.all.sample
+    @user_select = User.all.sample.where.not(id: current_user.id)
   end
 
   # GET /users/1 or /users/1.json
