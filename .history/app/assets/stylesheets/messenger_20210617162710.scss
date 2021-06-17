@@ -159,12 +159,7 @@
         position: relative;
     }
 
-   & .div3 { 
-       grid-area: 3 / 1 / 4 / 2;
-       height:100%;
-       width:100%; 
-       background-color: darkred;
-     }
+   & .div3 { grid-area: 3 / 1 / 4 / 2; }
 
 
 & textarea {
@@ -174,6 +169,8 @@
     resize: none;
     border-radius: 0.5rem;
     margin: auto;
-    display: block;  
+    display: block;
+    
+
     }
   }

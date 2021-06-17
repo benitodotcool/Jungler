@@ -1,3 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jungler</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;1,100&display=swap" rel="stylesheet">
+
+  </head>
+
+    <body>
+
+
     <div class="container">
 
 
@@ -108,6 +125,11 @@
                     <div class="div15"></div>                
                 </div>
 
+                
+               
+                          
+                    
+                
                 <div class="swipe-wrapper">
                     <div class="swipe-cards"><h1>A</h1></div>
                     <div class="swipe-cards"><h1>B</h1></div>
@@ -116,8 +138,8 @@
                     <div class="swipe-cards"><h1>E</h1></div>
                 </div>
 
-                <button class="btn" id="yes" data-remote = "true">OUI</button>
-                <button class="btn" id='no' data-remote = "true">NON</button>
+                <button class="btn" id="yes">OUI</button>
+                <button class="btn" id='no'>NON</button>
 
             </div>
 
@@ -190,3 +212,20 @@
 
 
     </div>
+
+
+
+
+
+
+
+
+
+
+    <%= yield %>
+    
+    </body>
+
+    <%= javascript_include_tag 'application' %>
+
+</html>

@@ -83,7 +83,7 @@
         }
         & .fa-plus {
             float:right;
-            opacity:0.8;
+            opacity:1;
             padding:10px;
             font-size: 16px;
             
@@ -133,11 +133,11 @@
     .showmessenger {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 2fr 1fr;
+        grid-template-rows: repeat(2, 1fr);
         grid-column-gap: 0px;
         grid-row-gap: 0px;
         height:100%;
-        width:100%;
+        width:100%; 
     
     & .div1 { 
         grid-area: 1 / 1 / 2 / 2;
@@ -156,24 +156,18 @@
         grid-area: 2 / 1 / 3 / 2; 
         height:100%;
         width:100%; 
-        position: relative;
+        background-color: darkred;
     }
+}
 
-   & .div3 { 
-       grid-area: 3 / 1 / 4 / 2;
-       height:100%;
-       width:100%; 
-       background-color: darkred;
-     }
-
-
-& textarea {
-    
-    width: 80%;
-    height: 40px;
-    resize: none;
-    border-radius: 0.5rem;
-    margin: auto;
-    display: block;  
-    }
+.placeholder {
+    color: #65657b;
+    font-family: sans-serif;
+    left: 20px;
+    line-height: 14px;
+    pointer-events: none;
+    position: absolute;
+    transform-origin: 0 50%;
+    transition: transform 200ms, color 200ms;
+    top: 20px;
   }

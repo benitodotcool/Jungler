@@ -1,3 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jungler</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;1,100&display=swap" rel="stylesheet">
+
+  </head>
+
+    <body>
+
+
     <div class="container">
 
 
@@ -108,6 +125,45 @@
                     <div class="div15"></div>                
                 </div>
 
+                
+                <div class="parent">
+                       
+                    <div class="div1">
+                        <div class="chats">
+                            <div class="div3">
+                            <h3>Chats <i class="fa fa-plus" aria-hidden="true"></i> <i class="fa fa-search" aria-hidden="true"></i> </h3> 
+                            
+                            <p></p>
+                            </div>
+                            <div class="div4">
+                            <img src="https://pbs.twimg.com/profile_images/1401562839614210052/yo9BeNMD_400x400.jpg">  <h4 class="name">Karim Benzema</h4>
+                            
+                            <h5 class="lastmsg"> Vous : Marque stp <p class="time">5m</p></h5>
+                            </div>
+                            <div class="div5">
+                             <img src="https://webtv.univ-rouen.fr/public/videos/v125f6402be9ahyq0i3d5qg0mplc2g/thumb.jpg">  <h4 class="name">Une femme enceinte</h4>
+                            
+                            <h5 class="lastmsg"> ça marche ! <p class="time">2h</p></h5></div>
+                            <div class="div6">
+                             <img src="https://assets.codepen.io/441923/internal/avatars/users/default.png?fit=crop&format=auto&height=256&version=1536233615&width=256">  <h4 class="name">Random</h4>
+                            
+                            <h5 class="lastmsg">Vous : Zzzz... <p class="time">2j</p></h5></div>
+                        </div>
+                    </div>
+                    <div class="div2">
+                        <div class="showmessenger">
+                            <div class="div1"><h4>Discussion avec Karim Benzema </h4><hr class="solid"></div>
+                            
+                            <div class="div2">
+                               <i class="fa fa-search" aria-hidden="true"></i> <textarea  placeholder="Écrivez votre message..."></textarea>
+                                </div>
+                        </div>
+                    </div>
+                        
+                </div>
+                          
+                    
+                
                 <div class="swipe-wrapper">
                     <div class="swipe-cards"><h1>A</h1></div>
                     <div class="swipe-cards"><h1>B</h1></div>
@@ -116,8 +172,8 @@
                     <div class="swipe-cards"><h1>E</h1></div>
                 </div>
 
-                <button class="btn" id="yes" data-remote = "true">OUI</button>
-                <button class="btn" id='no' data-remote = "true">NON</button>
+                <button class="btn" id="yes">OUI</button>
+                <button class="btn" id='no'>NON</button>
 
             </div>
 
@@ -190,3 +246,20 @@
 
 
     </div>
+
+
+
+
+
+
+
+
+
+
+    <%= yield %>
+    
+    </body>
+
+    <%= javascript_include_tag 'application' %>
+
+</html>
