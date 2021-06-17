@@ -109,16 +109,9 @@
                 </div>
 
                 <div class="swipe-wrapper">
-                    <div class="swipe-cards"><h1>A</h1></div>
-                    <div class="swipe-cards"><h1>B</h1></div>
-                    <div class="swipe-cards"><h1>C</h1></div>
-                    <div class="swipe-cards"><h1>D</h1></div>
-                    <div class="swipe-cards"><h1>E</h1></div>
+                    <div class="swipe-cards"><h1><%= render 'swipe_card'%></h1></div>
                 </div>
 
-
-                <p><%= link_to "OUI ", matches_path(:requestor_id => current_user.id,:receiver_id => @user_select.id, :status=> true), method: :post%></p>
-                <p><%= link_to "NON", matches_path(:requestor_id => current_user.id,:receiver_id => @user_select.id, :status=> false), method: :post%></p>
 
               
             </div>
