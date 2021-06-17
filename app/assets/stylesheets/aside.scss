@@ -22,7 +22,7 @@ aside {
   .aside-container {
     position: relative;
     background-color: var(--secondary-dark-color);
-    border-radius: 2rem 2rem 0 2rem;
+    border-radius: var(--small-border-radius);
   }
 
   .aside-content {
@@ -31,13 +31,15 @@ aside {
     width: 100%;
     display: grid;
     grid-row-gap: 1.25rem;
-    border-radius: 2rem 2rem 0 2rem;
+    border-radius: var(--small-border-radius);
+    border-top: 1px solid var(--dark-grey-color);
+    border-left: 1px solid var(--dark-grey-color);
     overflow: scroll;
 
     .notification-container {
       height: 100px;
       width: 100%;
-      background-color: var(--medium-grey-color);
+      // background-color: var(--medium-grey-color);
     }
 
   }
@@ -50,11 +52,13 @@ aside {
     width: 100%;
     height: 100px;
     background-color: var(--dark-grey-color);
-    border-radius: 2rem 2rem 0 2rem;
+    border-radius: var(--small-border-radius);
     box-shadow: -15px 10px 25px 10px var(--blue-color-shadow);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     grid-auto-flow: row;
+    border-top: 1px solid var(--medium-grey-color);
+    border-left: 1px solid var(--medium-grey-color);
 
     .user-general {
 
