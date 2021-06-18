@@ -6,17 +6,37 @@
         </div>
 
         <div class="main-content">
-          <% @conversations.each do |conversation| %>
-    
+        <% @messages.sort.each do |message| %>
+<div>
+  <% if message.user_id == current_user.id %>
+  <div class = div1>
+  <%=message.content%>
+  <%=message.user.summoner_name%>
+  envoyé le : <%=message.created_at.strftime("%d-%m-%Y %H:%M")%>
+  <%end%>
+  </div>
 
-            <div>
-                  
-              <p><img src="https://pbs.twimg.com/profile_images/1401562839614210052/yo9BeNMD_400x400.jpg"></p> 
-              <p> <h4 class="name">Karim Benzema</h4></p>
-              <p><%= link_to 'Show', conversation %></p>
-              <p><%= link_to 'Destroy', conversation, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-            </div>
+  <% elsif message.user_id == message.conversation_id %>
+  <div class = div1>
+  <%=message.content%>
+  <%=message.user.summoner_name%>
+  envoyé le : <%=message.created_at.strftime("%d-%m-%Y %H:%M")%>
+  <%end%>
+  </div>
 
+</div>
+            
+<div class="showmsg">
+<div class="div1">1</div>
+<div class="div2"><h2>Discussion avec Nom </h2></div>
+<div class="div3">3</div>
+<div class="div4"><img src="https://i.pinimg.com/originals/2c/54/06/2c5406a83ab2257df1c57b52945e1c3c.jpg"></div>
+<div class="div5"></div>
+<div class="div6"><img src="https://i.pinimg.com/originals/2c/54/06/2c5406a83ab2257df1c57b52945e1c3c.jpg"></div>
+<div class="div7">7</div>
+<div class="div8"><textarea></textarea></div>
+<div class="div9">9</div>
+</div>
 
 
     <% end %>
