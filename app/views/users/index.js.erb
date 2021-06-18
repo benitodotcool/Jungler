@@ -1,106 +1,113 @@
-// function swipeCard() {
-// 
-//     var cardContainer = document.querySelector('.swipe-wrapper');
-//     var allCards = document.querySelectorAll('.swipe-cards');
-//     var firstCard = cardContainer.firstElementChild;
-//     var btnYes = document.getElementById('yes');
-//     var btnNo = document.getElementById('no');
-// 
-//     console.log(cardContainer)
-//     console.log(firstCard)
-//     console.log(btnYes)
-//     console.log(allCards)
-// 
-//     btnYes.addEventListener('click', function() {
-// 
-//         allCards = [...allCards]
-//         allCards.shift();
-// 
-//         var newCard = document.createElement("div");
-//         var newTitle = document.createElement("H1");
-// 
-//         newTitle.insertAdjacentHTML("beforeend", "<%= j render 'swipe_card', user: @user %>");
-// 
-//         newCard.classList.add('swipe-cards');
-//         newCard.appendChild(newTitle);
-// 
-//         allCards.push(newCard);
-// 
-//         var newHtml = "";
-//         allCards.forEach(element => {
-//             newHtml += element.outerHTML;                    
-//         });
-// 
-//         cardContainer.innerHTML = newHtml;
-// 
-//     })
-// 
-//     btnNo.addEventListener('click', function() {
-// 
-//         allCards = [...allCards]
-//         allCards.shift();
-// 
-//         var newCard = document.createElement("div");
-//         var newTitle = document.createElement("H1");
-// 
-//         newTitle.insertAdjacentHTML("beforeend", "<%= j render 'swipe_card', user: @user %>");
-//         newCard.classList.add('swipe-cards');
-//         newCard.appendChild(newTitle);
-// 
-//         allCards.push(newCard);
-// 
-//         var newHtml = "";
-//         allCards.forEach(element => {
-//             newHtml += element.outerHTML;                    
-//         });
-// 
-//         cardContainer.innerHTML = newHtml;
-// 
-//     })
-// 
-// }    
-// 
-// swipeCard()
+//function swipeCard() {
+//
+//    var cardContainer = document.querySelector('.swipe-wrapper');
+//    var allCards = document.querySelectorAll('.swipe-cards');
+//    var firstCard = cardContainer.firstElementChild;
+//    var btnYes = document.getElementById('yes');
+//    var btnNo = document.getElementById('no');
+//
+//    console.log(cardContainer)
+//    console.log(firstCard)
+//    console.log(btnYes)
+//    console.log(allCards)
+//
+//    btnYes.addEventListener('click', function() {
+//
+//        allCards = [...allCards]
+//        allCards.shift();
+//
+//        var newCard = document.createElement("div");
+//        var newTitle = document.createElement("H1");
+//
+//        newTitle.insertAdjacentHTML("beforeend", "<%= j render 'swipe_card', user: @user %>");
+//
+//        newCard.classList.add('swipe-cards');
+//        newCard.appendChild(newTitle);
+//
+//        allCards.push(newCard);
+//
+//        var newHtml = "";
+//        allCards.forEach(element => {
+//            newHtml += element.outerHTML;                    
+//        });
+//
+//        cardContainer.innerHTML = newHtml;
+//
+//    })
+//
+//    btnNo.addEventListener('click', function() {
+//
+//        allCards = [...allCards]
+//        allCards.shift();
+//
+//        var newCard = document.createElement("div");
+//        var newTitle = document.createElement("H1");
+//
+//        newTitle.insertAdjacentHTML("beforeend", "<%= j render 'swipe_card', user: @user %>");
+//        newCard.classList.add('swipe-cards');
+//        newCard.appendChild(newTitle);
+//
+//        allCards.push(newCard);
+//
+//        var newHtml = "";
+//        allCards.forEach(element => {
+//            newHtml += element.outerHTML;                    
+//        });
+//
+//        cardContainer.innerHTML = newHtml;
+//
+//    })
+//
+//}    
+
+//swipeCard()
 
 
-function navAction() {
 
+function homeIcon() {
     var homeIcon = document.getElementById('home-add');
-    var arrowIcon = document.getElementById('arrow-add');
-    var messageIcon = document.getElementById('message-add');
-    var categoryIcon = document.getElementById('category-add');
-    var discoveryIcon = document.getElementById('discovery-add');
-    var mainContainer = document.querySelector('.main-wrapper');
+    var mainContainer = document.getElementById('container_main');
+       homeIcon.addEventListener('click', function() {
+           console.log('ddd');
+            mainContainer.innerHTML = "";
+            mainContainer.insertAdjacentHTML("beforeend", "<%= j render 'main_category', user: @user %>");
+       });
+   };
 
-    console.log(homeIcon);
-    console.log(arrowIcon);
-    console.log(messageIcon);
-    console.log(categoryIcon);
-    console.log(discoveryIcon);
-    console.log(mainContainer);
-
-    function homeIcon() {
-        homeIcon.addEventListener('click', function() {
-            console.log('ddd');
-        )};
-
-    };
-
-    //    function homeIcon() {
-    //
-    //        homeIcon.addEventListener('click', function() {
-    //        arrowIcon.classList.remove("permanent");
-    //        messageIcon.classList.remove("permanent");
-    //        categoryIcon.classList.remove("permanent");
-    //        discoveryIcon.classList.remove("permanent");
-    //        this.classList.add("permanent");
-    //        mainContainer.innerHTML = "";
-    //        mainContainer.insertAdjacentHTML("beforeend", "<%= j render 'landing_page', user: @user %>");
-    //
-    //    });
-
-    homeIcon()
-
-}
-
-navAction()
+homeIcon()
+//function navAction() {
+//
+//    var homeIcon = document.getElementById('home-add');
+//    var arrowIcon = document.getElementById('arrow-add');
+//    var messageIcon = document.getElementById('message-add');
+//    var categoryIcon = document.getElementById('category-add');
+//    var discoveryIcon = document.getElementById('discovery-add');
+//    var mainContainer = document.querySelector('.main-wrapper');
+//
+//    console.log(homeIcon);
+//    console.log(arrowIcon);
+//    console.log(messageIcon);
+//    console.log(categoryIcon);
+//    console.log(discoveryIcon);
+//    console.log(mainContainer);
+//
+//    
+//
+//    //    function homeIcon() {
+//    //
+//    //        homeIcon.addEventListener('click', function() {
+//    //        arrowIcon.classList.remove("permanent");
+//    //        messageIcon.classList.remove("permanent");
+//    //        categoryIcon.classList.remove("permanent");
+//    //        discoveryIcon.classList.remove("permanent");
+//    //        this.classList.add("permanent");
+//    //        mainContainer.innerHTML = "";
+//    //        mainContainer.insertAdjacentHTML("beforeend", "<%= j render 'landing_page', user: @user %>");
+//    //
+//    //    });
+//
+//    homeIcon()
+//
+//}
+//
+//navAction()
