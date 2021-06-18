@@ -18,5 +18,9 @@
  *= require aside
  *= require messenger
  *= require forms
+<<<<<<< HEAD
  *= require user_profil
+=======
+ *= require landing_page
+>>>>>>> 22ee081a63255e78f48cc2c9957f4c1f4a207cff
  */
