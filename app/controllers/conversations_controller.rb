@@ -4,6 +4,7 @@ class ConversationsController < ApplicationController
   # GET /conversations or /conversations.json
   def index
     @conversations = Conversation.all
+    @messages= Message.all
   end
 
   # GET /conversations/1 or /conversations/1.json

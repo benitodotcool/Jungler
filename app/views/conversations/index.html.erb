@@ -6,8 +6,8 @@
         </div>
 
         <div class="main-content">
-        <% @messages.sort.each do |message| %>
-<div>
+          <% @messages.sort.each do |message| %>
+        <div>
   <% if message.user_id == current_user.id %>
   <div class = div1>
   <%=message.content%>
@@ -16,7 +16,7 @@
   <%end%>
   </div>
 
-  <% elsif message.user_id == message.conversation_id %>
+  <% if message.user_id == message.conversation_id %>
   <div class = div1>
   <%=message.content%>
   <%=message.user.summoner_name%>
@@ -26,17 +26,7 @@
 
 </div>
             
-<div class="showmsg">
-<div class="div1">1</div>
-<div class="div2"><h2>Discussion avec Nom </h2></div>
-<div class="div3">3</div>
-<div class="div4"><img src="https://i.pinimg.com/originals/2c/54/06/2c5406a83ab2257df1c57b52945e1c3c.jpg"></div>
-<div class="div5"></div>
-<div class="div6"><img src="https://i.pinimg.com/originals/2c/54/06/2c5406a83ab2257df1c57b52945e1c3c.jpg"></div>
-<div class="div7">7</div>
-<div class="div8"><textarea></textarea></div>
-<div class="div9">9</div>
-</div>
+
 
 
     <% end %>
