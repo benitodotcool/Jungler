@@ -101,7 +101,7 @@ aside {
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   padding:20px;
- 
+  border-style: ridge;
   
   & .div1 { grid-area: 1 / 1 / 2 / 2;
     height: 100%;

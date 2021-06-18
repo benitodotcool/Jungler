@@ -159,32 +159,18 @@
                
             
                     <div class="notification-container">
-                    <h1 class="msgtitle">Messagerie</h1>
                         <% @conversations.each do |conversation| %>
                             <%if conversation.participant_a.id != current_user.id && conversation.participant_b.id == current_user.id%>
                                 <div class="aside-grid">
-                                
-                                <div class="div1">
-                                   <img src="https://i.pinimg.com/originals/2c/54/06/2c5406a83ab2257df1c57b52945e1c3c.jpg" class="ppuser"></div>
-                                  <div class="div2">
-                                   <p class="sumsname"><%=conversation.participant_a.summoner_name%></p>
+                                <div >
+                                   <img src="https://i.pinimg.com/originals/2c/54/06/2c5406a83ab2257df1c57b52945e1c3c.jpg" class="ppuser"><p class="sumsname"><%=conversation.participant_a.summoner_name%></p>
                                     <p class="undertext">Votre conversation avec <%=conversation.participant_a.summoner_name%></p>
-                                    <td><%= link_to 'Show', conversation %></td>
-                                    <td><%= link_to 'Destroy', conversation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                                    
-                                    </div>
                                     
                                  </div>
                             <%elsif conversation.participant_b.id != current_user.id && conversation.participant_a.id == current_user.id%>
                                 <div class="aside-grid">
-                                <div class="div1">
-                                    <p> <img src="https://i.pinimg.com/originals/2c/54/06/2c5406a83ab2257df1c57b52945e1c3c.jpg" class="ppuser"></div> 
-                                <div class="div2">
-                                    <p class="sumsname"><%=conversation.participant_b.summoner_name%></p></p>
+                                    <p> <img src="https://i.pinimg.com/originals/2c/54/06/2c5406a83ab2257df1c57b52945e1c3c.jpg" class="ppuser"> <p class="sumsname"><%=conversation.participant_b.summoner_name%></p></p>
                                     <p class="undertext">Votre conversation avec <%=conversation.participant_b.summoner_name%></p>
-                                    <td><%= link_to 'Show', conversation %></td>
-                                    <td><%= link_to 'Destroy', conversation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                                </div>
                                 </div>  
              
                             <%end%>

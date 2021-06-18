@@ -169,11 +169,7 @@
                                   <div class="div2">
                                    <p class="sumsname"><%=conversation.participant_a.summoner_name%></p>
                                     <p class="undertext">Votre conversation avec <%=conversation.participant_a.summoner_name%></p>
-                                    <td><%= link_to 'Show', conversation %></td>
-                                    <td><%= link_to 'Destroy', conversation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                                    
                                     </div>
-                                    
                                  </div>
                             <%elsif conversation.participant_b.id != current_user.id && conversation.participant_a.id == current_user.id%>
                                 <div class="aside-grid">
@@ -182,8 +178,6 @@
                                 <div class="div2">
                                     <p class="sumsname"><%=conversation.participant_b.summoner_name%></p></p>
                                     <p class="undertext">Votre conversation avec <%=conversation.participant_b.summoner_name%></p>
-                                    <td><%= link_to 'Show', conversation %></td>
-                                    <td><%= link_to 'Destroy', conversation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                                 </div>
                                 </div>  
              

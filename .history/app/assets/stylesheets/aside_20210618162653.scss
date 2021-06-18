@@ -100,36 +100,33 @@ aside {
   grid-template-rows: 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  padding:20px;
- 
+  
   
   & .div1 { grid-area: 1 / 1 / 2 / 2;
     height: 100%;
     width: 100%;
    }
-  & .div2 { grid-area: 1 / 2 / 2 / 3;
-    height: 100%;
-    width: 100%; }
+  & .div2 { grid-area: 1 / 2 / 2 / 3; }
 
-  
+   & .sumsname
+   {
+     text-align: center;
+   }
    & .ppuser
    {
-     width:60%;
+     width:30%;
      float:left;
      border-radius: 30px;
-     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+     padding-top:50px;
+    
    }
 
    & .undertext
    {
      color:gray;
-   }
-  }
+   }}
    
   
-  .msgtitle
-   {
-     text-align: center;
-   }
+  
 
   
