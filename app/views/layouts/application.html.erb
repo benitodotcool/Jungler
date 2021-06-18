@@ -14,7 +14,15 @@
 
     <body>
 
-        <%= yield %>
+        <div class="container">
+
+            <nav>
+                <%= render "layouts/nav" %>
+            </nav>
+
+            <%= yield %>
+
+        </div>
         
     </body>
 
