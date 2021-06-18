@@ -15,7 +15,6 @@
   place-items: center;
   height: 50px;
   width: 50px;
-  background-color: none;
   border-radius: 8px;
   transition: all 0.4s ease-out;
 
@@ -37,3 +36,21 @@
   }
 
 }
+
+.permanent {
+  background-color: var(--blue-color);
+  box-shadow: 0px 15px 25px 10px var(--blue-color-shadow);
+  border-radius: 18px;
+
+  svg#icon-home g,
+  svg#icon-arrow g,
+  svg#icon-message g,
+  svg#icon-category g,
+  svg#icon-discovery g,
+  svg#icon-notification g,
+  svg#icon-profile g {
+    stroke: var(--light-grey-color);
+  }
+
+}
+
