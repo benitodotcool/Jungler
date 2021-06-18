@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'ladning_page/index'
   resources :conversations
   resources :matches
   resources :user_game_stats
