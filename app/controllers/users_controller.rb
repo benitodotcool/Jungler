@@ -6,6 +6,8 @@ class UsersController < ApplicationController
     @users = User.all
     @user_select = @users.sample
     @conversations = Conversation.all
+    @messages = Message.order("created_at DESC").all
+    
   
   end
 
