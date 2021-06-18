@@ -11,22 +11,6 @@ function swipeCard() {
     console.log(btnYes)
     console.log(allCards)
 
-    // btnYes.addEventListener('click', function (){
-
-    //     firstCard.remove();
-
-    //     var newCard = document.createElement("div");
-    //     var newTitle = document.createElement("H1");
-
-    //     newTitle.innerHTML = "Test";
-
-    //     newCard.classList.add('swipe-cards');
-    //     newCard.appendChild(newTitle);
-
-    //     cardContainer.appendChild(newCard);
-
-    // })
-
     btnYes.addEventListener('click', function() {
 
         allCards = [...allCards]
@@ -35,7 +19,6 @@ function swipeCard() {
         var newCard = document.createElement("div");
         var newTitle = document.createElement("H1");
 
-        // newTitle.innerHTML = "Test";
         newTitle.insertAdjacentHTML("beforeend", "<%= j render 'swipe_card', user: @user %>");
 
         newCard.classList.add('swipe-cards');
@@ -60,7 +43,6 @@ function swipeCard() {
         var newCard = document.createElement("div");
         var newTitle = document.createElement("H1");
 
-        // newTitle.innerHTML = "Test";
         newTitle.insertAdjacentHTML("beforeend", "<%= j render 'swipe_card', user: @user %>");
         newCard.classList.add('swipe-cards');
         newCard.appendChild(newTitle);
@@ -79,3 +61,44 @@ function swipeCard() {
 }    
 
 swipeCard()
+
+function navAction () {
+
+    var homeIcon = document.getElementById('home-add');
+    var arrowIcon = document.getElementById('arrow-add');
+    var messageIcon = document.getElementById('message-add');
+    var categoryIcon = document.getElementById('category-add');
+    var discoveryIcon = document.getElementById('discovery-add');
+    var mainContainer= document.querySelector('.main-wrapper');
+
+    console.log(homeIcon);
+    console.log(arrowIcon);
+    console.log(messageIcon);
+    console.log(categoryIcon);
+    console.log(discoveryIcon);
+    console.log(mainContainer);
+
+    function homeIcon () {
+
+        homeIcon.addEventListener('click', function() {
+        arrowIcon.classList.remove("permanent");
+        messageIcon.classList.remove("permanent");
+        categoryIcon.classList.remove("permanent");
+        discoveryIcon.classList.remove("permanent");
+        this.classList.add("permanent");
+        mainContainer.innerHTML = "";
+        mainContainer.insertAdjacentHTML("beforeend", "<%= j render 'landing_page', user: @user %>");
+
+    });
+
+
+
+    function homeIcon ()
+    // function arrowIcon ()
+    // function messageIcon ()
+    // function categoryIcon ()
+    // function discoveryIcon ()
+
+}
+
+navAction()

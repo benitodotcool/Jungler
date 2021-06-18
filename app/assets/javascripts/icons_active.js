@@ -14,20 +14,22 @@ function iconsActive() {
     // console.log(categoryIcon);
     // console.log(discoveryIcon);
 
-    homeIcon.addEventListener('click', function() {
-        arrowIcon.classList.remove("permanent");
-        messageIcon.classList.remove("permanent");
-        categoryIcon.classList.remove("permanent");
-        discoveryIcon.classList.remove("permanent");
-        this.classList.add("permanent");
-    });
+    // homeIcon.addEventListener('click', function() {
+    //     arrowIcon.classList.remove("permanent");
+    //     messageIcon.classList.remove("permanent");
+    //     categoryIcon.classList.remove("permanent");
+    //     discoveryIcon.classList.remove("permanent");
+    //     this.classList.add("permanent");
+    // });
 
     arrowIcon.addEventListener('click', function() {
+
         messageIcon.classList.remove("permanent");
         categoryIcon.classList.remove("permanent");
         discoveryIcon.classList.remove("permanent");
         homeIcon.classList.remove("permanent");
         this.classList.add("permanent");
+        
     });
 
     messageIcon.addEventListener('click', function() {
