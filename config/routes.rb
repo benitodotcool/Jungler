@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'category/index'
   get 'discovery/index'
   get 'landing_page/index'
   resources :conversations
