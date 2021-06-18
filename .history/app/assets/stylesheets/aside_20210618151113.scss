@@ -102,7 +102,7 @@ aside {
   grid-row-gap: 0px;
   height: 100%;
   width: 100%;
-  padding: 20px;
+  padding:20px;
   
   
   & .div1 { grid-area: 1 / 1 / 2 / 2;
@@ -112,23 +112,9 @@ aside {
 
    & .sumsname
    {
-     text-align: center;
+     float:right
    }
-   & .ppuser
-   {
-     width:30%;
-     float:left;
-     border-radius: 30px;
-     padding-top:50px;
-    
-   }
-
-   & .undertext
-   {
-     color:gray;
-     padding
-   }
+   ²
   }
-  
 
   

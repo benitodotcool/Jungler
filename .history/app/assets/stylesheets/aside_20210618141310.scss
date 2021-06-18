@@ -94,41 +94,14 @@ aside {
   }
 
 }
-.aside-grid {
-  display: grid;
-  grid-template-columns: 292px;
-  grid-template-rows: 50px;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  height: 100%;
-  width: 100%;
-  padding: 20px;
-  
-  
-  & .div1 { grid-area: 1 / 1 / 2 / 2;
-    height: 100%;
-    width: 100%;
-   }
 
-   & .sumsname
-   {
-     text-align: center;
-   }
-   & .ppuser
-   {
-     width:30%;
-     float:left;
-     border-radius: 30px;
-     padding-top:50px;
-    
-   }
+.sumsname
+{
+  padding-left:10px
+}
 
-   & .undertext
-   {
-     color:gray;
-     padding
-   }
-  }
-  
+.btnshow, .btndestroy
+{
+  float:right
+}
 
-  

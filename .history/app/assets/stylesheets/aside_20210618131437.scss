@@ -33,11 +33,11 @@ aside {
     grid-row-gap: 1.25rem;
     border-radius: 2rem 2rem 0 2rem;
     overflow: scroll;
-    
+
     .notification-container {
       height: 100px;
       width: 100%;
-      background-color: var(--secondary-dark-color);
+      background-color: var(--medium-grey-color);
     }
 
   }
@@ -94,41 +94,3 @@ aside {
   }
 
 }
-.aside-grid {
-  display: grid;
-  grid-template-columns: 292px;
-  grid-template-rows: 50px;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  height: 100%;
-  width: 100%;
-  padding: 20px;
-  
-  
-  & .div1 { grid-area: 1 / 1 / 2 / 2;
-    height: 100%;
-    width: 100%;
-   }
-
-   & .sumsname
-   {
-     text-align: center;
-   }
-   & .ppuser
-   {
-     width:30%;
-     float:left;
-     border-radius: 30px;
-     padding-top:50px;
-    
-   }
-
-   & .undertext
-   {
-     color:gray;
-     padding
-   }
-  }
-  
-
-  

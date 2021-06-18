@@ -150,37 +150,37 @@
                 </ul>
             </div>
 
-          
+            <div class="aside-container">
 
 
 
-         <div class="aside-container">
-            <div class="aside-content">
-               
-            
+    
+                <div class="aside-content">
+                <% @conversations.each do |conversation| %>
+    
+                 
+                    <
                     <div class="notification-container">
-                        <% @conversations.each do |conversation| %>
-                            <%if conversation.participant_a.id != current_user.id && conversation.participant_b.id == current_user.id%>
-                                <div class="aside-grid">
-                                   <img src="https://i.pinimg.com/originals/2c/54/06/2c5406a83ab2257df1c57b52945e1c3c.jpg" class="ppuser"><p class="sumsname"><%=conversation.participant_a.summoner_name%></p>
-                                    <p class="undertext">Votre conversation avec <%=conversation.participant_a.summoner_name%></p>
-                                    
-                                 </div>
-                            <%elsif conversation.participant_b.id != current_user.id && conversation.participant_a.id == current_user.id%>
-                                <div class="aside-grid">
-                                    <p> <img src="https://i.pinimg.com/originals/2c/54/06/2c5406a83ab2257df1c57b52945e1c3c.jpg" class="ppuser"> <p class="sumsname"><%=conversation.participant_b.summoner_name%></p></p>
-                                    <p class="undertext">Votre conversation avec <%=conversation.participant_b.summoner_name%></p>
-                                </div>  
-             
-                            <%end%>
+              <%if conversation.participant_a.id != current_user.id && conversation.participant_b.id == current_user.id%>
+              <p></p> 
+              <p> <%=conversation.participant_a.summoner_name%> </p>
+              <p><%= link_to 'Show', conversation %></p>
+              <p><%= link_to 'Destroy', conversation, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+            
+              <%elsif conversation.participant_b.id != current_user.id && conversation.participant_a.id == current_user.id%>
+              <p></p> 
+              <p> <%=conversation.participant_b.summoner_name%> </p>
+              <p><%= link_to 'Show', conversation %></p>
+              <p><%= link_to 'Destroy', conversation, method: :delete, data: { confirm: 'Are you sure?' } %></p>
               
-                     <% end %>
+             
+              <%end%>
+              
+            
 
-                    </div>
-                    
-                    
+  <% end %></div>
+                   
                 </div>
-           </div>
  
 
                 <div class="aside-fixed-bottom">
