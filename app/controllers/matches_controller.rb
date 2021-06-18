@@ -23,6 +23,7 @@ class MatchesController < ApplicationController
   def create
     @match = Match.new(match_params)
     @user_swipped_id =  params[:receiver_id]
+    @current_user_id = params[:requestor_id]
     respond_to do |format|
       if @match.save
         is_set? #tododev
@@ -32,7 +33,7 @@ class MatchesController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @match.errors, status: :unprocessable_entity }
       end
-    end
+    end 
   end
 
   # PATCH/PUT /matches/1 or /matches/1.json
@@ -69,15 +70,15 @@ class MatchesController < ApplicationController
     end
 
     def is_set?
-    @current_user_id = params[:requestor_id]
       
      #tododev
+     @user_swipped_id =  params[:receiver_id]
+     @current_user_id = params[:requestor_id]
+      condition_1 = Match.exists?(requestor_id: @current_user_id, receiver_id:@user_swipped_id, status: true)#tododev
+      condition_2 = Match.exists?(requestor_id:@user_swipped_id, receiver_id:@current_user_id, status: true)#tododev
 
-      @condition_1 = Match.exists?(requestor_id: @current_user_id, receiver_id:@user_swipped_id, status: true)#tododev
-      @condition_2 = Match.exists?(requestor_id:@user_swipped_id, receiver_id:@current_user_id, status: true)#tododev
-
-      if @condition_1 == true && @condition_2 == true #tododev
-        Conversation.create!(participant_a:@current_user_id, participant_b: @user_swipped_id) #tododev
+      if condition_1 == true && condition_2 == true #tododev
+        Conversation.create(participant_a_id:@current_user_id, participant_b_id: @user_swipped_id) #tododev
       end
     end
 end
