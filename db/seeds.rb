@@ -39,9 +39,18 @@ end
   )
 end
 
-10.times do 
+1.times do 
   conversation = Conversation.create!(
-    participant_a_id: Faker::Number.between(from: 1, to: 2),
-    participant_b_id: Faker::Number.between(from: 1, to: 2),
+    participant_a_id: 1,
+    participant_b_id: 2,
+  )
+end
+
+10.times do 
+  message = Message.create!(
+    conversation_id: 1,
+    sender_id: Faker::Number.between(from: 1, to: 2),
+    content: Faker::Lorem.sentence(word_count:10)
+  
   )
 end
