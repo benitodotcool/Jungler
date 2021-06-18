@@ -1,0 +1,111 @@
+aside {
+  grid-area: 1 / 7 / 2 / 9;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+
+  .aside-info {
+    display: grid;
+    place-items: center;
+  }
+
+  .aside-icons {
+    display: grid;
+    grid-auto-flow: column;
+    justify-self: end;
+    grid-column-gap: 20px;
+    padding-right: 25px;
+  }
+
+  .aside-container {
+    position: relative;
+    background-color: var(--secondary-dark-color);
+    border-radius: 2rem 2rem 0 2rem;
+  }
+
+  .aside-content {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-row-gap: 1.25rem;
+    border-radius: 2rem 2rem 0 2rem;
+    overflow: scroll;
+    
+    .notification-container {
+      height: 100px;
+      width: 100%;
+      background-color: var(--secondary-dark-color);
+    }
+
+  }
+
+  .aside-fixed-bottom {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background-color: var(--dark-grey-color);
+    border-radius: 2rem 2rem 0 2rem;
+    box-shadow: -15px 10px 25px 10px var(--blue-color-shadow);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    grid-auto-flow: row;
+
+    .user-general {
+
+      display: grid;
+      place-items: center;
+      height: 100%;
+      width: 100%;
+      padding: 25px;
+
+      .user-wrapper {
+
+        display: grid;
+        grid-auto-flow: column;
+        justify-self: start;
+        place-items: center;
+        grid-column-gap: 10px;
+  
+        .user-status {
+          width: 10px;
+          height: 10px;
+          border-radius: 10px;
+          background-color: var(--green-color);
+        }
+        
+        .user-name {
+          width: 100%; 
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis; 
+          font-weight: 500;
+        }
+
+      }
+
+    }
+
+  }
+
+}
+.aside-grid {
+  display: grid;
+  grid-template-columns: 292px;
+  grid-template-rows: 80px;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  height: 100%;
+  width: 100%;
+  
+  
+  &.div1 { grid-area: 1 / 1 / 2 / 2;
+    height: 100%;
+    width: 100%;
+   }
+   

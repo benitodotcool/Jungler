@@ -37,6 +37,7 @@ aside {
     overflow: scroll;
     padding: var(--small-padding);
 
+    
     .notification-container {
       height: 100px;
       width: 100%;
@@ -103,3 +104,42 @@ aside {
   }
 
 }
+.aside-grid {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  padding:20px;
+ 
+  
+  & .div1 { grid-area: 1 / 1 / 2 / 2;
+    height: 100%;
+    width: 100%;
+   }
+  & .div2 { grid-area: 1 / 2 / 2 / 3;
+    height: 100%;
+    width: 100%; }
+
+  
+   & .ppuser
+   {
+     width:60%;
+     float:left;
+     border-radius: 30px;
+     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   }
+
+   & .undertext
+   {
+     color:gray;
+   }
+  }
+   
+  
+  .msgtitle
+   {
+     text-align: center;
+   }
+
+  
