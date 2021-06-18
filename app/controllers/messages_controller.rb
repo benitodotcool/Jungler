@@ -21,11 +21,12 @@ class MessagesController < ApplicationController
 
   # POST /messages or /messages.json
   def create
+    @conversation_id = params[:conversation_id]
     @message = Message.new(message_params)
-
+  
     respond_to do |format|
-      if @message.save
-        format.html { redirect_to @message, notice: "Message was successfully created." }
+      if @message.save #todoDev
+        format.html { redirect_to conversation_path(@conversation_id), notice: "Message was successfully created." }
         format.json { render :show, status: :created, location: @message }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -61,9 +62,10 @@ class MessagesController < ApplicationController
     def set_message
       @message = Message.find(params[:id])
     end
+    
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.fetch(:message, {})
+      params.permit(:user_id, :content, :conversation_id)
     end
 end

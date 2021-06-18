@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
-
-    <div>
+<main>
+    <div class="main-wrapper">
+        <div class="main-head">
+            <h1 class="title">Conversations</h1>
+        </div>
+        <div>
         <div class="main-content">
             <% @messages.sort.each do |message| %>
     
@@ -27,5 +31,12 @@
         <div>
         <%=render "messages/form"%>
     </div>
+    </div>
+</main>
+
+<aside>
+    <%= render "aside" %>
+</aside>
+    
 
 
