@@ -5,16 +5,10 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @user_select = @users.sample
-<<<<<<< HEAD
     @conversations = Conversation.all
     @messages = Message.order("created_at DESC").all
     
   
-=======
-    # respond_to do |format|
-    #   format.js { }
-    # end
->>>>>>> 35a5dbd5caa85f352424e5892aac4775533441af
   end
 
   # GET /users/1 or /users/1.json
