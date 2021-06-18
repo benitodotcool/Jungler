@@ -4,10 +4,14 @@ class UsersController < ApplicationController
   # GET /users or /users.json
   def index
     @users = User.all
+    @user_select = @users.sample
   end
 
   # GET /users/1 or /users/1.json
   def show
+    respond_to do |format|
+      format.js { }
+    end
   end
 
   # GET /users/new
@@ -33,6 +37,7 @@ class UsersController < ApplicationController
       end
     end
   end
+
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
@@ -65,7 +70,7 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:summoner_name)
+      params.require(:user).permit(:summoner_name, :id)
     end
 
     def set_user_game_stat
