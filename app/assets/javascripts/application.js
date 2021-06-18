@@ -13,3 +13,4 @@
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
+//= nav_action

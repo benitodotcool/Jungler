@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //function swipeCard() {
 //
 //    var cardContainer = document.querySelector('.swipe-wrapper');
@@ -111,3 +112,69 @@ homeIcon()
 //}
 //
 //navAction()
+=======
+function swipeCard() {
+
+    var cardContainer = document.querySelector('.swipe-wrapper');
+    var allCards = document.querySelectorAll('.swipe-cards');
+    var firstCard = cardContainer.firstElementChild;
+    var btnYes = document.getElementById('yes');
+    var btnNo = document.getElementById('no');
+
+    console.log(cardContainer)
+    console.log(firstCard)
+    console.log(btnYes)
+    console.log(allCards)
+
+    btnYes.addEventListener('click', function() {
+
+        allCards = [...allCards]
+        allCards.shift();
+
+        var newCard = document.createElement("div");
+        var newTitle = document.createElement("H1");
+
+        newTitle.insertAdjacentHTML("beforeend", "<%= j render 'swipe_card', user: @user %>");
+
+        newCard.classList.add('swipe-cards');
+        newCard.appendChild(newTitle);
+
+        allCards.push(newCard);
+
+        var newHtml = "";
+        allCards.forEach(element => {
+            newHtml += element.outerHTML;                    
+        });
+
+        cardContainer.innerHTML = newHtml;
+
+    })
+
+    btnNo.addEventListener('click', function() {
+
+        allCards = [...allCards]
+        allCards.shift();
+
+        var newCard = document.createElement("div");
+        var newTitle = document.createElement("H1");
+
+        newTitle.insertAdjacentHTML("beforeend", "<%= j render 'swipe_card', user: @user %>");
+        newCard.classList.add('swipe-cards');
+        newCard.appendChild(newTitle);
+
+        allCards.push(newCard);
+
+        var newHtml = "";
+        allCards.forEach(element => {
+            newHtml += element.outerHTML;                    
+        });
+
+        cardContainer.innerHTML = newHtml;
+
+    })
+
+}    
+
+swipeCard()
+
+>>>>>>> 35a5dbd5caa85f352424e5892aac4775533441af
