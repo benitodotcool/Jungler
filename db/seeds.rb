@@ -23,7 +23,7 @@ lol_roles = ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle
 20.times do |i|
   user_game_stats = UserGameStat.create!(
     user_id: i+1,
-    level: Faker::Number.between(from: 1, to: 3100),
+    level: Faker::Number.between(from: 1, to: 3099),
     summoner_id: Faker::Lorem.characters(number: 63),
     primary_role: lol_roles.sample,
     secondary_role: lol_roles.sample,
@@ -33,8 +33,15 @@ end
 
 20.times do 
   match = Match.create!(
-    requestor_id: Faker::Number.between(from: 1, to: 2),
-    receiver_id: Faker::Number.between(from: 1, to: 2),
+    requestor_id: Faker::Number.between(from: 1, to: 17),
+    receiver_id: 1,
     status: Faker::Boolean.boolean
+  )
+end
+
+10.times do 
+  conversation = Conversation.create!(
+    participant_a_id: Faker::Number.between(from: 1, to: 2),
+    participant_b_id: Faker::Number.between(from: 1, to: 2),
   )
 end
