@@ -5,70 +5,54 @@ function navAction() {
     let messageIcon = document.getElementById('message-add');
     let categoryIcon = document.getElementById('category-add');
     let discoveryIcon = document.getElementById('discovery-add');
-    // var mainContainer = document.getElementById('main-id');
+    let mainContainer = document.querySelector('main');
 
     console.log(homeIcon);
     console.log(arrowIcon);
     console.log(messageIcon);
     console.log(categoryIcon);
     console.log(discoveryIcon);
-    // console.log(mainContainer);
+    console.log(mainContainer);
 
-    function homeIconAction() {    
-        homeIcon.addEventListener('click', function() {
-            arrowIcon.classList.remove("permanent");
-            messageIcon.classList.remove("permanent");
-            categoryIcon.classList.remove("permanent");
-            discoveryIcon.classList.remove("permanent");
-            this.classList.add("permanent");
-        });
-    }
+    if (mainContainer.id === 'landing_page-focus') {
+        homeIcon.classList.add("permanent");
+        arrowIcon.classList.remove("permanent");
+        messageIcon.classList.remove("permanent");
+        categoryIcon.classList.remove("permanent");
+        discoveryIcon.classList.remove("permanent");
+    };
 
-    function arrowIconAction() {    
-        arrowIcon.addEventListener('click', function() {
-            homeIcon.classList.remove("permanent");
-            messageIcon.classList.remove("permanent");
-            categoryIcon.classList.remove("permanent");
-            discoveryIcon.classList.remove("permanent");
-            this.classList.add("permanent");
-        });
-    }
+    if (mainContainer.id === 'users-focus') {
+        arrowIcon.classList.add("permanent");
+        homeIcon.classList.remove("permanent");
+        messageIcon.classList.remove("permanent");
+        categoryIcon.classList.remove("permanent");
+        discoveryIcon.classList.remove("permanent");
+    };
 
-    function messageIconAction() {    
-        messageIcon.addEventListener('click', function() {
-            homeIcon.classList.remove("permanent");
-            arrowIcon.classList.remove("permanent");
-            categoryIcon.classList.remove("permanent");
-            discoveryIcon.classList.remove("permanent");
-            this.classList.add("permanent");
-        });
-    }
+    if (mainContainer.id === 'conversation-focus') {
+        messageIcon.classList.add("permanent");
+        homeIcon.classList.remove("permanent");
+        arrowIcon.classList.remove("permanent");
+        categoryIcon.classList.remove("permanent");
+        discoveryIcon.classList.remove("permanent");
+    };
 
-    function categoryIconAction() {    
-        categoryIcon.addEventListener('click', function() {
-            homeIcon.classList.remove("permanent");
-            messageIcon.classList.remove("permanent");
-            arrowIcon.classList.remove("permanent");
-            discoveryIcon.classList.remove("permanent");
-            this.classList.add("permanent");
-        });
-    }
+    if (mainContainer.id === 'category-focus') {
+        categoryIcon.classList.add("permanent");
+        homeIcon.classList.remove("permanent");
+        arrowIcon.classList.remove("permanent");
+        messageIcon.classList.remove("permanent");
+        discoveryIcon.classList.remove("permanent");
+    };
 
-    function discoveryIconAction() {    
-        discoveryIcon.addEventListener('click', function() {
-            homeIcon.classList.remove("permanent");
-            messageIcon.classList.remove("permanent");
-            arrowIcon.classList.remove("permanent");
-            categoryIcon.classList.remove("permanent");
-            this.classList.add("permanent");
-        });
-    }
-
-    homeIconAction()
-    arrowIconAction()
-    messageIconAction()
-    categoryIconAction()
-    discoveryIconAction()
+    if (mainContainer.id === 'discovery-focus') {
+        discoveryIcon.classList.add("permanent");
+        homeIcon.classList.remove("permanent");
+        arrowIcon.classList.remove("permanent");
+        messageIcon.classList.remove("permanent");
+        categoryIcon.classList.remove("permanent");
+    };
 
 }
 

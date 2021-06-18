@@ -13,4 +13,5 @@
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
-//= nav_action
+//= require nav_action
+//= require particules
