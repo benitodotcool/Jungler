@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @users = User.all
     @user_select = @users.sample
     @conversations = Conversation.all
+  
   end
 
   # GET /users/1 or /users/1.json

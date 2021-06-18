@@ -7,7 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #regular Users Seed
-20.times do
+1.times do
+  user = User.create!(
+    email: "admin@jungler.com",
+    password: "azerty",
+    summoner_name: Faker::Superhero.name
+  ) 
+end
+19.times do
   user = User.create!(
     email: Faker::Internet.email,
     password: "0123456789",
