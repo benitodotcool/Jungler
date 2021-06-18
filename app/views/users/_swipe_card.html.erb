@@ -1,9 +1,8 @@
-<%= @user_select.summoner_name %>
-<%=@user_select.id%>
+        <%= @user_select.summoner_name %>
+        <%=@user_select.id%>
 
-<p><%= link_to "NON", matches_path(:requestor_id => current_user.id,:receiver_id => @user_select.id, status: false), method: :post,id:'no',remote:true %></p>
-<br>
+        <%= link_to "NON", matches_path(:requestor_id => current_user.id,:receiver_id => @user_select.id, status: false), method: :post,id:'no',remote:true %>
 
-<p><%= link_to "OUI ", matches_path(:requestor_id => current_user.id,:receiver_id => @user_select.id, status:true), method: :post,id:'yes',remote:true %></p>
+        <%= link_to "OUI ", matches_path(:requestor_id => current_user.id,:receiver_id => @user_select.id, status:true), method: :post,id:'yes',remote:true %>
 
 
