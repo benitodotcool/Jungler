@@ -35,11 +35,15 @@ aside {
     border-top: 1px solid var(--dark-grey-color);
     border-left: 1px solid var(--dark-grey-color);
     overflow: scroll;
+    padding: var(--small-padding);
 
     .notification-container {
       height: 100px;
       width: 100%;
-      // background-color: var(--medium-grey-color);
+      background-color: var(--secondary-dark-color);
+      border-top: 1px solid var(--dark-grey-color);
+      border-left: 1px solid var(--dark-grey-color);
+      border-radius: var(--small-border-radius);
     }
 
   }
