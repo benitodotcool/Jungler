@@ -8,6 +8,11 @@ class User < ApplicationRecord
   validates :email, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
   validates :summoner_name, uniqueness: true, presence: true, on: :update
   
+  has_many :request_as_requestor, foreign_key: 'requestor_id', class_name: 'Match'
+  has_many :receivers, through: :request_as_requestor
+
+  has_many :request_as_receiver, foreign_key: 'receiver_id', class_name: 'Match'
+  has_many :requestors, through: :request_as_receiver
 
   after_create :welcome_send
 
