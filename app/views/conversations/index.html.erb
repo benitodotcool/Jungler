@@ -1,7 +1,12 @@
 
+    <div class="main-wrapper">
 
+        <div class="main-head">
+            <h1 class="title">Conversations</h1>
+        </div>
 
-<% @conversations.each do |conversation| %>
+        <div class="main-content">
+          <% @conversations.each do |conversation| %>
     
 
             <div>
@@ -15,8 +20,12 @@
 
 
     <% end %>
+        </div>
 
+    </div>
 
+</main>
 
-
-<%= link_to 'New Conversation', new_conversation_path %>
+<aside>
+    <%= render "aside" %>
+</aside>
