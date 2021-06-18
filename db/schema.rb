@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_18_104519) do
+ActiveRecord::Schema.define(version: 2021_06_18_144113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,11 @@ ActiveRecord::Schema.define(version: 2021_06_18_104519) do
     t.datetime "updated_at", null: false
     t.index ["participant_a_id"], name: "index_conversations_on_participant_a_id"
     t.index ["participant_b_id"], name: "index_conversations_on_participant_b_id"
+  end
+
+  create_table "landing_pages", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "matches", force: :cascade do |t|

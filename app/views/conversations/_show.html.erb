@@ -1,7 +1,5 @@
 <p id="notice"><%= notice %></p>
-
-    <div>
-        <div class="main-content">
+<div class="main-content">
             <% @messages.sort.each do |message| %>
     
             <% if message.user_id == current_user.id %>
@@ -25,7 +23,7 @@
             <%end%>
             <%end%>
         <div>
-        <%=render "messages/form"%>
-    </div>
+<%= link_to 'Edit', edit_conversation_path(@conversation) %> |
+<%= link_to 'Back', conversations_path %>
 
-
+<%= render 'showmsg', conversation: @conversation %>

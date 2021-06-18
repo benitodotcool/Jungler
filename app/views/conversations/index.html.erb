@@ -1,39 +1,9 @@
-
+<main>
     <div class="main-wrapper">
-
         <div class="main-head">
             <h1 class="title">Conversations</h1>
         </div>
-
-        <div class="main-content">
-          <% @messages.sort.each do |message| %>
-        <div>
-  <% if message.user_id == current_user.id %>
-  <div class = div1>
-  <%=message.content%>
-  <%=message.user.summoner_name%>
-  envoyé le : <%=message.created_at.strftime("%d-%m-%Y %H:%M")%>
-  <%end%>
-  </div>
-
-  <% if message.user_id == message.conversation_id %>
-  <div class = div1>
-  <%=message.content%>
-  <%=message.user.summoner_name%>
-  envoyé le : <%=message.created_at.strftime("%d-%m-%Y %H:%M")%>
-  <%end%>
-  </div>
-
-</div>
-            
-
-
-
-    <% end %>
-        </div>
-
     </div>
-
 </main>
 
 <aside>
