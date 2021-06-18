@@ -35,13 +35,13 @@ function swipeCard () {
         var newCard = document.createElement("div");
         var newTitle = document.createElement("H1");
 
-        newTitle.innerHTML = "Test";
+        // newTitle.innerHTML = "Test";
+        newTitle.insertAdjacentHTML("beforeend", "<%= j render 'swipe_card', user: @user %>");
 
         newCard.classList.add('swipe-cards');
         newCard.appendChild(newTitle);
 
         allCards.push(newCard);
-
 
         var newHtml = "";
         allCards.forEach(element => {
@@ -60,8 +60,8 @@ function swipeCard () {
         var newCard = document.createElement("div");
         var newTitle = document.createElement("H1");
 
-        newTitle.innerHTML = "Test";
-
+        // newTitle.innerHTML = "Test";
+        newTitle.insertAdjacentHTML("beforeend", "<%= j render 'swipe_card', user: @user %>");
         newCard.classList.add('swipe-cards');
         newCard.appendChild(newTitle);
 
