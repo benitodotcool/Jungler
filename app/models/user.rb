@@ -18,7 +18,7 @@ class User < ApplicationRecord
   has_many :conversations_as_participant_a, foreign_key: 'participant_a', class_name: 'Conversation'
   has_many :conversations_as_participant_b, foreign_key: 'participant_b', class_name: 'Conversation'
 
-  has_many :messages, foreign_key: 'sender_id', class_name: 'Message'
+  has_many :messages, through: :conversations
   
   after_create :welcome_send
 

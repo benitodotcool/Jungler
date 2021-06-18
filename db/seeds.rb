@@ -49,7 +49,7 @@ end
 10.times do 
   message = Message.create!(
     conversation_id: 1,
-    sender_id: Faker::Number.between(from: 1, to: 2),
+    user_id: Faker::Number.between(from: 1, to: 2),
     content: Faker::Lorem.sentence(word_count:10)
   
   )

@@ -38,11 +38,11 @@ ActiveRecord::Schema.define(version: 2021_06_18_104519) do
     t.bigint "conversation_id"
     t.text "content"
     t.boolean "is_read", default: false
-    t.bigint "sender_id_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
-    t.index ["sender_id_id"], name: "index_messages_on_sender_id_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "user_game_stats", force: :cascade do |t|

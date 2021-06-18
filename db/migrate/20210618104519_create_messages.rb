@@ -6,7 +6,7 @@ class CreateMessages < ActiveRecord::Migration[5.2]
       t.text :content 
       t.boolean :is_read, default: false
 
-      t.references :sender_id, index: true 
+      t.belongs_to :user, index: true 
 
       t.timestamps
     end
