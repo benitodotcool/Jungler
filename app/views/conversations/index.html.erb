@@ -1,25 +1,44 @@
-<p id="notice"><%= notice %></p>
+<main>
 
-<h1>Conversations</h1>
+    <div class="main-wrapper">
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <div class="main-head">
+            <h1 class="title">Conversations</h1>
+        </div>
 
-  <tbody>
-    <% @conversations.each do |conversation| %>
-      <tr>
-        <td><%= link_to 'Show', conversation %></td>
-        <td><%= link_to 'Edit', edit_conversation_path(conversation) %></td>
-        <td><%= link_to 'Destroy', conversation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <div class="main-content">
 
-<br>
+            <p id="notice"><%= notice %></p>
 
-<%= link_to 'New Conversation', new_conversation_path %>
+            <table>
+            <thead>
+                <tr>
+                <th colspan="3"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% @conversations.each do |conversation| %>
+                <tr>
+                    <td><%= link_to 'Show', conversation %></td>
+                    <td><%= link_to 'Edit', edit_conversation_path(conversation) %></td>
+                    <td><%= link_to 'Destroy', conversation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+                <% end %>
+            </tbody>
+            </table>
+
+            <br>
+
+            <%= link_to 'New Conversation', new_conversation_path %>
+
+
+        </div>
+
+    </div>
+
+</main>
+
+<aside>
+    <%= render "aside" %>
+</aside>
