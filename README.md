@@ -170,5 +170,13 @@ Executive Summary :
 Heroku App :
 * https://jungler-thp.herokuapp.com/
 
+* Pour profiter pleinement des fonctionnalités (avec un premier seed de données), vous pouvez vous connecter sur le site avec comme : 
+	identifiant : admin@jungler.com
+	mdp : azerty 
+
+	Enjoy ! 
+
+
+
 Trello :
 * https://trello.com/b/wNGE7wl8/projet-final-jungler
