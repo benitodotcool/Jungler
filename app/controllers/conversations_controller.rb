@@ -1,6 +1,6 @@
 class ConversationsController < ApplicationController
   before_action :set_conversation, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!
   # GET /conversations or /conversations.json
   def index
     @conversations = Conversation.all
