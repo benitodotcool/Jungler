@@ -10,7 +10,6 @@
     .conversation-left {
         grid-area: 1 / 1 / 2 / 2;
         position: absolute;
-        display: grid;
         width: 100%;
         height: 100%;
         overflow: scroll;
@@ -31,6 +30,12 @@
         }
     }
 
+    .conversation-right-index {
+        display: grid;
+        place-items: center;
+        grid-area: 1 / 2 / 2 / 3;
+    }
+
     .conversation-right {
         position: absolute;
         grid-area: 1 / 2 / 2 / 3;
@@ -40,6 +45,7 @@
         width: 100%;
         height: 100%;
         overflow: scroll;
+
 
         .conversation-head {
             background-color: var(--secondary-dark-color);
@@ -61,8 +67,8 @@
         }
 
         .conversation-content {
-
-            display: grid;
+            display: flex;
+            flex-direction: column;
             width: 100%;
 
             p {
@@ -82,15 +88,21 @@
 
             .message-send {
                 background-color: var(--blue-color);
-                text-align: right;
-                justify-self: end;
+                align-self: flex-end;
             }
 
             .message-received {
-                background-color: var(--secondary-dark-color);
-                justify-self: start;                    
+                background-color: var(--secondary-dark-color);                  
             }
 
+        }
+
+        .conversation-input {
+            position: fixed;
+            bottom: 0;
+            background-color: var(--secondary-dark-color);
+            width: 100%;
+            height: 50px;
         }
 
     }

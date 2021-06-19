@@ -1,5 +1,5 @@
 <main id="conversation-focus">
-<p id="notice"><%= notice %></p>
+
     <div class="main-wrapper">
 
         <div class="main-head">
@@ -12,17 +12,18 @@
                 
                 <% @conversations.each do |conversation| %>
 
-                <a href="<%=conversation_path(conversation.id)%>">
-                    <div class="conversation-name current">
-                        <%if conversation.participant_a.id == current_user.id%>
-                            <%=conversation.participant_b.summoner_name%>
-                        <%else%>
-                            <%=conversation.participant_a.summoner_name%>
-                        <%end%>
+                    <a href="<%=conversation_path(conversation.id)%>">
 
+                        <div class="conversation-name current">
+                            <%if conversation.participant_a.id == current_user.id%>
+                                <%=conversation.participant_b.summoner_name%>
+                            <%else%>
+                                <%=conversation.participant_a.summoner_name%>
+                            <%end%>
+                        </div>
 
-                    </div>
-                </a>
+                    </a>
+
                 <%end%>
                 
             </div>
@@ -63,8 +64,13 @@
                     <%end%>
 
                 </div>
+
+                <div class="conversation-input">
+
+                    <%=render "messages/form"%>
+
+                </div>
                 
-                <%=render "messages/form"%>
 
             </div>
         
