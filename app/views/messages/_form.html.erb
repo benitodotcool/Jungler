@@ -1,0 +1,18 @@
+<%= form_with url: conversation_messages_path(@conversation_id), method: :post, local: true do |form| %>
+
+<div class="field"> 
+    <%= form.label :message%>
+     
+    <%= form.text_field :content%>
+  </div>
+  <div class="field"> 
+    <%= form.hidden_field :user_id, value:current_user.id %>
+  </div>
+  <div class="field"> 
+    <%= form.hidden_field :conversation_id, value:@conversation_id %>
+  </div>
+ 
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

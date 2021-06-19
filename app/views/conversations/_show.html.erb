@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+<div class="main-content">
+            <% @messages.sort.each do |message| %>
+    
+            <% if message.user_id == current_user.id %>
+
+            <div class="user-sender">
+                <%=message.user.id%>
+                <%=message.user.summoner_name%>
+                <%=message.content%>
+                envoyé à : <%=message.created_at.strftime("%H:%M")%>
+            </div>  
+
+            <% elsif message.user_id == message.conversation_id %>
+
+            <div class="user-receiver">
+                <%=message.user.id%>
+                <%=message.user.summoner_name%>
+                <%=message.content%>
+                envoyé à : <%=message.created_at.strftime("%H:%M")%>
+            </div>
+
+            <%end%>
+            <%end%>
+        <div>
+<%= link_to 'Edit', edit_conversation_path(@conversation) %> |
+<%= link_to 'Back', conversations_path %>
+
+<%= render 'showmsg', conversation: @conversation %>

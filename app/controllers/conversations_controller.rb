@@ -4,10 +4,14 @@ class ConversationsController < ApplicationController
   # GET /conversations or /conversations.json
   def index
     @conversations = Conversation.all
+    @messages= Message.all
   end
 
   # GET /conversations/1 or /conversations/1.json
   def show
+    @conversation_id = params[:id]
+    @messages= Message.all.where(conversation_id:@conversation_id)
+    @conversations = Conversation.all
   end
 
   # GET /conversations/new
@@ -51,7 +55,7 @@ class ConversationsController < ApplicationController
   def destroy
     @conversation.destroy
     respond_to do |format|
-      format.html { redirect_to conversations_url, notice: "Conversation was successfully destroyed." }
+      format.html { redirect_to :root, notice: "Conversation was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -66,4 +70,10 @@ class ConversationsController < ApplicationController
     def conversation_params
       params.fetch(:conversation, {})
     end
+
+    def is_authorized_in_current_conversation?
+      if current_user.id 
+    end
+
 end
+

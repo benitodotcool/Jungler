@@ -1,4 +1,42 @@
 <p id="notice"><%= notice %></p>
+<main>
+    <div class="main-wrapper">
+        <div class="main-head">
+            <h1 class="title">Conversations</h1>
+        </div>
+        <div>
+        <div class="main-content">
+            <% @messages.sort.each do |message| %>
+    
+            <% if message.user_id == current_user.id %>
 
-<%= link_to 'Edit', edit_conversation_path(@conversation) %> |
-<%= link_to 'Back', conversations_path %>
+            <div class="user-sender">
+                <%=message.user.id%>
+                <%=message.user.summoner_name%>
+                <%=message.content%>
+                envoyé à : <%=message.created_at.strftime("%H:%M")%>
+            </div>  
+
+            <% else%>
+
+            <div class="user-receiver">
+                <%=message.user.id%>
+                <%=message.user.summoner_name%>
+                <%=message.content%>
+                envoyé à : <%=message.created_at.strftime("%H:%M")%>
+            </div>
+
+            <%end%>
+            <%end%>
+        <div>
+        <%=render "messages/form"%>
+    </div>
+    </div>
+</main>
+
+<aside>
+    <%= render "aside" %>
+</aside>
+    
+
+

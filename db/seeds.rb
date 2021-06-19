@@ -7,7 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #regular Users Seed
-20.times do
+1.times do
+  user = User.create!(
+    email: "admin@jungler.com",
+    password: "azerty",
+    summoner_name: Faker::Superhero.name
+  ) 
+end
+19.times do
   user = User.create!(
     email: Faker::Internet.email,
     password: "0123456789",
@@ -39,9 +46,18 @@ end
   )
 end
 
-10.times do 
+1.times do 
   conversation = Conversation.create!(
-    participant_a_id: Faker::Number.between(from: 1, to: 2),
-    participant_b_id: Faker::Number.between(from: 1, to: 2),
+    participant_a_id: 1,
+    participant_b_id: 2,
+  )
+end
+
+10.times do 
+  message = Message.create!(
+    conversation_id: 1,
+    user_id: Faker::Number.between(from: 1, to: 2),
+    content: Faker::Lorem.sentence(word_count:10)
+  
   )
 end

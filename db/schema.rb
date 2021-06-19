@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_17_211957) do
+ActiveRecord::Schema.define(version: 2021_06_18_144113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,11 @@ ActiveRecord::Schema.define(version: 2021_06_17_211957) do
     t.index ["participant_b_id"], name: "index_conversations_on_participant_b_id"
   end
 
+  create_table "landing_pages", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "matches", force: :cascade do |t|
     t.bigint "requestor_id"
     t.bigint "receiver_id"
@@ -32,6 +37,17 @@ ActiveRecord::Schema.define(version: 2021_06_17_211957) do
     t.datetime "updated_at", null: false
     t.index ["receiver_id"], name: "index_matches_on_receiver_id"
     t.index ["requestor_id"], name: "index_matches_on_requestor_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "conversation_id"
+    t.text "content"
+    t.boolean "is_read", default: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "user_game_stats", force: :cascade do |t|

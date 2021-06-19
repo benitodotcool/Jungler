@@ -1,0 +1,59 @@
+// Place all the styles related to the conversations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.main-wrapper {
+    position: absolute;
+    overflow: scroll;
+    height: 100%;
+    width: 100%;
+    padding-right: var(--medium-padding);
+    padding-left: var(--medium-padding);
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    
+.flofloflo {
+    display: grid;
+    grid-template-columns: 1fr 6fr 1fr;
+    grid-template-rows: 1fr 6fr 1fr;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    height:100%;
+    width: 100%;
+    background-color: green;
+    
+
+     & .first_div { 
+         grid-area: 2 / 3 / NaN / NaN;
+        background-color: red;
+        height: 100%;
+         width:100% }
+    & .second_div { 
+        grid-area: 1 / 3 / 2 / 4;
+        background-color: green; }
+    & .three_div { grid-area: 1 / 2 / 2 / 3; 
+        height:100%;
+        width:100%;
+        background-color: red;}
+    & .four_div { grid-area: 2 / 2 / 3 / 3;
+        height:100%;
+        width:100%;
+        background-color: green; }
+    & .five_div { grid-area: 3 / 2 / 4 / 3;
+        height:100%;
+        width:100%;
+        background-color: red; }
+    & .six_div { grid-area: 3 / 1 / 4 / 2;
+        height:100%;
+        width:100%;
+        background-color: green; 
+    }
+    & .seven_div { grid-area: 2 / 1 / 3 / 2;
+        height:100%;
+        width:100%;
+        background-color: red; }
+    & .eight_div { grid-area: 1 / 1 / 2 / 2;
+        height:100%;
+        width:100%;
+        background-color: green; }
+}
+

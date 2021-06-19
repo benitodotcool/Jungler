@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Conversations</h1>
+
+
+
+<div class="parent ">
+    <div class="div1">
+        <div class="chats">
+
+            <div class="div3">
+
+              <h3>
+
+                Conversations<i class="fa fa-plus" aria-hidden="true"></i> <i class="fa fa-search" aria-hidden="true"></i> 
+
+              </h3>
+
+            </div>
+
+            <div class="div4">
+                            
+              <img src="https://pbs.twimg.com/profile_images/1401562839614210052/yo9BeNMD_400x400.jpg">  <h4 class="name">Karim Benzema</h4>
+
+                            
+            </div>
+        </div>
+                   
+    </div>
+
+  </div>
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @conversations.each do |conversation| %>
+      <tr>
+
+
+        <td><%= link_to 'Show', conversation %></td>
+        <td><%= link_to 'Destroy', conversation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Conversation', new_conversation_path %>
