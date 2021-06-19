@@ -1,3 +1,94 @@
 .main-content-conversations {
+    grid-area: 2 / 1 / 3 / 2;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-column-gap: var(--small-padding);
+    position: relative;
     height: 100%;
+    width: 100%;
+
+    .conversation-left {
+        position: absolute;
+        grid-area: 1 / 1 / 2 / 2;
+        display: grid;
+        grid-gap: var(--small-padding);
+        width: 100%;
+        height: 100%;
+        overflow: scroll;
+
+        .conversation-name {
+            width: 100%;
+            height: 50px;
+            background-color: var(--secondary-dark-color);
+            border-top: 1px solid var(--dark-grey-color);
+            border-left: 1px solid var(--dark-grey-color);
+            border-radius: var(--small-border-radius);
+            display: grid;
+            place-items: center;
+        }
+        .current {
+            background-color: var(--blue-color);
+        }
+    }
+
+    .conversation-right {
+        position: absolute;
+        grid-area: 1 / 2 / 2 / 3;
+        display: grid;
+        grid-template-rows: 75px 1fr;
+        grid-gap: var(--small-padding);        
+        width: 100%;
+        height: 100%;
+        overflow: scroll;
+
+        .conversation-head {
+
+            background-color: var(--secondary-dark-color);
+            border-top: 1px solid var(--dark-grey-color);
+            border-left: 1px solid var(--dark-grey-color);
+            border-radius: var(--small-border-radius);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: auto;
+            padding: var(--small-padding);
+
+            ul {
+                display: flex;
+            }
+
+        }
+
+        .conversation-content {
+
+            display: grid;
+
+            p {
+                color: var(--medium-grey-color);
+                text-align: center;
+                font-size: 80%;
+                padding-bottom: var(--small-padding);
+            }
+
+            .message {
+                padding: calc(var(--small-padding) / 2) var(--small-padding) calc(var(--small-padding) / 2) var(--small-padding);
+                color: var(--light-grey-color);
+                margin-bottom: var(--small-padding);
+                border-radius: var(--small-border-radius);
+                width: 75%;
+            }
+
+            .message-send {
+                background-color: var(--blue-color);
+                text-align: right;
+                justify-self: end;
+            }
+
+            .message-received {
+                background-color: var(--secondary-dark-color);                    
+            }
+
+        }
+
+    }
 }
