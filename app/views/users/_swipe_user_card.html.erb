@@ -1,0 +1,12 @@
+<div class="swipe-cards">
+    <h2><%= @user_select.summoner_name %></h2>
+    <h2><%= @user_select.id %></h2>
+    <div class="btn-wrapper">    
+        <span>
+            <%= link_to "NON", matches_path(:requestor_id => current_user.id.to_i,:receiver_id => @user_select.id.to_i, status:false), method: :post,id:'btn-no' %>
+        </span>
+        <span>
+            <p><%= link_to "OUI ", matches_path(:requestor_id => current_user.id.to_i,:receiver_id => @user_select.id.to_i, status:true), method: :post,id:'btn-yes' %></p>
+        </span>  
+    </div>
+</div>

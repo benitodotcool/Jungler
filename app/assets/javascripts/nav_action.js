@@ -7,12 +7,12 @@ function navAction() {
     let discoveryIcon = document.getElementById('discovery-add');
     let mainContainer = document.querySelector('main');
 
-    console.log(homeIcon);
-    console.log(arrowIcon);
-    console.log(messageIcon);
-    console.log(categoryIcon);
-    console.log(discoveryIcon);
-    console.log(mainContainer);
+    // console.log(homeIcon);
+    // console.log(arrowIcon);
+    // console.log(messageIcon);
+    // console.log(categoryIcon);
+    // console.log(discoveryIcon);
+    // console.log(mainContainer);
 
     if (mainContainer.id === 'landing_page-focus') {
         homeIcon.classList.add("permanent");

@@ -1,64 +1,41 @@
-function swipeCard() {
-
-    var cardContainer = document.querySelector('.swipe-wrapper');
-    var allCards = document.querySelectorAll('.swipe-cards');
-    var firstCard = cardContainer.firstElementChild;
-    var btnYes = document.getElementById('yes');
-    var btnNo = document.getElementById('no');
-
-    console.log(cardContainer)
-    console.log(firstCard)
-    console.log(btnYes)
-    console.log(allCards)
-
-    btnYes.addEventListener('click', function() {
-
-        allCards = [...allCards]
-        allCards.shift();
-
-        var newCard = document.createElement("div");
-        var newTitle = document.createElement("H1");
-
-        newTitle.insertAdjacentHTML("beforeend", "<%= j render 'swipe_card', user: @user %>");
-
-        newCard.classList.add('swipe-cards');
-        newCard.appendChild(newTitle);
-
-        allCards.push(newCard);
-
-        var newHtml = "";
-        allCards.forEach(element => {
-            newHtml += element.outerHTML;                    
-        });
-
-        cardContainer.innerHTML = newHtml;
-
-    })
-
-    btnNo.addEventListener('click', function() {
-
-        allCards = [...allCards]
-        allCards.shift();
-
-        var newCard = document.createElement("div");
-        var newTitle = document.createElement("H1");
-
-        newTitle.insertAdjacentHTML("beforeend", "<%= j render 'swipe_card', user: @user %>");
-        newCard.classList.add('swipe-cards');
-        newCard.appendChild(newTitle);
-
-        allCards.push(newCard);
-
-        var newHtml = "";
-        allCards.forEach(element => {
-            newHtml += element.outerHTML;                    
-        });
-
-        cardContainer.innerHTML = newHtml;
-
-    })
-
-}    
-
-swipeCard()
-
+// function swipeUsers() {
+// 
+//     var btnYes = document.getElementById('btn-yes');
+//     var btnNo = document.getElementById('btn-no');
+//     var mainContentSwipe = document.querySelector('.main-content-swipe');
+//     var swipeCards = document.querySelectorAll('.swipe-cards');
+//     var swipeCardContainer = document.querySelector('.swipe-card-container');
+// 
+//     console.log(btnYes);
+//     console.log(btnNo);
+//     console.log(mainContentSwipe);
+//     console.log(swipeCard);
+//     console.log(swipeCardContainer)
+// 
+//     function pressYes() {
+//         btnYes.addEventListener('click', function() {
+// 
+//             swipeCardContainer = [...swipeCardContainer];
+//             swipeCardContainer.shift();
+// 
+//             var newCard = document.createElement("div");
+//             newCard.classList.add("swipe-card-container");
+// 
+//             newCard.insertAdjacentHTML("beforeend", "<%= j render 'swipe_user_card', user: @user %>");
+//             swipeCards.push(newCard);
+// 
+//             swipeCards.push(newCard);
+// 
+//             var newHTML = "";
+//             swipeCards.forEach(element => {
+//                 newHTML += element.outerHTML;
+//             });
+// 
+//             mainContentSwipe.innerHTML = newHTML;
+// 
+//         );    
+//     });
+// 
+// }
+// 
+// swipeUsers()

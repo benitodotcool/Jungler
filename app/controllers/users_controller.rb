@@ -7,15 +7,16 @@ class UsersController < ApplicationController
     @user_select = @users.sample
     @conversations = Conversation.all
     @messages = Message.order("created_at DESC").all
-    
-  
+    # respond_to do |format|
+    #   format.js { }
+    # end  
   end
 
   # GET /users/1 or /users/1.json
   def show
-    # respond_to do |format|
-    #   format.js { }
-    # end
+    respond_to do |format|
+      format.js { }
+    end
   end
 
   # GET /users/new

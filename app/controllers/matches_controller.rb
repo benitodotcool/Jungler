@@ -27,7 +27,7 @@ class MatchesController < ApplicationController
     respond_to do |format|
       if @match.save
         is_set? #tododev
-        format.html { redirect_to :root, notice: "Match was successfully created." }
+        format.html { redirect_to users_path, notice: "Match was successfully created." }
         format.json { render :show, status: :created, location: @match }
       else
         format.html { render :new, status: :unprocessable_entity }

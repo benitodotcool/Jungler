@@ -14,4 +14,3 @@
 //= require activestorage
 //= require_tree .
 //= require nav_action
-//= require particules
