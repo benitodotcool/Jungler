@@ -1,5 +1,6 @@
 class UserGameStatsController < ApplicationController
   before_action :set_user_game_stat, only: %i[ show edit update destroy ]
+  
 
   # GET /user_game_stats or /user_game_stats.json
   def index

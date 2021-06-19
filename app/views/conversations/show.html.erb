@@ -1,43 +1,87 @@
+<main id="conversation-focus">
 <p id="notice"><%= notice %></p>
-<main>
     <div class="main-wrapper">
+
         <div class="main-head">
             <h1 class="title">Conversations</h1>
         </div>
-        
-        <div>
-        <div class="main-content">
-            <% @messages.sort.each do |message| %>
-    
-            <% if message.user_id == current_user.id %>
 
-            <div class="user-sender">
-                <%=message.user.id%>
-                <%=message.user.summoner_name%>
-                <%=message.content%>
-                envoyé à : <%=message.created_at.strftime("%H:%M")%>
-            </div>  
+        <div class="main-content-conversations">
 
-            <% else%>
+            <div class="conversation-left">
+                
+                <% @conversations.each do |conversation| %>
 
-            <div class="user-receiver">
-                <%=message.user.id%>
-                <%=message.user.summoner_name%>
-                <%=message.content%>
-                envoyé à : <%=message.created_at.strftime("%H:%M")%>
+                <a href="<%=conversation_path(conversation.id)%>">
+                    <div class="conversation-name current">
+                        <%if conversation.participant_a.id == current_user.id%>
+                            <%=conversation.participant_b.summoner_name%>
+                        <%else%>
+                            <%=conversation.participant_a.summoner_name%>
+                        <%end%>
+
+
+                    </div>
+                </a>
+                <%end%>
+                
             </div>
 
-            <%end%>
-            <%end%>
-        <div>
-        <%=render "messages/form"%>
+            <div class="conversation-right">
+
+                <div class="conversation-head">  
+                            
+                    <h3 class="conversation-title">
+                        <%if @current_conversation.participant_a.id == current_user.id%>
+                            <%=@current_conversation.participant_b.summoner_name%>
+                        <%else%>
+                            <%=@current_conversation.participant_a.summoner_name%>
+                        <%end%>
+                    </h3>
+            
+                    <ul>
+                        <li class="icon"><h3>A</h3></li>
+                        <li class="icon"><h3>B</h3></li>
+                        <li class="icon"><h3>C</h3></li>
+                    </ul>
+                </div>
+
+                <div class="conversation-content">
+                    
+                    <p class="conversation-date"><%=@current_conversation.created_at.strftime( "%d/%m/%Y %H:%M")%></p>
+
+                    <% @messages.sort.each do |message| %>  
+                        <% if message.user_id == current_user.id %>
+
+                            <div class="message message-send"><%=message.content%></div>
+                        
+                        <% else %>
+
+                            <div class="message message-received"><%=message.content%></div>
+                        
+                        <%end%>
+                    <%end%>
+
+                </div>
+                
+                <%=render "messages/form"%>
+
+            </div>
+        
+        </div>
+
     </div>
-    </div>
+
 </main>
 
 <aside>
     <%= render "aside" %>
 </aside>
-    
+
+
+
+
+
+
 
 

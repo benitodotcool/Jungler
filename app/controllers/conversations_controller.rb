@@ -9,7 +9,9 @@ class ConversationsController < ApplicationController
 
   # GET /conversations/1 or /conversations/1.json
   def show
+  
     @conversation_id = params[:id]
+    @current_conversation= Conversation.find(@conversation_id )
     @messages= Message.all.where(conversation_id:@conversation_id)
     @conversations = Conversation.all
   end
