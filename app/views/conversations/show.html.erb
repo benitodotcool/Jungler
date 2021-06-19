@@ -17,7 +17,7 @@
                 envoyé à : <%=message.created_at.strftime("%H:%M")%>
             </div>  
 
-            <% elsif message.user_id == message.conversation_id %>
+            <% else%>
 
             <div class="user-receiver">
                 <%=message.user.id%>
