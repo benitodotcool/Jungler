@@ -70,4 +70,10 @@ class ConversationsController < ApplicationController
     def conversation_params
       params.fetch(:conversation, {})
     end
+
+    def is_authorized_in_current_conversation?
+      if current_user.id 
+    end
+
 end
+
