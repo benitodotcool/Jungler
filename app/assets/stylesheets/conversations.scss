@@ -1,17 +1,16 @@
 .main-content-conversations {
     grid-area: 2 / 1 / 3 / 2;
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 2fr 5fr;
     grid-column-gap: var(--small-padding);
     position: relative;
     height: 100%;
     width: 100%;
 
     .conversation-left {
-        position: absolute;
         grid-area: 1 / 1 / 2 / 2;
+        position: absolute;
         display: grid;
-        grid-gap: var(--small-padding);
         width: 100%;
         height: 100%;
         overflow: scroll;
@@ -25,6 +24,7 @@
             border-radius: var(--small-border-radius);
             display: grid;
             place-items: center;
+            margin-bottom: var(--small-padding);
         }
         .current {
             background-color: var(--blue-color);
@@ -42,7 +42,6 @@
         overflow: scroll;
 
         .conversation-head {
-
             background-color: var(--secondary-dark-color);
             border-top: 1px solid var(--dark-grey-color);
             border-left: 1px solid var(--dark-grey-color);
@@ -50,8 +49,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: auto;
+            width: 100%;
+            height: 100%;
             padding: var(--small-padding);
+            position: sticky;
 
             ul {
                 display: flex;
@@ -62,6 +63,7 @@
         .conversation-content {
 
             display: grid;
+            width: 100%;
 
             p {
                 color: var(--medium-grey-color);
@@ -72,10 +74,10 @@
 
             .message {
                 padding: calc(var(--small-padding) / 2) var(--small-padding) calc(var(--small-padding) / 2) var(--small-padding);
-                color: var(--light-grey-color);
                 margin-bottom: var(--small-padding);
                 border-radius: var(--small-border-radius);
-                width: 75%;
+                max-width: 75%;
+                overflow-wrap: anywhere;
             }
 
             .message-send {
@@ -85,10 +87,12 @@
             }
 
             .message-received {
-                background-color: var(--secondary-dark-color);                    
+                background-color: var(--secondary-dark-color);
+                justify-self: start;                    
             }
 
         }
 
     }
+
 }
