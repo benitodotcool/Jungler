@@ -72,7 +72,8 @@ class ConversationsController < ApplicationController
     end
 
     def is_authorized_in_current_conversation?
-      if current_user.id 
+      if current_user.id
+      end
     end
 
 end
