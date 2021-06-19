@@ -1,43 +1,77 @@
+<main id="conversation-focus">
 <p id="notice"><%= notice %></p>
-<main>
     <div class="main-wrapper">
+
         <div class="main-head">
             <h1 class="title">Conversations</h1>
         </div>
+
+        <div class="main-content-conversations">
+
+            <div class="conversation-left">
         
-        <div>
-        <div class="main-content">
-            <% @messages.sort.each do |message| %>
-    
-            <% if message.user_id == current_user.id %>
 
-            <div class="user-sender">
-                <%=message.user.id%>
-                <%=message.user.summoner_name%>
-                <%=message.content%>
-                envoyé à : <%=message.created_at.strftime("%H:%M")%>
-            </div>  
-
-            <% else%>
-
-            <div class="user-receiver">
-                <%=message.user.id%>
-                <%=message.user.summoner_name%>
-                <%=message.content%>
-                envoyé à : <%=message.created_at.strftime("%H:%M")%>
+                <div class="conversation-name current">TEST</div>
+                <div class="conversation-name">TEST</div>
+                <div class="conversation-name">TEST</div>
+                <div class="conversation-name">TEST</div>
+                <div class="conversation-name">TEST</div>
+                <div class="conversation-name">TEST</div>
+                <div class="conversation-name">TEST</div>
+                <div class="conversation-name">TEST</div>
+                <div class="conversation-name">TEST</div>
+                <div class="conversation-name">TEST</div>
+                <div class="conversation-name">TEST</div>
+                <div class="conversation-name">TEST</div>
+                <div class="conversation-name">TEST</div>
+                <div class="conversation-name">TEST</div>
+            
             </div>
 
-            <%end%>
-            <%end%>
-        <div>
-        <%=render "messages/form"%>
+            <div class="conversation-right">
+
+                <div class="conversation-head">  
+                            
+                    <h3 class="conversation-title">nom de l'interlocuteur</h3>
+            
+                    <ul>
+                        <li class="icon"><h3>A</h3></li>
+                        <li class="icon"><h3>B</h3></li>
+                        <li class="icon"><h3>C</h3></li>
+                    </ul>
+                </div>
+
+                <div class="conversation-content">
+                    
+                    <p class="conversation-date"><%=@current_conversation.created_at.strftime( "%d/%m/%Y %H:%M")%></p>
+                    <% @messages.sort.each do |message| %>  
+                    <% if message.user_id == current_user.id %>
+                    <div class="message message-send"><%=message.content%></div>
+                    <% else %>
+                    <div class="message message-received"><%=message.content%></div>
+                    <%end%>
+                    <%end%>
+
+                </div>
+                
+                <%=render "messages/form"%>
+
+            </div>
+        
+        </div>
+
     </div>
-    </div>
+
 </main>
 
 <aside>
     <%= render "aside" %>
 </aside>
-    
+
+
+
+
+
+
 
 
