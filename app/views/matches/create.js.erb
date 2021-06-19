@@ -1,0 +1,41 @@
+function swipeUsers() {
+
+    var btnYes = document.getElementById('btn-yes');
+    var btnNo = document.getElementById('btn-no');
+    var mainContentSwipe = document.querySelector('.main-content-swipe');
+    var swipeCards = document.querySelectorAll('.swipe-cards');
+    var swipeCardContainer = document.querySelector('.swipe-card-container');
+
+    //console.log(btnYes);
+    //console.log(btnNo);
+    //console.log(mainContentSwipe);
+    //console.log(swipeCards);
+    //console.log(swipeCardContainer)
+
+    function pressYes() {
+        btnYes.addEventListener('click', function() {
+            console.log("yes");
+            swipeCardContainer = [...swipeCardContainer];
+            swipeCardContainer.shift();
+
+            var newCard = document.createElement("div");
+            newCard.classList.add("swipe-card-container");
+
+            newCard.insertAdjacentHTML("beforeend", "<%= j render 'users/swipe_user_card', user: @user %>");
+            swipeCards.push(newCard);
+
+            swipeCards.push(newCard);
+
+            var newHTML = "";
+            swipeCards.forEach(element => {
+                newHTML += element.outerHTML;
+            });
+
+            mainContentSwipe.innerHTML = newHTML;
+
+        });    
+    };
+pressYes()
+}
+
+swipeUsers()
