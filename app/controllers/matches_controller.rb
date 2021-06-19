@@ -30,7 +30,7 @@ class MatchesController < ApplicationController
     respond_to do |format|
       if @match.save 
         if is_set? #tododev
-        format.html { redirect_to users_path, notice: "MATCH avec #{@user_swipped.summoner_name} !! " }
+        format.html { redirect_to users_path, notice: "MATCH avec #{@user_swipped.summoner_name}, va voir dans tes conversations !!"}
         else 
         format.html { redirect_to users_path, notice: "Pas encore de match avec #{@user_swipped.summoner_name}... " }
         end
