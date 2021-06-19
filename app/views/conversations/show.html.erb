@@ -1,5 +1,5 @@
 <main id="conversation-focus">
-<p id="notice"><%= notice %></p>
+
     <div class="main-wrapper">
 
         <div class="main-head">
@@ -10,14 +10,19 @@
 
             <div class="conversation-left">
                 
-                <% @conversations.each do |conversation| %>
+                <%  @conversations.reverse_each do |conversation| %>
 
                 <a href="<%=conversation_path(conversation.id)%>">
+
                     <div class="conversation-name current">
+
                         <%if conversation.participant_a.id == current_user.id%>
+
                             <%=conversation.participant_b.summoner_name%>
                         <%else%>
+
                             <%=conversation.participant_a.summoner_name%>
+
                         <%end%>
 
 
@@ -32,6 +37,7 @@
                 <div class="conversation-head">  
                             
                     <h3 class="conversation-title">
+
                         <%if @current_conversation.participant_a.id == current_user.id%>
                             <%=@current_conversation.participant_b.summoner_name%>
                         <%else%>

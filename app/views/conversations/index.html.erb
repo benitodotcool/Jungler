@@ -10,7 +10,7 @@
 
             <div class="conversation-left">
                 
-                <% @conversations.sort.each do |conversation| %>
+                <% @conversations.reverse_each do |conversation| %>
 
                 <a href="<%=conversation_path(conversation.id)%>">
                     <div class="conversation-name current">
