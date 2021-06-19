@@ -46,11 +46,15 @@ body {
 
 
 /* HIDE SCROLLBAR */
+.conversation-right::-webkit-scrollbar,
+.conversation-left::-webkit-scrollbar,
 .main-wrapper::-webkit-scrollbar,
 .aside-content::-webkit-scrollbar {
   display: none;
 }
 
+.conversation-left,
+.conversation-right,
 .main-wrapper,
 .aside-content {
   -ms-overflow-style: none;  /* IE and Edge */
