@@ -78,18 +78,24 @@ class MatchesController < ApplicationController
      @current_user_id = params[:requestor_id]
       condition_1 = Match.exists?(requestor_id: @current_user_id, receiver_id:@user_swipped_id, status: true)#tododev
       condition_2 = Match.exists?(requestor_id:@user_swipped_id, receiver_id:@current_user_id, status: true)#tododev
-
+      
       if condition_1 == true && condition_2 == true 
-        @conversation = Conversation.create!(participant_a_id:@current_user_id, participant_b_id: @user_swipped_id) 
-        
-        #respond_to do |format|
-        #  if @conversation.save
-        #    format.html { redirect_to users_path, notice: "Match was successfully created." }
-        #  else
-        #    format.html { redirect_to root_path}
-        #  end
-        #end
+
+        is_conversation_exists?
   
       end
+    end
+
+    def is_conversation_exists?
+
+      condition_1 = Conversation.exists?(participant_a_id:@current_user_id, participant_b_id:@user_swipped_id)
+      condition_2 = Conversation.exists?(participant_a_id:@user_swipped_id, participant_b_id:@current_user_id)
+      
+      if condition_1 == false && condition_2 == false
+    
+        @conversation = Conversation.create!(participant_a_id:@current_user_id, participant_b_id: @user_swipped_id) 
+
+      end
+    
     end
 end
