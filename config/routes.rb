@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'category/index'
-  get 'discovery/index'
-  get 'landing_page/index'
+  resources :category, only: [:index]
+  resources :discovery, only: [:index]
+  resources :landing_page, only: [:index]
   resources :conversations
   resources :matches
   resources :user_game_stats
