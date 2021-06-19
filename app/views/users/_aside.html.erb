@@ -54,15 +54,13 @@
     <div class="aside-fixed-bottom">
 
         <div class="user-general">
-
+            <%if user_signed_in? %>
             <div class="user-wrapper">
                 <div class="user-status"></div>
                 <h3 class="user-name">Connecté en tant que <b><%=current_user.summoner_name%></b></h3>
-                
-                <a> Se déconnecter</a>
-        
+                <%= link_to "Déconnexion", destroy_user_session_path, method: :delete %>
             </div>
-
+            <%end%>
         </div>
 
     </div>
