@@ -21,19 +21,21 @@ class MatchesController < ApplicationController
 
   # POST /matches or /matches.json
   def create
+    @users = User.all
+    @user_select = @users.sample
     @match = Match.new(match_params)
     @user_swipped_id =  params[:receiver_id]
     @current_user_id = params[:requestor_id]
+    @user_swipped = User.find(@user_swipped_id )
     respond_to do |format|
-      if @match.save
-        is_set? #tododev
-        format.html { redirect_to users_path, notice: "Match was successfully created." }
-        format.json { render :show, status: :created, location: @match }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @match.errors, status: :unprocessable_entity }
+      if @match.save 
+        if is_set? #tododev
+        format.html { redirect_to users_path, notice: "MATCH avec #{@user_swipped.summoner_name} !! " }
+        else 
+        format.html { redirect_to users_path, notice: "Pas encore de match avec #{@user_swipped.summoner_name}... " }
+        end
       end
-    end 
+    end
   end
 
   # PATCH/PUT /matches/1 or /matches/1.json
@@ -71,14 +73,23 @@ class MatchesController < ApplicationController
 
     def is_set?
       
-     #tododev
+
      @user_swipped_id =  params[:receiver_id]
      @current_user_id = params[:requestor_id]
       condition_1 = Match.exists?(requestor_id: @current_user_id, receiver_id:@user_swipped_id, status: true)#tododev
       condition_2 = Match.exists?(requestor_id:@user_swipped_id, receiver_id:@current_user_id, status: true)#tododev
 
-      if condition_1 == true && condition_2 == true #tododev
-        Conversation.create(participant_a_id:@current_user_id, participant_b_id: @user_swipped_id) #tododev
+      if condition_1 == true && condition_2 == true 
+        @conversation = Conversation.create!(participant_a_id:@current_user_id, participant_b_id: @user_swipped_id) 
+        
+        #respond_to do |format|
+        #  if @conversation.save
+        #    format.html { redirect_to users_path, notice: "Match was successfully created." }
+        #  else
+        #    format.html { redirect_to root_path}
+        #  end
+        #end
+  
       end
     end
 end
