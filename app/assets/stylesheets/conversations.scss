@@ -15,7 +15,11 @@
         overflow: scroll;
 
         a {
-            text-decoration: none;            
+            text-decoration: none;
+        }
+
+        .current {
+            background-color: var(--secondary-dark-color);
         }
 
         .conversation-name {
@@ -29,12 +33,18 @@
             grid-template-columns: 40px 1fr;
             grid-template-rows: 1fr;
             grid-column-gap: 10px;
+            transition: all 0.25s ease-out;
+
+            &:hover {
+                background-color: var(--secondary-dark-color);
+                transition: all 0.25s ease-out;
+            }
 
             .user-photo {
                 height: 40px;
                 width: 40px;
                 border-radius: 50%;
-                background-color: var(--medium-grey-color);
+                background-color: var(--dark-grey-color);
                 display: grid;
                 place-items: center;
                 color: var(--light-grey-color);
@@ -80,14 +90,6 @@
 
             }
 
-            .current {
-                background-color: var(--secondary-dark-color);
-            }
-
-        }
-
-        .current {
-            background-color: var(--secondary-dark-color);
         }
 
     }
