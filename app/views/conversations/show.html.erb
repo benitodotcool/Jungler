@@ -12,22 +12,46 @@
                 
                 <%  @conversations.reverse_each do |conversation| %>
 
-                <a href="<%=conversation_path(conversation.id)%>">
+                    <a href="<%=conversation_path(conversation.id)%>">
 
-                    <div class="conversation-name current">
+                        <div class="conversation-name">
 
-                        <%if conversation.participant_a.id == current_user.id%>
+                            <div class="user-photo">
+                            
+                                <%if conversation.participant_a.id == current_user.id%>
+                                    <%=conversation.participant_b.summoner_name[0]%>
+                                <%else%>
+                                    <%=conversation.participant_a.summoner_name[0]%>
+                                <%end%>
 
-                            <%=conversation.participant_b.summoner_name%>
-                        <%else%>
+                            </div>
 
-                            <%=conversation.participant_a.summoner_name%>
+                            <div class="user-info">
 
-                        <%end%>
+                                <h4 class="name">
+
+                                    <%if conversation.participant_a.id == current_user.id%>
+                                        <%=conversation.participant_b.summoner_name%>
+                                    <%else%>
+                                        <%=conversation.participant_a.summoner_name%>
+                                    <%end%>
+                                
+                                </h4>
+
+                                <div class="last-message">
+                                
+                                    <div class="content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit, autem.</div>
+                                    <div class="time">15m</div>
+
+                                </div>
 
 
-                    </div>
-                </a>
+
+                            </div>
+
+                        </div>
+                    </a>
+
                 <%end%>
                 
             </div>

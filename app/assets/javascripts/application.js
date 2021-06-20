@@ -14,3 +14,5 @@
 //= require activestorage
 //= require_tree .
 //= require nav_action
+//= require message_margin
+//= require conversation_name

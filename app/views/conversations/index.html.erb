@@ -9,23 +9,52 @@
         <div class="main-content-conversations">
 
             <div class="conversation-left">
-                
-                <% @conversations.reverse_each do |conversation| %>
+                            
+                            <%  @conversations.reverse_each do |conversation| %>
 
-                <a href="<%=conversation_path(conversation.id)%>">
-                    <div class="conversation-name current">
-                        <%if conversation.participant_a.id == current_user.id%>
-                            <%=conversation.participant_b.summoner_name%>
-                        <%else%>
-                            <%=conversation.participant_a.summoner_name%>
-                        <%end%>
+                                <a href="<%=conversation_path(conversation.id)%>">
+
+                                    <div class="conversation-name">
+
+                                        <div class="user-photo">
+                                        
+                                            <%if conversation.participant_a.id == current_user.id%>
+                                                <%=conversation.participant_b.summoner_name[0]%>
+                                            <%else%>
+                                                <%=conversation.participant_a.summoner_name[0]%>
+                                            <%end%>
+
+                                        </div>
+
+                                        <div class="user-info">
+
+                                            <h4 class="name">
+
+                                                <%if conversation.participant_a.id == current_user.id%>
+                                                    <%=conversation.participant_b.summoner_name%>
+                                                <%else%>
+                                                    <%=conversation.participant_a.summoner_name%>
+                                                <%end%>
+                                            
+                                            </h4>
+
+                                            <div class="last-message">
+                                            
+                                                <div class="content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit, autem.</div>
+                                                <div class="time">15m</div>
+
+                                            </div>
 
 
-                    </div>
-                </a>
-                <%end%>
-                
-            </div>
+
+                                        </div>
+
+                                    </div>
+                                </a>
+
+                            <%end%>
+                            
+                        </div>
 
             <div class="conversation-right-index">
 
