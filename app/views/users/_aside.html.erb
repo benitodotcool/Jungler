@@ -32,32 +32,32 @@
 
 </div>
 
-<div class="aside-container">
+<div class="aside-container inset">
 
     <div class="aside-content">
 
-        <div class="notification-container"></div>
-        <div class="notification-container"></div>
-        <div class="notification-container"></div>
-        <div class="notification-container"></div>
-        <div class="notification-container"></div>
-        <div class="notification-container"></div>
-        <div class="notification-container"></div>
-        <div class="notification-container"></div>
-        <div class="notification-container"></div>
-        <div class="notification-container"></div>
-        <div class="notification-container"></div>
-        <div class="notification-container"></div>
+        <div class="notification-container inset"></div>
+        <div class="notification-container inset"></div>
+        <div class="notification-container inset"></div>
+        <div class="notification-container inset"></div>
+        <div class="notification-container inset"></div>
+        <div class="notification-container inset"></div>
+        <div class="notification-container inset"></div>
+        <div class="notification-container inset"></div>
+        <div class="notification-container inset"></div>
+        <div class="notification-container inset"></div>
+        <div class="notification-container inset"></div>
+        <div class="notification-container inset"></div>
         
     </div>
 
     <div class="aside-fixed-bottom">
 
-        <div class="user-general">
+        <div class="user-general inset-light">
             <%if user_signed_in? %>
             <div class="user-wrapper">
                 <div class="user-status"></div>
-                <h3 class="user-name">Connecté en tant que <b><%=current_user.summoner_name%></b></h3>
+                <h3 class="user-name"><%=current_user.summoner_name%></h3>
                 <%= link_to "Déconnexion", destroy_user_session_path, method: :delete %>
             </div>
             <%end%>

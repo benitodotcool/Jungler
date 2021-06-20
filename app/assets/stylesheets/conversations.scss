@@ -129,8 +129,6 @@
             .conversation-head {
                 grid-area: 1 / 1 / 2 / 2;
                 background-color: var(--secondary-dark-color);
-                border-top: 1px solid var(--dark-grey-color);
-                border-left: 1px solid var(--dark-grey-color);
                 border-radius: var(--small-border-radius);
                 display: flex;
                 justify-content: space-between;
@@ -169,7 +167,7 @@
 
             .message {
                 padding: calc(var(--small-padding) / 2) var(--small-padding) calc(var(--small-padding) / 2) var(--small-padding);
-                margin-bottom: 5px;
+                margin-bottom: 10px;
                 border-radius: var(--small-border-radius);
                 max-width: 75%;
                 overflow-wrap: anywhere;
@@ -202,7 +200,7 @@
             border-top-right-radius: var(--small-border-radius);
             z-index: 2;
 
-            .conversation-send {
+            .conversation-send { 
                 border-radius: var(--small-border-radius);
                 background-color: var(--secondary-dark-color);
                 height: 100%;   

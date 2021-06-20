@@ -32,8 +32,6 @@ aside {
     display: grid;
     grid-row-gap: 1.25rem;
     border-radius: var(--small-border-radius);
-    border-top: 1px solid var(--dark-grey-color);
-    border-left: 1px solid var(--dark-grey-color);
     overflow: scroll;
     padding: var(--small-padding);
 
@@ -42,8 +40,6 @@ aside {
       height: 100px;
       width: 100%;
       background-color: var(--secondary-dark-color);
-      border-top: 1px solid var(--dark-grey-color);
-      border-left: 1px solid var(--dark-grey-color);
       border-radius: var(--small-border-radius);
     }
 
@@ -62,8 +58,6 @@ aside {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     grid-auto-flow: row;
-    border-top: 1px solid var(--medium-grey-color);
-    border-left: 1px solid var(--medium-grey-color);
     z-index: 100000000;
 
     .user-general {
@@ -73,6 +67,7 @@ aside {
       height: 100%;
       width: 100%;
       padding: 25px;
+      border-radius: var(--small-border-radius) var(--small-border-radius) 0 var(--small-border-radius);
 
       .user-wrapper {
 
