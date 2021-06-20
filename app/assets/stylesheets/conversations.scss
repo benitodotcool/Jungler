@@ -16,7 +16,7 @@
 
         .conversation-name {
             width: 100%;
-            height: 50px;
+            height: 75px;
             background-color: var(--secondary-dark-color);
             border-top: 1px solid var(--dark-grey-color);
             border-left: 1px solid var(--dark-grey-color);
@@ -42,9 +42,8 @@
         grid-area: 1 / 2 / 2 / 3;
         display: grid;
         grid-template-rows: 75px 1fr 50px;   
-        width: 100%;
         height: 100%;
-        overflow: scroll;
+        width: 100%;
         padding-bottom: var(--small-padding);
 
         .head-icons {
@@ -95,6 +94,7 @@
             overflow: scroll;
             padding-top: calc(75px + var(--small-padding));
             padding-bottom: calc(50px + var(--small-padding));
+            width: 100%;
 
             p {
                 color: var(--medium-grey-color);
@@ -141,7 +141,6 @@
             .conversation-send {
                 border-radius: var(--small-border-radius);
                 background-color: var(--secondary-dark-color);
-                margin-bottom: var(--small-padding);
                 height: 100%;   
                 
                 .send-content {
@@ -150,22 +149,57 @@
                     justify-content: space-between;
                     height: 100%;
                     width: 100%;
-                    padding: calc(var(--small-padding) / 2) var(--small-padding) calc(var(--small-padding) / 2) var(--small-padding);              
+                    padding: calc(var(--small-padding) / 2) 5px calc(var(--small-padding) / 2) var(--small-padding);              
 
                     .field-hidden {
                         display: none;
                     }
 
                     .input-text {
-                        height: 100%;
                         display: flex;
+                        width: calc(100% - 40px - var(--small-padding));
                         
                         & * {                            
                             color: var(--light-grey-color);
                             font-size: var(--small-font-size);
+                            width: 100%;
                         }
 
                     }
+
+                    .input-send {
+                        position: relative;
+                        height: 40px;
+                        width: 40px;
+                        border-radius: 50%;
+                        background-color: var(--blue-color);
+                        display: grid;
+                        place-items: center;
+                        
+                        .input-btn {
+                            position: absolute;
+                            z-index: 5;
+                            opacity: 0;
+
+                            & * {
+                                height: 40px;
+                                width: 40px;
+                                background-color: red;
+                                border-radius: 50%;
+                                cursor: pointer;
+                            }
+                        }
+
+                        .input-icon {
+                            position: absolute;
+                            display: grid;
+                            place-items: center;
+                            transform: translateX(-1px);
+                            
+                        }
+
+                    }
+
                 }
             }
 
