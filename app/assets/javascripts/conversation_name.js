@@ -1,19 +1,19 @@
-function conversationCurrent() {
+// function conversationCurrent() {
 
-    var allConversations = document.querySelectorAll('.conversation-focus');
+//     var allConversations = document.querySelectorAll('.conversation-focus');
 
-    //console.log(allConversations)
+//     //console.log(allConversations)
 
-    allConversations.forEach((conversation) => {
+//     allConversations.forEach((conversation) => {
 
-        conversation.addEventListener('mouseover', function() {
+//         conversation.addEventListener('mouseover', function() {
 
-            conversation.firstElementChild.classList.toggle('current');
+//             conversation.firstElementChild.classList.toggle('current');
 
-        });
+//         });
 
-    });
+//     });
 
-}
+// }
 
-conversationCurrent()
+// conversationCurrent()
