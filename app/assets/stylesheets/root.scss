@@ -26,7 +26,7 @@
   --small-border-radius: 2vw;
   --medium-border-radius: 2vw;
 
-  --small-font-size: clamp(14px, 1vw, 20px);
+  --small-font-size: clamp(14px, 1vw, 16px);
   --medium-font-size: clamp(20px, 1.5vw, 35px);
   --big-font-size: clamp(30px, 2.5vw, 80px);
 
@@ -48,6 +48,7 @@ body {
 /* HIDE SCROLLBAR */
 .conversation-right::-webkit-scrollbar,
 .conversation-left::-webkit-scrollbar,
+.conversation-content::-webkit-scrollbar,
 .main-wrapper::-webkit-scrollbar,
 .aside-content::-webkit-scrollbar {
   display: none;
@@ -55,6 +56,7 @@ body {
 
 .conversation-left,
 .conversation-right,
+.conversation-content,
 .main-wrapper,
 .aside-content {
   -ms-overflow-style: none;  /* IE and Edge */
