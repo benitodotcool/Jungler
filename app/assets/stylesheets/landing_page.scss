@@ -187,14 +187,43 @@
 
         .cell-6 {
             grid-area: 7 / 1 / 9 / 7;
+            height: 40vh;
+            display: grid;
+            place-items: center;
         }
 
-        .cell-7 {
-            grid-area: 9 / 1 / 10 / 3;
+        .cell-7 {            
+            grid-column: 1 / span 6;
+            padding: 0;
+            display: grid;
+            margin-bottom: calc(var(--medium-padding) * 2);
+
+            .title {
+
+                &::before {
+                    vertical-align: 40%;
+                    content: "new";
+                    font-size: 12px;
+                    text-transform: uppercase;
+                    background-color: var(--warning-color);
+                    color: var(--main-bg-dark-color);
+                    padding: 2px 5px 2px 5px;
+                    margin-right: 10px;
+                    border-radius: 5px;
+                  }
+
+            }
+
+            .container-stats {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-column-gap: var(--small-padding);
+            }
+
         }
 
         .cell-8 {
-            grid-area: 9 / 3 / 10 / 5;
+            
         }
 
         .cell-9 {
