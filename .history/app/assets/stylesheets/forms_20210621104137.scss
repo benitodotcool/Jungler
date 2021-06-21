@@ -1,19 +1,16 @@
-
-
 .form-container { 
-    float:right;
+    text-align: center;
     margin:10px 0; // add top and bottom margin
-    -webkit-box-shadow: inset 1px 1px 1px 0px var(--dark-grey-color);
-     box-shadow: inset 1px 1px 1px 0px var(--dark-grey-color);      
+    
     
     #user_email, #user_password, #user_password_confirmation   {
         border-radius: 2rem;
-        background-color: var(--dark-grey-color); 
+        background-color: var(--dark-grey-color);
+        border: none;
         padding-top: 10px;
         margin-bottom: 15px;
         color: var(--light-grey-color);
-        float:right;      
-           
+
     .actions {
         border-radius: 10%;
         background-color: var(--secondary-dark-color);
@@ -31,14 +28,17 @@
     color:var(--light-grey-color);
 }
 
-    
 .login-field {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 40%;
+    height: 100%;
     width: 100%;
-    padding: calc(var(--small-padding) / 2) 5px calc(var(--small-padding) / 2) var(--small-padding);       
-           
+    opacity: 0.5;  
+   
+  
 }
     
+
+    
+

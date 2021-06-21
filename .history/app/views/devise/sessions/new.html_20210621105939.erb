@@ -2,7 +2,7 @@
 <div class="title-container">
 <h2>Connexion</h2>
 </div>
-<div>
+
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div>
     <p><%= f.label :email %><br /></p>
@@ -25,6 +25,6 @@
     <%= f.submit "Connexion", class: "input-send" %>
   </div>
 <% end %>
-</div>
+
 <%= render "devise/shared/links" %>
 </div>

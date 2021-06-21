@@ -4,7 +4,7 @@
 </div>
 <div>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div>
+  <div class="inset">
     <p><%= f.label :email %><br /></p>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"login-field" %>
   </div>

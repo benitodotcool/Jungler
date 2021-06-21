@@ -1,7 +1,7 @@
 
 
 .form-container { 
-    float:right;
+    text-align: center;
     margin:10px 0; // add top and bottom margin
     -webkit-box-shadow: inset 1px 1px 1px 0px var(--dark-grey-color);
      box-shadow: inset 1px 1px 1px 0px var(--dark-grey-color);      
@@ -23,8 +23,7 @@
 }
 
 .title-container {
-    padding-bottom: 20px;
-    padding-top: 8px;
+   float:right
 }
 
 .link-color {
