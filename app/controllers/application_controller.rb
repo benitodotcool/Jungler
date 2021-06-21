@@ -9,6 +9,6 @@ class ApplicationController < ActionController::Base
   
   def after_sign_in_path_for(user)
     stored_location_for(user) 
-    edit_user_path(params[:id])
+    edit_user_path(current_user.id)
   end
 end
