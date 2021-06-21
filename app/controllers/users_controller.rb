@@ -61,6 +61,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update(user_params)
+        
         if UserGameStat.exists?(id:current_user.id)
         else
           @user_game_stat = UserGameStat.create!(id:current_user.id, user_id: current_user.id)
@@ -134,17 +135,17 @@ class UsersController < ApplicationController
     end
 
     def get_api_summoner(summoner_name)
-      @summoner_name = User.find(current_user.id).summoner_name
-     client = RiotGamesApiClient::Client.new(####
-        
-      ) 
-    #response = client.get_lol_summoner(summoner_name: summoner_name)
-    response = client.get_lol_summoner(summoner_name: @summoner_name)
-    @summoner_id = response.body['id']
+    ##  @summoner_name = User.find(current_user.id).summoner_name
+    ## client = RiotGamesApiClient::Client.new(####
+    ##    
+    ##  ) 
+    ###response = client.get_lol_summoner(summoner_name: summoner_name)
+    ##response = client.get_lol_summoner(summoner_name: @summoner_name)
+    #@summoner_id = response.body['id']
     #@level = response.body['level'].to_i
-    if @summoner_id != nil
+    #if @summoner_id != nil
     UserGameStat.find(current_user.id).update!(summoner_id: @summoner_id, level: 1267 )
-    end
+    #end
       
     end
 

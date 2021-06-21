@@ -14,17 +14,7 @@
     </div>
   <% end %>
  
- <section id="editprofile">
-<div class="card-container">
-
-	<img class="round" src="https://i.pinimg.com/originals/2c/54/06/2c5406a83ab2257df1c57b52945e1c3c.jpg" alt="user" />
-	<h3><div class="field">
-        <%= form.label :Nom_invocateur %><br>
-        <%= form.text_field :summoner_name, class:"textedit" %><br>
-        <%= form.submit "Changer de nom", class:"input-send" %>
-      </div>
-    
-    </h3>
+ 
 	<h6><div class="fieldedit">    
           <%= form.label :Niveau %><br>
           <%= form.number_field :level, class:"textedit" %>
@@ -34,17 +24,14 @@
           <%= form.label :description_ %><br>
           <%= form.text_field :description, class:"texteditd"%>
        </div>  
-       <div class="fieldedit">
-           <%= form.label :email %><br>
-          <%= form.text_field :email, class:"textedit" %>
-       </div> 
+  
        <div class="fieldedit">
           <%= form.label :premier_rôle %><br>
-          <%= form.select :desired_attribute, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]%>
+          <%= form.select :primary_role, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]%>
       </div>
       <div class="fieldedit">
             <%= form.label :Rôle_secondaire %><br>
-            <%= form.select :desired_attribute, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]%>
+            <%= form.select :secondary_role, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]%>
       
 
        

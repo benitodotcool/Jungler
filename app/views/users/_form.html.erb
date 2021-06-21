@@ -12,17 +12,36 @@
     </div>
   <% end %>   
 
+
+<section id="editprofile">
+<div class="card-container">
+
+	<img class="round" src="https://i.pinimg.com/originals/2c/54/06/2c5406a83ab2257df1c57b52945e1c3c.jpg" alt="user" />
+	<h3>
+  <div class="field">
+        <%= form.label :Nom_invocateur %><br>
+        <%= form.text_field :summoner_name, class:"textedit" %><br>
+        <%= form.submit "Changer de nom", class:"input-send" %>
+      </div>
+    
+    </h3>
+    <h6>
+         <div class="fieldedit">
+           <%= form.label :email %><br>
+          <%= form.text_field :email, class:"textedit" %>
+       </div> 
+      </h6>
    
   
      
-
-  
- 
+<%if current_user.summoner_name != nil %>
+  <%= render 'user_game_stats/form', user_game_stat: @user_game_stat%>
+ <%end%>
  
 <%end%> 
 
+ 
 
-<%= render 'user_game_stats/form', user_game_stat: @user_game_stat%>
 
 
 
