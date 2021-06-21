@@ -41,7 +41,8 @@ class UsersController < ApplicationController
   def create
     
     @user = User.new(user_params)
-    
+    @user.tag_list.add("Relax", "Peer-Learning", "Try-Hard").sample
+    @user.save
     respond_to do |format|
       if @user.save
         UserGameStat.create!(id:current_user.id, user_id: current_user.id)
@@ -95,7 +96,7 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:summoner_name, :id, :user_game_stat_id,:email)
+      params.require(:user).permit(:summoner_name, :id, :user_game_stat_id, :email, :tag_list)
     end
 
     def set_user_game_stat
@@ -151,6 +152,12 @@ class UsersController < ApplicationController
       
     end
 
-  
+    def tagged
+      if params[:tag].present?
+        @users = User.tagged_with(params[:tag])
+      else
+        @users = User.all
+      end
+    end
 
 end
