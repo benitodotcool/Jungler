@@ -26,6 +26,14 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @user = User.find(params[:id])
+      if @user.id == current_user.id
+        return true 
+      else
+        flash[:alert] = "Accès interdit !"
+        redirect_to root_path
+        return false
+      end
   end
 
   # POST /users or /users.json
@@ -82,5 +90,16 @@ class UsersController < ApplicationController
 
     def set_user_game_stat
       @user_game_stat = UserGameStat.find_by(user_id:@user.id)
+    end
+
+    def user_authorized?
+      @user = User.find(params[:id])
+      if @user.id == current_user.id
+        return true 
+      else
+        flash[:alert] = "Accès interdit !"
+        redirect_to root_path
+        return false
+      end 
     end
 end

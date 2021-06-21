@@ -1,9 +1,7 @@
 <div class="aside-info">
 
-    <% if user_signed_in? %>
-
     <ul class="aside-icons">
-        
+    
         <li class="container-icons">
             <svg id="icon-notification" class="icon" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>Iconly/Light/Notification</title>
@@ -27,48 +25,39 @@
                 </g>
             </svg>
         </li>
-        
-    </ul>
 
-    <% else %>
-            
-            <div class="header__right__auth d-flex align-items-center mr-0 ml-3">
-                <a class="" href="<%= new_user_session_path %>">Connexion  /</a>
-                <a class="" href="<%= new_user_registration_path %>">Inscription</a>
-            </div>
-    <% end %>
+    </ul>
 
 </div>
 
-<div class="aside-container inset">
+<div class="aside-container">
 
     <div class="aside-content">
 
-        <div class="notification-container inset"></div>
-        <div class="notification-container inset"></div>
-        <div class="notification-container inset"></div>
-        <div class="notification-container inset"></div>
-        <div class="notification-container inset"></div>
-        <div class="notification-container inset"></div>
-        <div class="notification-container inset"></div>
-        <div class="notification-container inset"></div>
-        <div class="notification-container inset"></div>
-        <div class="notification-container inset"></div>
-        <div class="notification-container inset"></div>
-        <div class="notification-container inset"></div>
+        <div class="notification-container"></div>
+        <div class="notification-container"></div>
+        <div class="notification-container"></div>
+        <div class="notification-container"></div>
+        <div class="notification-container"></div>
+        <div class="notification-container"></div>
+        <div class="notification-container"></div>
+        <div class="notification-container"></div>
+        <div class="notification-container"></div>
+        <div class="notification-container"></div>
+        <div class="notification-container"></div>
+        <div class="notification-container"></div>
         
     </div>
 
     <div class="aside-fixed-bottom">
 
-        <div class="user-general inset-light">
-            <%if user_signed_in? %>
+        <div class="user-general">
+
             <div class="user-wrapper">
                 <div class="user-status"></div>
-                <h3 class="user-name"><%=current_user.summoner_name%></h3>
-                <%= link_to "Déconnexion", destroy_user_session_path, method: :delete %>
+                <h3 class="user-name">Cipe and Senna</h3>
             </div>
-            <%end%>
+
         </div>
 
     </div>
