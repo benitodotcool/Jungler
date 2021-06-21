@@ -38,6 +38,7 @@ class UserGameStatsController < ApplicationController
 
   # PATCH/PUT /user_game_stats/1 or /user_game_stats/1.json
   def update
+    
     respond_to do |format|
       if @user_game_stat.update(user_game_stat_params)
         format.html { redirect_to users_path, notice: "User game stat was successfully updated." }

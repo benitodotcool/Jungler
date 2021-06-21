@@ -44,6 +44,7 @@ class UsersController < ApplicationController
     
     respond_to do |format|
       if @user.save
+        UserGameStat.create!(id:current_user.id, user_id: current_user.id)
         format.html { redirect_to @user, notice: "User was successfully created." }
         format.json { render :show, status: :created, location: @user }
       else
@@ -56,12 +57,17 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
-    @summoner_name = "CipeandSenna"
+    @summoner_name = params[:summoner_name]
 
     respond_to do |format|
       if @user.update(user_params)
-        #get_api_summoner(@summoner_name)
-        UserGameStat.create!(user_id: current_user.id)
+        if UserGameStat.exists?(id:current_user.id)
+        else
+          @user_game_stat = UserGameStat.create!(id:current_user.id, user_id: current_user.id)
+        end
+      
+        get_api_summoner(@summoner_name)
+        
         format.html { redirect_to request.referrer, notice: "User was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -128,17 +134,17 @@ class UsersController < ApplicationController
     end
 
     def get_api_summoner(summoner_name)
-      client = RiotGamesApiClient::Client.new(
-        api_key: "RGAPI-fabecb8c-9e33-4721-9641-cf7ffec694f4",
-        region: "euw1"
+      @summoner_name = User.find(current_user.id).summoner_name
+     client = RiotGamesApiClient::Client.new(
+        
       ) 
     #response = client.get_lol_summoner(summoner_name: summoner_name)
-    response = client.get_lol_summoner(summoner_name:@summoner_name)
-    summoner_id = response.body['id']
-    
-      #if summoner_id != nil
-      @user_game_stat = UserGameStat.create!(user_id: current_user.id)
-      #end
+    response = client.get_lol_summoner(summoner_name: @summoner_name)
+    @summoner_id = response.body['id']
+    #@level = response.body['level'].to_i
+    if @summoner_id != nil
+    UserGameStat.find(current_user.id).update!(summoner_id: @summoner_id, level: 1267 )
+    end
       
     end
 
