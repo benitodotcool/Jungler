@@ -135,7 +135,7 @@ class UsersController < ApplicationController
 
     def get_api_summoner(summoner_name)
       @summoner_name = User.find(current_user.id).summoner_name
-     client = RiotGamesApiClient::Client.new(
+     client = RiotGamesApiClient::Client.new(####
         
       ) 
     #response = client.get_lol_summoner(summoner_name: summoner_name)
