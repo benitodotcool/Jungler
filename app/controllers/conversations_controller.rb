@@ -6,13 +6,12 @@ class ConversationsController < ApplicationController
   # GET /conversations or /conversations.json
 
   def index
-    @conversations = Conversation.all
+    @conversations = conversations_allowed
     @messages= Message.all
   end
 
   # GET /conversations/1 or /conversations/1.json
   def show
-  
     @conversation_id = params[:id]
     @current_conversation= Conversation.find(@conversation_id )
     @messages= Message.all.where(conversation_id:@conversation_id)
@@ -77,14 +76,25 @@ class ConversationsController < ApplicationController
     end
 
     def user_authorized?
-      @user = User.find(params[:id])
-      if @user.id == current_user.id
+      user_id_a = Conversation.find(params[:id]).participant_a_id
+      user_id_b = Conversation.find(params[:id]).participant_b_id
+    
+      if user_id_a == current_user.id || user_id_b == current_user.id 
         return true 
       else
         flash[:alert] = "Accès interdit !"
-        redirect_to root_path
+        redirect_to conversations_path
         return false
       end 
+    end
+
+    def conversations_allowed
+
+      condition_1 = Conversation.where(participant_a_id:current_user.id)
+      condition_2 = Conversation.where(participant_b_id:current_user.id)
+
+      @conversations = condition_1 + condition_2
+
     end
     
 end
