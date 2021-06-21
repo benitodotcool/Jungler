@@ -35,7 +35,7 @@
             </li>
         </a>
 
-         <%if user_signed_in?%>
+         <%if user_signed_in? && @conversations != nil%>
         <a href="<%= conversation_path(@conversations.first) %>">
         <%else%>
         <a href="<%= conversations_path %>">
