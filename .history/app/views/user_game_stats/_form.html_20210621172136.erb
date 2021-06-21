@@ -35,10 +35,6 @@
           <%= form.text_field :description, class:"texteditd"%>
        </div>  
        <div class="fieldedit">
-           <%= form.label :email %><br>
-          <%= form.text_field :email, class:"textedit" %>
-       </div> 
-       <div class="fieldedit">
           <%= form.label :premier_rôle %><br>
           <%= form.select :desired_attribute, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]%>
       </div>
@@ -47,7 +43,10 @@
             <%= form.select :desired_attribute, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]%>
       
 
-       
+        <div class="field">
+          <%= form.label :email %>
+          <%= form.text_field :level %>
+        </div>
         
 </p>
 	<div class="buttons">
