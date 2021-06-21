@@ -95,7 +95,7 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:summoner_name, :id, :user_game_stat_id)
+      params.require(:user).permit(:summoner_name, :id, :user_game_stat_id,:email)
     end
 
     def set_user_game_stat

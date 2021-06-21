@@ -28,17 +28,28 @@
     <h6>
          <div class="fieldedit">
            <%= form.label :email %><br>
-          <%= form.text_field :email, class:"textedit" %>
+          <%= form.text_field :email, class:"textedit" %><br>
+            <%= form.submit "Changer de mail", class:"input-send" %>
        </div> 
-      </h6>
-   
+
+
+    </h6>
+      
+         <div class="field">
+          <%= form.hidden_field :user_game_stat_id, value: current_user.id %>
+        </div>
+        
   
+      
+  <%end%> 
      
 <%if current_user.summoner_name != nil %>
   <%= render 'user_game_stats/form', user_game_stat: @user_game_stat%>
  <%end%>
  
-<%end%> 
+
+
+
 
  
 
