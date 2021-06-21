@@ -128,24 +128,26 @@ class UsersController < ApplicationController
     
     
     def is_match_exists?(user)
-      condition_1 = Match.exists?(receiver_id: user.id)
+      condition_1 = Match.exists?(requestor_id:current_user.id, receiver_id: user.id)
       if condition_1 == true 
         return true
       end
     end
 
     def get_api_summoner(summoner_name)
-    ##  @summoner_name = User.find(current_user.id).summoner_name
-    ## client = RiotGamesApiClient::Client.new(####
-    ##    
-    ##  ) 
-    ###response = client.get_lol_summoner(summoner_name: summoner_name)
+     @summoner_name = User.find(current_user.id).summoner_name
+    #  #  client = RiotGamesApiClient::Client.new(
+    #  #    api_key: ENV['RIOT_API_KEY'],
+    #  #    region: "euw1"
+    #  #   ) 
+    #   
+    #response = client.get_lol_summoner(summoner_name: @summoner_name)
     ##response = client.get_lol_summoner(summoner_name: @summoner_name)
     #@summoner_id = response.body['id']
     #@level = response.body['level'].to_i
-    #if @summoner_id != nil
-    UserGameStat.find(current_user.id).update!(summoner_id: @summoner_id, level: 1267 )
-    #end
+    if @summoner_id != nil
+    UserGameStat.find(current_user.id).update!(summoner_id: @summoner_id, level: 333 )
+    end
       
     end
 

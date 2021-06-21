@@ -8,7 +8,8 @@
 
         <div class="main-content-category">
             <% @users.reverse_each do |user|%>
-                <% if user.id != current_user.id %>
+                <% if user.id != current_user.id%>
+                    <%if user.user_game_stat != nil%>
                 <div class="cell inset">
                     <div class="head">
                         <h4><%= user.summoner_name%></h4>
@@ -19,6 +20,7 @@
                         <p><%=user.user_game_stat.secondary_role%></p>
                     </div>
                 </div>
+                    <%end%>
                 <%end%>
             <%end%>
         </div>
