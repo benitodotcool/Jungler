@@ -2,11 +2,19 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update ]
   before_action :set_user_game_stat, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
+  before_action :user_authorized?, only: %i[ show edit update destroy ]
+  
   #before_action :is_profile_completed?
+  
   # GET /users or /users.json
   def index
+<<<<<<< HEAD
     @users = User.all.where.not(id:current_user.id)
     @user_select = user_selected
+=======
+    @users = User.all
+    @user_select = @users.where.not(id: current_user.id).sample
+>>>>>>> development
     @conversations = Conversation.all
     @messages = Message.order("created_at DESC").all
     

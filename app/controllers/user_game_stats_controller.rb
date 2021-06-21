@@ -1,5 +1,6 @@
 class UserGameStatsController < ApplicationController
   before_action :set_user_game_stat, only: %i[ show edit update destroy ]
+  before_action :user_authorized?, only: %i[ show edit update destroy ]
   
 
   # GET /user_game_stats or /user_game_stats.json
@@ -66,5 +67,16 @@ class UserGameStatsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_game_stat_params
       params.require(:user_game_stat).permit(:level, :summoner_id, :primary_role, :secondary_role, :description, :user_id)
+    end
+
+    def user_authorized?
+      @user = User.find(params[:id])
+      if @user.id == current_user.id
+        return true 
+      else
+        flash[:alert] = "Accès interdit !"
+        redirect_to root_path
+        return false
+      end 
     end
 end
