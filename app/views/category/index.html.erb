@@ -8,7 +8,7 @@
 
         <div class="main-content-category">
             <% @users.reverse_each do |user|%>
-                <% if user.id != current_user.id%>
+                <% if user.id != current_user.id %>
                 <div class="cell inset">
                     <div class="head">
                         <h4><%= user.summoner_name%></h4>
