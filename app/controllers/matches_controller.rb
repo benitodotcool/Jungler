@@ -98,4 +98,9 @@ class MatchesController < ApplicationController
       end
     
     end
+
+    def :is_profile_completed?
+      #current_user_level = UserGameStat.find_by(user_id:current_user.id).level
+      #if current_user.summoner_name != nil && current_user_level!=nil && 
+    end
 end

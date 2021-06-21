@@ -22,6 +22,8 @@ class User < ApplicationRecord
   
   after_create :welcome_send
 
+  belongs_to :user_game_stat, optional: true
+
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
   end

@@ -12,6 +12,7 @@
     email: "admin@jungler.com",
     password: "azerty",
     summoner_name: Faker::Superhero.name
+    user_game_stat_id: i+1,
   ) 
 end
 19.times do
