@@ -1,7 +1,10 @@
 class ConversationsController < ApplicationController
   before_action :set_conversation, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
+  before_action :user_authorized?, only: %i[ show edit update destroy ]
+  
   # GET /conversations or /conversations.json
+
   def index
     @conversations = Conversation.all
     @messages= Message.all
@@ -73,7 +76,16 @@ class ConversationsController < ApplicationController
       params.fetch(:conversation, {})
     end
 
+    def user_authorized?
+      @user = User.find(params[:id])
+      if @user.id == current_user.id
+        return true 
+      else
+        flash[:alert] = "Accès interdit !"
+        redirect_to root_path
+        return false
+      end 
+    end
     
-
 end
 
