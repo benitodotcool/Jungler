@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
     root_path
   end
   
+  
   def after_sign_in_path_for(resource_or_scope)
   
     if is_profile_completed? 

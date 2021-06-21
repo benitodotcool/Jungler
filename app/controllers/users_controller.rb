@@ -56,9 +56,11 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
-    
+    @summoner_name = "CipeandSenna"
+
     respond_to do |format|
       if @user.update(user_params)
+        #get_api_summoner(@summoner_name)
         UserGameStat.create!(user_id: current_user.id)
         format.html { redirect_to request.referrer, notice: "User was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
@@ -119,16 +121,27 @@ class UsersController < ApplicationController
     
     
     def is_match_exists?(user)
-
       condition_1 = Match.exists?(receiver_id: user.id)
-
       if condition_1 == true 
-    
         return true
-    
       end
-    
     end
 
+    def get_api_summoner(summoner_name)
+      client = RiotGamesApiClient::Client.new(
+        api_key: "RGAPI-fabecb8c-9e33-4721-9641-cf7ffec694f4",
+        region: "euw1"
+      ) 
+    #response = client.get_lol_summoner(summoner_name: summoner_name)
+    response = client.get_lol_summoner(summoner_name:@summoner_name)
+    summoner_id = response.body['id']
+    
+      #if summoner_id != nil
+      @user_game_stat = UserGameStat.create!(user_id: current_user.id)
+      #end
+      
+    end
+
+  
 
 end
