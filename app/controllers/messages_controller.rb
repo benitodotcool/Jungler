@@ -29,7 +29,7 @@ class MessagesController < ApplicationController
         format.html { redirect_to conversation_path(@conversation_id), notice: "Message was successfully created." }
         format.json { render :show, status: :created, location: @message }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to conversation_path(@conversation_id), notice: "Le message ne peut pas être vide !"}
         format.json { render json: @message.errors, status: :unprocessable_entity }
       end
     end

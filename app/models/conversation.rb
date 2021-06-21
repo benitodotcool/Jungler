@@ -9,5 +9,6 @@ class Conversation < ApplicationRecord
   validates :participant_a, presence: true
   validates :participant_b, presence: true
    
+  has_many :messages 
   
 end

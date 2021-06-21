@@ -10,7 +10,7 @@ class CreateUserGameStats < ActiveRecord::Migration[5.2]
       t.string :primary_role
       t.string :secondary_role
       t.text :description
-    
+      
       t.timestamps
     end
   end
