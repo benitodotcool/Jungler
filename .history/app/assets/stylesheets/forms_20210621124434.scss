@@ -60,14 +60,14 @@
             border-radius: 2rem;
             transition: all 0.4s ease-out;
             text-align: center;
-            border: 2px solid var(--blue-color-shadow);;
+            border: 1px solid var(--blue-color-shadow);;
             background-color: var(--blue-color);
     
       &:hover {
         cursor: pointer;
         background-color: var(--blue-color);
         box-shadow: 0px 15px 25px 10px var(--blue-color-shadow);
-        border-radius: 12px;
+        border-radius: 2rem;
         color:white
       }
     

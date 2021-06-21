@@ -5,18 +5,17 @@
 </div>
 <div>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  
-  <div class="fieldlogin">
+  <div>
+    
     <div class="fieldstyle inset">
-      <%= f.email_field :email, placeholder:'Email', autofocus: true, autocomplete: "email", class:"login-field" %>
-    </div>
+    <%= f.email_field :email, placeholder:'email', autofocus: true, autocomplete: "email", class:"login-field" %>
+  </div>
   </div>
 
   <div>
-   
-   <div class="fieldlogin">
+    <%= f.label :password, class: "input-text" %><br />
     <div class="fieldstyle inset">
-    <%= f.password_field :password, placeholder:'Mot de passe', autocomplete: "current-password", class:"login-field" %>
+    <%= f.password_field :password, placeholder:'email' autocomplete: "current-password", class:"login-field" %>
     </div>
   </div>
 
