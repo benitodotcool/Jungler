@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update ]
   before_action :set_user_game_stat, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
-  before_action :user_authorized?, only: %i[ show edit update destroy ]
+  before_action :user_authorized?, only: %i[update destroy ]
   
   #before_action :is_profile_completed?
   
@@ -98,7 +98,7 @@ class UsersController < ApplicationController
       if @user.id == current_user.id
         return true 
       else
-        flash[:alert] = "Accès interdit !"
+        flash[:alert] = "Tu n'es pas autorisé à faire ça !"
         redirect_to root_path
         return false
       end 
