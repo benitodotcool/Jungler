@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   # GET /users or /users.json
   def index
     @users = User.all
-    @user_select = @users.sample
+    @user_select = @users.where.not(id: current_user.id).sample
     @conversations = Conversation.all
     @messages = Message.order("created_at DESC").all
     # respond_to do |format|
