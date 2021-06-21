@@ -40,8 +40,8 @@
 
                                 <div class="last-message">
                                 
-                                    <div class="content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit, autem.</div>
-                                    <div class="time">15m</div>
+                                    <div class="content"><%= @content %></div> 
+                                    <div class="time"><%=@time_ago %> </div> 
 
                                 </div>
 
@@ -112,6 +112,7 @@
                     <p class="conversation-date"><%=@current_conversation.created_at.strftime( "%d/%m/%Y %H:%M")%></p>
 
                     <% @messages.sort.each do |message| %>  
+
                         <% if message.user_id == current_user.id %>
 
                             <div class="message message-send"><%=message.content%></div>
