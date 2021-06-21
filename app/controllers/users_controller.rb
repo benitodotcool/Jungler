@@ -114,7 +114,7 @@ class UsersController < ApplicationController
         return  @user_select = user
         break
       end
-      redirect_to conversations_path
+      return false
     end
     
     
