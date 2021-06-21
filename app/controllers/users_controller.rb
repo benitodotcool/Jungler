@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user_game_stat, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
   #before_action :is_profile_completed?
+  
   # GET /users or /users.json
   def index
     @users = User.all
@@ -92,14 +93,4 @@ class UsersController < ApplicationController
       @user_game_stat = UserGameStat.find_by(user_id:@user.id)
     end
 
-    def user_authorized?
-      @user = User.find(params[:id])
-      if @user.id == current_user.id
-        return true 
-      else
-        flash[:alert] = "Accès interdit !"
-        redirect_to root_path
-        return false
-      end 
-    end
 end
