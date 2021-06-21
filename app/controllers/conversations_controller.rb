@@ -8,14 +8,18 @@ class ConversationsController < ApplicationController
   def index
     @conversations = conversations_allowed
     @messages= Message.all
+    
   end
 
   # GET /conversations/1 or /conversations/1.json
   def show
     @conversation_id = params[:id]
     @current_conversation= Conversation.find(@conversation_id )
-    @messages= Message.all.where(conversation_id:@conversation_id)
-    @conversations = Conversation.all
+    @messages= Message.all
+    @conversations = conversations_allowed
+    @content = Message.where(conversation_id:@conversation.id).last.content
+    @time_ago = Message.where(conversation_id:@conversation.id).last.updated_at.strftime( "%H:%M")
+  
   end
 
   # GET /conversations/new
