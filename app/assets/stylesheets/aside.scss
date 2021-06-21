@@ -61,37 +61,60 @@ aside {
     z-index: 100000000;
 
     .user-general {
-
       display: grid;
       place-items: center;
       height: 100%;
       width: 100%;
-      padding: 25px;
       border-radius: var(--small-border-radius) var(--small-border-radius) 0 var(--small-border-radius);
 
       .user-wrapper {
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding-right: 20px;
+        padding-left: 10px;
 
-        display: grid;
-        grid-auto-flow: column;
-        justify-self: start;
-        place-items: center;
-        grid-column-gap: 10px;
-  
-        .user-status {
+        .user-info {
+
+          h4 {
+            width: 100%; 
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis; 
+            font-weight: 500;
+          }
+
+          p {
+            font-size: var(--small-font-size);
+            color: var(--medium-grey-color);
+          }
+
+        }
+
+        &::before {
+          content: "";
           width: 10px;
           height: 10px;
           border-radius: 10px;
           background-color: var(--green-color);
+          transform: translateX(10px);
         }
-        
-        .user-name {
-          width: 100%; 
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis; 
-          font-weight: 500;
 
-        }
+        .settings {
+          display: grid;
+          place-items: center;
+          transition: all 0.3s ease-out;
+
+          &:hover svg#icon-settings g {
+            stroke: var(--light-grey-color);
+            transition: all 0.3s ease-out;
+            
+          }
+
+        } 
+
 
       }
 
@@ -100,42 +123,5 @@ aside {
   }
 
 }
-.aside-grid {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  grid-template-rows: 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  padding:20px;
- 
-  
-  & .div1 { grid-area: 1 / 1 / 2 / 2;
-    height: 100%;
-    width: 100%;
-   }
-  & .div2 { grid-area: 1 / 2 / 2 / 3;
-    height: 100%;
-    width: 100%; }
-
-  
-   & .ppuser
-   {
-     width:60%;
-     float:left;
-     border-radius: 30px;
-     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-   }
-
-   & .undertext
-   {
-     color:gray;
-   }
-  }
-   
-  
-  .msgtitle
-   {
-     text-align: center;
-   }
 
   
