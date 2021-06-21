@@ -1,0 +1,83 @@
+
+
+.form-container { 
+    align-items: center;
+    margin:10px 0; // add top and bottom margin
+   
+     display:inline-block;  
+     text-align:center;   
+    
+
+    #user_email, #user_password, #user_password_confirmation   {
+        border-radius: 2rem;
+        text-align: center;
+        padding-top: 10px;
+        margin-bottom: 15px;
+        color: var(--light-grey-color);
+                 
+          
+    .actions {
+        border-radius: 10%;
+        background-color:white;
+  
+    }
+        
+    }
+}
+
+.title-container {
+    padding-bottom: 20px;
+    padding-top: 8px;
+}
+
+.link-color {
+    color:var(--light-grey-color);
+}
+
+    
+.fieldstyle {
+         
+    background-color:var(--secondary-dark-color); 
+    border-radius: 2rem;
+    display:grid;
+    place-items: center; 
+    
+    
+    & ::placeholder
+    {
+        text-align: center;
+    }
+}
+    .fieldlogin
+    {
+        padding:20px;
+    }
+
+    .input-send {
+            color:var(--li);
+            border:1px;
+            padding:8px;        
+            border-radius: 2rem;
+            transition: all 0.4s ease-out;
+            text-align: center;
+            border: 2px solid var(--blue-color-shadow);;
+           background-color: var(--blue-color);
+    
+      &:hover {
+        cursor: pointer;
+        background-color: var(--blue-color);
+        box-shadow: 0px 15px 25px 10px var(--blue-color-shadow);
+        border-radius: 2rem;
+        color:white
+      }
+    
+      &:hover svg#icon-home g,
+      &:hover svg#icon-arrow g,
+      &:hover svg#icon-message g,
+      &:hover svg#icon-category g,
+      &:hover svg#icon-discovery g,
+      &:hover svg#icon-notification g,
+      &:hover svg#icon-profile g {
+        stroke: var(--light-grey-color);
+      }
+        }

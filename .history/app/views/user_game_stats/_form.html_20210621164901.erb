@@ -1,0 +1,74 @@
+
+<div class="edit">
+ 
+<%= form_with(model: user_game_stat, local: true) do |form| %>
+  <% if user_game_stat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user_game_stat.errors.count, "error") %> prohibited this user_game_stat from being saved:</h2>
+
+      <ul>
+      <% user_game_stat.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+ <section id="editprofile">
+<div class="card-container">
+	<span class="pro">PROFIL</span>
+	<img class="round" src="https://i.pinimg.com/originals/2c/54/06/2c5406a83ab2257df1c57b52945e1c3c.jpg" alt="user" />
+	<h3><div class="field">
+        <%= form.label :Nom_invocateur %><br>
+        <%= form.text_field :summoner_name, class:"textedit" %><br>
+        <%= form.submit "Changer de nom", class:"input-send" %>
+      </div>
+    
+    </h3>
+	<h6><div class="fieldedit">    
+          <%= form.label :Niveau %><br>
+          <%= form.number_field :level, class:"textedit" %>
+        </div></h6>
+	<p>
+    <div class="fieldedit">
+          <%= form.label :description_ %><br>
+          <%= form.text_field :description, class:"texteditd"%>
+       </div>  
+       <div class="fieldedit">
+          <%= form.label :premier_rôle %><br>
+          <%= form.select :desired_attribute, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]%>
+      </div>
+      <div class="fieldedit">
+            <%= form.label :Rôle_secondaire %><br>
+            <%= form.select :desired_attribute, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]%>
+        </div>
+        
+</p>
+	<div class="buttons">
+		<div class="actions">
+    <%= form.submit "Mettre à jour", class:"input-send" %>
+    
+  </div>
+	
+	</div>
+	<div class="skills">
+		<h6>Champions joués</h6>
+		<ul>
+			<li>Mundo</li>
+			<li>Jax</li>
+			<li>Irelia</li>
+			
+		</ul>
+	</div>
+</div>
+
+
+</section>
+      
+<% end %>
+</div>
+</div>
+
+
+
+

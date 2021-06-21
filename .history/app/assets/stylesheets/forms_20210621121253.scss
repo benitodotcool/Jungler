@@ -1,0 +1,42 @@
+
+
+.form-container { 
+    align-items: center;
+    margin:10px 0; // add top and bottom margin
+
+     display:inline-block;  
+     text-align:center;   
+    
+
+    #user_email, #user_password, #user_password_confirmation   {
+        border-radius: 2rem;
+        background-color: var(--dark-grey-color); 
+        padding-top: 10px;
+        margin-bottom: 15px;
+        color: var(--light-grey-color);
+                 
+          
+    .actions {
+        border-radius: 10%;
+        background-color: var(--secondary-dark-color);
+    }
+        
+}
+}
+
+.title-container {
+    padding-bottom: 20px;
+    padding-top: 8px;
+}
+
+.link-color {
+    color:var(--light-grey-color);
+}
+
+    
+.testemail {
+         
+    background-color: ;
+    box-shadow: inset 1px 1px 1px 0px var(--dark-grey-color);      
+}
+    

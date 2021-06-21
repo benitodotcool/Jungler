@@ -1,0 +1,31 @@
+
+  <%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> interdit à cet utilisateur d'être enregistré:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>   
+
+   
+  
+     
+
+  
+ 
+ 
+<%end%> 
+
+
+<%= render 'user_game_stats/form', user_game_stat: @user_game_stat%>
+
+
+
+
+
+  

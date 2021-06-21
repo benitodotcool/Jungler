@@ -1,5 +1,7 @@
 <div class="aside-info">
 
+    <% if user_signed_in? %>
+
     <ul class="aside-icons">
         
         <li class="container-icons">
@@ -28,7 +30,13 @@
         
     </ul>
 
-    
+    <% else %>
+            
+            <div class="header__right__auth d-flex align-items-center mr-0 ml-3">
+                <a class="" href="<%= new_user_session_path %>">Connexion  /</a>
+                <a class="" href="<%= new_user_registration_path %>">Inscription</a>
+            </div>
+    <% end %>
 
 </div>
 

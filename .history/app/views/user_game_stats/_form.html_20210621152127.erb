@@ -1,0 +1,58 @@
+
+<div class="edit1">
+<div class="div2"> 
+<%= form_with(model: user_game_stat, local: true) do |form| %>
+  <% if user_game_stat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user_game_stat.errors.count, "error") %> prohibited this user_game_stat from being saved:</h2>
+
+      <ul>
+      <% user_game_stat.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="fieldedit">
+      <div class="fieldstyle inset">
+ 
+          <%= form.label :Niveau %><br>
+          <%= form.number_field :level, class:"textedit" %>
+        </div>
+        </div>
+
+<div class="fieldedit">
+  <div class="fieldstyle inset">
+        
+          <%= form.label :description %><br>
+          <%= form.text_field :description, class:"textedit"%>
+          </div>
+        </div>
+
+<div class="fieldedit">
+  <div class="fieldstyle inset">
+          
+          <%= form.label :primary_role %><br>
+          <%= form.select :desired_attribute, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]%>
+  </div>
+</div>
+
+        
+
+        
+        <div class="fieldedit">
+          <div class="fieldeditstyle inset">
+            <%= form.label :secondary_role %><br>
+            <%= form.select :desired_attribute, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]%>
+        </div>
+        </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+  <div class="div4"></div>
+<% end %>
+</div>
+</div>
+

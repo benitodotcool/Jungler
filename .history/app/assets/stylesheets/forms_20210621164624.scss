@@ -1,0 +1,230 @@
+
+/* LOGIN ET REGISTER */ 
+.form-container { 
+    align-items: center;
+    margin:10px 0; // add top and bottom margin
+   
+     display:inline-block;  
+     text-align:center;   
+    
+
+    #user_email, #user_password, #user_password_confirmation   {
+        border-radius: 2rem;
+        text-align: center;
+        padding-top: 10px;
+        margin-bottom: 15px;
+        color: var(--light-grey-color);
+                 
+          
+    .actions {
+        border-radius: 10%;
+        background-color:white;
+  
+    }
+        
+    }
+}
+
+.title-container {
+    padding-bottom: 20px;
+    padding-top: 8px;
+}
+
+.link-color {
+    color:var(--light-grey-color);
+}
+
+    
+.fieldstyle {
+         
+    background-color:var(--secondary-dark-color); 
+    border-radius: 2rem;
+    display:grid;
+    place-items: center; 
+    
+    
+    & ::placeholder
+    {
+        text-align: center;
+    }
+}
+    .fieldlogin
+    {
+        padding:20px;
+    }
+    .fieldregister
+    {
+        margin:20px;
+        width:280px
+        
+    }
+    .input-send {
+            color:var(--light-grey-color);
+            margin-top:20px;
+            margin-bottom:20px;
+            border:1px;
+            padding:8px;        
+            border-radius: 12px;
+            transition: all 0.6s ease-out;
+            text-align: center;
+            border: 2px solid var(--blue-color-shadow);;
+            background-color: var(--blue-color);
+    
+      &:hover {
+        cursor: pointer;
+        background-color: var(--blue-color);
+        box-shadow: 0px 15px 25px 10px var(--blue-color-shadow);
+        border-radius: 2rem;
+        color:white
+      }
+    
+      &:hover svg#icon-home g,
+      &:hover svg#icon-arrow g,
+      &:hover svg#icon-message g,
+      &:hover svg#icon-category g,
+      &:hover svg#icon-discovery g,
+      &:hover svg#icon-notification g,
+      &:hover svg#icon-profile g {
+        stroke: var(--light-grey-color);
+      }
+        }
+
+    /* EDIT */ 
+
+    
+   
+
+    .fieldedit
+    {
+        padding:12px
+    }
+
+
+    .textedit
+    {
+    background-color:#38343c; 
+    border-radius: 2rem;
+    color:var(--light-grey-color);
+    text-align: center;
+    }
+
+    .texteditd
+    {
+    background-color:#38343c; 
+    border-radius: 2rem;
+    color:var(--light-grey-color);
+    text-align: center;
+    width:240px;
+    height:20px
+    }
+    
+    #editprofile h3 {
+        margin: 10px 0;
+    }
+    
+    #editprofile h6 {
+        margin: 5px 0;
+        text-transform: uppercase;
+    }
+    
+    #editprofile p {
+        font-size: 14px;
+        line-height: 21px;
+    }
+    
+    #editprofile .card-container {
+        background-color:var(--secondary-dark-color);
+        border-radius: 5px;
+        box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.75);
+        color: #B3B8CD;
+        padding-top: 30px;
+        position: relative;
+        width: 350px;
+        max-width: 100%;
+        text-align: center;
+    }
+    
+    #editprofile .card-container .pro {
+        color: var(--secondary-dark-color);;
+        background-color: #FEBB0B;
+        border-radius: 3px;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 3px 7px;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+    }
+    
+    #editprofile .card-container .round {
+        border: 1px solid #03BFCB;
+        border-radius: 50%;
+        padding: 7px;
+    }
+    
+    #editprofile button.primary {
+        background-color: #03BFCB;
+        border: 1px solid #03BFCB;
+        border-radius: 3px;
+        color: #231E39;
+        font-family: Montserrat, sans-serif;
+        font-weight: 500;
+        padding: 10px 25px;
+    }
+    
+    #editprofile button.primary.ghost {
+        background-color: transparent;
+        color: #02899C;
+    }
+    
+    #editprofile .skills {
+        background-color: var(--secondary-dark-color);;
+        text-align: left;
+        padding: 15px;
+        margin-top: 30px;
+    }
+    
+    #editprofile .skills ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    #editprofile .skills ul li {
+        border: 1px solid #2D2747;
+        border-radius: 2px;
+        display: inline-block;
+        font-size: 12px;
+        margin: 0 7px 7px 0;
+        padding: 7px;
+    }
+    
+    #editprofile footer {
+        background-color: #222;
+        color: #fff;
+        font-size: 14px;
+        bottom: 0;
+        position: fixed;
+        left: 0;
+        right: 0;
+        text-align: center;
+        z-index: 999;
+    }
+    
+    #editprofile footer p {
+        margin: 10px 0;
+    }
+    
+    #editprofile footer i {
+        color: red;
+    }
+    
+    #editprofile footer a {
+        color: #3c97bf;
+        text-decoration: none;
+    }
+
+    #editprofile .round
+    {
+        width: 50%;
+    }
