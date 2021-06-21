@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :messages
   end
   resources :matches
-  resources :user_game_stats
+  resources :user_game_stats, only: [:show,:edit]
   devise_for :users
   resources :users
   root 'landing_page#index'

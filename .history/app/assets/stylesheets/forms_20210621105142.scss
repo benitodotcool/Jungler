@@ -1,0 +1,34 @@
+.form-container { 
+    text-align: center;
+    margin:10px 0; // add top and bottom margin
+    
+    
+    
+
+    .actions {
+        border-radius: 10%;
+        background-color: var(--secondary-dark-color);
+    }
+        
+}
+
+
+.title-container {
+    padding-bottom: 20px;
+    padding-top: 8px;
+}
+
+.link-color {
+    color:var(--light-grey-color);
+}
+
+    
+.login-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40%;
+    width: 100%;
+    padding: calc(var(--small-padding) / 2) 5px calc(var(--small-padding) / 2) var(--small-padding);              
+}
+    
