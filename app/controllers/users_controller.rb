@@ -8,13 +8,8 @@ class UsersController < ApplicationController
   
   # GET /users or /users.json
   def index
-<<<<<<< HEAD
     @users = User.all.where.not(id:current_user.id)
     @user_select = user_selected
-=======
-    @users = User.all
-    @user_select = @users.where.not(id: current_user.id).sample
->>>>>>> development
     @conversations = Conversation.all
     @messages = Message.order("created_at DESC").all
     
