@@ -1,0 +1,446 @@
+
+/* LOGIN ET REGISTER */ 
+.form-container { 
+    align-items: center;
+    margin:10px 0; // add top and bottom margin
+   
+     display:inline-block;  
+     text-align:center;   
+    
+
+    #user_email, #user_password, #user_password_confirmation   {
+        border-radius: 2rem;
+        text-align: center;
+        padding-top: 10px;
+        margin-bottom: 15px;
+        color: var(--light-grey-color);
+                 
+          
+    .actions {
+        border-radius: 10%;
+        background-color:white;
+  
+    }
+        
+    }
+}
+
+.title-container {
+    padding-bottom: 20px;
+    padding-top: 8px;
+}
+
+.link-color {
+    color:var(--light-grey-color);
+}
+
+    
+.fieldstyle {
+         
+    background-color:var(--secondary-dark-color); 
+    border-radius: 2rem;
+    display:grid;
+    place-items: center; 
+    
+    
+    & ::placeholder
+    {
+        text-align: center;
+    }
+}
+    .fieldlogin
+    {
+        padding:20px;
+    }
+    .fieldregister
+    {
+        margin:20px;
+        width:280px
+        
+    }
+    .input-send {
+            color:var(--light-grey-color);
+            margin-top:20px;
+            margin-bottom:20px;
+            border:1px;
+            padding:8px;        
+            border-radius: 12px;
+            transition: all 0.6s ease-out;
+            text-align: center;
+            border: 2px solid var(--blue-color-shadow);;
+            background-color: var(--blue-color);
+    
+      &:hover {
+        cursor: pointer;
+        background-color: var(--blue-color);
+        box-shadow: 0px 15px 25px 10px var(--blue-color-shadow);
+        border-radius: 2rem;
+        color:white
+      }
+    
+      &:hover svg#icon-home g,
+      &:hover svg#icon-arrow g,
+      &:hover svg#icon-message g,
+      &:hover svg#icon-category g,
+      &:hover svg#icon-discovery g,
+      &:hover svg#icon-notification g,
+      &:hover svg#icon-profile g {
+        stroke: var(--light-grey-color);
+      }
+        }
+
+    /* EDIT */ 
+
+    
+    .edit1 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        
+        
+        .div1 { grid-area: 1 / 1 / 2 / 2;
+       
+        width: 500px;
+        height:100%; 
+    
+        & img
+        {
+            text-align: center;
+        }
+        & .pplol
+        {
+            border-radius: 50%;
+            width:20%;
+        }
+        & h3
+        {
+            text-align: center;
+            padding-top:80px
+        }}
+        .div2 { grid-area: 1 / 2 / 2 / 3; 
+       
+        width: 500px;
+        height:100% }}
+        .div3 { grid-area: 2 / 2 / 3 / 3;
+        background-color: chartreuse;
+        width: 100%;
+        height:100% } 
+        .div4 { grid-area: 2 / 1 / 3 / 2;
+        width: 100%;
+        height:100% }
+    
+    
+    .fieldedit
+    {
+        text-align: center;
+        padding:10px
+    }
+    .textedit
+    {
+        color:white;
+        text-align: center;
+    }
+
+ 
+
+    html {
+        scroll-behavior: smooth;
+        }
+        :root{
+        scrollbar-color: rgb(210,210,210) rgb(46,54,69) !important;
+        scrollbar-width: thin !important;
+        }
+        ::-webkit-scrollbar {
+        height: 12px;
+        width: 8px;
+        background: #000;
+        }
+        ::-webkit-scrollbar-thumb {
+        background: gray;
+        -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+        }
+        ::-webkit-scrollbar-corner {
+        background: #000;
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        #testde body{
+        margin:0;
+        overflow-x:hidden;
+        background:#1e1e1e;
+        font-family: 'Oswald', sans-serif;
+        }
+        
+        #testde  a,li,em,button,input,textarea,select{
+        text-decoration:none;
+        list-style:none;
+        font-style:normal;
+        outline:none !important;
+        transition:0.5s;
+        resize:none;
+        }
+        
+        #testde   ul{
+        position:relative;
+        left:-20px;
+        }
+        
+        #testde    ul li{
+        padding:20px 0;
+        color:gray;
+        border-bottom:1px solid rgba(255,255,255,0.1);
+        }
+        
+        #testde    b{
+        color:#fff;
+        }
+        
+        #testde    .btn{
+        background:#7ed321;
+        padding:10px;
+        border:0;
+        outline:none;
+        color:#000;
+        display:block;
+        width:60px;
+        margin:10px 0;
+        text-align:Center;
+        border-radius:5px;
+        cursor:pointer;
+        }
+        
+        
+        #testde   .fa{
+        color:#7ed321;
+        cursor:pointer;
+        }
+        
+        
+        
+        
+        
+        
+        #testde  .container{
+        width:90%;
+        margin:10vh auto;
+        }
+        
+        #testde   .container table{
+        width:100%;
+        }
+        
+        #testde  .container table td{
+        margin:30px;
+        border-radius:5px;
+        box-shadow:0px 6px 16px -6px rgba(1,1,1,0.5);
+        padding:30px;
+        background-color:#000;
+        color:#fff;
+        vertical-align:top;
+        }
+        
+        #testde  .container table td:nth-child(1){
+        text-align:Center;
+        }
+        
+        #testde  .container table td:nth-child(2) .fa{
+        float:right;
+        }
+        
+        #testde  .container table td:nth-child(2) input{
+        background:none;
+        outline:none;
+        border:0;
+        color:gray;
+        width:60%;
+        pointer-events:none;
+        }
+        
+        #testde  .container table td:nth-child(1) section{
+        position:relative;
+        width:200px;
+        height:200px;
+        margin:5vh auto;
+        }
+        
+        
+        #testde  .container table td:nth-child(1) .fa{
+        position:absolute;
+        right:25px;
+        top:25px;
+        font-size:2em;
+        }
+        
+        #testde  .container table td img{
+        width:200px;
+        height:200px;
+        border-radius:50%;
+        }
+        
+        #testde  .container table td h3{
+        color:gray;
+        font-weight:normal;
+        }
+        
+        #testde  .container table .section2{
+        text-align:left;
+        }
+        
+        #testde  .container table .section2 label{
+        display:block;
+        margin:10px 0;
+        text-align:left;
+        } 
+        
+        #testde  .container table .section2 select{
+        background:#1e1e1e;
+        width:100%;
+        padding:19px;
+        border:0;
+        outline:none;
+        color:gray;
+        }
+        
+        #testde  .container table .section2 input{
+        background:#1e1e1e;
+        width:90%;
+        padding:20px;
+        color:gray;
+        border:0;
+        outline:none;
+        }
+        
+        #testde  .container table .section2 .quantityselector{
+        height:80px;
+        border-bottom:0px;
+        }
+        
+        #testde  .container table .section2 .quantityselector section{
+        display:inline-block !important;
+        width:45%;
+        margin:0 10px;
+        }
+        
+        #testde .container table textarea{
+        width:90%;
+        resize:none;
+        outline:none;
+        border:0;
+        background:#1e1e1e;
+        color:gray;
+        padding:20px;
+        }
+        
+        
+        
+        #testde  .container .inframe .card{
+        width:100%;
+        height:40vh;
+        position:relative;
+        overflow:hidden;
+        display:block;
+        margin:10px 0;
+        }
+        
+        #testde  .container .inframe .card img{
+        width:100%;
+        height:40vh;
+        border-radius:0;
+        }
+        
+        #testde  .card_content{
+        height:0;
+        position:absolute;bottom:0;
+        width:100%;background-color:rgba(1,1,1,0.8);
+        transition:0.5s;
+        }
+        
+        #testde  .card_content ul li{
+        padding:5px;
+        font-size:13px;
+        }
+        
+        #testde .card_content h3{
+        text-align:Center;
+        color:#fff;
+        }
+        
+        #testde  .inframe .card:hover > .card_content{
+        height:40vh;
+        }
+        
+        #testde .card_content .btn{
+        font-size:12px;
+        width:100px;
+        display:inline-block;
+        margin:0 10px;
+        }
+        
+        
+        
+        
+        @media (max-width:820px){
+            #testde  .container{
+        width:100%;
+        }
+        #testde  .container table td{
+        display:block;
+        width:90%;
+        margin:0px;
+        }
+        #testde  .container table .section2 .quantityselector section{
+        width:41%;
+        margin:0px 10px;
+        }
+        #testde  .container table .section2 ul{
+        position:relative;
+        left:-40px;
+        }
+        
+        .container table .section2 .quantityselector{
+        
+        }
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        .alert {
+          padding: 20px;
+          background-color: #f44336;
+          color: white;
+          opacity: 1;
+          transition: opacity 0.6s;
+          margin-bottom: 15px;
+        }
+        
+        .alert.success {background-color: #04AA6D;}
+        .alert.info {background-color: #2196F3;}
+        .alert.warning {background-color: #ff9800;}
+        
+        .closebtn {
+          margin-left: 15px;
+          color: white;
+          font-weight: bold;
+          float: right;
+          font-size: 22px;
+          line-height: 20px;
+          cursor: pointer;
+          transition: 0.3s;
+        }
+        
+        .closebtn:hover {
+          color: black;
+        }
