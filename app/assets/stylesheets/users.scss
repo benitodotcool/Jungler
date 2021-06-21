@@ -26,8 +26,8 @@
       height: 100%;
       background-color: var(--secondary-dark-color);
       border-radius: var(--medium-border-radius);
-      box-shadow: -15px 10px 50px 10px var(--blue-color-shadow);
-      border: 2px solid var(--blue-color);
+      box-shadow: -15px 10px 50px 10px var(--main-color-shadow);
+      border: 2px solid var(--main-color);
 
       .level {
         position: absolute;
@@ -38,7 +38,7 @@
         height: 50px;
         width: 50px;
         border-radius: 18px;
-        background-color: var(--blue-color);
+        background-color: var(--main-color);
         transform: translate(50%, -50%);
       }
 

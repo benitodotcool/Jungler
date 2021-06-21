@@ -1,9 +1,11 @@
 :root {
   --main-bg-dark-color: rgba(26, 28, 31, 1);
-  --secondary-dark-color: rgba(33, 35, 41, 1);
+  --secondary-dark-color: rgba(33, 35, 41, 0.70);
+  --main-color: rgba(9, 188, 138, 1);
+  --main-color-shadow: rgba(9, 188, 138, 0.15);
 
   --blue-color: rgb(38, 114, 235);
-  --blue-color-shadow: rgba(92, 128, 188, 0.2);
+  --blue-color-shadow: rgba(92, 128, 188, 0.15);
 
   --orange-color: rgba(255, 111, 0, 1);
   --orange-color-shadow: rgba(255, 111, 0, 0.15);
@@ -28,7 +30,7 @@
 
   --tiny-font-size: clamp(12px, 0.8vw, 14px);
   --small-font-size: clamp(14px, 1vw, 16px);
-  --medium-font-size: clamp(20px, 1.5vw, 35px);
+  --medium-font-size: clamp(24px, 1.5vw, 40px);
   --big-font-size: clamp(30px, 2.5vw, 80px);
 
 }

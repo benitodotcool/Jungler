@@ -5,6 +5,30 @@
   height: 100vh;
 }
 
+.main-head {
+  grid-area: 1 / 1 / 2 / 2;
+  display: grid;
+  place-items: center;
+
+  .title {
+    justify-self: start;
+    grid-auto-flow: column;
+
+    &::before {
+      vertical-align: 40%;
+      content: "new";
+      font-size: 12px;
+      text-transform: uppercase;
+      background-color: var(--danger-color);
+      padding: 2px 5px 2px 5px;
+      margin-right: 10px;
+      border-radius: 5px;
+    }
+
+  }
+
+}
+
 .inset {
   -webkit-box-shadow: inset 1px 1px 1px 0px var(--dark-grey-color);
   box-shadow: inset 1px 1px 1px 0px var(--dark-grey-color);      
@@ -30,8 +54,8 @@
 
   &:hover {
     cursor: pointer;
-    background-color: var(--blue-color);
-    box-shadow: 0px 15px 25px 10px var(--blue-color-shadow);
+    background-color: var(--main-color);
+    box-shadow: 0px 15px 25px 10px var(--main-color-shadow);
     border-radius: 18px;
   }
 
@@ -48,8 +72,8 @@
 }
 
 .permanent {
-  background-color: var(--blue-color);
-  box-shadow: 0px 15px 25px 10px var(--blue-color-shadow);
+  background-color: var(--main-color);
+  box-shadow: 0px 15px 25px 10px var(--main-color-shadow);
   border-radius: 18px;
 
   svg#icon-home g,

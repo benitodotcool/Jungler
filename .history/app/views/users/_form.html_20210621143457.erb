@@ -1,0 +1,33 @@
+<div class="parent">
+  <div class="div1"> </div>
+  <div class="div2"> </div>
+</div>
+
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> interdit à cet utilisateur d'être enregistré:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>   
+
+      <div class="field">
+        <%= form.label :summoner_name %>
+        <%= form.text_field :summoner_name %>
+      </div>
+      
+    <div class="actions">
+    <%= form.submit %>
+  </div>
+  
+<% end %>
+
+<%if @user.summoner_name != nil %>
+<%= render 'user_game_stats/form', user_game_stat: @user_game_stat%>
+<%end%>
+  
