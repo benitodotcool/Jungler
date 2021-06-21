@@ -136,14 +136,14 @@ class UsersController < ApplicationController
 
     def get_api_summoner(summoner_name)
      @summoner_name = User.find(current_user.id).summoner_name
-        client = RiotGamesApiClient::Client.new(
-          api_key: ENV['RIOT_API_KEY'],
-          region: "euw1"
-         ) 
-       
-    response = client.get_lol_summoner(summoner_name: @summoner_name)
+    #  #  client = RiotGamesApiClient::Client.new(
+    #  #    api_key: ENV['RIOT_API_KEY'],
+    #  #    region: "euw1"
+    #  #   ) 
+    #   
     #response = client.get_lol_summoner(summoner_name: @summoner_name)
-    @summoner_id = response.body['id']
+    ##response = client.get_lol_summoner(summoner_name: @summoner_name)
+    #@summoner_id = response.body['id']
     #@level = response.body['level'].to_i
     if @summoner_id != nil
     UserGameStat.find(current_user.id).update!(summoner_id: @summoner_id, level: 333 )
