@@ -11,9 +11,7 @@
     </div>
   <% end %>
 
-        <div class="field">
-          <%= form.hidden_field :user_id, value: current_user.id %>
-        </div>
+      
 
         <div class="field">
           <%= form.label :level %>
@@ -27,14 +25,14 @@
 
           <div class="field">
           <%= form.label :primary_role %>
-          <%= form.select :desired_attribute, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]%>
+          <%= form.select :primary_role, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]%>
 
         </div>
 
           <div class="field">
           
           <%= form.label :secondary_role %>
-          <%= form.select :desired_attribute, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]%>
+          <%= form.select :secondary_role, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]%>
         </div>
 
   <div class="actions">

@@ -10,7 +10,11 @@
       </ul>
     </div>
   <% end %>   
-
+  
+        <div class="field">
+          <%= form.hidden_field :user_game_stat_id, value: current_user.id %>
+        </div>
+        
       <div class="field">
         <%= form.label :summoner_name %>
         <%= form.text_field :summoner_name %>
@@ -25,4 +29,3 @@
 <%if @user.summoner_name != nil %>
 <%= render 'user_game_stats/form', user_game_stat: @user_game_stat%>
 <%end%>
-  

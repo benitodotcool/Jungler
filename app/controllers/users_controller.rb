@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update ]
   before_action :set_user_game_stat, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
-  before_action :is_profile_completed?
+  #before_action :is_profile_completed?
   # GET /users or /users.json
   def index
     @users = User.all
@@ -16,9 +16,7 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
-    respond_to do |format|
-      format.js { }
-    end
+  
   end
 
   # GET /users/new
@@ -32,8 +30,9 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create
+    
     @user = User.new(user_params)
-
+    
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: "User was successfully created." }
@@ -51,7 +50,8 @@ class UsersController < ApplicationController
     
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: "User was successfully updated." }
+        UserGameStat.create!(user_id: current_user.id)
+        format.html { redirect_to request.referrer, notice: "User was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -77,7 +77,7 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:summoner_name, :id)
+      params.require(:user).permit(:summoner_name, :id, :user_game_stat_id)
     end
 
     def set_user_game_stat
