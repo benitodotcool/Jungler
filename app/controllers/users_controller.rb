@@ -5,21 +5,11 @@ class UsersController < ApplicationController
   #before_action :is_profile_completed?
   # GET /users or /users.json
   def index
-    @users = User.all
-    
-    @user_select =     
-    
-    if is_match_exists?(@users.sample)
-      next
-    end
-      @users.
-    
-
+    @users = User.all.where.not(id:current_user.id)
+    @user_select = user_selected
     @conversations = Conversation.all
     @messages = Message.order("created_at DESC").all
-    # respond_to do |format|
-    #   format.js { }
-    # end  
+    
   end
 
   # GET /users/1 or /users/1.json
@@ -112,21 +102,22 @@ class UsersController < ApplicationController
     end
 
 
-    def
+    def user_selected
       
-      @user_sample = Users.sample
-      
-      while @user_selected == nil do
-        if is_match_exists?(@user_sample)
+      @users.map do |user|
+        if is_match_exists?(user)
             next
         end
-        @user_selected = @user_sample
+        return  @user_select = user
+        break
       end
+      redirect_to conversations_path
     end
     
-    def is_match_exists?(user_sample)
+    
+    def is_match_exists?(user)
 
-      condition_1 = Match.exists?(receiver_id:user_sample)
+      condition_1 = Match.exists?(receiver_id: user.id)
 
       if condition_1 == true 
     
