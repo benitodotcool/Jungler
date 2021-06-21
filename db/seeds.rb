@@ -20,7 +20,7 @@ end
     email: Faker::Internet.email,
     password: "0123456789",
     summoner_name: Faker::Superhero.name,
-    user_game_stat_id: i+1
+    user_game_stat_id: i+2
   ) 
 end
 
