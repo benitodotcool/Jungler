@@ -14,9 +14,9 @@
     </div>
   <% end %>
  
- <section id="editprofile">
+ <section id="template">
 <div class="card-container">
-
+	<span class="pro">PROFIL</span>
 	<img class="round" src="https://i.pinimg.com/originals/2c/54/06/2c5406a83ab2257df1c57b52945e1c3c.jpg" alt="user" />
 	<h3><div class="field">
         <%= form.label :Nom_invocateur %><br>
@@ -25,12 +25,12 @@
       </div>
     
     </h3>
-	<h6><div class="fieldedit">    
+	<h6><div class="div1">    
           <%= form.label :Niveau %><br>
           <%= form.number_field :level, class:"textedit" %>
         </div></h6>
 	<p>
-    <div class="fieldedit">
+    <div class="div2">
           <%= form.label :description_ %><br>
           <%= form.text_field :description, class:"texteditd"%>
        </div>  
@@ -39,14 +39,14 @@
           <%= form.select :desired_attribute, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]%>
       </div>
       <div class="fieldedit">
-            <%= form.label :Rôle_secondaire %><br>
+            <%= form.label :secondary_role %><br>
             <%= form.select :desired_attribute, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]%>
         </div>
         
 </p>
 	<div class="buttons">
 		<div class="actions">
-    <%= form.submit "Mettre à jour", class:"input-send" %>
+    <%= form.submit %>
     
   </div>
 	

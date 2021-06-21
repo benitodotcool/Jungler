@@ -1,0 +1,110 @@
+
+<div class="edit">
+ 
+<%= form_with(model: user_game_stat, local: true) do |form| %>
+  <% if user_game_stat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user_game_stat.errors.count, "error") %> prohibited this user_game_stat from being saved:</h2>
+
+      <ul>
+      <% user_game_stat.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+ <section id="template">
+<div class="card-container">
+	<span class="pro">PRO</span>
+	<img class="round" src="https://i.pinimg.com/originals/2c/54/06/2c5406a83ab2257df1c57b52945e1c3c.jpg" alt="user" />
+	<h3><div class="field">
+        <%= form.label :summoner_name %><br>
+        <%= form.text_field :summoner_name, class:"textedit" %>
+      </div>
+    
+    </h3>
+	<h6><div class="div1">    
+          <%= form.label :Niveau %><br>
+          <%= form.number_field :level, class:"textedit" %>
+        </div></h6>
+	<p>
+    <div class="div2">
+          <%= form.label :description_ %><br>
+          <%= form.text_field :description, class:"textedit"%>
+       </div>  
+       <div class="fieldedit">
+          <%= form.label :primary_role %><br>
+          <%= form.select :desired_attribute, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]%>
+      </div>
+      <div class="fieldedit">
+            <%= form.label :secondary_role %><br>
+            <%= form.select :desired_attribute, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]%>
+        </div>
+        
+</p>
+	<div class="buttons">
+		<div class="actions">
+    <%= form.submit %>
+  </div>
+		<button class="primary ghost">
+			Following
+		</button>
+	</div>
+	<div class="skills">
+		<h6>Skills</h6>
+		<ul>
+			<li>UI / UX</li>
+			<li>Front End Development</li>
+			<li>HTML</li>
+			<li>CSS</li>
+			<li>JavaScript</li>
+			<li>React</li>
+			<li>Node</li>
+		</ul>
+	</div>
+</div>
+
+<footer>
+	<p>
+		Created with <i class="fa fa-heart"></i> by
+		<a target="_blank" href="https://florin-pop.com">Florin Pop</a>
+		- Read how I created this
+		<a target="_blank" href="https://florin-pop.com/blog/2019/04/profile-card-design">here</a>
+		- Design made by
+		<a target="_blank" href="https://dribbble.com/shots/6276930-Profile-Card-UI-Design">Ildiesign</a>
+	</p>
+</footer>
+
+</section>
+      <div class="div1">    
+          <%= form.label :Niveau %>
+          <%= form.number_field :level, class:"textedit" %>
+        </div>
+       
+      <div class="div2">
+          <%= form.label :description_ %>
+          <%= form.text_field :description, class:"textedit"%>
+       </div>  
+       <div class="div3"> 
+      <div class="fieldedit">
+          <%= form.label :primary_role %><br>
+          <%= form.select :desired_attribute, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]%>
+      </div>
+      <div class="fieldedit">
+            <%= form.label :secondary_role %><br>
+            <%= form.select :desired_attribute, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]%>
+        </div>
+        </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+<% end %>
+</div>
+</div>
+
+
+
+

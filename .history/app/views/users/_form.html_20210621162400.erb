@@ -12,9 +12,14 @@
     </div>
   <% end %>   
 
-   
+      <div class="field">
+        <%= form.label :summoner_name %>
+        <%= form.text_field :summoner_name, class:"textedit" %>
+      </div>
       
-    
+    <div class="actions">
+    <%= form.submit "Test", class:"input-send" %>
+  </div>
   
  
  

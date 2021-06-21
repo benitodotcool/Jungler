@@ -94,9 +94,9 @@
     
    
 
-    .fieldedit
+    #editprofile
     {
-        padding:10px
+        
     }
 
 
@@ -142,11 +142,12 @@
         width: 350px;
         max-width: 100%;
         text-align: center;
+        padding:30px
     }
     
     #editprofile .card-container .pro {
-        color: var(--light-grey-color);;
-        background-color: var(--blue-color);
+        color: var(--secondary-dark-color);;
+        background-color: #FEBB0B;
         border-radius: 3px;
         font-size: 14px;
         font-weight: bold;
