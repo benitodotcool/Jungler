@@ -6,7 +6,15 @@ class UsersController < ApplicationController
   # GET /users or /users.json
   def index
     @users = User.all
-    @user_select = @users.sample
+    
+    @user_select =     
+    
+    if is_match_exists?(@users.sample)
+      next
+    end
+      @users.
+    
+
     @conversations = Conversation.all
     @messages = Message.order("created_at DESC").all
     # respond_to do |format|
@@ -102,5 +110,31 @@ class UsersController < ApplicationController
         return false
       end 
     end
+
+
+    def
+      
+      @user_sample = Users.sample
+      
+      while @user_selected == nil do
+        if is_match_exists?(@user_sample)
+            next
+        end
+        @user_selected = @user_sample
+      end
+    end
+    
+    def is_match_exists?(user_sample)
+
+      condition_1 = Match.exists?(receiver_id:user_sample)
+
+      if condition_1 == true 
+    
+        return true
+    
+      end
+    
+    end
+
 
 end

@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource_or_scope)
   
     if is_profile_completed? 
-      stored_location_for(resource_or_scope) || users_path #TodoDev à changer pour rediriger vers conversations
+      stored_location_for(resource_or_scope) || users_path #Tododev à changer pour rediriger vers conversations
     else
       flash[:alert] = "complète ton profil avant de swipper !"
       edit_user_path(current_user.id)
