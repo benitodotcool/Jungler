@@ -16,6 +16,4 @@
 //= require nav_action
 //= require message_margin
 //= require conversation_name
-//= require particules
-//= require tilt
-//= require switch_card
+//= require change_color

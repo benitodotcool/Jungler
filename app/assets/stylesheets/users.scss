@@ -11,7 +11,7 @@
     height: 100%;
     display: grid;
     place-items: center;
-    grid-template-rows: 1fr repeat(2, 75px);
+    grid-template-rows: 1fr repeat(3, 50px);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 
@@ -133,6 +133,33 @@
   
     }
 
+    .btn-color-wrapper {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+
+      .color {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        margin-right: 5px;
+        margin-left: 5px;
+      }
+
+      .peer-gaming {
+        background-color: var(--green-color);
+      }
+
+      .relax {
+        background-color: var(--blue-color);
+      }
+
+      .tryhard {
+        background-color: var(--orange-color);
+      }
+    }
+    
   }
 
 }

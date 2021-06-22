@@ -1,17 +1,35 @@
 <div class="main-wrapper" id="users-focus">
+
     <div class="main-head">
         <h1 class="title">Swipe</h1>
     </div>
+
     <div class="main-content-swipe">
+
         <div class="swipe-card-container">
+
             <%if @user_select == false %>
+
                 <h1>TU N'AS PLUS DE SWIPE</h1>
+
             <%else%>
-            <%= render "swipe_user_card" %>          
+
+            <%= render "swipe_user_card" %>   
+
             <%end%>
+
+            <ul class="btn-color-wrapper">
+                <li class="color peer-gaming" id="peer-gaming-btn"></li>
+                <li class="color relax" id="relax-btn"></li>
+                <li class="color tryhard" id="tryhard-btn"></li>
+            </ul>
+
             <div class="notice-swipe">
                 <p id="notice"><%= notice %></p>
-            </div>            
+            </div>  
+
         </div>
+
     </div>
+
 </div>
