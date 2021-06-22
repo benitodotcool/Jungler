@@ -8,7 +8,7 @@ class ConversationsController < ApplicationController
   def index
     @conversations = conversations_allowed
     @messages= Message.all
-    
+    @user_game_stats = UserGameStat.new
   end
 
   # GET /conversations/1 or /conversations/1.json
@@ -23,6 +23,9 @@ class ConversationsController < ApplicationController
     
     
     @time_ago = Message.where(conversation_id:@conversation.id).last.updated_at.strftime( "%H:%M")
+    @user_game_stats = UserGameStat.new
+    #@content = if Message.where(conversation_id:@conversation.id).last.content != nil
+    #@time_ago = Message.where(conversation_id:@conversation.id).last.updated_at.strftime( "%H:%M")
   
   end
 
