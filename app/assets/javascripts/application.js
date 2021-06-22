@@ -13,7 +13,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
-//= require particules.js
+//= require particules
 //= require tilt
 //= require nav_action
 //= require message_margin
