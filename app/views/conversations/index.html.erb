@@ -1,73 +1,44 @@
-<main id="conversation-focus">
-
-    <div class="main-wrapper">
-
-        <div class="main-head">
-            <h1 class="title">Conversations</h1>
-        </div>
-
-        <div class="main-content-conversations">
-
-            <div class="conversation-left">
-                            
-                <%  @conversations.reverse_each do |conversation| %>
-
-                    <a href="<%=conversation_path(conversation.id)%>" class="conversation-focus">
-
-                        <div class="conversation-name">
-
-                            <div class="user-photo">
-                            
-                                <%if conversation.participant_a.id == current_user.id%>
-                                    <%=conversation.participant_b.summoner_name[0]%>
-                                <%else%>
-                                    <%=conversation.participant_a.summoner_name[0]%>
-                                <%end%>
-
-                            </div>
-
-                            <div class="user-info">
-
-                                <h4 class="name">
-
-                                    <%if conversation.participant_a.id == current_user.id%>
-                                        <%=conversation.participant_b.summoner_name%>
-                                    <%else%>
-                                        <%=conversation.participant_a.summoner_name%>
-                                    <%end%>
-                                
-                                </h4>
-
-                                <div class="last-message">
-                                
-                                    <div class="content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit, autem.</div>
-                                    <div class="time">15m</div>
-
-                                </div>
-
-
-
-                            </div>
-
-                        </div>
-                    </a>
-
-                <%end%>
-                
-            </div>
-
-            <div class="conversation-right-index">
-
-                <h3 class="conversation-alert">Clique sur la gauche pour naviguer dans tes conversations</h3>
-
-            </div>
-        
-        </div>
-
+<div class="main-wrapper" id="conversation-focus">
+    <div class="main-head">
+        <h1 class="title">Conversations</h1>
     </div>
-
-</main>
-
-<aside>
-    <%= render "aside" %>
-</aside>
+    <div class="main-content-conversations">
+        <div class="conversation-left">
+                        
+            <%  @conversations.reverse_each do |conversation| %>
+                <a href="<%=conversation_path(conversation.id)%>" class="conversation-focus">
+                    <div class="conversation-name">
+                        <div class="user-photo">
+                        
+                            <%if conversation.participant_a.id == current_user.id%>
+                                <%=conversation.participant_b.summoner_name[0]%>
+                            <%else%>
+                                <%=conversation.participant_a.summoner_name[0]%>
+                            <%end%>
+                        </div>
+                        <div class="user-info">
+                            <h4 class="name">
+                                <%if conversation.participant_a.id == current_user.id%>
+                                    <%=conversation.participant_b.summoner_name%>
+                                <%else%>
+                                    <%=conversation.participant_a.summoner_name%>
+                                <%end%>
+                            
+                            </h4>
+                            <div class="last-message">
+                            
+                                <div class="content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit, autem.</div>
+                                <div class="time">15m</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            <%end%>
+            
+        </div>
+        <div class="conversation-right-index">
+            <h3 class="conversation-alert">Clique sur la gauche pour naviguer dans tes conversations</h3>
+        </div>
+    
+    </div>
+</div>
