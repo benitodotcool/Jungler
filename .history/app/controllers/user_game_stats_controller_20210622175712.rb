@@ -15,13 +15,13 @@ class UserGameStatsController < ApplicationController
 
   # GET /user_game_stats/new
   def new
-    @user_game_stats = UserGameStat.new
+    @user_game_stats = UserGameStat.find()
     @user = User.new
   end
 
   # GET /user_game_stats/1/edit
   def edit
-    @user_game_stats = UserGameStat.find(current_user.id)
+    
   end
 
   # POST /user_game_stats or /user_game_stats.json

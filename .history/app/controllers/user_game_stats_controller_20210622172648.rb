@@ -15,27 +15,25 @@ class UserGameStatsController < ApplicationController
 
   # GET /user_game_stats/new
   def new
-    @user_game_stats = UserGameStat.new
+    @user_game_stat = UserGameStat.new
     @user = User.new
   end
 
   # GET /user_game_stats/1/edit
   def edit
-    @user_game_stats = UserGameStat.find(current_user.id)
+    
   end
 
   # POST /user_game_stats or /user_game_stats.json
   def create
-    @user_game_stats = UserGameStat.new(user_game_stat_params)
-    respond_to do |format|
 
-      if @user_game_stats.save
-        
+    respond_to do |format|
+      if @user_game_stat.save
         format.html { redirect_to request.referrer, notice: "User game stat was successfully created." }
-        format.json { render :show, status: :created, location: @user_game_stats }
+        format.json { render :show, status: :created, location: @user_game_stat }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @user_game_stats.errors, status: :unprocessable_entity }
+        format.json { render json: @user_game_stat.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -50,14 +48,14 @@ class UserGameStatsController < ApplicationController
         format.json { render :show, status: :ok, location: @user_game_stat }
       else
         format.html { redirect_to request.referrer, status: :unprocessable_entity }
-        format.json { render json: @user_game_stats.errors, status: :unprocessable_entity }
+        format.json { render json: @user_game_stat.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /user_game_stats/1 or /user_game_stats/1.json
   def destroy
-    @user_game_stats.destroy
+    @user_game_stat.destroy
     respond_to do |format|
       format.html { redirect_to user_game_stats_url, notice: "User game stat was successfully destroyed." }
       format.json { head :no_content }
@@ -67,7 +65,7 @@ class UserGameStatsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user_game_stat
-      @user_game_stats = UserGameStat.find(params[:id])
+      @user_game_stat = UserGameStat.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
