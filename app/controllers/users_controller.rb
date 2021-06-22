@@ -3,9 +3,10 @@ class UsersController < ApplicationController
   before_action :set_user_game_stat, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
   before_action :user_authorized?, only: %i[update destroy ]
-  #require 'pry'
+
   require 'dotenv'
   Dotenv.load('.env')
+  require 'rest-client'
   #before_action :is_profile_completed?
   
   # GET /users or /users.json
@@ -132,17 +133,38 @@ class UsersController < ApplicationController
     end
 
     def get_api_summoner(summoner_name)
-     #@summoner_name = User.find(current_user.id).summoner_name
-     client = RiotGamesApiClient::Client.new(
-       api_key: ENV['RIOT_API_KEY'],
-       region: "euw1"
-      )   
-    response = client.get_lol_summoner(summoner_name: summoner_name)
-    #response = client.get_lol_summoner(summoner_name: @summoner_name)
-    @summoner_id = response.body['id']
-    @level = response.body['summonerLevel']
+      #
+
+      @summoner_name = summoner_name.gsub!(/\s/,'')
+    
+      env =  ENV['RIOT_API_KEY']
+    
+      response_summoner = RestClient.get ("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/#{summoner_name}?api_key=#{env}")
+      
+      response_summoner_in_hash = eval(response_summoner.body)
+      @summoner_id              = response_summoner_in_hash.values_at(:id).join
+      @level                    = response_summoner_in_hash.values_at(:summonerLevel).join
+      account_id                = response_summoner_in_hash.values_at(:accountId).join
+      @code_response            = response_summoner.code
+      @icon_profile_id          = response_summoner_in_hash.values_at(:profileIconId).join
+      
+
+      #@icon_profile_image = RestClient.get ("https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{@icon_profile_id}.png")
+
+      
+      #-- Champions info ---#
+      @champions_list = RestClient.get ("https://euw1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/#{@summoner_id}?api_key=#{env}")
+      
+      
+      #@last_3_champions 
+      
+    
+
+    binding.pry
+
       if @summoner_id != nil
         UserGameStat.find(current_user.id).update(summoner_id: @summoner_id, level: @level )
+        User.find(current_user.id).update(icon_profile_id:@icon_profile_id)
       end
       
     end
@@ -155,6 +177,6 @@ class UsersController < ApplicationController
       end
     end
   
-#binding.pry
+
 
 end
