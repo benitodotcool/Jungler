@@ -49,7 +49,7 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create
-    @user_game_stats = UserGameStat.new
+    #@user_game_stats = UserGameStat.new
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
