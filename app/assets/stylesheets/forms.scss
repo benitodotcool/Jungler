@@ -63,7 +63,7 @@
             margin-top:20px;
             margin-bottom:20px;
             border:1px;
-            padding:8px;        
+            padding:7px;        
             border-radius: 12px;
             transition: all 0.6s ease-out;
             text-align: center;
@@ -143,6 +143,7 @@
     text-align: center;
     width:240px;
     height:20px
+    
     }
     
     #editprofile h3 {
@@ -217,3 +218,35 @@
     {
         width: 50%;
     }
+
+    #user_tag_list {
+        background-color: #38343c;
+        color: var(--light-grey-color);
+        border: none;
+        border-radius: 2rem;
+        text-align: center;
+        width: 100px;
+        height: 25px;
+    }
+
+    #user_game_stat_primary_role, #user_game_stat_secondary_role {
+        background-color: #38343c;
+        color: var(--light-grey-color);
+        border: none;
+        border-radius: 2rem;
+        text-align: center;
+        width: 135px;
+        height: 25px;
+    }
+
+    #user_game_stat_description {
+        background-color: #38343c;
+        color: var(--light-grey-color);
+        border: none;
+        border-radius: 2rem;
+        text-align: center;
+        width: 80%;
+        height: 25px;
+    }
+
+   
