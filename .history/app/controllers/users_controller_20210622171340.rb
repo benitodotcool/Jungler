@@ -39,7 +39,8 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create
-    
+    @user = User.find(current_user.id)
+    @user_game_stats = UserGameStat.new(user_game_stat_params)
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
@@ -57,7 +58,8 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1 or /users/1.json
   def update
     @summoner_name = params[:summoner_name]
-    
+    @user = User.find(current_user.id)
+    @user_game_stats = UserGameStat.new(user_game_stat_params)
     respond_to do |format|
       if @user.update(user_params)
         

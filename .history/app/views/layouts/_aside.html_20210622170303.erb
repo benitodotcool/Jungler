@@ -47,7 +47,9 @@
         <%if user_signed_in? %>
         <div class="user-show inset"><%= render"/users/user_show"%><div class="notification-container inset"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></div></div>
         <div class="user-edit inset hidden"><%= render"/users/form"%><div class="notification-container inset"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></div></div>
-   
+        <%else%>
+        <div class="user-show inset"><div class="notification-container inset"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></div></div>
+        <div class="user-edit inset hidden"><div class="notification-container inset"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></div></div>
          <%end%>
     </div>
 

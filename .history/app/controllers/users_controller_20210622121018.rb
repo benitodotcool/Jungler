@@ -12,7 +12,6 @@ class UsersController < ApplicationController
     @user_select = user_selected
     @conversations = Conversation.all
     @messages = Message.order("created_at DESC").all
-    @user = User.new
   end
 
   # GET /users/1 or /users/1.json
@@ -57,7 +56,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1 or /users/1.json
   def update
     @summoner_name = params[:summoner_name]
-    
+
     respond_to do |format|
       if @user.update(user_params)
         

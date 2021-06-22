@@ -40,9 +40,9 @@ class UserGameStatsController < ApplicationController
 
   # PATCH/PUT /user_game_stats/1 or /user_game_stats/1.json
   def update
-    
+    @user = User.find(current_user.id)
+    @user_game_stats = UserGameStat.new(user_game_stat_params)
     respond_to do |format|
-      
       if @user_game_stat.update(user_game_stat_params)
         format.html { redirect_to users_path, notice: "User game stat was successfully updated." }
         format.json { render :show, status: :ok, location: @user_game_stat }

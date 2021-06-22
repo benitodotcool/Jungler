@@ -21,12 +21,15 @@ class UserGameStatsController < ApplicationController
 
   # GET /user_game_stats/1/edit
   def edit
-    
+    @user = User.find(current_user.id)
+    @user_game_stats = UserGameStat.new(user_game_stat_params)
   end
 
   # POST /user_game_stats or /user_game_stats.json
   def create
-
+    @user = User.find(current_user.id)
+    @user_game_stats = UserGameStat.new(user_game_stat_params)
+    
     respond_to do |format|
       if @user_game_stats.save
         format.html { redirect_to request.referrer, notice: "User game stat was successfully created." }
@@ -40,9 +43,9 @@ class UserGameStatsController < ApplicationController
 
   # PATCH/PUT /user_game_stats/1 or /user_game_stats/1.json
   def update
-    
+    @user = User.find(current_user.id)
+    @user_game_stats = UserGameStat.new(user_game_stat_params)
     respond_to do |format|
-      
       if @user_game_stat.update(user_game_stat_params)
         format.html { redirect_to users_path, notice: "User game stat was successfully updated." }
         format.json { render :show, status: :ok, location: @user_game_stat }

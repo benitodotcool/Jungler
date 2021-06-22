@@ -42,7 +42,13 @@ class UserGameStatsController < ApplicationController
   def update
     
     respond_to do |format|
-      
+      if @user.update(user_params)
+        
+        if UserGameStat.exists?(id:current_user.id)
+        else
+          @user_game_stat = UserGameStat.create!(id:current_user.id, user_id: current_user.id)
+        end
+      end
       if @user_game_stat.update(user_game_stat_params)
         format.html { redirect_to users_path, notice: "User game stat was successfully updated." }
         format.json { render :show, status: :ok, location: @user_game_stat }

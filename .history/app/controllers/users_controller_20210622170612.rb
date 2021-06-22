@@ -57,7 +57,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1 or /users/1.json
   def update
     @summoner_name = params[:summoner_name]
-    
+
     respond_to do |format|
       if @user.update(user_params)
         

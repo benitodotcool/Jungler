@@ -19,9 +19,3 @@ function hideContent(){
 
 
 hideContent()
-
-console.log(btnShow)
-console.log(btnEdit)
-console.log(userShow)
-console.log(userEdit)
-
