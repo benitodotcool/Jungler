@@ -3,9 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user_game_stat, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
   before_action :user_authorized?, only: %i[update destroy ]
-  #require 'pry'
-  require 'dotenv'
-  Dotenv.load('.env')
+  
   #before_action :is_profile_completed?
   
   # GET /users or /users.json
@@ -15,17 +13,11 @@ class UsersController < ApplicationController
     @conversations = Conversation.all
     @messages = Message.order("created_at DESC").all
     @user = User.new
-    @user_game_stat = UserGameStat.new
   end
 
   # GET /users/1 or /users/1.json
   def show
-    @users = User.tagged_with(current_user.tag_list).where.not(id: current_user.id).shuffle
-    @user_select = user_selected
-    @conversations = Conversation.all
-    @messages = Message.order("created_at DESC").all
-    @user = User.new
-    @user_game_stat = UserGameStat.new
+  
   end
 
   # GET /users/new
@@ -35,7 +27,6 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user_game_stats = UserGameStat.find(current_user.id)
     
     @user = User.find(params[:id])
       if @user.id == current_user.id
@@ -66,22 +57,25 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
+    @summoner_name = params[:summoner_name]
+    @user = User.find
     respond_to do |format|
       if @user.update(user_params)
         
-        @summoner_name = current_user.summoner_name
-        if UserGameStat.exists?(id:current_user.id) == false
+        if UserGameStat.exists?(id:current_user.id)
+        else
           @user_game_stat = UserGameStat.create!(id:current_user.id, user_id: current_user.id)
         end
-        get_api_summoner(@summoner_name)
       
-        format.html {redirect_to request.referrer, notice: "User was successfully updated." }
+        get_api_summoner(@summoner_name)
+        
+        format.html { redirect_to request.referrer, notice: "User was successfully updated." }
+        format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
-    
   end
 
   # DELETE /users/1 or /users/1.json
@@ -141,18 +135,19 @@ class UsersController < ApplicationController
     end
 
     def get_api_summoner(summoner_name)
-     #@summoner_name = User.find(current_user.id).summoner_name
-     client = RiotGamesApiClient::Client.new(
-       api_key: ENV['RIOT_API_KEY'],
-       region: "euw1"
-      )   
-    response = client.get_lol_summoner(summoner_name: summoner_name)
+     @summoner_name = User.find(current_user.id).summoner_name
+    #  #  client = RiotGamesApiClient::Client.new(
+    #  #    api_key: ENV['RIOT_API_KEY'],
+    #  #    region: "euw1"
+    #  #   ) 
+    #   
     #response = client.get_lol_summoner(summoner_name: @summoner_name)
-    @summoner_id = response.body['id']
-    @level = response.body['summonerLevel']
-      if @summoner_id != nil
-        UserGameStat.find(current_user.id).update(summoner_id: @summoner_id, level: @level )
-      end
+    ##response = client.get_lol_summoner(summoner_name: @summoner_name)
+    #@summoner_id = response.body['id']
+    #@level = response.body['level'].to_i
+    if @summoner_id != nil
+    UserGameStat.find(current_user.id).update!(summoner_id: @summoner_id, level: 333 )
+    end
       
     end
 
@@ -163,7 +158,5 @@ class UsersController < ApplicationController
         @users = User.all
       end
     end
-  
-#binding.pry
 
 end

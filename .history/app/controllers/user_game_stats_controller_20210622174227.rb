@@ -21,12 +21,12 @@ class UserGameStatsController < ApplicationController
 
   # GET /user_game_stats/1/edit
   def edit
-    @user_game_stats = UserGameStat.find(current_user.id)
+    
   end
 
   # POST /user_game_stats or /user_game_stats.json
   def create
-    @user_game_stats = UserGameStat.new(user_game_stat_params)
+    @user_game_stats = UserGameStat.new(user_)
     respond_to do |format|
 
       if @user_game_stats.save
