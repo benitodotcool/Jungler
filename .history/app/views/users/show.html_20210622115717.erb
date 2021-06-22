@@ -1,0 +1,25 @@
+<section id="showprofile">
+<div class="card-container">
+
+	<img class="round" src="https://randomuser.me/api/portraits/women/79.jpg" alt="user" />
+	<h3><%= current_user.email%></h3>
+	<h6>Niveau 60</h6>
+	<p>Une description classique </p>
+    <p>Style de jeu : Tryhard </p>
+    <p>Premier rôle : Top </p>
+    <p>Deuxième rôle : Jungler </p>
+	<div class="buttons">
+		<a href="/users/<%=current_user.id%>/edit", class="">Modifier mon profil</a>
+	</div>
+	<div class="skills">
+		<h6>Champions joués</h6>
+		<ul>
+			<li>Jax</li>
+            <li>Irelia</li>
+            <li>Jax</li>
+		
+		</ul>
+	</div>
+</div>
+
+</section>
