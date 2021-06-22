@@ -1,35 +1,24 @@
-<main id="category-focus">
-
-    <div class="main-wrapper">
-
-        <div class="main-head">
-            <h1 class="title">Nos Utilisateurs</h1>
-        </div>
-
-        <div class="main-content-category">
-            <% @users.reverse_each do |user|%>
-                <% if user.id != current_user.id%>
-                    <%if user.user_game_stat != nil%>
-                <div class="cell inset">
-                    <div class="head">
-                        <h4><%= user.summoner_name%></h4>
-                        <h5><%= user.user_game_stat.level%></h5>
-                    </div>
-                    <div class="content">
-                        <p><%=user.user_game_stat.primary_role%></p>
-                        <p><%=user.user_game_stat.secondary_role%></p>
-                        <p><%=user.tag_list%></p>
-                    </div>
+<div class="main-wrapper" id="category-focus">
+    <div class="main-head">
+        <h1 class="title">Nos Utilisateurs</h1>
+    </div>
+    <div class="main-content-category">
+        <% @users.reverse_each do |user|%>
+            <% if user.id != current_user.id%>
+                <%if user.user_game_stat != nil%>
+            <div class="cell inset">
+                <div class="head">
+                    <h4><%= user.summoner_name%></h4>
+                    <h5><%= user.user_game_stat.level%></h5>
                 </div>
-                    <%end%>
+                <div class="content">
+                    <p><%=user.user_game_stat.primary_role%></p>
+                    <p><%=user.user_game_stat.secondary_role%></p>
+                    <p><%=user.tag_list%></p>
+                </div>
+            </div>
                 <%end%>
             <%end%>
-        </div>
-
+        <%end%>
     </div>
-
-</main>
-
-<aside>
-    <%= render "aside" %>
-</aside>
+</div>

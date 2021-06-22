@@ -1,32 +1,18 @@
-
-<main id="users-focus">
-
-    <div class="main-wrapper">
-
-        <div class="main-head">
-            <h1 class="title">Swipe</h1>
-        </div>
-
-        <div class="main-content-swipe">
-
-            <div class="swipe-card-container">
-                <%if @user_select == false %>
-                    <h1>TU N'AS PLUS DE SWIPE</h1>
-                <%else%>
-                <%= render "swipe_user_card" %>          
-                <%end%>
-                <div class="notice-swipe">
-                    <p id="notice"><%= notice %></p>
-                </div>
-                
-            </div>
-
-        </div>
-
+<div class="main-wrapper" id="users-focus">
+    <div class="main-head">
+        <h1 class="title">Swipe</h1>
     </div>
-
-</main>
-
-<aside>
-    <%= render "aside" %>
-</aside>
+    <div class="main-content-swipe">
+        <div class="swipe-card-container">
+            <%if @user_select == false %>
+                <h1>TU N'AS PLUS DE SWIPE</h1>
+            <%else%>
+            <%= render "swipe_user_card" %>          
+            <%end%>
+            <div class="notice-swipe">
+                <p id="notice"><%= notice %></p>
+            </div>
+            
+        </div>
+    </div>
+</div>
