@@ -20,7 +20,7 @@
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
-      <em><%= @minimum_password_length %> caractères minimum</em>
+      <em>(<%= @minimum_password_length %> caractères minimum)</em>
     <% end %>
   </div>
 
@@ -30,7 +30,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(nous avons besoin de votre mot de passe actuel pour valider les modifications)</i><br />
+    <%= f.label :current_password %><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 

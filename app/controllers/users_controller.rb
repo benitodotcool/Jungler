@@ -8,11 +8,10 @@ class UsersController < ApplicationController
   
   # GET /users or /users.json
   def index
-    @users = User.all.where.not(id:current_user.id)
+    @users = User.tagged_with(current_user.tag_list).where.not(id: current_user.id).shuffle
     @user_select = user_selected
     @conversations = Conversation.all
     @messages = Message.order("created_at DESC").all
-    
   end
 
   # GET /users/1 or /users/1.json
@@ -41,8 +40,6 @@ class UsersController < ApplicationController
   def create
     
     @user = User.new(user_params)
-    @user.tag_list.add("Relax", "Peer-Learning", "Try-Hard").sample
-    @user.save
     respond_to do |format|
       if @user.save
         UserGameStat.create!(id:current_user.id, user_id: current_user.id)

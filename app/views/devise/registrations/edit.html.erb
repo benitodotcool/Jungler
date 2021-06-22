@@ -1,8 +1,12 @@
 
 <div class="form-container">
 <div class="title-container">
-<h2>Editer <%= resource_name.to_s.humanize %></h2>
-</div>
+<section id="editprofile">
+<div class="card-container">
+<h2>Editer vos informations</h2>
+<br/>
+
+
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -10,7 +14,7 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"textedit" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -18,32 +22,31 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(laissez vide si vous ne souhaitez pas éditer)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "new-password", class:"textedit" %>
     <% if @minimum_password_length %>
       <br />
-      <em><%= @minimum_password_length %> caractères minimum</em>
+      <em>(<%= @minimum_password_length %> caractères minimum)</em>
     <% end %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"textedit" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(nous avons besoin de votre mot de passe actuel pour valider les modifications)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+    <%= f.label :current_password %><br />
+    <%= f.password_field :current_password, autocomplete: "current-password", class:"textedit" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Mettre à jour" %>
-  </div>
+    <%= f.submit "Mettre à jour", class:"input-send" %>
 <% end %>
 
 <h3>Supprimer mon compte</h3>
 
-<p>Déçu? <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Déçu? <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Are you sure?" }, class:"input-send-danger", method: :delete %></p>
 
-<%= link_to "Back", :back %>
 </div>
+</div>
+
