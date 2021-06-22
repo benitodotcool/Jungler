@@ -120,6 +120,7 @@ aside {
           display: grid;
           place-items: center;
           transition: all 0.3s ease-out;
+          cursor: pointer;
 
           &:hover svg#icon-logout g {
             stroke: var(--danger-color);
