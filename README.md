@@ -6,7 +6,7 @@ Les jeux en ligne sont comme une grande Jungle : il est difficile de trouver des
 
 Beaucoup de joueurs se plaignent des systèmes de "matchmaking" mis en place. Jungler propose à ses utilisateurs un système de mise en relation basé sur des critères entièrement personnalisable et devient **LA** solution.
 
-Les utilisateurs de Jungler auraient le choix entre quatre objectifs:
+Les utilisateurs de "Jungler" auraient le choix entre quatre objectifs:
 
 * Relax: Vous êtes là pour passer un bon moment complètement chill.
 * Peer-Gaming: Vous êtes là pour apprendre ensemble, se donner des tips et évoluer en binôme.
