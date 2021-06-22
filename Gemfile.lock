@@ -76,6 +76,7 @@ GEM
     chromedriver-helper (2.1.1)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
+    coderay (1.1.3)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -162,6 +163,9 @@ GEM
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.2.3)
+    pry (0.14.1)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
     public_suffix (4.0.6)
     puma (3.12.6)
     racc (1.5.2)
@@ -280,6 +284,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   mailjet!
   pg (>= 0.18, < 2.0)
+  pry
   puma (~> 3.11)
   rails (= 5.2.3)
   riot_games_api_client
