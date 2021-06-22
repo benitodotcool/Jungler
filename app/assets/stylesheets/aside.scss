@@ -116,15 +116,19 @@ aside {
 
         }
 
-        .settings {
+        .login-logout {
           display: grid;
           place-items: center;
           transition: all 0.3s ease-out;
 
-          &:hover svg#icon-settings g {
-            stroke: var(--light-grey-color);
+          &:hover svg#icon-logout g {
+            stroke: var(--danger-color);
+            transition: all 0.3s ease-out;       
+          }
+
+          &:hover svg#icon-login g {
+            stroke: var(--green-color);
             transition: all 0.3s ease-out;
-            
           }
 
         }
