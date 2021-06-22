@@ -1,0 +1,26 @@
+<section id="showprofile">
+<div class="card-container">
+
+	<img class="round" src="https://i.pinimg.com/originals/2c/54/06/2c5406a83ab2257df1c57b52945e1c3c.jpg" alt="user" />
+	<h3><%= current_user.email%></h3>
+	<h6>Niveau 60</h6>
+	<p>Une description classique </p>
+    <p>Style de jeu : Tryhard </p>
+    <p>Premier rôle : Top </p>
+    <p>Deuxième rôle : Jungler </p>
+	<div class="buttons">
+		<a href="/users/<%=current_user.id%>/edit", class="input-send">Modifier mon profil</a>
+        <%= link_to "Modifier mon profil", edit_user_path(user.id), remote: true%>
+	</div>
+	<div class="skills">
+		<h6>Champions joués</h6>
+		<ul>
+			<li>Jax</li>
+            <li>Irelia</li>
+            <li>Jax</li>
+		
+		</ul>
+</div>
+
+
+</section>
