@@ -1,0 +1,4 @@
+var render1 = document.querySelector("body > div.container > aside > div.aside-container.inset > div.aside-content > div:nth-child(1) > div")
+
+render1.innerHTML = render1.innerHTML
+                        .replace (<%= render"/users/user_show"%><div class="notification-container inset"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></div>
