@@ -17,15 +17,8 @@ class ConversationsController < ApplicationController
     @current_conversation= Conversation.find(@conversation_id )
     @messages= Message.all
     @conversations = conversations_allowed
-    #@content = if Message.where(conversation_id:@conversation.id).last.content != nil
-    #@time_ago = Message.where(conversation_id:@conversation.id).last.updated_at.strftime( "%H:%M")
-    @content = Message.where(conversation_id:@conversation.id).last.content != nil
-    
-    
-    @time_ago = Message.where(conversation_id:@conversation.id).last.updated_at.strftime( "%H:%M")
     @user_game_stats = UserGameStat.new
-    #@content = if Message.where(conversation_id:@conversation.id).last.content != nil
-    #@time_ago = Message.where(conversation_id:@conversation.id).last.updated_at.strftime( "%H:%M")
+    
   
   end
 

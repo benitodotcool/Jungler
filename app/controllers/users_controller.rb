@@ -73,7 +73,7 @@ class UsersController < ApplicationController
         if UserGameStat.exists?(id:current_user.id) == false
           @user_game_stat = UserGameStat.create!(id:current_user.id, user_id: current_user.id)
         end
-        get_api_summoner(@summoner_name)
+        
       
         format.html {redirect_to request.referrer, notice: "User was successfully updated." }
       else
@@ -138,22 +138,6 @@ class UsersController < ApplicationController
       if condition_1 == true 
         return true
       end
-    end
-
-    def get_api_summoner(summoner_name)
-     #@summoner_name = User.find(current_user.id).summoner_name
-     client = RiotGamesApiClient::Client.new(
-       api_key: ENV['RIOT_API_KEY'],
-       region: "euw1"
-      )   
-    response = client.get_lol_summoner(summoner_name: summoner_name)
-    #response = client.get_lol_summoner(summoner_name: @summoner_name)
-    @summoner_id = response.body['id']
-    @level = response.body['summonerLevel']
-      if @summoner_id != nil
-        UserGameStat.find(current_user.id).update(summoner_id: @summoner_id, level: @level )
-      end
-      
     end
 
     def tagged
