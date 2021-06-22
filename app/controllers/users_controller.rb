@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user_game_stat, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
   before_action :user_authorized?, only: %i[update destroy ]
-  require 'pry'
+  #require 'pry'
   require 'dotenv'
   Dotenv.load('.env')
   #before_action :is_profile_completed?
@@ -60,21 +60,21 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
-    
+    respond_to do |format|
       if @user.update(user_params)
+        
         @summoner_name = current_user.summoner_name
-        if UserGameStat.exists?(id:current_user.id)
-        else
+        if UserGameStat.exists?(id:current_user.id) == false
           @user_game_stat = UserGameStat.create!(id:current_user.id, user_id: current_user.id)
         end
         get_api_summoner(@summoner_name)
-
-        format.html { redirect_to request.referrer, notice: "User was successfully updated." }
-        format.json { render :show, status: :ok, location: @user }
+      
+        format.html {redirect_to request.referrer, notice: "User was successfully updated." }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
+    end
     
   end
 
@@ -145,7 +145,7 @@ class UsersController < ApplicationController
     @summoner_id = response.body['id']
     @level = response.body['summonerLevel']
       if @summoner_id != nil
-        UserGameStat.find(current_user.id).update!(summoner_id: @summoner_id, level: @level )
+        UserGameStat.find(current_user.id).update(summoner_id: @summoner_id, level: @level )
       end
       
     end

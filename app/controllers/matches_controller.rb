@@ -72,8 +72,7 @@ class MatchesController < ApplicationController
     end
 
     def is_set?
-      
-
+    
      @user_swipped_id =  params[:receiver_id]
      @current_user_id = params[:requestor_id]
       condition_1 = Match.exists?(requestor_id: @current_user_id, receiver_id:@user_swipped_id, status: true)#tododev
