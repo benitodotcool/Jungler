@@ -5,7 +5,7 @@ function navAction() {
     let messageIcon = document.getElementById('message-add');
     let categoryIcon = document.getElementById('category-add');
     let discoveryIcon = document.getElementById('discovery-add');
-    let mainContainer = document.querySelector('main');
+    let mainContainer = document.querySelector('.main-wrapper');
 
     // console.log(homeIcon);
     // console.log(arrowIcon);
