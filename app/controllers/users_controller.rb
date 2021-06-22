@@ -58,19 +58,21 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
-    respond_to do |format|
+    
       if @user.update(user_params)  
         if UserGameStat.exists?(id:current_user.id) == false
           @user_game_stat = UserGameStat.create!(id:current_user.id, user_id: current_user.id)
         end
-          format.html {redirect_to request.referrer, notice: "User was successfully updated." }
       else
+        respond_to do |format|
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
+    end
+  
       @summoner_name = current_user.summoner_name
       get_api_summoner(@summoner_name)
-    end
+
     
   end
 
@@ -131,51 +133,61 @@ class UsersController < ApplicationController
       end
     end
 
-    def get_api_summoner(summoner_name)
-      
-  
-      @summoner_name = summoner_name.gsub!(/\s/,'').downcase #pb restant
-      
-      
-      @env =  ENV['RIOT_API_KEY']
     
-      response_summoner = RestClient.get ("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/#{summoner_name}?api_key=#{@env}")
       
-      response_summoner_in_hash = eval(response_summoner.body)
-      @summoner_id              = response_summoner_in_hash.values_at(:id).join
-      @level                    = response_summoner_in_hash.values_at(:summonerLevel).join
-      @code_response            = response_summoner.code
-      @icon_profile_id          = response_summoner_in_hash.values_at(:profileIconId).join
-            
-
-      @champions_response = RestClient.get ("https://euw1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/#{@summoner_id}?api_key=#{@env}")
-      @last_3_champions = eval(@champions_response.body)
   
-       @first_champion_level  = @last_3_champions[0].values_at(:championLevel).join
-       @first_champion_id  = @last_3_champions[0].values_at(:championId).join
+      #@summoner_name = summoner_name.gsub!(/\s/,'').downcase #pb restant
+      
+      def get_api_summoner(summoner_name)
 
-       @second_champion_level = @last_3_champions[1].values_at(:championLevel).join
-       @second_champion_id = @last_3_champions[1].values_at(:championId).join
+          @env =  ENV['RIOT_API_KEY']
 
-       @third_champion_level = @last_3_champions[2].values_at(:championLevel).join
-       @third_champion_id  = @last_3_champions[2].values_at(:championId).join
-       #binding.pry
+        begin
+          @response_summoner = RestClient.get ("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/#{summoner_name}?api_key=#{@env}")
+        rescue
+          render :edit , notice: "Oups! Il ya eu un couac" 
+        else 
+        response_summoner_in_hash = eval(@response_summoner.body)
+        @summoner_id              = response_summoner_in_hash.values_at(:id).join
+        @level                    = response_summoner_in_hash.values_at(:summonerLevel).join
+        @icon_profile_id          = response_summoner_in_hash.values_at(:profileIconId).join
 
 
-       if @summoner_id != nil
-        UserGameStat.find(current_user.id).update(
-          summoner_id: @summoner_id, 
-          level: @level, 
-          first_champion_id: @first_champion_id, 
-          first_champion_level: @first_champion_level,
-          second_champion_id: @seconde_champion_id, 
-          second_champion_level: @seconde_champion_level,
-          third_champion_id: @third_champion_id, 
-          third_champion_level: @third_champion_level 
-        )
-        User.find(current_user.id).update(icon_profile_id:@icon_profile_id)
+        @champions_response = RestClient.get ("https://euw1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/#{@summoner_id}?api_key=#{@env}")
+        @last_3_champions = eval(@champions_response.body)
+  
+        @first_champion_level  = @last_3_champions[0].values_at(:championLevel).join
+        @first_champion_id     = @last_3_champions[0].values_at(:championId).join 
+        @second_champion_level = @last_3_champions[1].values_at(:championLevel).join
+        @second_champion_id    = @last_3_champions[1].values_at(:championId).join 
+        @third_champion_level  = @last_3_champions[2].values_at(:championLevel).join
+        @third_champion_id     = @last_3_champions[2].values_at(:championId).join
+
+        @champions_list_response = RestClient.get ("https://ddragon.leagueoflegends.com/cdn/11.13.1/data/en_US/champion.json")
+        @champions_list = eval(@champions_list_response.body)
+        
+        #@first_chex:qampion_name     = @last_3_champions[0].values_at(:championId).join 
+       binding.pry
+        if @summoner_id != nil
+          UserGameStat.find(current_user.id).update(
+            summoner_id: @summoner_id, 
+            level: @level, 
+            first_champion_id: @first_champion_id, 
+            first_champion_level: @first_champion_level,
+            second_champion_id: @seconde_champion_id, 
+            second_champion_level: @seconde_champion_level,
+            third_champion_id: @third_champion_id, 
+            third_champion_level: @third_champion_level 
+          )
+          if User.find(current_user.id).update(icon_profile_id:@icon_profile_id)
+            respond_to do |format|
+          format.html {redirect_to :back, notice: "User was successfully updated." }
+            end
+         end
         end
       end
+      end
+
     
       
     

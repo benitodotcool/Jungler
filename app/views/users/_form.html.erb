@@ -1,5 +1,8 @@
-
+ 
   <%= form_with(model: user, local: true) do |form| %>
+  <div class="notice-swipe">
+    <p id="notice"><%= notice %></p>
+  </div> 
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> interdit à cet utilisateur d'être enregistré:</h2>
@@ -50,7 +53,7 @@
      
 <%if current_user.summoner_name != nil %>
   <%= render 'user_game_stats/form', user_game_stat: @user_game_stat%>
- <%end%>
+<%end%>
  
 
 
