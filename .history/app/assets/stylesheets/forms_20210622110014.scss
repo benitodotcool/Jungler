@@ -159,6 +159,18 @@
         padding: 7px;
     }
     
+    #editprofile button.primary {
+        background-color: #03BFCB;
+        border: 1px solid #03BFCB;
+        border-radius: 3px;
+        color: #231E39;
+        font-family: Montserrat, sans-serif;
+        font-weight: 500;
+        padding: 10px 25px;
+    }
+    
+
+    
     #editprofile .skills {
         background-color: var(--secondary-dark-color);;
         text-align: left;
@@ -181,7 +193,30 @@
         padding: 7px;
     }
     
+    #editprofile footer {
+        background-color: #222;
+        color: #fff;
+        font-size: 14px;
+        bottom: 0;
+        position: fixed;
+        left: 0;
+        right: 0;
+        text-align: center;
+        z-index: 999;
+    }
     
+    #editprofile footer p {
+        margin: 10px 0;
+    }
+    
+    #editprofile footer i {
+        color: red;
+    }
+    
+    #editprofile footer a {
+        color: #3c97bf;
+        text-decoration: none;
+    }
 
     #editprofile .round
     {

@@ -1,7 +1,7 @@
 <section id="showprofile">
 <div class="card-container">
 
-	<img class="round" src="https://i.pinimg.com/originals/2c/54/06/2c5406a83ab2257df1c57b52945e1c3c.jpg" alt="user" />
+	<img class="round" src="https://randomuser.me/api/portraits/women/79.jpg" alt="user" />
 	<h3><%= current_user.email%></h3>
 	<h6>Niveau 60</h6>
 	<p>Une description classique </p>
@@ -9,7 +9,7 @@
     <p>Premier rôle : Top </p>
     <p>Deuxième rôle : Jungler </p>
 	<div class="buttons">
-		<a href="/users/<%=current_user.id%>/edit", class="input-send">Modifier mon profil</a>
+		<a href="/users/<%=current_user.id>"
 	</div>
 	<div class="skills">
 		<h6>Champions joués</h6>

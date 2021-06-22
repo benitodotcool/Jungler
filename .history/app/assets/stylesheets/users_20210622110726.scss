@@ -152,7 +152,6 @@
     #showprofile p {
         font-size: 14px;
         line-height: 21px;
-        padding:8px
     }
     
     #showprofile .card-container {
@@ -185,20 +184,20 @@
         padding: 7px;
     }
     
-    #showprofile .skills {
+    #editprofile .skills {
         background-color: var(--secondary-dark-color);;
         text-align: left;
         padding: 15px;
         margin-top: 30px;
     }
     
-    #showprofile .skills ul {
+    #editprofile .skills ul {
         list-style-type: none;
         margin: 0;
         padding: 0;
     }
     
-    #showprofile .skills ul li {
+    #editprofile .skills ul li {
         border: 1px solid #2D2747;
         border-radius: 2px;
         display: inline-block;
@@ -209,18 +208,7 @@
     
     
 
-    #showprofile .round
+    #editprofile .round
     {
         width: 50%;
-    }
-
-    #showprofile .buttons
-    {
-      padding-top:30px
-    }
-    #showprofile a
-    {
-      font-size:12px;
-      margin-top:35px;
-      text-decoration:none
     }
