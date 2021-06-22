@@ -1,0 +1,214 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.main-content-swipe {    
+  display: grid;
+  place-items: center;
+
+  .swipe-card-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    grid-template-rows: 1fr repeat(2, 75px);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+    .swipe-cards {
+      position: relative;
+      display: grid;
+      place-items: center;
+      padding: var(--small-padding);
+      grid-template-rows: 75px auto 1fr auto;
+      grid-row-gap: var(--small-padding);
+      width: 300px;
+      height: 100%;
+      background-color: var(--secondary-dark-color);
+      border-radius: var(--medium-border-radius);
+      box-shadow: -15px 10px 50px 10px var(--main-color-shadow);
+      border: 2px solid var(--main-color);
+
+      .level {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: grid;
+        place-items: center;
+        height: 50px;
+        width: 50px;
+        border-radius: 18px;
+        background-color: var(--main-color);
+        transform: translate(50%, -50%);
+      }
+
+      .summoner-name {
+        width: 100%;
+        height: 100%;
+        border-bottom: 1px solid var(--dark-grey-color);
+
+        & * {
+          overflow-wrap: break-word;
+          text-align: left;
+        }
+      }
+
+      .description {
+        font-size: var(--small-font-size);
+        border-bottom: 1px solid var(--dark-grey-color);
+        padding-bottom: var(--small-padding);
+        color: var(--medium-grey-color);
+      }
+
+      .roles {
+        display: grid;
+        align-self: start;
+        grid-template-columns: 1fr 1px 1fr;
+        grid-template-rows: 1fr;
+        grid-column-gap: 5px;
+        width: 100%;
+
+        .role {
+          display: grid;
+          place-items: center;
+
+          .role-name {
+            font-size: var(--tiny-font-size);
+            color: var(--medium-grey-color);
+            font-weight: 500;
+            padding-bottom: calc(var(--small-padding) / 2);
+          }
+  
+          .role-icon {
+            & * {
+              width: 30px;
+              height: auto;
+            }
+          }
+
+        }
+
+        .separator {
+          background-color: var(--dark-grey-color);
+        }
+
+      }
+  
+      .best-champs {
+        width: 100%;
+        height: 100%;
+        border-top: 1px solid var(--dark-grey-color);
+        padding-top: var(--small-padding);
+
+        .title {
+          padding-bottom: calc(var(--small-padding) / 2);
+        }
+
+        .champ-icon {
+          display: flex;
+
+
+          & * {
+            display: grid;
+            place-items: center;
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            background-color: var(--medium-grey-color);
+            margin-right: 5px;
+          }
+        }
+
+      }
+
+      .btn-wrapper {
+        display: flex;
+  
+        span {
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+  
+      }
+  
+    }
+
+  }
+
+}
+
+/* SHOW PROFILE */
+
+ 
+    #editprofile h3 {
+        margin: 10px 0;
+    }
+    
+    #editprofile h6 {
+        margin: 5px 0;
+        text-transform: uppercase;
+    }
+    
+    #editprofile p {
+        font-size: 14px;
+        line-height: 21px;
+    }
+    
+    #editprofile .card-container {
+        background-color:var(--secondary-dark-color);
+        border-radius: 5px;
+        box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.75);
+        color: #B3B8CD;
+        padding-top: 30px;
+        position: relative;
+        width: 350px;
+        max-width: 100%;
+        text-align: center;
+    }
+    
+    #editprofile .card-container .pro {
+        color: var(--light-grey-color);;
+        background-color: var(--blue-color);
+        border-radius: 3px;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 3px 7px;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+    }
+    
+    #editprofile .card-container .round {
+        border: 1px solid #03BFCB;
+        border-radius: 50%;
+        padding: 7px;
+    }
+    
+    #editprofile .skills {
+        background-color: var(--secondary-dark-color);;
+        text-align: left;
+        padding: 15px;
+        margin-top: 30px;
+    }
+    
+    #editprofile .skills ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    #editprofile .skills ul li {
+        border: 1px solid #2D2747;
+        border-radius: 2px;
+        display: inline-block;
+        font-size: 12px;
+        margin: 0 7px 7px 0;
+        padding: 7px;
+    }
+    
+    
+
+    #editprofile .round
+    {
+        width: 50%;
+    }

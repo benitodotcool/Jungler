@@ -17,10 +17,15 @@ class ConversationsController < ApplicationController
     @current_conversation= Conversation.find(@conversation_id )
     @messages= Message.all
     @conversations = conversations_allowed
+<<<<<<< HEAD
     @content = Message.where(conversation_id:@conversation.id).last.content != nil
     
     
     @time_ago = Message.where(conversation_id:@conversation.id).last.updated_at.strftime( "%H:%M")
+=======
+    #@content = if Message.where(conversation_id:@conversation.id).last.content != nil
+    #@time_ago = Message.where(conversation_id:@conversation.id).last.updated_at.strftime( "%H:%M")
+>>>>>>> 8d42d8865b6a534bbbc61daf5c5e1291345f393e
   
   end
 

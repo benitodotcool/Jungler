@@ -5,7 +5,7 @@
     margin:10px 0; // add top and bottom margin
    
      display:inline-block;  
-     text-align:center;   
+     text-align:center; 
     
 
     #user_email, #user_password, #user_password_confirmation   {
@@ -69,6 +69,8 @@
             text-align: center;
             border: 2px solid var(--blue-color-shadow);;
             background-color: var(--blue-color);
+
+    
     
       &:hover {
         cursor: pointer;
@@ -87,12 +89,35 @@
       &:hover svg#icon-profile g {
         stroke: var(--light-grey-color);
       }
-        }
+    }
+
+    .input-send-danger {
+        color:var(--light-grey-color);
+        margin-top:20px;
+        margin-bottom:20px;
+        border:1px;
+        padding:8px;        
+        border-radius: 12px;
+        transition: all 0.6s ease-out;
+        text-align: center;
+        border: 2px solid rgb(153, 22, 22);
+        background-color: rgb(173, 31, 31);
+    }
+
+    .input-send-2 {
+        color:var(--light-grey-color);
+        margin-top:20px;
+        margin-bottom:20px;
+        border:1px;
+        padding:8px;        
+        border-radius: 12px;
+        transition: all 0.6s ease-out;
+        text-align: center;
+        border: 2px solid rgb(153, 22, 22);
+        background-color: rgb(173, 31, 31);
+    }
 
     /* EDIT */ 
-
-    
-   
 
     .fieldedit
     {
@@ -106,6 +131,8 @@
     border-radius: 2rem;
     color:var(--light-grey-color);
     text-align: center;
+    width: 170px;
+    height: 20px;
     }
 
     .texteditd
@@ -134,7 +161,7 @@
     
     #editprofile .card-container {
         background-color:var(--secondary-dark-color);
-        border-radius: 5px;
+        border-radius: 2rem;
         box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.75);
         color: #B3B8CD;
         padding-top: 30px;
@@ -162,21 +189,6 @@
         padding: 7px;
     }
     
-    #editprofile button.primary {
-        background-color: #03BFCB;
-        border: 1px solid #03BFCB;
-        border-radius: 3px;
-        color: #231E39;
-        font-family: Montserrat, sans-serif;
-        font-weight: 500;
-        padding: 10px 25px;
-    }
-    
-    #editprofile button.primary.ghost {
-        background-color: transparent;
-        color: #02899C;
-    }
-    
     #editprofile .skills {
         background-color: var(--secondary-dark-color);;
         text-align: left;
@@ -191,7 +203,7 @@
     }
     
     #editprofile .skills ul li {
-        border: 1px solid #2D2747;
+        border: 1px solid #38343c;
         border-radius: 2px;
         display: inline-block;
         font-size: 12px;
@@ -199,30 +211,7 @@
         padding: 7px;
     }
     
-    #editprofile footer {
-        background-color: #222;
-        color: #fff;
-        font-size: 14px;
-        bottom: 0;
-        position: fixed;
-        left: 0;
-        right: 0;
-        text-align: center;
-        z-index: 999;
-    }
     
-    #editprofile footer p {
-        margin: 10px 0;
-    }
-    
-    #editprofile footer i {
-        color: red;
-    }
-    
-    #editprofile footer a {
-        color: #3c97bf;
-        text-decoration: none;
-    }
 
     #editprofile .round
     {

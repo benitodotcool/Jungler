@@ -6,6 +6,7 @@
 
     <div class="summoner-name">
         <h2><%= @user_select.summoner_name %></h2>
+        <h2><%= @user_select.tag_list%></h2>
     </div>
 
     <div class="description">
@@ -53,7 +54,7 @@
     </span>
     <span>
         <%= link_to "OUI ", matches_path(:requestor_id => current_user.id.to_i,:receiver_id => @user_select.id.to_i, status:true), method: :post,id:'btn-yes'%>
-    </span>  
-    
+    </span> 
+
 </div>
 
