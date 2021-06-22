@@ -2,7 +2,7 @@
   --main-bg-dark-color: rgba(26, 28, 31, 1);
   --secondary-dark-color: rgba(33, 35, 41, 0.70);
   --main-color: rgb(38, 114, 235);
-  --main-color-shadow: rgba(92, 128, 188, 0.15);
+  --main-color-shadow: rgba(92, 128, 188, 0.25);
 
   --blue-color: rgb(38, 114, 235);
   --blue-color-shadow: rgba(92, 128, 188, 0.15);
@@ -47,6 +47,8 @@ body {
   font-family: 'Inter', sans-serif;
   color: var(--light-grey-color);
   overscroll-behavior-y: none;
+  position: fixed;
+  overflow: hidden;
 }
 
 
@@ -55,7 +57,8 @@ body {
 .conversation-left::-webkit-scrollbar,
 .conversation-content::-webkit-scrollbar,
 .main-wrapper::-webkit-scrollbar,
-.aside-content::-webkit-scrollbar {
+.aside-content::-webkit-scrollbar,
+html::-webkit-scrollbar {
   display: none;
 }
 
