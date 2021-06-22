@@ -30,6 +30,10 @@
             background-color: var(--secondary-dark-color);
             border-radius: var(--small-border-radius);
             padding: var(--small-padding);
+
+            h2 {
+                line-height: 1.2;
+            }
         }
 
         .cell-1 {
@@ -199,10 +203,11 @@
             margin-bottom: calc(var(--medium-padding) * 2);
 
             .title {
+                padding-bottom: var(--small-padding);
 
                 &::before {
                     vertical-align: 40%;
-                    content: "new";
+                    content: "On t'attends";
                     font-size: 12px;
                     text-transform: uppercase;
                     background-color: var(--warning-color);
@@ -219,15 +224,6 @@
                 grid-template-columns: repeat(3, 1fr);
                 grid-column-gap: var(--small-padding);
             }
-
-        }
-
-        .cell-8 {
-            
-        }
-
-        .cell-9 {
-            grid-area: 9 / 5 / 10 / 7;
         }
 
         .cell-10 {
@@ -511,6 +507,19 @@
 
         .cell-13 {
             grid-area: 16 / 1 / 17 / 7;
+            display: grid;
+            place-items: center;
+            padding: var(--small-padding);            
+            transition: all 0.4s ease-out;
+            border: 1px solid var(--blue-color);
+            border-radius: var(--small-border-radius);
+            color: var(--blue-color);
+
+            &:hover {
+                background-color: var(--blue-color);
+                box-shadow: 0px 15px 25px 10px var(--main-color-shadow);
+                color: var(--light-grey-color);
+            }
         }
 
         footer {
