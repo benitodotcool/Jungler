@@ -44,7 +44,7 @@
 
     <div class="aside-content">
 
-        <div class="notification-container inset"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></div>
+        <div class="notification-container inset"><a href="<% destroy_user_session_path %>">Déconnecter</a></div>
         <div class="notification-container inset"></div>
         <div class="notification-container inset"></div>
         <div class="notification-container inset"></div>
@@ -75,16 +75,18 @@
                     </div>                    
 
                     <div class="login-logout">
-                        <svg id="icon-logout" class="icon" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <title>Iconly/Light/Logout</title>
-                            <g id="Iconly/Light/Logout" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
-                                <g id="Logout" transform="translate(2.000000, 2.000000)" stroke="var(--medium-grey-color)" stroke-width="1.5">
-                                    <path d="M13.016,5.3895 L13.016,4.4565 C13.016,2.4215 11.366,0.7715 9.331,0.7715 L4.456,0.7715 C2.422,0.7715 0.772,2.4215 0.772,4.4565 L0.772,15.5865 C0.772,17.6215 2.422,19.2715 4.456,19.2715 L9.341,19.2715 C11.37,19.2715 13.016,17.6265 13.016,15.5975 L13.016,14.6545" id="Stroke-1"></path>
-                                    <line x1="19.8095" y1="10.0214" x2="7.7685" y2="10.0214" id="Stroke-3"></line>
-                                    <polyline id="Stroke-5" points="16.8812 7.1063 19.8092 10.0213 16.8812 12.9373"></polyline>
+                        <a href="<%= destroy_user_session_path %>" data-method="delete">
+                            <svg id="icon-logout" class="icon" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <title>Iconly/Light/Logout</title>
+                                <g id="Iconly/Light/Logout" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                                    <g id="Logout" transform="translate(2.000000, 2.000000)" stroke="var(--medium-grey-color)" stroke-width="1.5">
+                                        <path d="M13.016,5.3895 L13.016,4.4565 C13.016,2.4215 11.366,0.7715 9.331,0.7715 L4.456,0.7715 C2.422,0.7715 0.772,2.4215 0.772,4.4565 L0.772,15.5865 C0.772,17.6215 2.422,19.2715 4.456,19.2715 L9.341,19.2715 C11.37,19.2715 13.016,17.6265 13.016,15.5975 L13.016,14.6545" id="Stroke-1"></path>
+                                        <line x1="19.8095" y1="10.0214" x2="7.7685" y2="10.0214" id="Stroke-3"></line>
+                                        <polyline id="Stroke-5" points="16.8812 7.1063 19.8092 10.0213 16.8812 12.9373"></polyline>
+                                    </g>
                                 </g>
-                            </g>
-                        </svg>                
+                            </svg> 
+                        </a>               
                     </div>
 
                 </div>
@@ -100,16 +102,18 @@
                     </div>                    
 
                     <div class="login-logout">
-                        <svg id="icon-login" class="icon" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <title>Iconly/Light/Login</title>
-                            <g id="Iconly/Light/Login" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
-                                <g id="Login" transform="translate(3.000000, 2.000000)" stroke="var(--medium-grey-color)" stroke-width="1.5">
-                                    <line x1="12.8125" y1="10.0218" x2="0.7715" y2="10.0218" id="Stroke-1"></line>
-                                    <polyline id="Stroke-3" points="9.8848 7.1058 12.8128 10.0218 9.8848 12.9378"></polyline>
-                                    <path d="M5.5044,5.389 L5.5044,4.456 C5.5044,2.421 7.1534,0.772 9.1894,0.772 L14.0734,0.772 C16.1034,0.772 17.7484,2.417 17.7484,4.447 L17.7484,15.587 C17.7484,17.622 16.0984,19.272 14.0634,19.272 L9.1784,19.272 C7.1494,19.272 5.5044,17.626 5.5044,15.597 L5.5044,14.655" id="Stroke-4"></path>
+                        <a href="<%= new_user_session_path %>">
+                            <svg id="icon-login" class="icon" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <title>Iconly/Light/Login</title>
+                                <g id="Iconly/Light/Login" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                                    <g id="Login" transform="translate(3.000000, 2.000000)" stroke="var(--medium-grey-color)" stroke-width="1.5">
+                                        <line x1="12.8125" y1="10.0218" x2="0.7715" y2="10.0218" id="Stroke-1"></line>
+                                        <polyline id="Stroke-3" points="9.8848 7.1058 12.8128 10.0218 9.8848 12.9378"></polyline>
+                                        <path d="M5.5044,5.389 L5.5044,4.456 C5.5044,2.421 7.1534,0.772 9.1894,0.772 L14.0734,0.772 C16.1034,0.772 17.7484,2.417 17.7484,4.447 L17.7484,15.587 C17.7484,17.622 16.0984,19.272 14.0634,19.272 L9.1784,19.272 C7.1494,19.272 5.5044,17.626 5.5044,15.597 L5.5044,14.655" id="Stroke-4"></path>
+                                    </g>
                                 </g>
-                            </g>
-                        </svg>        
+                            </svg>
+                        </a>        
                     </div>
 
                 </div>
