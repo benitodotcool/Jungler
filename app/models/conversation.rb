@@ -11,4 +11,13 @@ class Conversation < ApplicationRecord
    
   has_many :messages 
   
+  after_create :conversation_send
+
+  def conversation_send
+    
+    @user_id_a = Conversation.find(params[:id]).participant_a_id
+    @user_a = User.find(@user_id_a)
+    UserMailer.conversation_email(@user_a).deliver_now
+  end
+
 end
