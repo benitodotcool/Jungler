@@ -159,7 +159,7 @@ class UsersController < ApplicationController
           @env =  ENV['RIOT_API_KEY']
 
         begin
-          @response_summoner = RestClient.get ("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/#{summoner_name}?api_key=#{@env}")
+          @response_summoner = RestClient.get ("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/#{@summoner_name}?api_key=#{@env}")
         rescue
           respond_to do |format|
             format.html {render :edit, notice: "Oups! Il ya eu un couac"  }
@@ -170,6 +170,7 @@ class UsersController < ApplicationController
         @summoner_id              = response_summoner_in_hash.values_at(:id).join
         @level                    = response_summoner_in_hash.values_at(:summonerLevel).join
         @icon_profile_id          = response_summoner_in_hash.values_at(:profileIconId).join
+        @name                     = response_summoner_in_hash.values_at(:name).join
         #binding.pry 
         
 
@@ -187,13 +188,6 @@ class UsersController < ApplicationController
             @third_champion_level  = @last_3_champions[2].values_at(:championLevel).join.to_i
             @third_champion_id     = @last_3_champions[2].values_at(:championId).join.to_i
 
-            #@champions_list_response = RestClient.get ("https://ddragon.leagueoflegends.com/cdn/11.13.1/data/en_US/champion.json")
-            #@champions_list = eval(@champions_list_response.body)
-                  
-          
-            
-          #champions.select {|k,v| v == @first_champion_id }
-
           @first_champion_name = CHAMPIONS.fetch(@first_champion_id )
           @second_champion_name = CHAMPIONS.fetch(@second_champion_id )
           @third_champion_name = CHAMPIONS.fetch(@third_champion_id )
@@ -201,27 +195,33 @@ class UsersController < ApplicationController
 
         binding.pry
         end
-
+        @ugs = UserGameStat.find_by(user_id:current_user.id)
         
-
         #@first_chex:qampion_name     = @last_3_champions[0].values_at(:championId).join 
       
         if @summoner_id != nil
-          @ugs = UserGameStat.find_by(user_id:current_user.id).update!( 
+            @ugs.update!( 
             summoner_id: @summoner_id, 
             level: @level,
             first_champion_id: @first_champion_id, 
             first_champion_level: @first_champion_level,
-            first_champion_name: @first_champion_name,
+            #first_champion_name: @first_champion_name,
             second_champion_id: @second_champion_id, 
             second_champion_level: @second_champion_level,
-            second_champion_name: @second_champion_name,
+            #second_champion_name: @second_champion_name,
             third_champion_id: @third_champion_id, 
             third_champion_level: @third_champion_level,
-            third_champion_name: @third_champion_name
+            #third_champion_name: @third_champion_name
             
           )
-          @user = User.find(current_user.id).update!(icon_profile_id:@icon_profile_id)
+
+          if @ugs.description.nil?
+            @description = "Mon nom est #{@name}, je recherche d'autres joueurs stylay pour faire une équipe canon !"
+            @ugs.update!( description: @description)
+          end
+
+          @user = User.find(current_user.id)
+          @user.update!(icon_profile_id:@icon_profile_id)
             
           respond_to do |format|
             format.html {redirect_to edit_user_path(current_user.id), notice: "fin de l'appel API" }

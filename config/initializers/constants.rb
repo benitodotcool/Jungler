@@ -1,4 +1,4 @@
-  
+
     CHAMPIONS = {
       266 => 'Aatrox',
       103 => 'Ahri',
