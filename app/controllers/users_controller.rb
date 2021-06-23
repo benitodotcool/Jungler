@@ -148,7 +148,6 @@ class UsersController < ApplicationController
     
       
     def get_api_summoner(summoner_name)
-
         
         @summoner_name = summoner_name.delete(' ').downcase
         @env =  ENV['RIOT_API_KEY']

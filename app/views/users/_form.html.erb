@@ -46,10 +46,12 @@
         
   
       
-  <%end%> 
-     
-<%if current_user.summoner_name != nil %>
+
+<%begin%>
+
   <%= render 'user_game_stats/form', user_game_stat: @user_game_stat%>
+  <%end%>
+<%rescue%>
 <%end%>
  
 
