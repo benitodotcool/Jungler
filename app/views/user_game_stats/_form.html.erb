@@ -1,20 +1,8 @@
 
 <div class="edit">
- 
-<%= form_with(model: user_game_stat, local: true) do |form| %>
-  <% if user_game_stat.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user_game_stat.errors.count, "error") %> prohibited this user_game_stat from being saved:</h2>
 
-      <ul>
-      <%user_game_stat.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
- 
- 
+<%= form_with(model: user_game_stat, local: true) do |form| %>
+
 
 	<p>
     <div class="fieldedit">
@@ -39,15 +27,7 @@
   </div>
 	
 	</div>
-	<div class="skills">
-		<h6>Champions joués</h6>
-		<ul>
-			<li>Mundo</li>
-			<li>Jax</li>
-			<li>Irelia</li>
-			
-		</ul>
-	</div>
+	
 </div>
 <% end %>
 
