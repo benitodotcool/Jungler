@@ -4,7 +4,6 @@
         <h1 class="title">Édite ton profil</h1>
     </div>
 
-
     <div class="main-content-edit-profile">
 
         <div class="form-grid">        
@@ -36,25 +35,23 @@
                         <div class="devise-field">
                             <div class="title">
                                 <%= f.label :Nouveau_mot_de_passe %>
-                            </div>
-                            
-                            <%= f.password_field :password, autocomplete: "new-password", class:"input inset" %>
-                            <% if @minimum_password_length %>
+                            </div>                            
+                            <%= f.password_field :password, autocomplete: "new-password", placeholder: "#{@minimum_password_length} caractères minimum", class:"input inset" %>
+                            <!--<% if @minimum_password_length %>
                             <div class="infos">
                                 <%= @minimum_password_length %> caractères minimum.
                             </div>                        
-                            <% end %>
+                            <% end %> -->
                         </div>
 
                         <div class="devise-field">
                             <div class="title">
                                 <%= f.label :Confirmation %>
                             </div>                        
-                            <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"input inset" %>
+                            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "#{@minimum_password_length} caractères minimum", class:"input inset" %>
                         </div>
                     
-                    </div>
-                    
+                    </div>                    
 
                     <%= f.submit "Mettre à jour", class:"input-send" %>
 
@@ -65,10 +62,8 @@
             </div>
 
             <div class="form-cta-bottom">
-                <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Are you sure?" },class:"btn-delete", method: :delete %></p>
+                <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Are you sure?" },class:"btn-danger", method: :delete %></p>
             </div>
-           
-
 
         </div>
 
