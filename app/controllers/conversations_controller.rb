@@ -82,8 +82,10 @@ class ConversationsController < ApplicationController
     end
 
     def user_authorized?
-      user_id_a = Conversation.find(params[:id]).participant_a_id
-      user_id_b = Conversation.find(params[:id]).participant_b_id
+      @user_id_a = Conversation.find(params[:id]).participant_a_id
+      @user_a = User.find(@user_id_a)
+      @user_id_b = Conversation.find(params[:id]).participant_b_id
+      @user_b = User.find(@user_id_b)
     
       if user_id_a == current_user.id || user_id_b == current_user.id 
         return true 
