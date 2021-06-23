@@ -1,6 +1,3 @@
-<section id="showprofile">
-<div class="card-container">
-
 <%begin%>
 
 	<%if @user.icon_profile_id.nil?%>
@@ -30,10 +27,6 @@
 	<%rescue%>
 	
 <%end%>
-
-	<div class="buttons">
-		<a href="/users/<%=current_user.id%>/edit", class="input-send">Modifier mon profil</a>
-	</div>
 
 
 
