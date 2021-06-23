@@ -67,10 +67,7 @@ gem 'font-awesome-rails'
 gem 'faker'
 gem 'dotenv'
 gem 'mailjet', :git => 'https://github.com/mailjet/mailjet-gem.git'
-<<<<<<< HEAD
 gem 'acts-as-taggable-on', '~> 7.0'
-=======
 gem 'acts-as-taggable-on', '~> 7.0'
 gem 'rest-client'
 gem 'pry'
->>>>>>> bb9b2ebfffeb7a2aa4d842d1ebf0ec2a7fce8da6
