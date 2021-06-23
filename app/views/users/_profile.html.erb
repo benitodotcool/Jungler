@@ -1,18 +1,24 @@
 <section id="showprofile">
 <div class="card-container">
+	<%if @user.icon_profile_id.nil?%>
+	<%else%>
 	<%begin%>
 	<img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{@user.icon_profile_id }.png"%>>
 	<%rescue%>
+	<%end%>
 	<%end%>
 
 	<h3>HEY</h3>
 
 	<%begin%>
+	<%if @user_game_stat.nil?%>
+	<%else%>
 	<h4>Niveau <%=@user_game_stat.level%></h3>
 	<p><%=@user_game_stat.description%></p>
     <p><%=@user.tag_list%></p>
     <p><%=@user_game_stat.primary_role%></p>
     <p><%=@user_game_stat.secondary_role%></p>
+	<%end%>
 	<%rescue%>
 	<%end%>
 	<div class="buttons">
@@ -21,6 +27,8 @@
 
 	<div class="skills">
 		<%begin%>
+		<%if @user_game_stat.nil?%>
+		<%else%>
 		<h6>Champions joués</h6>
 		<ul>
 
@@ -43,6 +51,7 @@
 		
 		
 		</ul>
+		<%end%>
 		<%rescue%>
 	<%end%>
 	</div>
