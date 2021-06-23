@@ -8,7 +8,15 @@
 
     <div class="aside-content">
 
-        <div class="notification-container inset">tu n'est pas co</div>
+        <% if user_signed_in? %>
+
+            <%= render "users/profile" %>
+
+        <% else %>
+
+            <div class="notification-container inset">tu n'est pas co</div>
+
+        <% end %>       
         
     </div>
 
