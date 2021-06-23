@@ -1,20 +1,42 @@
-<div class="form-container">
-<div class="title-container">
-<h2>Mot de passe oublié ?</h2>
-</div>
+<div class="main-wrapper" id="landing_page-focus">
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="main-head">
+        <h1 class="title">Mot de passe oublié</h1>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="main-content-edit-profile">
 
-  <div class="actions">
-    <%= f.submit "Envoyez moi mon nouveau mot de passe" %>
-  </div>
-<% end %>
+        <div class="form-grid">
+        
+            <div class="form-content">
 
-<%= render "devise/shared/links" %>
+                <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+
+                    <div class="container-devise">
+
+                        <div class="devise-field">
+                            <div class="title">
+                                <%= f.label :Email %>
+                            </div>                        
+                            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"login-field", class:"input inset" %>
+                        </div>
+
+                    </div>
+
+                    <%= f.submit "Envoyez", class: "input-send" %>
+
+                    <%= render "devise/shared/error_messages", resource: resource %> 
+
+                <% end %>
+
+            </div>
+
+            <div class="form-cta-bottom">
+                <%= render "devise/shared/links" %>
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
