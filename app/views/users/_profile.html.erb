@@ -1,18 +1,25 @@
 <section id="showprofile">
 <div class="card-container">
 
-	<%if @user.icon_profile_id.nil?%>
+	<%if @user.icon_profile_id.nil?%>	
 	
 	<%else%>
 	<img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{@user.icon_profile_id }.png"%>>
 	<%end%>
 
 	<h3><%=@user.summoner_name%></h3>
-	<h4>Niveau <%=@user_game_stat.level%></h3>
-	<p><%=@user_game_stat.description%></p>
-    <p><%=@user.tag_list%></p>
-    <p><%=@user_game_stat.primary_role%></p>
-    <p><%=@user_game_stat.secondary_role%></p>
+	
+	<% if @user_game_stat.nil? %>
+		<p>tu n'as pas encore de game stats</p>
+
+	<% else %>
+		<p><%=@user_game_stat.secondary_role%></p>
+		<h4>Niveau <%=@user_game_stat.level%></h3>
+		<p><%=@user_game_stat.description%></p>
+		<p><%=@user.tag_list%></p>
+		<p><%=@user_game_stat.primary_role%></p>
+	<% end %>
+	
 	<div class="buttons">
 		<a href="/users/<%=current_user.id%>/edit", class="input-send">Modifier mon profil</a>
 	</div>
