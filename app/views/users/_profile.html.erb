@@ -1,22 +1,26 @@
 <section id="showprofile">
 <div class="card-container">
-
-	<%if @user.icon_profile_id.nil?%>
-	
-	<%else%>
+	<%begin%>
 	<img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{@user.icon_profile_id }.png"%>>
+	<%rescue%>
 	<%end%>
 
-	<h3><%=@user.summoner_name%></h3>
+	<h3>HEY</h3>
+
+	<%begin%>
 	<h4>Niveau <%=@user_game_stat.level%></h3>
 	<p><%=@user_game_stat.description%></p>
     <p><%=@user.tag_list%></p>
     <p><%=@user_game_stat.primary_role%></p>
     <p><%=@user_game_stat.secondary_role%></p>
+	<%rescue%>
+	<%end%>
 	<div class="buttons">
 		<a href="/users/<%=current_user.id%>/edit", class="input-send">Modifier mon profil</a>
 	</div>
+
 	<div class="skills">
+		<%begin%>
 		<h6>Champions joués</h6>
 		<ul>
 
@@ -28,7 +32,7 @@
       <li>
 			<%=@user_game_stat.second_champion_name%>
 			<img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@user_game_stat.second_champion_name}.png"%>>
-		<%=@user_game_stat.second_champion_level%>
+			<%=@user_game_stat.second_champion_level%>
 			</li>
       <li>
 			<%=@user_game_stat.third_champion_name%>
@@ -37,7 +41,10 @@
 
 			</li>
 		
+		
 		</ul>
+		<%rescue%>
+	<%end%>
 	</div>
 </div>
 
