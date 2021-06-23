@@ -16,11 +16,11 @@
  *= require nav
  *= require main
  *= require aside
- *= require forms
  *= require landing_page
  *= require discovery
  *= require category
  *= require users
  *= require conversations
  *= require particules
+ *= require devise
  */
