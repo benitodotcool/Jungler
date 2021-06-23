@@ -1,5 +1,9 @@
-<%= form_with(model: @user, local: true) do |form| %>
-  <% if @user.errors.any? %>
+ 
+  <%= form_with(model: user, local: true) do |form| %>
+  <div class="notice-swipe">
+    <p id="notice"><%= notice %></p>
+  </div> 
+  <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> interdit à cet utilisateur d'être enregistré:</h2>
 
@@ -14,8 +18,6 @@
 
 <section id="editprofile">
 <div class="card-container">
-
-	<img class="round" src="https://i.pinimg.com/originals/2c/54/06/2c5406a83ab2257df1c57b52945e1c3c.jpg" alt="user" />
 	<h3>
   <div class="field">
         <%= form.label :Nom_invocateur %><br>
@@ -49,7 +51,7 @@
      
 <%if current_user.summoner_name != nil %>
   <%= render 'user_game_stats/form', user_game_stat: @user_game_stat%>
- <%end%>
+<%end%>
  
 
 

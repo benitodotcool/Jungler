@@ -1,22 +1,41 @@
 <section id="showprofile">
 <div class="card-container">
 
+	<%if @user.icon_profile_id.nil?%>
 	<img class="round" src="https://i.pinimg.com/originals/2c/54/06/2c5406a83ab2257df1c57b52945e1c3c.jpg" alt="user" />
-	<h3><%= current_user.email%></h3>
-	<h6>Niveau 60</h6>
-	<p>Une description classique </p>
-    <p>Style de jeu : Tryhard </p>
-    <p>Premier rôle : Top </p>
-    <p>Deuxième rôle : Jungler </p>
+	<%else%>
+	<img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{@user.icon_profile_id }.png"%>>
+	<%end%>
+
+	<h3><%=@user.summoner_name%></h3>
+	<h4>Niveau <%=@user_game_stat.level%></h3>
+	<p><%=@user_game_stat.description%></p>
+    <p><%=@user.tag_list%></p>
+    <p><%=@user_game_stat.primary_role%></p>
+    <p><%=@user_game_stat.secondary_role%></p>
 	<div class="buttons">
 		<a href="/users/<%=current_user.id%>/edit", class="input-send">Modifier mon profil</a>
 	</div>
 	<div class="skills">
 		<h6>Champions joués</h6>
 		<ul>
-			<li>Jax</li>
-            <li>Irelia</li>
-            <li>Jax</li>
+
+			<li>
+			<%=@user_game_stat.first_champion_name%> 
+			<img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@user_game_stat.first_champion_name}.png"%>>
+			<%=@user_game_stat.first_champion_level%> 
+			</li>
+      <li>
+			<%=@user_game_stat.second_champion_name%>
+			<img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@user_game_stat.second_champion_name}.png"%>>
+		<%=@user_game_stat.second_champion_level%>
+			</li>
+      <li>
+			<%=@user_game_stat.third_champion_name%>
+			<img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@user_game_stat.third_champion_name}.png"%>>
+			<%=@user_game_stat.third_champion_level%>
+
+			</li>
 		
 		</ul>
 	</div>

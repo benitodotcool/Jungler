@@ -84,6 +84,15 @@ ActiveRecord::Schema.define(version: 2021_06_21_212240) do
     t.string "primary_role"
     t.string "secondary_role"
     t.text "description"
+    t.integer "first_champion_id"
+    t.integer "first_champion_level"
+    t.string "first_champion_name"
+    t.integer "second_champion_id"
+    t.integer "second_champion_level"
+    t.string "second_champion_name"
+    t.integer "third_champion_id"
+    t.integer "third_champion_level"
+    t.string "third_champion_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_user_game_stats_on_user_id"
@@ -91,6 +100,7 @@ ActiveRecord::Schema.define(version: 2021_06_21_212240) do
 
   create_table "users", force: :cascade do |t|
     t.string "summoner_name"
+    t.integer "icon_profile_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_game_stat_id"

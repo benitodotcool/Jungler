@@ -1,52 +1,79 @@
+<div class="main-wrapper" id="landing_page-focus">
 
-<div class="form-container">
-<div class="title-container">
-<section id="editprofile">
-<div class="card-container">
-<h2>Editer vos informations</h2>
-<br/>
+    <div class="main-head">
+        <h1 class="title">Édite ton profil</h1>
+    </div>
 
+    <div class="main-content-edit-profile">
 
+        <div class="form-grid">        
+        
+            <div class="form-content">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 
+                    <div class="container-devise">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"textedit" %>
-  </div>
+                        <div class="devise-field">
+                            <div class="title">
+                                <%= f.label :email %>
+                            </div>                        
+                            <%= f.email_field :email, autocomplete: "email", class:"input inset" %>
+                        </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Actuellement en train d'attendre: <%= resource.unconfirmed_email %></div>
-  <% end %>
+                        <div class="devise-field">
+                            <div class="title">
+                                <%= f.label :Mot_de_passe_actuel %>
+                            </div>                        
+                            <%= f.password_field :current_password, autofocus: true, autocomplete: "current-password", class:"input inset" %>
+                        </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "new-password", class:"textedit" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em>(<%= @minimum_password_length %> caractères minimum)</em>
-    <% end %>
-  </div>
+                        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                            <div>Actuellement en train d'attendre: <%= resource.unconfirmed_email %></div>
+                        <% end %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"textedit" %>
-  </div>
+                        <div class="devise-field">
+                            <div class="title">
+                                <%= f.label :Nouveau_mot_de_passe %>
+                            </div>                            
+                            <%= f.password_field :password, autocomplete: "new-password", placeholder: "#{@minimum_password_length} caractères minimum", class:"input inset" %>
+                            <!--<% if @minimum_password_length %>
+                            <div class="infos">
+                                <%= @minimum_password_length %> caractères minimum.
+                            </div>                        
+                            <% end %> -->
+                        </div>
 
-  <div class="field">
-    <%= f.label :current_password %><br />
-    <%= f.password_field :current_password, autocomplete: "current-password", class:"textedit" %>
-  </div>
+                        <div class="devise-field">
+                            <div class="title">
+                                <%= f.label :Confirmation %>
+                            </div>                        
+                            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "#{@minimum_password_length} caractères minimum", class:"input inset" %>
+                        </div>
+                    
+                    </div>                    
 
-    <%= f.submit "Mettre à jour", class:"input-send" %>
-<% end %>
+                    <%= f.submit "Mettre à jour", class:"input-send" %>
 
-<h3>Supprimer mon compte</h3>
+                    <%= render "devise/shared/error_messages", resource: resource %>
+       
+                <% end %>
 
-<p>Déçu? <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Are you sure?" }, class:"input-send-danger", method: :delete %></p>
+            </div>
+
+            <div class="form-cta-bottom">
+                <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Are you sure?" },class:"btn-danger", method: :delete %></p>
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
-</div>
+
+
+
+
+
+
 

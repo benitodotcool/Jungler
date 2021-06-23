@@ -16,12 +16,15 @@
  *= require nav
  *= require main
  *= require aside
- *= require forms
  *= require landing_page
  *= require discovery
  *= require category
  *= require users
  *= require conversations
  *= require particules
+<<<<<<< HEAD
  *= require error_page
+=======
+ *= require devise
+>>>>>>> bb9b2ebfffeb7a2aa4d842d1ebf0ec2a7fce8da6
  */
