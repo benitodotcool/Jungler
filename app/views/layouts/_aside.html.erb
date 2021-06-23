@@ -1,7 +1,5 @@
 <div class="aside-info">
-
     <p id="notice"><%= notice %></p>
-
 </div>
 
 <div class="aside-container inset">
@@ -10,11 +8,20 @@
 
         <% if user_signed_in? %>
 
-            <%= render "users/profile" %>
+            <div class="connected-true-container">
+                <%= render "users/profile" %>
+            </div>            
 
         <% else %>
 
-            <div class="notification-container inset">tu n'est pas co</div>
+            <div class="connected-false-container">
+                <div class="content">
+                    <h3>Malheureusement, tu n'est pas encore connecté.</h3>
+                    <div class="cta">
+                        <a href="<%= new_user_session_path %>" class="input-send">Connexion</a>
+                    </div>                               
+                </div>
+            </div>
 
         <% end %>       
         
