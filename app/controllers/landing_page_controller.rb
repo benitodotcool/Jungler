@@ -1,10 +1,5 @@
 class LandingPageController < ApplicationController
   def index
-<<<<<<< HEAD
-    @all_users    = User.all.count
-    @all_matchs   = Conversation.all.count
-    @all_messages = Message.all.count    
-=======
     @all_users       = User.all.count
     @all_matchs      = Conversation.all.count
     @all_messages    = Message.all.count
@@ -15,6 +10,5 @@ class LandingPageController < ApplicationController
 
   def show
   
->>>>>>> development
   end
 end
