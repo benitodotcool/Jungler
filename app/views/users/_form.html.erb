@@ -1,7 +1,6 @@
  
   <%= form_with(model: user, local: true) do |form| %>
   <div class="notice-swipe">
-    <p id="notice"><%= notice %></p>
   </div> 
   <% if user.errors.any? %>
     <div id="error_explanation">
@@ -23,7 +22,7 @@
         <%= form.label :Nom_invocateur %><br>
         <%= form.text_field :summoner_name, class:"textedit" %><br>
         <%= form.label :Mon_style_de_jeu %><br>
-        <%= form.select :tag_list, ["Relax", "Peer-Learning", "Try-Hard"]%>
+        <%= form.select :tag_list, ["Relax", "Peer-Gaming", "Try-Hard"]%>
         <%= form.submit "Changer de nom", class:"input-send" %>
 
         
