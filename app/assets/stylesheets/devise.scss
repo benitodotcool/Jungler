@@ -91,7 +91,7 @@
             font-size: var(--small-font-size);
             cursor: pointer;
             text-decoration: none;
-            margin-left: var(--small-padding);
+            margin-left: calc(var(--small-padding) / 2);
             
             &:hover {
                 color: var(--light-grey-color);
@@ -112,7 +112,7 @@
             font-size: var(--small-font-size);
             cursor: pointer;
             text-decoration: none;
-            margin-left: var(--small-padding);
+            margin-left: calc(var(--small-padding) / 2);
             
             &:hover {
                 color: var(--light-grey-color);
