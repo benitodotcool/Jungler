@@ -32,8 +32,6 @@
             }
 
             .input {
-                display: grid;
-                place-items: center;
                 background-color: var(--secondary-dark-color);
                 color: var(--light-grey-color);
                 width: 100%;
@@ -41,6 +39,10 @@
                 padding: calc(var(--small-padding) / 2) 5px calc(var(--small-padding) / 2) var(--small-padding);
                 border-radius: var(--small-border-radius);
                 font-size: var(--small-font-size);
+
+                &::placeholder {
+                    color: var(--medium-grey-color);
+                }
 
                 &:focus {
                     box-shadow: 0px 5px 25px 5px var(--main-color-shadow); 
@@ -77,18 +79,19 @@
         display: flex;
         justify-content: flex-end;
 
-
-        .btn-delete {
+        .btn-danger {
             display: grid;
             align-content: flex-end;
             font-weight: 500;
             color: var(--danger-color);
             padding: 3px 15px 3px 15px;
-            border: 1px solid var(--danger-color);                        
+            border: 1px solid var(--danger-color);
             border-radius: 10px;
             transition: all 0.3s ease-out;
             font-size: var(--small-font-size);
             cursor: pointer;
+            text-decoration: none;
+            margin-left: calc(var(--small-padding) / 2);
             
             &:hover {
                 color: var(--light-grey-color);
@@ -96,7 +99,41 @@
                 box-shadow: 0px 5px 25px 5px var(--danger-color-shadow);
             }
         }
+
+        .btn-green {
+            display: grid;
+            align-content: flex-end;
+            font-weight: 500;
+            color: var(--green-color);
+            padding: 3px 15px 3px 15px;
+            border: 1px solid var(--green-color);
+            border-radius: 10px;
+            transition: all 0.3s ease-out;
+            font-size: var(--small-font-size);
+            cursor: pointer;
+            text-decoration: none;
+            margin-left: calc(var(--small-padding) / 2);
+            
+            &:hover {
+                color: var(--light-grey-color);
+                background-color: var(--green-color);
+                box-shadow: 0px 5px 25px 5px var(--green-color-shadow);
+            }
+        }
+
     }    
 }
 
+#error_explanation {
+    margin-top: var(--medium-padding);
+    color: var(--danger-color);
 
+    p {
+        font-weight: 500;
+    }
+
+    ul {
+        margin-top: calc(var(--small-padding) / 2);
+
+    }
+}
