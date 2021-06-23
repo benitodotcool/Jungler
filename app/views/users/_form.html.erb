@@ -23,36 +23,29 @@
         <%= form.text_field :summoner_name, class:"textedit" %><br>
         <%= form.label :Mon_style_de_jeu %><br>
         <%= form.select :tag_list, ["Relax", "Peer-Gaming", "Try-Hard"]%>
-        <%= form.submit "Changer de nom", class:"input-send" %>
+      
 
         
   </div>
     
     </h3>
-    <h6>
-
-         <div class="fieldedit">
-           <%= form.label :email %><br>
-          <%= form.text_field :email, class:"textedit" %><br>
-            <%= form.submit "Changer de mail", class:"input-send" %>
-        </div> 
-
-
-    </h6>
-      
-         <div class="field">
-          <%= form.hidden_field :user_game_stat_id, value: current_user.id %>
+  <%begin%>
+   <div class="field">
+          <%= form.hidden_field :user_game_stat_id, value: @user_game_stat.id %>
         </div>
+  <%rescue%>      
+  <%end%>
+         
         
   
       
 
-<%begin%>
+
 
   <%= render 'user_game_stats/form', user_game_stat: @user_game_stat%>
+
   <%end%>
-<%rescue%>
-<%end%>
+
  
 
 
