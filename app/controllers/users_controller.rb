@@ -59,32 +59,28 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
-
+      
       if @user.update!(user_params)  
         
         if UserGameStat.exists?(user_id:current_user.id) == false
           @user_game_stat = UserGameStat.create!(user_id: current_user.id)
         end
-        @summoner_name = User.find(params[:id]).summoner_name
-        get_api_summoner(@summoner_name)
-      
-      elsif @user.update!(:tag_list) #debug voir si ça fonctionne ! 
-        
-        respond_to do |format|
-          format.html {redirect_to edit_user_path(current_user.id), notice: "fin de l'appel API" }
-          end
 
       else
         respond_to do |format|
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
-    end
-  
+      end 
+      @summoner_name = User.find(params[:id]).summoner_name
+      get_api_summoner(@summoner_name)
+          
+  end
+
+    
       
       #binding.pry
-    
-  end
+
 
   # DELETE /users/1 or /users/1.json
   def destroy
@@ -103,7 +99,7 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.permit(:summoner_name, :id, :user_game_stat_id, :email, :tag_list)
+      params.require(:user).permit(:summoner_name, :id, :user_game_stat_id, :email, :tag_list)
     end
 
     def set_user_game_stat
@@ -145,42 +141,35 @@ class UsersController < ApplicationController
 
     
       
-  
-      #@summoner_name = summoner_name.gsub!(/\s/,'').downcase #pb restant
-      
-      def get_api_summoner(summoner_name)
+    def get_api_summoner(summoner_name)
 
         
         @summoner_name = summoner_name.delete(' ').downcase
-        #binding.pry 
-        
-  
-#
-          @env =  ENV['RIOT_API_KEY']
-
-        begin
-          @response_summoner = RestClient.get ("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/#{@summoner_name}?api_key=#{@env}")
-        rescue
-          respond_to do |format|
-            format.html {render :edit, notice: "Oups! Il ya eu un couac"  }
-            end
-         
-        else 
+        @env =  ENV['RIOT_API_KEY']
+         #Call Summoner
+      begin
+        @response_summoner = RestClient.get ("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/#{@summoner_name}?api_key=#{@env}")
+      rescue
+        respond_to do |format|
+          format.html {render :edit, notice: "Oups! Il ya eu un couac"  }
+          end
+       
+      else 
         response_summoner_in_hash = eval(@response_summoner.body)
         @summoner_id              = response_summoner_in_hash.values_at(:id).join
         @level                    = response_summoner_in_hash.values_at(:summonerLevel).join
         @icon_profile_id          = response_summoner_in_hash.values_at(:profileIconId).join
         @name                     = response_summoner_in_hash.values_at(:name).join
-        #binding.pry 
+      
+      end
         
-
-        begin
+        #Call Champion
+      begin
         @champions_response = RestClient.get ("https://euw1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/#{@summoner_id}?api_key=#{@env}")
         
         @last_3_champions = eval(@champions_response.body)
-        rescue
-
-        else
+        @ugs = UserGameStat.find_by(user_id:@user.id)
+      
             @first_champion_level  = @last_3_champions[0].values_at(:championLevel).join.to_i
             @first_champion_id     = @last_3_champions[0].values_at(:championId).join.to_i
             @second_champion_level = @last_3_champions[1].values_at(:championLevel).join.to_i
@@ -191,32 +180,32 @@ class UsersController < ApplicationController
           @first_champion_name = CHAMPIONS.fetch(@first_champion_id )
           @second_champion_name = CHAMPIONS.fetch(@second_champion_id )
           @third_champion_name = CHAMPIONS.fetch(@third_champion_id )
+          
+          if @summoner_id != nil
+            @ugs.update!( 
+            first_champion_id: @first_champion_id, 
+            first_champion_level: @first_champion_level,
+            first_champion_name: @first_champion_name,
+            second_champion_id: @second_champion_id, 
+            second_champion_level: @second_champion_level,
+            second_champion_name: @second_champion_name,
+            third_champion_id: @third_champion_id, 
+            third_champion_level: @third_champion_level,
+            third_champion_name: @third_champion_name
+            )
+          end
+        rescue
 
-
-        binding.pry
         end
-        @ugs = UserGameStat.find_by(user_id:current_user.id)
-        
-        #@first_chex:qampion_name     = @last_3_champions[0].values_at(:championId).join 
-      
+
         if @summoner_id != nil
             @ugs.update!( 
             summoner_id: @summoner_id, 
-            level: @level,
-            first_champion_id: @first_champion_id, 
-            first_champion_level: @first_champion_level,
-            #first_champion_name: @first_champion_name,
-            second_champion_id: @second_champion_id, 
-            second_champion_level: @second_champion_level,
-            #second_champion_name: @second_champion_name,
-            third_champion_id: @third_champion_id, 
-            third_champion_level: @third_champion_level,
-            #third_champion_name: @third_champion_name
-            
+            level: @level
           )
-
+      
           if @ugs.description.nil?
-            @description = "Mon nom est #{@name}, je recherche d'autres joueurs stylay pour faire une équipe canon !"
+            @description = "Je recherche d'autres joueurs stylay pour faire une équipe canon !"
             @ugs.update!( description: @description)
           end
 
@@ -227,11 +216,12 @@ class UsersController < ApplicationController
             format.html {redirect_to edit_user_path(current_user.id), notice: "fin de l'appel API" }
             end
         
-        end
+      
       end
-        #binding.pry
+        
+      #binding.pry
     
-      end
+    end
 
   
     def tagged
