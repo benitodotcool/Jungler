@@ -1,0 +1,133 @@
+<div class="aside-info">
+
+    <% if user_signed_in? %>
+
+        <ul class="aside-icons">
+            
+            <li class="container-icons">
+                <svg id="icon-notification" class="icon" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <title>Iconly/Light/Notification</title>
+                    <g id="Iconly/Light/Notification" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                        <g id="Notification" transform="translate(3.500000, 2.000000)" stroke="var(--medium-grey-color)" stroke-width="1.5">
+                            <path d="M8.5,15.8476424 C14.13923,15.8476424 16.7480515,15.1242108 17,12.220506 C17,9.31879687 15.1811526,9.50539234 15.1811526,5.94511102 C15.1811526,3.16414015 12.5452291,-1.86517468e-14 8.5,-1.86517468e-14 C4.4547709,-1.86517468e-14 1.81884743,3.16414015 1.81884743,5.94511102 C1.81884743,9.50539234 0,9.31879687 0,12.220506 C0.252952291,15.135187 2.86177374,15.8476424 8.5,15.8476424 Z" id="Stroke-1"></path>
+                            <path d="M10.8887931,18.8572176 C9.52465753,20.3719337 7.3966462,20.3898948 6.0194615,18.8572176" id="Stroke-3"></path>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+        </li>
+
+        <li class="container-icons">
+           <a href="users/<%=current_user.id%>"><svg id="icon-profile" class="icon" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <title>Iconly/Light/Profile</title>
+                <g id="Iconly/Light/Profile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                    <g id="Profile" transform="translate(4.814286, 2.814476)" stroke="var(--medium-grey-color)">
+                        <path d="M7.17047619,12.531714 C3.30285714,12.531714 -4.08562073e-14,13.1164759 -4.08562073e-14,15.4583807 C-4.08562073e-14,17.8002854 3.28190476,18.4059997 7.17047619,18.4059997 C11.0380952,18.4059997 14.34,17.8202854 14.34,15.479333 C14.34,13.1383807 11.0590476,12.531714 7.17047619,12.531714 Z" id="Stroke-1" stroke-width="1.5"></path>
+                        <path d="M7.17047634,9.19142857 C9.70857158,9.19142857 11.7657144,7.13333333 11.7657144,4.5952381 C11.7657144,2.05714286 9.70857158,-5.32907052e-15 7.17047634,-5.32907052e-15 C4.6323811,-5.32907052e-15 2.574259,2.05714286 2.574259,4.5952381 C2.56571443,7.1247619 4.60952396,9.18285714 7.13809539,9.19142857 L7.17047634,9.19142857 Z" id="Stroke-3" stroke-width="1.42857143"></path>
+                    </g>
+                </g>
+            </svg>
+        </li>
+
+    
+        
+    </ul>
+                </svg>
+            </li>
+
+            <
+            
+        </ul>
+
+    <% else %>
+            
+        <div class="header__right__auth d-flex align-items-center mr-0 ml-3">
+            <a class="" href="<%= new_user_session_path %>">Connexion  /</a>
+            <a class="" href="<%= new_user_registration_path %>">Inscription</a>
+        </div>
+
+    <% end %>
+
+</div>
+
+<div class="aside-container inset">
+
+    <div class="aside-content">
+
+        <div class="notification-container inset"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></div>
+        <div class="notification-container inset"></div>
+        <div class="notification-container inset"></div>
+        <div class="notification-container inset"></div>
+        <div class="notification-container inset"></div>
+        <div class="notification-container inset"></div>
+        <div class="notification-container inset"></div>
+        <div class="notification-container inset"></div>
+        <div class="notification-container inset"></div>
+        <div class="notification-container inset"></div>
+        <div class="notification-container inset"></div>
+        <div class="notification-container inset"></div>
+        
+    </div>
+
+    <div class="aside-fixed-bottom">
+
+        <div class="user-general inset-light">
+
+            <%if user_signed_in? %>
+
+                <div class="user-wrapper">
+
+                    <div class="user-status"></div>
+
+                    <div class="user-info">
+                        <h4 class="user-name"><%=current_user.summoner_name%></h4>
+                        <p>En ligne</p>
+                    </div>                    
+
+                    <div class="login-logout">
+                        <svg id="icon-logout" class="icon" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <title>Iconly/Light/Logout</title>
+                            <g id="Iconly/Light/Logout" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                                <g id="Logout" transform="translate(2.000000, 2.000000)" stroke="var(--medium-grey-color)" stroke-width="1.5">
+                                    <path d="M13.016,5.3895 L13.016,4.4565 C13.016,2.4215 11.366,0.7715 9.331,0.7715 L4.456,0.7715 C2.422,0.7715 0.772,2.4215 0.772,4.4565 L0.772,15.5865 C0.772,17.6215 2.422,19.2715 4.456,19.2715 L9.341,19.2715 C11.37,19.2715 13.016,17.6265 13.016,15.5975 L13.016,14.6545" id="Stroke-1"></path>
+                                    <line x1="19.8095" y1="10.0214" x2="7.7685" y2="10.0214" id="Stroke-3"></line>
+                                    <polyline id="Stroke-5" points="16.8812 7.1063 19.8092 10.0213 16.8812 12.9373"></polyline>
+                                </g>
+                            </g>
+                        </svg>                
+                    </div>
+
+                </div>
+
+                <% else %>
+
+                <div class="user-wrapper">
+
+                    <div class="user-status-disconnect"></div>
+
+                    <div class="user-info">
+                        <p>Hors Ligne</p>
+                    </div>                    
+
+                    <div class="login-logout">
+                        <svg id="icon-login" class="icon" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <title>Iconly/Light/Login</title>
+                            <g id="Iconly/Light/Login" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                                <g id="Login" transform="translate(3.000000, 2.000000)" stroke="var(--medium-grey-color)" stroke-width="1.5">
+                                    <line x1="12.8125" y1="10.0218" x2="0.7715" y2="10.0218" id="Stroke-1"></line>
+                                    <polyline id="Stroke-3" points="9.8848 7.1058 12.8128 10.0218 9.8848 12.9378"></polyline>
+                                    <path d="M5.5044,5.389 L5.5044,4.456 C5.5044,2.421 7.1534,0.772 9.1894,0.772 L14.0734,0.772 C16.1034,0.772 17.7484,2.417 17.7484,4.447 L17.7484,15.587 C17.7484,17.622 16.0984,19.272 14.0634,19.272 L9.1784,19.272 C7.1494,19.272 5.5044,17.626 5.5044,15.597 L5.5044,14.655" id="Stroke-4"></path>
+                                </g>
+                            </g>
+                        </svg>        
+                    </div>
+
+                </div>
+
+            <%end%>
+
+        </div>
+
+    </div>
+    
+</div>

@@ -30,7 +30,7 @@ end
 
 lol_roles = ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]
 
-20.times do |i|
+21.times do |i|
   user_game_stats = UserGameStat.create!(
     user_id: i+1,
     level: Faker::Number.between(from: 1, to: 3099),
@@ -38,6 +38,7 @@ lol_roles = ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle
     primary_role: lol_roles.sample,
     secondary_role: lol_roles.sample,
     description: Faker::Lorem.sentence(word_count:10)
+    
   )
 end
 

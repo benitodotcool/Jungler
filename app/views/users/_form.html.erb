@@ -1,14 +1,19 @@
+<<<<<<< HEAD
  
   <%= form_with(model: user, local: true) do |form| %>
   <div class="notice-swipe">
     <p id="notice"><%= notice %></p>
   </div> 
   <% if user.errors.any? %>
+=======
+<%= form_with(model: @user, local: true) do |form| %>
+  <% if @user.errors.any? %>
+>>>>>>> development
     <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> interdit à cet utilisateur d'être enregistré:</h2>
+      <h2><%= pluralize(@user.errors.count, "error") %> interdit à cet utilisateur d'être enregistré:</h2>
 
       <ul>
-      <% user.errors.full_messages.each do |message| %>
+      <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>

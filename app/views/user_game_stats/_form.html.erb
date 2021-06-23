@@ -7,7 +7,7 @@
       <h2><%= pluralize(user_game_stat.errors.count, "error") %> prohibited this user_game_stat from being saved:</h2>
 
       <ul>
-      <% user_game_stat.errors.full_messages.each do |message| %>
+      <%user_game_stat.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -41,7 +41,7 @@
 </p>
 	<div class="buttons">
 		<div class="actions">
-    <%= form.submit "Mettre à jour", class:"input-send" %>
+    <%= form.submit "Mettre à jour", id:"btn-edit-profile", class:"input-send" %>
     
   </div>
 	

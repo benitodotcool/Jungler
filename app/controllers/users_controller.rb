@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
-  
+
   end
 
   # GET /users/new
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit
+  def edit    
     @user = User.find(params[:id])
       if @user.id == current_user.id
         return true 
@@ -41,7 +41,6 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create
-    
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
@@ -63,7 +62,8 @@ class UsersController < ApplicationController
         if UserGameStat.exists?(id:current_user.id) == false
           @user_game_stat = UserGameStat.create!(id:current_user.id, user_id: current_user.id)
         end
-        
+        @summoner_name = User.find(params[:id]).summoner_name
+        get_api_summoner(@summoner_name)
       else
         respond_to do |format|
         format.html { render :edit, status: :unprocessable_entity }
@@ -71,8 +71,7 @@ class UsersController < ApplicationController
       end
     end
   
-      @summoner_name = User.find(params[:id]).summoner_name
-      get_api_summoner(@summoner_name)
+      
       #binding.pry
     
   end
