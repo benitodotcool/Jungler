@@ -5,7 +5,7 @@ class LandingPageController < ApplicationController
     @all_messages    = Message.all.count
     @user            = User.new
     
-    @user_game_stats = UserGameStat.new
+    @user_game_stat = UserGameStat.find_by(user_id:current_user.id)
   end
 
   def show

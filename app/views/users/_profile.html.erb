@@ -1,9 +1,9 @@
 <%begin%>
 
-	<%if @user.icon_profile_id.nil?%>
+	<%if current_user.icon_profile_id.nil?%>
 
 	<%else%>
-		<img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{@user.icon_profile_id }.png"%>>
+		<img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{current_user.icon_profile_id }.png"%>>
 	<%end%>
 
 	<%rescue%>
@@ -19,7 +19,7 @@
 	<%else%>
 		<h4>Niveau <%=@user_game_stat.level%></h3>
 		<p><%=@user_game_stat.description%></p>
-		<p><%=@user.tag_list%></p>
+		<p><%=current_user.tag_list%></p>
 		<p><%=@user_game_stat.primary_role%></p>
 		<p><%=@user_game_stat.secondary_role%></p>
 	<%end%>

@@ -17,11 +17,12 @@ class UsersController < ApplicationController
     @user_select = user_selected
     @conversations = Conversation.all
     @messages = Message.order("created_at DESC").all
+    @user_game_stat = UserGameStat.find_by(user_id:current_user.id)
   end
 
   # GET /users/1 or /users/1.json
   def show
-
+    @user_game_stat = UserGameStat.find_by(user_id:current_user.id)
   end
 
   # GET /users/new
@@ -30,15 +31,16 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit        
+  def edit
+    @user_game_stat = UserGameStat.find_by(user_id:current_user.id)        
     @user = User.find(params[:id])
-      if @user.id == current_user.id
-        return true 
-      else
-        flash[:alert] = "Accès interdit !"
-        redirect_to root_path
-        return false
-      end
+    if @user.id == current_user.id
+      return true 
+    else
+      flash[:alert] = "Accès interdit !"
+      redirect_to root_path
+      return false
+    end
   end
 
   # POST /users or /users.json
