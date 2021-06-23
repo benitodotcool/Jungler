@@ -1,0 +1,20 @@
+
+.title-container {
+    padding-bottom: 20px;
+    padding-top: 8px;
+}
+
+.link-color {
+    color:var(--light-grey-color);
+}
+
+    
+.login-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40%;
+    width: 100%;
+    padding: calc(var(--small-padding) / 2) 5px calc(var(--small-padding) / 2) var(--small-padding);              
+}
+    

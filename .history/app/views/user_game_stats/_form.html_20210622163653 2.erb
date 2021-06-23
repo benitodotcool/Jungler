@@ -1,0 +1,64 @@
+
+<div class="edit">
+ 
+<%= form_with(model: @user_game_stats, local: true) do |form| %>
+  <% if @user_game_stats.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_game_stats.errors.count, "error") %> prohibited this user_game_stat from being saved:</h2>
+
+      <ul>
+      <%@user_game_stats.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+ 
+	<h6><div class="fieldedit">    
+          <%= form.label :Niveau %><br>
+          <%= form.number_field :level, class:"textedit" %>
+        </div></h6>
+	<p>
+    <div class="fieldedit">
+          <%= form.label :description_ %><br>
+          <%= form.text_field :description, class:"texteditd"%>
+       </div>  
+  
+       <div class="fieldedit">
+          <%= form.label :premier_rôle %><br>
+          <%= form.select :primary_role, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]%>
+      </div>
+      <div class="fieldedit">
+            <%= form.label :Rôle_secondaire %><br>
+            <%= form.select :secondary_role, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]%>
+      </div>
+
+     
+
+       
+        
+</p>
+	<div class="buttons">
+		<div class="actions">
+    <%= form.submit "Mettre à jour" id:"btn-edit-profile" class:"input-send" %>
+    
+  </div>
+	
+	</div>
+	<div class="skills">
+		<h6>Champions joués</h6>
+		<ul>
+			<li>Mundo</li>
+			<li>Jax</li>
+			<li>Irelia</li>
+			
+		</ul>
+	</div>
+</div>
+<% end %>
+
+</section>
+</div>
+</div>
+          

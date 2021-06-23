@@ -1,0 +1,139 @@
+
+/* LOGIN ET REGISTER */ 
+.form-container { 
+    align-items: center;
+    margin:10px 0; // add top and bottom margin
+   
+     display:inline-block;  
+     text-align:center;   
+    
+
+    #user_email, #user_password, #user_password_confirmation   {
+        border-radius: 2rem;
+        text-align: center;
+        padding-top: 10px;
+        margin-bottom: 15px;
+        color: var(--light-grey-color);
+                 
+          
+    .actions {
+        border-radius: 10%;
+        background-color:white;
+  
+    }
+        
+    }
+}
+
+.title-container {
+    padding-bottom: 20px;
+    padding-top: 8px;
+}
+
+.link-color {
+    color:var(--light-grey-color);
+}
+
+    
+.fieldstyle {
+         
+    background-color:var(--secondary-dark-color); 
+    border-radius: 2rem;
+    display:grid;
+    place-items: center; 
+    
+    
+    & ::placeholder
+    {
+        text-align: center;
+    }
+}
+    .fieldlogin
+    {
+        padding:20px;
+    }
+    .fieldregister
+    {
+        margin:20px;
+        width:280px
+        
+    }
+    .input-send {
+            color:var(--light-grey-color);
+            margin-top:20px;
+            margin-bottom:20px;
+            border:1px;
+            padding:8px;        
+            border-radius: 12px;
+            transition: all 0.6s ease-out;
+            text-align: center;
+            border: 2px solid var(--blue-color-shadow);;
+            background-color: var(--blue-color);
+    
+      &:hover {
+        cursor: pointer;
+        background-color: var(--blue-color);
+        box-shadow: 0px 15px 25px 10px var(--blue-color-shadow);
+        border-radius: 2rem;
+        color:white
+      }
+    
+      &:hover svg#icon-home g,
+      &:hover svg#icon-arrow g,
+      &:hover svg#icon-message g,
+      &:hover svg#icon-category g,
+      &:hover svg#icon-discovery g,
+      &:hover svg#icon-notification g,
+      &:hover svg#icon-profile g {
+        stroke: var(--light-grey-color);
+      }
+        }
+
+    /* EDIT */ 
+
+    
+    .edit1 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        
+        
+        .div1 { grid-area: 1 / 1 / 2 / 2;
+        background-color: brown;
+        width: 500px;
+        height:100% 
+    
+        & .pplol
+        {
+            border-radius: 50%;
+            width:20%;
+    
+        }}
+        .div2 { grid-area: 1 / 2 / 2 / 3; 
+        background-color: burlywood;
+        width: 100%;
+        height:100% }}
+        .div3 { grid-area: 2 / 2 / 3 / 3;
+        background-color: chartreuse;
+        width: 100%;
+        height:100% } 
+        .div4 { grid-area: 2 / 1 / 3 / 2;
+        background-color: blue;
+        width: 100%;
+        height:100% }
+    
+    
+    .fieldedit
+    {
+        text-align: center;
+        padding:10px
+    }
+    .textedit
+    {
+        color:white;
+        text-align: center;
+    }
+
+   

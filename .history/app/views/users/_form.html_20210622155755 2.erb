@@ -1,0 +1,65 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> interdit à cet utilisateur d'être enregistré:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>   
+
+
+<section id="editprofile">
+<div class="card-container">
+
+	<img class="round" src="https://i.pinimg.com/originals/2c/54/06/2c5406a83ab2257df1c57b52945e1c3c.jpg" alt="user" />
+	<h3>
+  <div class="field">
+        <%= form.label :Nom_invocateur %><br>
+        <%= form.text_field :summoner_name, class:"textedit" %><br>
+        <%= form.label :Mon_style_de_jeu %><br>
+        <%= form.select :tag_list, ["Relax", "Peer-Learning", "Try-Hard"]%>
+        <%= form.submit "Changer de nom", class:"input-send" %>
+
+        
+  </div>
+    
+    </h3>
+    <h6>
+
+         <div class="fieldedit">
+           <%= form.label :email %><br>
+          <%= form.text_field :email, class:"textedit" %><br>
+            <%= form.submit "Changer de mail", class:"input-send" %>
+        </div> 
+
+
+    </h6>
+      
+         <div class="field">
+          <%= form.hidden_field :user_game_stat_id, value: current_user.id %>
+        </div>
+        
+  
+      
+  <%end%> 
+     
+<%if current_user.summoner_name != nil %>
+  <%= render 'user_game_stats/form', user_game_stat: @user_game_stat%>
+ <%end%>
+ 
+
+
+
+
+ 
+
+
+
+
+
+
+  
