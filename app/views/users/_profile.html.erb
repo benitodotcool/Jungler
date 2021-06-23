@@ -4,11 +4,16 @@
 	<%else%>
 	<%begin%>
 	<img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{@user.icon_profile_id }.png"%>>
+
 	<%rescue%>
 	<%end%>
 	<%end%>
 
-	<h3>HEY</h3>
+<%end%>
+
+
+
+<%begin%>
 
 	<%begin%>
 	<%if @user_game_stat.nil?%>
