@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user_game_stat, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
   before_action :user_authorized?, only: %i[update destroy ]
-  before_action :incomplete_profile_redirect, only: %i[index]
+  before_action :is_profile_completed?
   
   require 'pry'
   require 'dotenv'
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
         format.html { redirect_to @user, notice: "User was successfully created." }
         format.json { render :show, status: :created, location: @user }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_entity, notice: "User was successfully created."  }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -155,10 +155,15 @@ class UsersController < ApplicationController
       begin
         @response_summoner = RestClient.get ("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/#{@summoner_name}?api_key=#{@env}")
       rescue
+        if @summoner_name == ""
+          respond_to do |format|
+            format.html {redirect_to edit_user_path(current_user.id), notice: "Veuillez saisir au moins un summoner_name" }
+            end
+        else
         respond_to do |format|
-          format.html {render :edit, notice: "Oups! Il ya eu un couac"  }
+          format.html {redirect_to edit_user_path(current_user.id), notice: "Votre summoner_name n'est pas reconnu" }
           end
-       
+        end
       else 
         response_summoner_in_hash = eval(@response_summoner.body)
         @summoner_id              = response_summoner_in_hash.values_at(:id).join
@@ -218,8 +223,13 @@ class UsersController < ApplicationController
           @user.update!(icon_profile_id:@icon_profile_id)
             
           respond_to do |format|
-            format.html {redirect_to edit_user_path(current_user.id), notice: "fin de l'appel API" }
+           if @summoner_id != nil
+            format.html {redirect_to users_path, notice: "fin de l'appel API" }
+            else
+            #format.html {redirect_to edit_user_path(current_user.id), notice: "Votre summoner_name n'est pas reconnu" }
+      
             end
+          end
         
       
       end

@@ -46,7 +46,7 @@ class UserGameStatsController < ApplicationController
         format.html { redirect_to users_path, notice: "User game stat was successfully updated." }
         format.json { render :show, status: :ok, location: @user_game_stat }
       else
-        format.html { redirect_to request.referrer, status: :unprocessable_entity }
+        format.html { redirect_to request.referrer, status: :unprocessable_entity, notice:@user_game_stats.errors }
         format.json { render json: @user_game_stats.errors, status: :unprocessable_entity }
       end
     end
