@@ -15,10 +15,7 @@
   <% end %>
  
  
-	<h6><div class="fieldedit">    
-          <%= form.label :Niveau %><br>
-          <%= form.number_field :level, class:"textedit" %>
-        </div></h6>
+
 	<p>
     <div class="fieldedit">
           <%= form.label :description_ %><br>
@@ -32,13 +29,9 @@
       <div class="fieldedit">
             <%= form.label :Rôle_secondaire %><br>
             <%= form.select :secondary_role, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]%>
-      </div>
-
-     
-
-       
-        
+      </div>      
 </p>
+
 	<div class="buttons">
 		<div class="actions">
     <%= form.submit "Mettre à jour", id:"btn-edit-profile", class:"input-send" %>
