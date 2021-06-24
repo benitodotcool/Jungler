@@ -68,7 +68,7 @@ class MatchesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def match_params
-      params.permit(:requestor_id,:receiver_id,:status)
+      params.permit(:requestor_id,:receiver_id,:status, :users_tag_list)
     end
 
     def is_set?

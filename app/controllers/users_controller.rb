@@ -138,7 +138,7 @@ class UsersController < ApplicationController
     
     
     def is_match_exists?(user)
-      condition_1 = Match.exists?(requestor_id:current_user.id, receiver_id: user.id)
+      condition_1 = Match.exists?(requestor_id:current_user.id, receiver_id: user.id, users_tag_list: current_user.tag_list)
       if condition_1 == true 
         return true
       end

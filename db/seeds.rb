@@ -65,6 +65,7 @@ end
   match = Match.create!(
     requestor_id: Faker::Number.between(from: 1, to: 17),
     receiver_id: 1,
+    users_tag_list: ["Peer-Gaming", "Relax", "Try-Hard"].sample,
     status: Faker::Boolean.boolean
   )
 end
