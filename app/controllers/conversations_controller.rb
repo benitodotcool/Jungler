@@ -87,7 +87,7 @@ class ConversationsController < ApplicationController
       @user_id_b = Conversation.find(params[:id]).participant_b_id
       @user_b = User.find(@user_id_b)
     
-      if user_id_a == current_user.id || user_id_b == current_user.id 
+      if @user_id_a == current_user.id || @user_id_b == current_user.id 
         return true 
       else
         flash[:alert] = "Accès interdit !"

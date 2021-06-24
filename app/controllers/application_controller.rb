@@ -26,14 +26,14 @@ class ApplicationController < ActionController::Base
 
   def is_profile_completed?
     begin
-    @user_game_stat = UserGameStat.find_by(user_id:current_user.id)
+      @user_game_stat = UserGameStat.find_by(user_id:current_user.id)
     if @user_game_stat.level != nil 
       return true
     else
       return false
     end
     rescue
-    return false
+      return false
     end
   end
 
@@ -48,7 +48,14 @@ class ApplicationController < ActionController::Base
     end  
   end
 
-  
+  def conversations_allowed
+
+    condition_1 = Conversation.where(participant_a_id:current_user.id)
+    condition_2 = Conversation.where(participant_b_id:current_user.id)
+
+    @conversations = condition_1 + condition_2
+
+  end
   
   #binding.pry
   #binding.pry
