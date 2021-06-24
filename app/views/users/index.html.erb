@@ -20,19 +20,19 @@
 
             <ul class="btn-color-wrapper">
                 <li class="color peer-gaming" id="peer-gaming-btn">
-                    <%= form_with(url: user_path(current_user.id), method: "patch") do |form|%>
+                    <%= form_with(url: user_path(current_user.id), method: "patch", remote: true) do |form|%>
                         <%= form.hidden_field :tag_list, value: "Peer-Gaming" %>
                         <%= form.submit "Peer-Gaming",  class:"input-send" %>
                     <% end %>
                 </li>
                 <li class="color relax" id="relax-btn">
-                    <%= form_with(url: user_path(current_user.id), method: "patch") do |form|%>
+                    <%= form_with(url: user_path(current_user.id), method: "patch", remote: true) do |form|%>
                         <%= form.hidden_field :tag_list, value: "Relax"%>
                         <%= form.submit "Relax",  class:"input-send" %>
                     <% end %>
                 </li>
                 <li class="color tryhard" id="tryhard-btn">
-                    <%= form_with(url: user_path(current_user.id), method: "patch") do |form|%>
+                    <%= form_with(url: user_path(current_user.id), method: "patch", remote: true) do |form|%>
                         <%= form.hidden_field :tag_list, value: "Try-Hard"%>
                         <%= form.submit "Try-Hard",  class:"input-send" %>
                     <% end %>
