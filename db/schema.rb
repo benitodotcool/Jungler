@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 2021_06_21_212240) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "summoner_request"
     t.string "summoner_name"
     t.integer "icon_profile_id"
     t.string "primary_role"

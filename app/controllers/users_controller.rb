@@ -55,23 +55,22 @@ class UsersController < ApplicationController
   def update
     @summoner_name_origin = User.find(@user.id).summoner_name
     respond_to do |format|
-      if @user.update!(user_params)  
-        
+      if @user.update!(user_params)    
         if UserGameStat.exists?(user_id:current_user.id) == false
           @user_game_stat = UserGameStat.create!(user_id: current_user.id)
         end
         
-        @summoner_name = User.find(@user.id).summoner_name
-        if @summoner_name_origin != @summoner_name
-        get_api_summoner(@summoner_name)
+        @summoner_request = User.find(@user.id).summoner_request
+        if @summoner_name_origin != @summoner_request
+        get_api_summoner(@summoner_request)
         
         format.html {redirect_to users_path, notice: "fin de l'appel API" }
         else
         format.html {redirect_to users_path, notice: "pas d'appel API" }
+        format.js{}
         end
         return
       else
-        
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -101,7 +100,7 @@ class UsersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_params
       begin
-        params.require(:user).permit(:summoner_name, :id, :user_game_stat_id, :email, :tag_list,:primary_role, :secondary_role, :description)
+        params.require(:user).permit(:summoner_request,:summoner_name, :id, :user_game_stat_id, :email, :tag_list,:primary_role, :secondary_role, :description)
       rescue
         params.permit(:summoner_name, :id, :user_game_stat_id, :email, :tag_list)
       end
@@ -151,6 +150,7 @@ class UsersController < ApplicationController
         @summoner_name = summoner_name.delete(' ').downcase
         @env =  ENV['RIOT_API_KEY']
          #Call Summoner
+      
       begin
         @response_summoner = RestClient.get ("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/#{@summoner_name}?api_key=#{@env}")
       rescue
@@ -215,7 +215,8 @@ class UsersController < ApplicationController
       
         
           @user = User.find(current_user.id)
-          @user.update!(icon_profile_id:@icon_profile_id)
+          @user.update!(icon_profile_id:@icon_profile_id, summoner_name:@summoner_name)
+        
           if @user.description.nil?
             @description = "Je recherche d'autres joueurs stylay pour faire une équipe canon !"
             @ugs.update!( description: @description)
