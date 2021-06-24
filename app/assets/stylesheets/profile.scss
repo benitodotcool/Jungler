@@ -1,4 +1,6 @@
 .connected-true-container {
+    display: grid;
+    grid-template-rows: auto auto auto auto 1fr;
 
     .head {
         margin-bottom: calc(var(--small-padding) + 10px);
@@ -105,7 +107,9 @@
     }
 
     .champions {
-        margin-bottom: calc(var(--small-padding) + 65px);
+        margin-bottom: 80px;
+        display: flex;
+        align-items: flex-end;
 
         .title {
             font-weight: 500;
@@ -117,14 +121,26 @@
             display: flex;
 
             .champion {
+                margin-right: calc(var(--small-padding) / 2);
+                position: relative;
                 display: grid;
                 place-items: center;
-                margin-right: calc(var(--small-padding) / 2);
+                height: 50px;
+                width: 50px;
 
-                img {
+                .img-container {
+
+                    height: 50px;
                     width: 50px;
+                    overflow: hidden;
                     border-radius: var(--small-border-radius);
                     border: 2px solid var(--main-color);
+
+                    img {
+                        width: 50px;
+                        transform: scale(1.17);
+                    }
+
                 }
 
                 .masteries {
