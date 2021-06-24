@@ -2,8 +2,6 @@ function changeUiColor() {
 
     let currentUserTag = document.querySelector('.current-user-tag');
 
-    console.log(currentUserTag.firstElementChild)
-
     if (currentUserTag.firstElementChild.innerHTML === "Try-Hard") {
         document.documentElement.style.setProperty('--main-color', 'rgba(255, 111, 0, 1)');
         document.documentElement.style.setProperty('--main-color-shadow', 'rgba(255, 111, 0, 0.15)');
