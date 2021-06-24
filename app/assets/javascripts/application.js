@@ -19,3 +19,4 @@
 //= require message_margin
 //= require conversation_name
 //= require change_color
+//= require btn_refresh
