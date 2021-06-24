@@ -3,6 +3,7 @@
 	<%if current_user.icon_profile_id.nil?%>
 
 	<%else%>
+		<h4 class="user-name"><%=current_user.summoner_name%></h4>
 		<img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{current_user.icon_profile_id}.png"%>>
 	<%end%>
 

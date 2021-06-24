@@ -7,6 +7,8 @@
   padding-left: var(--medium-padding);
   display: grid;
   grid-template-rows: 100px 1fr;
+  max-width: 100%;
+  overflow-x: hidden;
 
     .main-content-landing_page {
         position: relative;
