@@ -17,7 +17,7 @@
 	<%if @user_game_stat.nil?%>
 
 	<%else%>
-		<%if @user_game_stat.level.nil?%>
+		<%if @user_game_stat.level.nil? == false%>
 		<h4>Niveau <%=@user_game_stat.level%></h3>
 		<p><%=@user_game_stat.description%></p>
 		<p><%=current_user.tag_list%></p>
