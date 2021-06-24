@@ -25,21 +25,23 @@ class ApplicationController < ActionController::Base
   end
 
   def is_profile_completed?
+    
     @user_game_stat = UserGameStat.find_by(user_id:current_user.id)
-    if current_user.summoner_name != nil
+    if @user_game_stat.level != nil 
       return true
     else
       return false
     end
   end
-  
-  def incomplete_profile_redirect
+
+  def incomplete_profile_redirect?
     if is_profile_completed? 
       return true
     else
+      respond_to do |format|
+        format.html { redirect_to edit_user_url(current_user.id), notice:  "Complète tes infos !" }
+      end
       return false
-      redirect_to edit_user_path(current_user.id)
-      flash[:alert] = "complète tes infos !"
     end  
   end
 

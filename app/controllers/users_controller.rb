@@ -2,9 +2,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update ]
   before_action :set_user_game_stat, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
-  before_action :user_authorized?, only: %i[update destroy ]
-  before_action :is_profile_completed?
-  
+  before_action :user_authorized?, only: %i[edit update destroy ]
+  before_action :incomplete_profile_redirect?, except: :edit
   require 'pry'
   require 'dotenv'
   Dotenv.load('.env')
@@ -33,14 +32,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user_game_stat = UserGameStat.find_by(user_id:current_user.id)        
-    @user = User.find(params[:id])
-    if @user.id == current_user.id
-      return true 
-    else
-      flash[:alert] = "Accès interdit !"
-      redirect_to root_path
-      return false
-    end
+    
   end
 
   # POST /users or /users.json
