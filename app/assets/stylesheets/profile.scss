@@ -12,8 +12,7 @@
             place-items: center;
             height: 75px;
             width: 75px;
-            border-radius: var(--small-border-radius);
-            box-shadow: 0px 10px 25px 10px var(--main-color-shadow);
+            
 
             .profile-img {
                 height: 75px;
@@ -24,6 +23,7 @@
                     height: auto;
                     border-radius: var(--small-border-radius);
                     border: 2px solid var(--main-color);
+                    box-shadow: 0px 10px 25px 10px var(--main-color-shadow);
                 }
             }
 
