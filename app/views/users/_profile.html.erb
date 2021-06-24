@@ -1,15 +1,53 @@
-<%begin%>
+<div class="head">
 
-	<%if current_user.icon_profile_id.nil?%>
+    <div class="left">
 
-	<%else%>
-		<h4 class="user-name"><%=current_user.summoner_name%></h4>
-		<img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{current_user.icon_profile_id}.png"%>>
-	<%end%>
+    	<%begin%>
+		<%if current_user.icon_profile_id.nil?%>
+		<%else%>
+            <div class="profile-img">
+                <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{current_user.icon_profile_id}.png"%>>
+            </div>			
+		<%end%>
+		<%rescue%>
+	    <%end%>
 
-	<%rescue%>
+        <%begin%>
+        <%if @user_game_stat.nil?%>
+        <%else%>
+            <%if @user_game_stat.level.nil? == false%>
+                <div class="level">
+                    <h4><%=@user_game_stat.level%></h4>
+                </div>                
+            <%end%>
+        <%end%>
+        <%rescue%>	
+        <%end%>        
+    
+    </div>
 
-<%end%>
+    <div class="right">
+
+        <div class="summoner-name">
+            <h2><%=current_user.summoner_name%></h2>
+        </div>        
+
+        <%begin%>
+        <%if @user_game_stat.nil?%>
+        <%else%>
+            <%if @user_game_stat.level.nil? == false%>
+                <div class="current-tag">
+                    <p><%=current_user.tag_list%></p>
+                </div>                
+            <%end%>
+        <%end%>
+        <%rescue%>	
+        <%end%>
+    
+    </div>
+
+</div>
+
 
 
 
