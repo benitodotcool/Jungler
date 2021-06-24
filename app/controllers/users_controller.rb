@@ -53,22 +53,29 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
-      
+    @summoner_name_origin = User.find(@user.id).summoner_name
+    respond_to do |format|
       if @user.update!(user_params)  
         
         if UserGameStat.exists?(user_id:current_user.id) == false
           @user_game_stat = UserGameStat.create!(user_id: current_user.id)
         end
-
+        
+        @summoner_name = User.find(@user.id).summoner_name
+        if @summoner_name_origin != @summoner_name
+        get_api_summoner(@summoner_name)
+        
+        format.html {redirect_to users_path, notice: "fin de l'appel API" }
+        else
+        format.html {redirect_to users_path, notice: "pas d'appel API" }
+        end
+        return
       else
-        respond_to do |format|
+        
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
-      end 
-      @summoner_name = User.find(params[:id]).summoner_name
-      get_api_summoner(@summoner_name)
-          
+    end       
   end
 
     
@@ -94,7 +101,7 @@ class UsersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_params
       begin
-        params.require(:user).permit(:summoner_name, :id, :user_game_stat_id, :email, :tag_list)
+        params.require(:user).permit(:summoner_name, :id, :user_game_stat_id, :email, :tag_list,:primary_role, :secondary_role, :description)
       rescue
         params.permit(:summoner_name, :id, :user_game_stat_id, :email, :tag_list)
       end
@@ -206,24 +213,20 @@ class UsersController < ApplicationController
             level: @level
           )
       
-          if @ugs.description.nil?
+        
+          @user = User.find(current_user.id)
+          @user.update!(icon_profile_id:@icon_profile_id)
+          if @user.description.nil?
             @description = "Je recherche d'autres joueurs stylay pour faire une équipe canon !"
             @ugs.update!( description: @description)
           end
-
-          @user = User.find(current_user.id)
-          @user.update!(icon_profile_id:@icon_profile_id)
             
           respond_to do |format|
-           if @summoner_id != nil
+            if @summoner_id != nil
             format.html {redirect_to users_path, notice: "fin de l'appel API" }
             else
-            #format.html {redirect_to edit_user_path(current_user.id), notice: "Votre summoner_name n'est pas reconnu" }
-      
             end
           end
-        
-      
       end
         
       #binding.pry

@@ -8,7 +8,7 @@ class ConversationsController < ApplicationController
   def index
     @conversations = conversations_allowed
     @messages= Message.all
-    @user_game_stats = UserGameStat.new
+
     @user_game_stat = UserGameStat.find_by(user_id:current_user.id)
   end
 
@@ -87,7 +87,7 @@ class ConversationsController < ApplicationController
       @user_id_b = Conversation.find(params[:id]).participant_b_id
       @user_b = User.find(@user_id_b)
     
-      if user_id_a == current_user.id || user_id_b == current_user.id 
+      if @user_id_a == current_user.id || @user_id_b == current_user.id 
         return true 
       else
         flash[:alert] = "Accès interdit !"
