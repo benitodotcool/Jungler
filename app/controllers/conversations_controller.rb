@@ -2,13 +2,14 @@ class ConversationsController < ApplicationController
   before_action :set_conversation, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
   before_action :user_authorized?, only: %i[ show edit update destroy ]
-  
+  before_action :incomplete_profile_redirect?
   # GET /conversations or /conversations.json
 
   def index
     @conversations = conversations_allowed
     @messages= Message.all
-    @user_game_stats = UserGameStat.new
+
+    @user_game_stat = UserGameStat.find_by(user_id:current_user.id)
   end
 
   # GET /conversations/1 or /conversations/1.json
@@ -19,13 +20,7 @@ class ConversationsController < ApplicationController
     @conversations = conversations_allowed
     #@content = if Message.where(conversation_id:@conversation.id).last.content != nil
     #@time_ago = Message.where(conversation_id:@conversation.id).last.updated_at.strftime( "%H:%M")
-    @content = Message.where(conversation_id:@conversation.id).last.content != nil
-    
-    
-    @time_ago = Message.where(conversation_id:@conversation.id).last.updated_at.strftime( "%H:%M")
-    @user_game_stats = UserGameStat.new
-    #@content = if Message.where(conversation_id:@conversation.id).last.content != nil
-    #@time_ago = Message.where(conversation_id:@conversation.id).last.updated_at.strftime( "%H:%M")
+    @user_game_stat = UserGameStat.find_by(user_id:current_user.id)
   
   end
 
@@ -87,10 +82,12 @@ class ConversationsController < ApplicationController
     end
 
     def user_authorized?
-      user_id_a = Conversation.find(params[:id]).participant_a_id
-      user_id_b = Conversation.find(params[:id]).participant_b_id
+      @user_id_a = Conversation.find(params[:id]).participant_a_id
+      @user_a = User.find(@user_id_a)
+      @user_id_b = Conversation.find(params[:id]).participant_b_id
+      @user_b = User.find(@user_id_b)
     
-      if user_id_a == current_user.id || user_id_b == current_user.id 
+      if @user_id_a == current_user.id || @user_id_b == current_user.id 
         return true 
       else
         flash[:alert] = "Accès interdit !"

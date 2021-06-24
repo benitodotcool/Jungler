@@ -8,7 +8,7 @@ class ConversationsController < ApplicationController
   def index
     @conversations = conversations_allowed
     @messages= Message.all
-    @user_game_stats = UserGameStat.new
+    s = UserGameStat.new
   end
 
   # GET /conversations/1 or /conversations/1.json
