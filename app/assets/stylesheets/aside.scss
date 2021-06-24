@@ -75,8 +75,6 @@ aside {
     background-color: var(--dark-grey-color);
     border-radius: var(--small-border-radius) var(--small-border-radius) 0 var(--small-border-radius);
     box-shadow: -15px 10px 25px 10px var(--main-color-shadow);
-    // backdrop-filter: blur(20px);
-    // -webkit-backdrop-filter: blur(20px);
     grid-auto-flow: row;
     z-index: 100000000;
 

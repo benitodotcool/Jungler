@@ -19,7 +19,7 @@
                         <div class="title">
                             <%= form.label :Mon_style_de_jeu %>
                         </div>                        
-                        <%= form.select :tag_list, ["Relax", "Peer-Gaming", "Try-Hard"]%>
+                        <%= form.select :tag_list, ["Relax", "Peer-Gaming", "Try-Hard"], class:"dropdown-tags"%>
                     </div>
 
                     <%begin%>
@@ -29,23 +29,23 @@
 
                     <div class="devise-field span-2">
                         <div class="title">
-                              <%= form.label :description %>
+                            <%= form.label :description %>
                         </div>                        
-                            <%= form.text_field :description, class:"input inset span-2" %>
+                        <%= form.text_field :description, class:"input inset span-2" %>
                     </div>
 
                     <div class="devise-field">
-                          <div class="title">
-                                <%= form.label :Rôle_primaire %>
-                          </div>                        
-                          <%= form.select :primary_role, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]%>
+                        <div class="title">
+                          <%= form.label :Rôle_primaire %>
+                        </div>                        
+                        <%= form.select :primary_role, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"], class:"dropdown-tags"%>
                     </div>
 
                     <div class="devise-field">
-                          <div class="title">
-                                <%= form.label :Rôle_secondaire %>
-                          </div>                        
-                          <%= form.select :secondary_role, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]%>
+                        <div class="title">
+                            <%= form.label :Rôle_secondaire %>
+                        </div>                        
+                        <%= form.select :secondary_role, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"], class:"dropdown-tags"%>
                     </div>
 
                 </div>
