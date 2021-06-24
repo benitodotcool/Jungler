@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 //= require activestorage
 //= require_tree .
 //= require particules
@@ -17,3 +18,4 @@
 //= require nav_action
 //= require message_margin
 //= require conversation_name
+//= require btn_refresh
