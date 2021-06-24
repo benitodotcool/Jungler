@@ -25,12 +25,15 @@ class ApplicationController < ActionController::Base
   end
 
   def is_profile_completed?
-    
+    begin
     @user_game_stat = UserGameStat.find_by(user_id:current_user.id)
     if @user_game_stat.level != nil 
       return true
     else
       return false
+    end
+    rescue
+    return false
     end
   end
 

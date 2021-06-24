@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user_game_stat, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
   before_action :user_authorized?, only: %i[edit update destroy ]
-  before_action :incomplete_profile_redirect?, except: :edit
+  before_action :incomplete_profile_redirect?, only: %i[index]
   require 'pry'
   require 'dotenv'
   Dotenv.load('.env')
