@@ -89,7 +89,7 @@ aside {
 
       .user-wrapper {
         display: grid;
-        grid-template-columns: 10px 1fr 22px;
+        grid-template-columns: 10px 1fr 22px 22px;
         grid-column-gap: 15px;
         place-items: center;
         width: 100%;
@@ -148,6 +148,11 @@ aside {
 
           &:hover svg#icon-login g {
             stroke: var(--green-color);
+            transition: all 0.3s ease-out;
+          }
+
+          &:hover svg#icon-settings g {
+            stroke: var(--light-grey-color);
             transition: all 0.3s ease-out;
           }
 
