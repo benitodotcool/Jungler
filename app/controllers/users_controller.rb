@@ -76,6 +76,7 @@ class UsersController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
+    
     end       
   end
 
@@ -148,11 +149,12 @@ class UsersController < ApplicationController
     
       
     def get_api_summoner(summoner_name)
-        
+        begin
         @summoner_name = ERB::Util.url_encode(summoner_name.delete(' ').downcase)
         @env =  ENV['RIOT_API_KEY']
          #Call Summoner
-      
+        rescue
+        else
       begin
         @response_summoner = RestClient.get ("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/#{@summoner_name}?api_key=#{@env}")
       rescue
@@ -233,7 +235,7 @@ class UsersController < ApplicationController
       end
         
       #binding.pry
-    
+    end
     end
 
   
