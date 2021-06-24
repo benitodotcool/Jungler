@@ -148,17 +148,18 @@ class UsersController < ApplicationController
 
     
       
-    def get_api_summoner(summoner_name)
+    def get_api_summoner(summoner_request)
         begin
-        @summoner_name = ERB::Util.url_encode(summoner_name.delete(' ').downcase)
+        @summoner_name = summoner_request
+        @summoner_request = ERB::Util.url_encode(summoner_request.delete(' ').downcase)
         @env =  ENV['RIOT_API_KEY']
          #Call Summoner
         rescue
         else
       begin
-        @response_summoner = RestClient.get ("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/#{@summoner_name}?api_key=#{@env}")
+        @response_summoner = RestClient.get ("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/#{@summoner_request}?api_key=#{@env}")
       rescue
-        if @summoner_name == ""
+        if @summoner_request == ""
           respond_to do |format|
             format.html {redirect_to edit_user_path(current_user.id), notice: "Veuillez saisir au moins un summoner_name" }
             end
@@ -217,7 +218,7 @@ class UsersController < ApplicationController
             level: @level
           )
       
-          @summoner_name = CGI::unescape(@summoner_name)
+          @summoner_request = CGI::unescape(@summoner_request)
           @user = User.find(current_user.id)
           @user.update!(icon_profile_id:@icon_profile_id, summoner_name:@summoner_name)
         
