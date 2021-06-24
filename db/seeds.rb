@@ -17,8 +17,8 @@ lol_roles = ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle
     user_game_stat_id: i+1,
     primary_role: lol_roles.sample,
     secondary_role: lol_roles.sample,
-    description: Faker::Lorem.characters(number: 63)
-    tag_list: ["Peer-Gaming", "Relax", "Try-Hard"].sample,
+    description: Faker::Lorem.characters(number: 63),
+    tag_list: ["Peer-Gaming", "Relax", "Try-Hard"].sample
   ) 
 end
 lol_roles = ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]
