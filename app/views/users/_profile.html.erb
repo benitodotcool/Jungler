@@ -19,10 +19,10 @@
 	<%else%>
 		<%if @user_game_stat.level.nil? == false%>
 		<h4>Niveau <%=@user_game_stat.level%></h3>
-		<p><%=@user_game_stat.description%></p>
+		<p><%=current_user.description%></p>
 		<p><%=current_user.tag_list%></p>
-		<p><%=@user_game_stat.primary_role%></p>
-		<p><%=@user_game_stat.secondary_role%></p>
+		<p><%=current_user.primary_role%></p>
+		<p><%=@current_user.secondary_role%></p>
 		<%end%>
 	<%end%>
 

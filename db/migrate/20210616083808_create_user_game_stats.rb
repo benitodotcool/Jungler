@@ -7,9 +7,6 @@ class CreateUserGameStats < ActiveRecord::Migration[5.2]
       t.integer :level
       t.string  :summoner_id
 
-      t.string  :primary_role
-      t.string  :secondary_role
-      t.text    :description
       
       t.integer :first_champion_id
       t.integer :first_champion_level

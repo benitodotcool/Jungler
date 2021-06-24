@@ -8,7 +8,7 @@ class ConversationsController < ApplicationController
   def index
     @conversations = conversations_allowed
     @messages= Message.all
-    @user_game_stats = UserGameStat.new
+
     @user_game_stat = UserGameStat.find_by(user_id:current_user.id)
   end
 
