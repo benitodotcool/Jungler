@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2021_06_21_212240) do
   create_table "matches", force: :cascade do |t|
     t.bigint "requestor_id"
     t.bigint "receiver_id"
+    t.string "users_tag_list"
     t.boolean "status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

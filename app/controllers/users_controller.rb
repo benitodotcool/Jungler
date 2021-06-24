@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   def index
     @users = User.tagged_with(current_user.tag_list).where.not(id: current_user.id).shuffle
     @user_select = user_selected
+    @user_tag_list = current_user.tag_list.join
     @conversations = Conversation.all
     @messages = Message.order("created_at DESC").all
     @user_game_stat = UserGameStat.find_by(user_id:current_user.id)

@@ -26,7 +26,7 @@ class MatchesController < ApplicationController
     @match = Match.new(match_params)
     @user_swipped_id =  params[:receiver_id]
     @current_user_id = params[:requestor_id]
-    @user_swipped = User.find(@user_swipped_id )
+    @user_swipped = User.find(@user_swipped_id)
     respond_to do |format|
       if @match.save 
         if is_set? #tododev
