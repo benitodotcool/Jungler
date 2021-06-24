@@ -102,7 +102,7 @@ class UsersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_params
       begin
-        params.require(:user).permit(:summoner_name, :id, :user_game_stat_id, :email, :tag_list)
+        params.require(:user).permit(:summoner_name, :id, :user_game_stat_id, :email, :tag_list,:primary_role, :secondary_role, :description)
       rescue
         params.permit(:summoner_name, :id, :user_game_stat_id, :email, :tag_list)
       end
@@ -214,13 +214,13 @@ class UsersController < ApplicationController
             level: @level
           )
       
-          if @ugs.description.nil?
+        
+          @user = User.find(current_user.id)
+          @user.update!(icon_profile_id:@icon_profile_id)
+          if @user.description.nil?
             @description = "Je recherche d'autres joueurs stylay pour faire une équipe canon !"
             @ugs.update!( description: @description)
           end
-
-          @user = User.find(current_user.id)
-          @user.update!(icon_profile_id:@icon_profile_id)
             
           respond_to do |format|
             if @summoner_id != nil
