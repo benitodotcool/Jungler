@@ -148,7 +148,7 @@ class UsersController < ApplicationController
       
     def get_api_summoner(summoner_name)
         
-        @summoner_name = summoner_name.delete(' ').downcase
+        @summoner_name = ERB::Util.url_encode(summoner_name.delete(' ').downcase)
         @env =  ENV['RIOT_API_KEY']
          #Call Summoner
       
@@ -214,7 +214,7 @@ class UsersController < ApplicationController
             level: @level
           )
       
-        
+          @summoner_name = CGI::unescape(@summoner_name)
           @user = User.find(current_user.id)
           @user.update!(icon_profile_id:@icon_profile_id, summoner_name:@summoner_name)
         
