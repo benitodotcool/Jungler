@@ -49,7 +49,8 @@
 
 <hr>
 
-<% if current_user.description.nil? %>
+<% if current_user.description == "" %>
+    <div class="empty"></div>
 <%else%>
     <div class="description">
         <p><%=current_user.description%></p>
@@ -100,17 +101,23 @@
             <div class="container-champions">
 
                 <div class="champion">
-                    <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@user_game_stat.first_champion_name}.png"%>>
+                    <div class="img-container">
+                        <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@user_game_stat.first_champion_name}.png"%>>
+                    </div>                    
                     <h4 class="masteries"><%=@user_game_stat.first_champion_level%></h4>
                 </div>
 
                 <div class="champion">
-                    <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@user_game_stat.second_champion_name}.png"%>>
+                    <div class="img-container">
+                        <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@user_game_stat.second_champion_name}.png"%>>
+                    </div>
                     <h4 class="masteries"><%=@user_game_stat.second_champion_level%></h4>
                 </div>
 
                 <div class="champion">
-                    <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@user_game_stat.third_champion_name}.png"%>>
+                    <div class="img-container">
+                        <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@user_game_stat.third_champion_name}.png"%>>
+                    </div>
                     <h4 class="masteries"><%=@user_game_stat.third_champion_level%></h4>
                 </div>                
             
