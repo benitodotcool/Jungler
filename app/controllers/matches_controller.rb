@@ -75,8 +75,8 @@ class MatchesController < ApplicationController
     
      @user_swipped_id =  params[:receiver_id]
      @current_user_id = params[:requestor_id]
-      condition_1 = Match.exists?(requestor_id: @current_user_id, receiver_id:@user_swipped_id, status: true)#tododev
-      condition_2 = Match.exists?(requestor_id:@user_swipped_id, receiver_id:@current_user_id, status: true)#tododev
+      condition_1 = Match.exists?(requestor_id: @current_user_id, receiver_id:@user_swipped_id, status: true)
+      condition_2 = Match.exists?(requestor_id:@user_swipped_id, receiver_id:@current_user_id, status: true)
       
       if condition_1 == true && condition_2 == true 
 
