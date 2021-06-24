@@ -54,14 +54,14 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
-    @summoner_name_origin = User.find(@user.id).summoner_name
+    @summoner_name_origin = User.find(current_user.id).summoner_name
     respond_to do |format|
       if @user.update!(user_params)    
         if UserGameStat.exists?(user_id:current_user.id) == false
           @user_game_stat = UserGameStat.create!(user_id: current_user.id)
         end
         
-        @summoner_request = User.find(@user.id).summoner_request
+        @summoner_request = User.find(current_user.id).summoner_request
         if @summoner_name_origin != @summoner_request
         get_api_summoner(@summoner_request)
         
