@@ -7,8 +7,10 @@ aside {
   grid-row-gap: 0px;
 
   .aside-info {
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: var(--small-padding);
   }
 
   .aside-icons {
