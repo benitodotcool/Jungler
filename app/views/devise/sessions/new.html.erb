@@ -1,36 +1,56 @@
+<div class="main-wrapper" id="landing_page-focus">
 
-<div class="form-container">
-<div class="title-container">
-<h2>Connexion</h2>
-</div>
-<div>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  
-  <div class="fieldlogin">
-    <div class="fieldstyle inset">
-      <%= f.email_field :email, placeholder:'Email', autofocus: true, autocomplete: "email", class:"login-field" %>
+    <div class="main-head">
+        <h1 class="title">Connexion</h1>
     </div>
-  </div>
 
-  <div>
-   
-   <div class="fieldlogin">
-    <div class="fieldstyle inset">
-    <%= f.password_field :password, placeholder:'Mot de passe', autocomplete: "current-password", class:"login-field" %>
+    <div class="main-content-edit-profile">
+
+        <div class="form-grid">
+        
+            <div class="form-content">
+            
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+                    <div class="container-devise">
+
+                        <div class="devise-field">
+                            <div class="title">
+                                <%= f.label :Email %>
+                            </div>                        
+                            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"login-field", class:"input inset" %>
+                        </div>
+
+                        <div class="devise-field">
+                            <div class="title">
+                                <%= f.label :Mot_de_passe %>
+                            </div>                        
+                            <%= f.password_field :password, autocomplete: "current-password", class:"login-field", class:"input inset" %>
+                        </div>
+
+                        <% if devise_mapping.rememberable? %>
+                            <div class="field">
+                            <%= f.check_box :remember_me %>
+                            <%= f.label :Se_souvenir_de_moi %>
+                            </div>
+                        <% end %>
+
+                    </div>
+
+                    <%= f.submit "Connexion", class: "input-send" %>
+
+                    <%= render "devise/shared/error_messages", resource: resource %>     
+
+                <% end %>
+
+            </div>
+
+            <div class="form-cta-bottom">
+                <%= render "devise/shared/links" %>
+            </div>
+
+        </div>
+
     </div>
-  </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Connexion", class: "input-send" %>
-  </div>
-<% end %>
-</div>
-<%= render "devise/shared/links" %>
 </div>

@@ -11,9 +11,9 @@
     height: 100%;
     display: grid;
     place-items: center;
-    grid-template-rows: 1fr repeat(3, 50px);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+    grid-template-rows: 1fr repeat(2, 50px);
+    grid-row-gap: var(--small-padding);;
+    padding-bottom: var(--small-padding);
 
     .swipe-cards {
       position: relative;
@@ -22,12 +22,12 @@
       padding: var(--small-padding);
       grid-template-rows: 75px auto 1fr auto;
       grid-row-gap: var(--small-padding);
-      width: 300px;
+      width: 50%;
       height: 100%;
       background-color: var(--secondary-dark-color);
       border-radius: var(--medium-border-radius);
       box-shadow: -15px 10px 50px 10px var(--main-color-shadow);
-      border: 2px solid var(--main-color);
+      border: 1px solid var(--main-color);
 
       .level {
         position: absolute;
@@ -107,7 +107,6 @@
         .champ-icon {
           display: flex;
 
-
           & * {
             display: grid;
             place-items: center;
@@ -134,121 +133,61 @@
     }
 
     .btn-color-wrapper {
-      width: 100%;
       height: 100%;
-      display: flex;
-      justify-content: center;
+      display: grid;
+      place-items: center;
+      grid-auto-flow: column;
+      grid-column-gap: var(--small-padding);
 
       .color {
         height: 50px;
-        width: 50px;
-        border-radius: 50%;
-        margin-right: 5px;
-        margin-left: 5px;
+        width: 150px;
+        border-radius: var(--small-border-radius);
+        display: grid;
+        place-items: center;
+        transition: all 0.4s ease-out;
+        text-transform: uppercase;
+        font-size: var(--small-font-size);
+        font-weight: 600;
+        text-decoration: none;
+
+        &:hover {
+          color: var(--light-grey-color);
+        }
       }
 
       .peer-gaming {
-        background-color: var(--green-color);
+        border: 1px solid var(--green-color);
+        color: var(--green-color);
+
+        &:hover {
+          background-color: var(--green-color);
+          box-shadow: 0px -5px 25px 10px var(--green-color-shadow);
+        }
       }
 
       .relax {
-        background-color: var(--blue-color);
+        border: 1px solid var(--blue-color);
+        color: var(--blue-color);
+
+        &:hover {
+          background-color: var(--blue-color);
+          box-shadow: 0px -5px 25px 10px var(--blue-color-shadow);
+        }
       }
 
       .tryhard {
-        background-color: var(--orange-color);
+        border: 1px solid var(--orange-color);
+        color: var(--orange-color);
+
+        &:hover {
+          background-color: var(--orange-color);
+          box-shadow: 0px -5px 25px 10px var(--orange-color-shadow);
+        }
       }
+
     }
     
   }
 
-}
-
-/* SHOW PROFILE */
-
- 
-#showprofile h3 {
-  margin: 10px 0;
-}
-
-#showprofile h6 {
-  margin: 5px 0;
-  text-transform: uppercase;
-}
-
-#showprofile p {
-  font-size: 14px;
-  line-height: 21px;
-  padding:8px
-}
-
-#showprofile .card-container {
-  background-color:var(--secondary-dark-color);
-  border-radius: 5px;
-  box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.75);
-  color: #B3B8CD;
-  padding-top: 30px;
-  position: relative;
-  width: 350px;
-  max-width: 100%;
-  text-align: center;
-}
-
-#showprofile .card-container .pro {
-  color: var(--light-grey-color);;
-  background-color: var(--blue-color);
-  border-radius: 3px;
-  font-size: 14px;
-  font-weight: bold;
-  padding: 3px 7px;
-  position: absolute;
-  top: 30px;
-  left: 30px;
-}
-
-#showprofile .card-container .round {
-  border: 1px solid #03BFCB;
-  border-radius: 50%;
-  padding: 7px;
-}
-
-#showprofile .skills {
-  background-color: var(--secondary-dark-color);;
-  text-align: left;
-  padding: 15px;
-  margin-top: 30px;
-  margin-bottom:500px
-}
-
-#showprofile .skills ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-#showprofile .skills ul li {
-  border: 1px solid #2D2747;
-  border-radius: 2px;
-  display: inline-block;
-  font-size: 12px;
-  margin: 0 7px 7px 0;
-  padding: 7px;
-}
-
-
-
-#showprofile .round
-{
-  width: 50%;
-}
-
-#showprofile .buttons
-{
-padding-top:30px
-}
-#showprofile a
-{
-font-size:12px;
-margin-top:35px;
-text-decoration:none
 }

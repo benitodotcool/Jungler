@@ -36,18 +36,32 @@ aside {
     overflow: scroll;
     padding: var(--small-padding);
 
-    .notification-container {
-      height: 100px;
-      width: 100%;
-      background-color: var(--secondary-dark-color);
-      border-radius: var(--small-border-radius);
+    .connected-false-container {
       display: grid;
       place-items: center;
+      height: calc(100% - 75px);
+
+      .content {
+
+        h3 {
+          padding-bottom: var(--small-padding);
+          text-align: center;
+        }
+
+        .cta {
+          display: grid;
+          place-items: center;
+
+          .input-send {
+            text-decoration: none;
+          }
+  
+        }
+
+      }
+
     }
-    .hidden
-    {
-      display:none;
-    }
+
   }
   
 
