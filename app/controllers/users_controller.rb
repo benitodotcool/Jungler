@@ -64,13 +64,12 @@ class UsersController < ApplicationController
         @summoner_name = User.find(@user.id).summoner_name
         if @summoner_name_origin != @summoner_name
         get_api_summoner(@summoner_name)
-  
         
-        format.html {redirect_to root_path, notice: "fin de l'appel API" }
+        format.html {redirect_to users_path, notice: "fin de l'appel API" }
         else
         format.html {redirect_to users_path, notice: "pas d'appel API" }
         end
-        
+        return
       else
         
         format.html { render :edit, status: :unprocessable_entity }
