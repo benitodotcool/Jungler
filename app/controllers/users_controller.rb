@@ -66,9 +66,10 @@ class UsersController < ApplicationController
         get_api_summoner(@summoner_name)
         
         format.html {redirect_to users_path, notice: "fin de l'appel API" }
-        format.js {}
+        
         else
         format.html {redirect_to users_path, notice: "pas d'appel API" }
+        format.js {}
         end
         return
       else
