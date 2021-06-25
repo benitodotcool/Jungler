@@ -142,6 +142,78 @@
 
     }
 
+    .conversation-right-index-none {
+        grid-column: span 2;
+        margin-bottom: var(--small-padding);
+        border-radius: var(--small-border-radius);
+        background-color: var(--secondary-dark-color);
+        padding: var(--small-padding);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
+        .title {
+            padding-top: calc(var(--small-padding) + 6px);
+            padding-bottom: var(--small-padding);
+            font-size: var(--big-font-size);
+            line-height: 1;
+            font-weight: 700;
+            max-width: 75%;            
+
+            &::before {
+                position: absolute;
+                transform: translateY(-30px);
+                content: "bêta 1.0";
+                font-size: 12px;
+                text-transform: uppercase;
+                background-color: var(--info-color);
+                padding: 2px 5px 2px 5px;
+                margin-right: 10px;
+                border-radius: 5px;
+                font-weight: 800;
+            }
+        }
+
+        p {
+            padding-bottom: var(--small-padding);
+        }
+
+        .btn-discover {
+            display: flex;
+            justify-content: flex-start;                   
+
+            a {
+                text-decoration: none;
+                font-weight: 500;
+                color: var(--main-color);
+                padding: 3px 15px 3px 15px;
+                border: 1px solid var(--main-color);                        
+                border-radius: 10px;
+                transition: all 0.3s ease-out;
+                font-size: var(--small-font-size);
+                
+                &:hover {
+                    color: var(--light-grey-color);
+                    background-color: var(--main-color);                                
+                    box-shadow: 0px 15px 25px 10px var(--main-color-shadow);
+                }
+            }
+        }
+
+        .img {
+            position: absolute;
+            bottom: 0;
+            max-height: 65%;
+            transform: translate(-5%, 0%);
+
+            img {
+                width: 100%;
+                transform: scale(1.1);
+            }
+        }
+    }
+
     .conversation-right {
         position: absolute;
         grid-area: 1 / 2 / 2 / 3;

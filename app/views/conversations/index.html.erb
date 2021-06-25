@@ -1,68 +1,80 @@
 <div class="main-wrapper" id="conversation-focus">
+
     <div class="main-head">
         <h1 class="title">Conversations</h1>
     </div>
+
+
+
     <div class="main-content-conversations">
-
-
-        <div class="conversation-left">
-                        
-            <%  @conversations.reverse_each do |conversation| %>
-                <a href="<%=conversation_path(conversation.id)%>" class="conversation-focus">
-                    <div class="conversation-name">
-                        <div class="user-photo">
-                        
-                            <%if conversation.participant_a.id == current_user.id%>
-                                <%begin%>
-                                    <%if conversation.participant_b.icon_profile_id != nil %>
-                                        <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{conversation.participant_b.icon_profile_id}.png"%>>
-                                    <%else%>
-                                        <%=conversation.participant_b.summoner_name[0]%>
-                                    <%end%>
-                                <%rescue%>
-                                <%end%>
-                            <%else%>
-                                <%begin%>
-                                    <%if conversation.participant_b.icon_profile_id != nil %>
-                                        <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{conversation.participant_a.icon_profile_id}.png"%>>
-                                    <%else%>
-                                        <%=conversation.participant_b.summoner_name[0]%>
-                                    <%end%>
-                                <%rescue%>
-                                    
-                                <%end%>
-                            <%end%>
-                        </div>
-                        <div class="user-info">
-                            <h4 class="name">
-                                <%if conversation.participant_a.id == current_user.id%>
-                                    <%=conversation.participant_b.summoner_name%>
-                                <%else%>
-                                    <%=conversation.participant_a.summoner_name%>
-                                <%end%>
-                            
-                            </h4>
-                            <div class="last-message">
-                            
-                                <div class="content"><%= @content %></div> 
-                                <div class="time"><%=@time_ago %> </div> 
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            <%end%>
-            
-        </div>
-        
-
 
         <%if @conversations.join.to_i == 0  %>
 
             <div class="conversation-right-index-none inset" data-tilt>
-                <div class="title">Malheureuseusement tu n'as pas encore de conversations</div>
+                <div class="title">Tu n'as pas encore de conversations…</div>
+
+                <p>Nous t'invitons à revoir tes filtres dans la section adaptée.</p>
+
+                <div class="btn-discover">
+                    <a href="<%= users_path %>">Revoir mes filtres</a>
+                </div>
+                
+                <div class="img">
+                    <img src="lol_champions/pyke.png">   
+                </div>
+
             </div>
 
         <%else%>
+
+            <div class="conversation-left">
+                            
+                <%  @conversations.reverse_each do |conversation| %>
+                    <a href="<%=conversation_path(conversation.id)%>" class="conversation-focus">
+                        <div class="conversation-name">
+                            <div class="user-photo">
+                            
+                                <%if conversation.participant_a.id == current_user.id%>
+                                    <%begin%>
+                                        <%if conversation.participant_b.icon_profile_id != nil %>
+                                            <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{conversation.participant_b.icon_profile_id}.png"%>>
+                                        <%else%>
+                                            <%=conversation.participant_b.summoner_name[0]%>
+                                        <%end%>
+                                    <%rescue%>
+                                    <%end%>
+                                <%else%>
+                                    <%begin%>
+                                        <%if conversation.participant_b.icon_profile_id != nil %>
+                                            <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{conversation.participant_a.icon_profile_id}.png"%>>
+                                        <%else%>
+                                            <%=conversation.participant_b.summoner_name[0]%>
+                                        <%end%>
+                                    <%rescue%>
+                                        
+                                    <%end%>
+                                <%end%>
+                            </div>
+                            <div class="user-info">
+                                <h4 class="name">
+                                    <%if conversation.participant_a.id == current_user.id%>
+                                        <%=conversation.participant_b.summoner_name%>
+                                    <%else%>
+                                        <%=conversation.participant_a.summoner_name%>
+                                    <%end%>
+                                
+                                </h4>
+                                <div class="last-message">
+                                
+                                    <div class="content"><%= @content %></div> 
+                                    <div class="time"><%=@time_ago %> </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                <%end%>
+                
+            </div>
 
             <div class="conversation-right-index inset" data-tilt>
                 <div class="title">Clique sur la gauche pour naviguer dans tes conversations</div>
