@@ -117,6 +117,13 @@
 
 #@champion_icon_profile_id = Hash[@champions.zip(@icone_profile_id.map(&:to_i))]
 
+@descriptions = [
+  "Moi ce que j'aime, c'est trouver des gens stylés, qui ne quittent pas à la première difficulté", 
+  "Viens me rejoindre, on va tout donner ! ", 
+  "Marre des haters, je viens cherche des gamers sympathique qui ne vont pas me souhaiter le cancer quand je ferai des erreurs.",
+  "Même si j'ai des rôles privilégiés, je suis ouvert pour tester de nouvelles configurations ! N'hésitez pas à me swiper! ",
+  "Je recherche des joueurs avec un niveau similaire, question de digger un peu" 
+ ]
 
 lol_roles = ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]
 1.times do |i|
@@ -127,7 +134,7 @@ lol_roles = ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle
     user_game_stat_id: i+1,
     primary_role: lol_roles.sample,
     secondary_role: lol_roles.sample,
-    description: Faker::Lorem.characters(number: 63),
+    description: "Coucou, on est l'équipe de Jungler, valide notre profil pour échanger avec nous ! :)",
     tag_list: ["Peer-Gaming", "Relax", "Try-Hard"].sample,
     icon_profile_id: @icone_profile_id[i]
   ) 
@@ -142,7 +149,7 @@ lol_roles = ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle
     tag_list: ["Peer-Gaming", "Relax", "Try-Hard"].sample,
     primary_role: lol_roles.sample,
     secondary_role: lol_roles.sample,
-    description: Faker::Lorem.characters(number: 63),
+    description: @descriptions.sample,
     icon_profile_id:@icone_profile_id[i+1]
   ) 
 end
