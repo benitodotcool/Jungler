@@ -6,3 +6,59 @@
 
 <%= link_to 'Back', users_path %>
 </div>
+
+
+<div class="level">    
+        <h3><%= @user_select.id %></h3>
+    </div>
+
+    <div class="summoner-name">
+        <h2><%= @user_select.summoner_name %></h2>
+        <h2><%= @user_select.tag_list%></h2>
+    </div>
+
+    <div class="description">
+        <p><%= @user_select.description %></p> 
+        <p><%= @user_game_stat.level%>
+    </div>
+
+    
+        <div class="roles" data-tilt>
+            <h4>Rôle principal</h4>
+            <% if @user_select.primary_role == "Top-lane" %>
+                <img src="../lol_icons/toplane.png">
+            <% elsif @user_select.primary_role == "Mid-lane" %>
+                <img src="../lol_icons/midlaner.png">
+            <% elsif @user_select.primary_role == "Bot-lane Support" %>
+                <img src="../lol_icons/support.png" class="small">
+            <% elsif @user_select.primary_role == "Bot-lane ADC" %>
+                <img src="../lol_icons/adc.png">
+            <% elsif @user_select.primary_role == "Jungle" %>
+                <img src="../lol_icons/jungler.png" class="small">            
+            <% end %>
+        </div>
+
+        <div class="roles" data-tilt>
+            <h4>Rôle secondaire</h4>
+            <% if @user_select.secondary_role == "Top-lane" %>
+                <img src="../lol_icons/toplane.png">
+            <% elsif @user_select.secondary_role == "Mid-lane" %>
+                <img src="../lol_icons/midlaner.png">
+            <% elsif @user_select.secondary_role == "Bot-lane Support" %>
+                <img src="../lol_icons/support.png" class="small">
+            <% elsif @user_select.secondary_role == "Bot-lane ADC" %>
+                <img src="../lol_icons/adc.png">
+            <% elsif @user_select.secondary_role == "Jungle" %>
+                <img src="../lol_icons/jungler.png" class="small">            
+            <% end %>
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="role">
+            <div class="role-name">Secondaire</div>
+            <div class="role-icon">
+                <img src="lol_icons/lol_icon_jungler.png">
+            </div>        
+        </div>
+    
