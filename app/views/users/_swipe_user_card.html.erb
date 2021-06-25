@@ -23,9 +23,9 @@
 
     <div class="content">
     
-        <div class="roles cell inset" data-tilt>
+        <div class="roles">
 
-            <div class="role">
+            <div class="role inset" data-tilt>
                 <h4>Rôle principal</h4>
                 <% if @user_select.primary_role == "Top-lane" %>
                     <img src="../lol_icons/toplane.png">
@@ -40,9 +40,7 @@
                 <% end %>
             </div>
 
-            <div class="separator"></div>
-
-            <div class="role">
+            <div class="role inset" data-tilt>
                 <h4>Rôle secondaire</h4>
                 <% if @user_select.secondary_role == "Top-lane" %>
                     <img src="../lol_icons/toplane.png">
