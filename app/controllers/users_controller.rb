@@ -18,8 +18,13 @@ class UsersController < ApplicationController
     @conversations = Conversation.all
     @messages = Message.order("created_at DESC").all
     @user_game_stat = UserGameStat.find_by(user_id:current_user.id)
+    begin
+    @ugs_selected = UserGameStat.find_by(user_id:@user_select.id)
+    rescue
+      @ugs_selected = 0
+    end
   end
-
+  
   # GET /users/1 or /users/1.json
   def show
     @user_game_stat = UserGameStat.find_by(user_id:current_user.id)

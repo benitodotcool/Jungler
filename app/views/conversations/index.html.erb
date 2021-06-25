@@ -8,7 +8,7 @@
 
     <div class="main-content-conversations">
 
-        <%if @conversations.join.to_i == 0  %>
+        <% if @conversations.count == 0 %>
 
             <div class="conversation-right-index-none inset" data-tilt>
                 <div class="title">Tu n'as pas encore de conversations…</div>
@@ -25,7 +25,7 @@
 
             </div>
 
-        <%else%>
+        <% elsif @conversations.count != 0 %>
 
             <div class="conversation-left">
                             
@@ -83,7 +83,7 @@
                 </div>
             </div>
 
-        <%end%>        
+        <%end%>      
  
     </div>
 

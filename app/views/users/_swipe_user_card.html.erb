@@ -10,25 +10,42 @@
     </div>
 
     <div class="description">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium corporis deserunt rem consequatur dignissimos veritatis assumenda vero nesciunt libero reiciendis?
+        <p><%= @user_select.description %></p> 
+        <p><%= @ugs_selected.level%>
     </div>
 
     <div class="roles">
 
         <div class="role">
-            <div class="role-name">Principal</div>
-            <div class="role-icon">
-                <img src="lol_icons/lol_icon_adc.png">
-            </div>
+            <h4>Rôle principal</h4>
+            <% if @user_select.primary_role == "Top-lane" %>
+                <img src="../lol_icons/toplane.png">
+            <% elsif @user_select.primary_role == "Mid-lane" %>
+                <img src="../lol_icons/midlaner.png">
+            <% elsif @user_select.primary_role == "Bot-lane Support" %>
+                <img src="../lol_icons/support.png" class="small">
+            <% elsif @user_select.primary_role == "Bot-lane ADC" %>
+                <img src="../lol_icons/adc.png">
+            <% elsif @user_select.primary_role == "Jungle" %>
+                <img src="../lol_icons/jungler.png" class="small">            
+            <% end %>
         </div>
 
         <div class="separator"></div>
 
         <div class="role">
-            <div class="role-name">Secondaire</div>
-            <div class="role-icon">
-                <img src="lol_icons/lol_icon_jungler.png">
-            </div>        
+            <h4>Rôle secondaire</h4>
+            <% if @user_select.secondary_role == "Top-lane" %>
+                <img src="../lol_icons/toplane.png">
+            <% elsif @user_select.secondary_role == "Mid-lane" %>
+                <img src="../lol_icons/midlaner.png">
+            <% elsif @user_select.secondary_role == "Bot-lane Support" %>
+                <img src="../lol_icons/support.png" class="small">
+            <% elsif @user_select.secondary_role == "Bot-lane ADC" %>
+                <img src="../lol_icons/adc.png">
+            <% elsif @user_select.secondary_role == "Jungle" %>
+                <img src="../lol_icons/jungler.png" class="small">            
+            <% end %>   
         </div>
     
     </div>
@@ -38,9 +55,24 @@
         <h5 class="title">Meilleurs champions</h5>
 
         <div class="champ-icon">
-            <div class="first">W</div>
-            <div class="second">G</div>
-            <div class="third">E</div>
+            <div class="first">
+            <div class="img-container">
+                        <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@ugs_selected.first_champion_name}.png"%>>
+                    </div>                    
+                    <h4 class="masteries"><%=@ugs_selected.first_champion_level%></h4>
+            </div>
+            <div class="second">
+            <div class="img-container">
+                <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@ugs_selected.second_champion_name}.png"%>>
+            </div>
+                <h4 class="masteries"><%=@ugs_selected.second_champion_level%></h4>
+            </div>
+            <div class="third">
+                <div class="img-container">
+                    <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@ugs_selected.third_champion_name}.png"%>>
+                </div>
+                    <h4 class="masteries"><%=@ugs_selected.third_champion_level%></h4>
+            </div>
         </div>
     
     </div>    

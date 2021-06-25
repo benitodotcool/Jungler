@@ -149,7 +149,7 @@ Les utilisateurs de "Jungler" auraient le choix entre quatre objectifs:
 
 	* Gestionnaire de calendrier pour les utilisateurs ayant l'attribut “coach”
     * Ajout de commentaires et/ou d'une note après une séance de coaching
-	* Gestion des paiements
+	* Gestion des paiements.
 
 
 
