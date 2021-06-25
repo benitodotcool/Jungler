@@ -1,34 +1,29 @@
-<div class="swipe-cards">
-
-
+<div class="swipe-cards inset">
 
 
     <div class="head">
 
-        <div class="level">    
-            <h3><%= @user_select.id %></h3>
+        <div class="user-photo">
+
+            <div class="photo">
+                <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{@user_select.icon_profile_id}.png"%>>
+            </div>
+            <p><%= @ugs_selected.level%></p>
+        
         </div>
 
-        <div class="summoner-name">
-            <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{@user_select.icon_profile_id}.png"%>>
-            <h2><%= @user_select.summoner_name %></h2>
-            <h2><%= @user_select.tag_list%></h2>
-        </div>
-
-        <div class="description">
-            <p><%= @user_select.description %></p> 
-            <p><%= @ugs_selected.level%>
+        <div class="user-info">
+            <h1><%= @user_select.summoner_name %></h1>
+            <p><%= @user_select.description %></p>
+            <h4><%= @user_select.tag_list%></h4>
         </div>
 
     </div>
 
 
-
-
-
     <div class="content">
     
-        <div class="roles">
+        <div class="roles cell inset" data-tilt>
 
             <div class="role">
                 <h4>Rôle principal</h4>
@@ -64,40 +59,45 @@
         
         </div>
 
-        <div class="best-champs">
+        <div class="best-champs cell inset" data-tilt>
 
-            <h5 class="title">Meilleurs champions</h5>
-
-            <div class="champ-icon">
-                <div class="first">
+            <div class="champ">
                 <div class="img-container">
-                            <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@ugs_selected.first_champion_name}.png"%>>
-                        </div>                    
-                        <h4 class="masteries"><%=@ugs_selected.first_champion_level%></h4>
-                </div>
-                <div class="second">
+                    <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@ugs_selected.first_champion_name}.png"%>> 
+                </div>                                      
+                <h4 class="masteries"><%=@ugs_selected.first_champion_level%></h4>                    
+            </div>
+
+            <div class="champ">
                 <div class="img-container">
                     <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@ugs_selected.second_champion_name}.png"%>>
                 </div>
-                    <h4 class="masteries"><%=@ugs_selected.second_champion_level%></h4>
+                <h4 class="masteries"><%=@ugs_selected.second_champion_level%></h4>
+            </div>
+
+            <div class="champ">
+                <div class="img-container">
+                    <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@ugs_selected.third_champion_name}.png"%>>
                 </div>
-                <div class="third">
-                    <div class="img-container">
-                        <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@ugs_selected.third_champion_name}.png"%>>
-                    </div>
-                        <h4 class="masteries"><%=@ugs_selected.third_champion_level%></h4>
-                </div>
+                <h4 class="masteries"><%=@ugs_selected.third_champion_level%></h4>
             </div>
         
         </div>
     
     </div>
 
+
+
+
     <div class="btn-wrapper"> 
 
-        <%= link_to "une autre fois", matches_path(:requestor_id => current_user.id.to_i,:receiver_id => @user_select.id.to_i,:users_tag_list => @user_tag_list, status:false), method: :post,id:'btn-no' %>
+        <div class="cell inset" data-tilt>
+            <%= link_to "une autre fois", matches_path(:requestor_id => current_user.id.to_i,:receiver_id => @user_select.id.to_i,:users_tag_list => @user_tag_list, status:false), method: :post,id:'btn-no' %>
+        </div>
 
-        <%= link_to "je veux jouer avec toi", matches_path(:requestor_id => current_user.id.to_i,:receiver_id => @user_select.id.to_i,:users_tag_list => @user_tag_list, status:true), method: :post,id:'btn-yes'%>
+        <div class="cell inset" data-tilt>
+            <%= link_to "je veux jouer avec toi", matches_path(:requestor_id => current_user.id.to_i,:receiver_id => @user_select.id.to_i,:users_tag_list => @user_tag_list, status:true), method: :post,id:'btn-yes'%>
+        </div>
 
     </div>
 
