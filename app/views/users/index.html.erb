@@ -10,7 +10,13 @@
 
             <%if @user_select == false %>
 
-                <h1>TU N'AS PLUS DE SWIPE</h1>
+                <div class="no-user-select inset" data-tilt>
+                    <div class="title">Plus aucun utilisateurs ne correspond à tes réglages</div>
+                    <p>Nous t'invitons à revoir tes filtres en bas de page.</p>
+                    <div class="img">
+                        <img src="lol_champions/varus.png">   
+                    </div>
+                </div>
 
             <%else%>
 
@@ -22,19 +28,19 @@
                 <li class="color peer-gaming" id="peer-gaming-btn">
                     <%= form_with(url: user_path(current_user.id), method: "patch", remote: true) do |form|%>
                         <%= form.hidden_field :tag_list, value: "Peer-Gaming" %>
-                        <%= form.submit "Peer-Gaming",  class:"input-send" %>
+                        <%= form.submit "Peer-Gaming",  class:"input-send-swipe" %>
                     <% end %>
                 </li>
                 <li class="color relax" id="relax-btn">
                     <%= form_with(url: user_path(current_user.id), method: "patch", remote: true) do |form|%>
                         <%= form.hidden_field :tag_list, value: "Relax"%>
-                        <%= form.submit "Relax",  class:"input-send" %>
+                        <%= form.submit "Relax",  class:"input-send-swipe" %>
                     <% end %>
                 </li>
                 <li class="color tryhard" id="tryhard-btn">
                     <%= form_with(url: user_path(current_user.id), method: "patch", remote: true) do |form|%>
                         <%= form.hidden_field :tag_list, value: "Try-Hard"%>
-                        <%= form.submit "Try-Hard",  class:"input-send" %>
+                        <%= form.submit "Try-Hard",  class:"input-send-swipe" %>
                     <% end %>
                 </li>               
                 

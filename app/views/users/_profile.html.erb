@@ -47,8 +47,6 @@
 
 </div>
 
-<hr>
-
 <% if current_user.description == "" %>
     <div class="empty"></div>
 <%else%>
@@ -59,7 +57,7 @@
 
 <div class="roles">
 
-    <div class="role inset" data-tilt>
+    <div class="role" data-tilt>
         <h4>Rôle principal</h4>
         <% if current_user.primary_role == "Top-lane" %>
             <img src="../lol_icons/toplane.png">
@@ -74,7 +72,7 @@
         <% end %>
     </div>
 
-    <div class="role inset" data-tilt>
+    <div class="role" data-tilt>
         <h4>Rôle secondaire</h4>
         <% if current_user.secondary_role == "Top-lane" %>
             <img src="../lol_icons/toplane.png">
@@ -100,21 +98,21 @@
 
             <div class="container-champions">
 
-                <div class="champion">
+                <div class="champion" data-tilt>
                     <div class="img-container">
                         <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@user_game_stat.first_champion_name}.png"%>>
                     </div>                    
                     <h4 class="masteries"><%=@user_game_stat.first_champion_level%></h4>
                 </div>
 
-                <div class="champion">
+                <div class="champion" data-tilt>
                     <div class="img-container">
                         <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@user_game_stat.second_champion_name}.png"%>>
                     </div>
                     <h4 class="masteries"><%=@user_game_stat.second_champion_level%></h4>
                 </div>
 
-                <div class="champion">
+                <div class="champion" data-tilt>
                     <div class="img-container">
                         <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@user_game_stat.third_champion_name}.png"%>>
                     </div>

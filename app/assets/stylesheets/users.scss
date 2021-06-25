@@ -11,23 +11,68 @@
     height: 100%;
     display: grid;
     place-items: center;
-    grid-template-rows: 1fr repeat(2, 50px);
+    grid-template-rows: 1fr 50px;
     grid-row-gap: var(--small-padding);;
     padding-bottom: var(--small-padding);
+
+    .no-user-select {
+        position: relative;
+        height: 100%;
+        padding: var(--small-padding);
+        background-color: var(--secondary-dark-color);
+        border-radius: var(--small-border-radius);
+        overflow: hidden;
+
+        .title {
+            padding-top: calc(var(--small-padding) + 6px);
+            padding-bottom: var(--small-padding);
+            font-size: var(--big-font-size);
+            line-height: 1;
+            font-weight: 700;
+            max-width: 75%;  
+
+            &::before {
+                position: absolute;
+                transform: translateY(-30px);
+                content: "bêta 1.0";
+                font-size: 12px;
+                text-transform: uppercase;
+                background-color: var(--info-color);
+                padding: 2px 5px 2px 5px;
+                margin-right: 10px;
+                border-radius: 5px;
+                font-weight: 800;
+            }
+        }
+
+        p {
+            padding-bottom: var(--small-padding);
+        }
+
+        .img {
+            position: absolute;
+            bottom: 0;
+            max-height: 65%;
+            transform: translate(20%, 0%);
+
+            img {
+                width: 80%;
+                transform: scale(1.1);
+            }
+        }
+    }
 
     .swipe-cards {
       position: relative;
       display: grid;
       place-items: center;
       padding: var(--small-padding);
-      grid-template-rows: 75px auto 1fr auto;
       grid-row-gap: var(--small-padding);
-      width: 50%;
-      height: 100%;
       background-color: var(--secondary-dark-color);
-      border-radius: var(--medium-border-radius);
-      box-shadow: -15px 10px 50px 10px var(--main-color-shadow);
+      border-radius: var(--small-border-radius);
       border: 1px solid var(--main-color);
+      width: 100%;
+      height: 100%;
 
       .level {
         position: absolute;
@@ -121,73 +166,134 @@
       }
 
       .btn-wrapper {
-        display: flex;
-  
-        span {
-          padding-left: 10px;
-          padding-right: 10px;
+        display: grid;
+        place-items: center;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: var(--small-padding);
+        height: 100%;
+        width: 100%;
+
+        & * {
+          height: 50px;
+          display: grid;
+          place-items: center;
+          padding-left: calc(var(--small-padding) / 2);
+          padding-right: calc(var(--small-padding) / 2);
+          text-decoration: none;
+          border-radius: var(--small-border-radius);
+          font-weight: 600;
+          text-transform: uppercase;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
-  
-      }
-  
+
+        #btn-no {
+          border: 1px solid var(--warning-color);
+          color: var(--warning-color);
+          transition: all 0.4s ease-out;
+
+          &:hover {
+            color: var(--main-bg-dark-color);
+            background-color: var(--warning-color);
+            box-shadow: 0px -5px 25px 10px var(--warning-color-shadow);
+          }
+        }
+
+        #btn-yes {
+          border: 1px solid var(--green-color);
+          color: var(--green-color);
+          transition: all 0.4s ease-out;
+
+          &:hover {
+            color: var(--light-grey-color);
+            background-color: var(--green-color);
+            box-shadow: 0px -5px 25px 10px var(--green-color-shadow);
+          }
+        }  
+      }  
     }
 
     .btn-color-wrapper {
       height: 100%;
-      display: grid;
-      place-items: center;
-      grid-auto-flow: column;
-      grid-column-gap: var(--small-padding);
+      width: 100%;
+      display: flex;
 
-      .color {
-        height: 50px;
-        width: 150px;
-        border-radius: var(--small-border-radius);
-        display: grid;
-        place-items: center;
-        transition: all 0.4s ease-out;
-        text-transform: uppercase;
-        font-size: var(--small-font-size);
-        font-weight: 600;
-        text-decoration: none;
+        .color {
+            height: 50px;
+            border-radius: var(--small-border-radius);
+            margin-right: var(--small-padding);
+            display: grid;
+            place-items: center;
+            transition: all 0.4s ease-out;
+            text-decoration: none;        
 
-        &:hover {
-          color: var(--light-grey-color);
+            &:hover {
+            color: var(--light-grey-color);
+            }
+
+            & * {
+                height: 100%;
+                border-radius: var(--small-border-radius);
+                font-size: 12px;
+                text-transform: uppercase;
+                font-weight: 800;
+                cursor: pointer;
+            }
         }
-      }
+
+        .input-send-swipe {
+            padding-left: calc(var(--small-padding) / 2);
+            padding-right: calc(var(--small-padding) / 2);
+        }
 
       .peer-gaming {
-        border: 1px solid var(--green-color);
-        color: var(--green-color);
+        border: 1px solid var(--green-color); 
 
         &:hover {
           background-color: var(--green-color);
           box-shadow: 0px -5px 25px 10px var(--green-color-shadow);
         }
+
+        & * {
+            color: var(--green-color);
+        }
+        & *:hover {
+            color: var(--light-grey-color);
+        }
       }
 
       .relax {
         border: 1px solid var(--blue-color);
-        color: var(--blue-color);
 
         &:hover {
           background-color: var(--blue-color);
           box-shadow: 0px -5px 25px 10px var(--blue-color-shadow);
         }
+
+        & * {
+            color: var(--blue-color);
+        }
+        & *:hover {
+            color: var(--light-grey-color);
+        }
       }
 
       .tryhard {
         border: 1px solid var(--orange-color);
-        color: var(--orange-color);
 
         &:hover {
           background-color: var(--orange-color);
           box-shadow: 0px -5px 25px 10px var(--orange-color-shadow);
         }
+
+        & * {
+            color: var(--orange-color);
+        }
+        & *:hover {
+            color: var(--light-grey-color);
+        }
       }
-
-    }
-    
+    }    
   }
-
 }

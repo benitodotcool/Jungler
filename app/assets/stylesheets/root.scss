@@ -20,13 +20,15 @@
   --danger-color: rgba(236, 68, 65, 1);
   --danger-color-shadow: rgba(236, 68, 65, 0.15);
   --info-color: rgba(151, 65, 236, 1);
+  --info-color-shadow: rgba(151, 65, 236, 0.15);
   --warning-color: rgba(236, 190, 65, 1);
+  --warning-color-shadow: rgba(236, 190, 65, 0.15);
 
   --small-padding: 2vw;
   --medium-padding: 4vw;
 
   --tiny-border-radius: 1.5vw;
-  --small-border-radius: 2vw;
+  --small-border-radius: 18px;
   --medium-border-radius: 2vw;
 
   --tiny-font-size: clamp(12px, 0.8vw, 14px);
