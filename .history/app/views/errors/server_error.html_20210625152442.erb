@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>(422)</title>
+  <title>500</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-  .rails-default-error-page {
+  .rails-default-server-page {
     background-color:rgba(26, 28, 31, 1);
     color: rgba(233, 233, 233, 1);
     text-align: center;
@@ -12,13 +12,13 @@
     margin: 0;
   }
 
-  .rails-default-error-page div.dialog {
+  .rails-default-server-page div.dialog {
     width: 95%;
     max-width: 33em;
     margin: 4em auto 0;
   }
 
-  .rails-default-error-page div.dialog > div {
+  .rails-default-server-page div.dialog > div {
     border: 1px solid #204b2e;
     border-right-color: #2d3057;
     border-left-color: #2d3057;
@@ -26,18 +26,19 @@
     border-top: #2d3057 solid 3px;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
-  
+    background-color: #42414e;
     padding: 7px 12% 0;
-    border-radius:2rem;
+    box-shadow: 0px 15px 25px 10px var(--main-color-shadow);
+    border-radius:2rem
   }
 
-  .rails-default-error-page h1 {
+  .rails-default-server-page h1 {
     font-size: 100%;
     color: var(--light-grey-color);
     line-height: 1.5em;
   }
 
-.rails-default-error-page .errormsg
+.rails-default-server-page .errormsg
 {
   float:left;
   margin-top:40px;
@@ -46,12 +47,12 @@
   </style>
 </head>
 
-<body class="rails-default-error-page">
+<body class="rails-default-server-page">
   <!-- This file lives in public/404.html -->
   <div class="dialog">
     <div><br>
-      <h1>La page que vous cherchez n'existe pas.</h1>
-        <img src="img/amumu.png"> 
+      <h1>Erreur interne du serveur</h1>
+        <%= image_tag "amumu.png" %>
     </div>
   </div>
 
