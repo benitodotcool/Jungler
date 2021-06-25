@@ -185,7 +185,8 @@
             }
 
             .message-received {
-                background-color: var(--secondary-dark-color);                  
+                background-color: var(--secondary-dark-color);
+                align-self: flex-start;
             }
 
             .message-margin {

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :discovery, path: "CGU", only: [:index]
 
-  resources :landing_page, only: [:index] 
+  resources :landing_page, only: [:index], path: 'home' 
 
   resources :conversations, path: 'Messagerie' do
     resources :messages

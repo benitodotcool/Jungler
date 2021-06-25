@@ -537,10 +537,9 @@
             grid-area: 17 / 1 / 19 / 7;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, auto);
 
             .list-1 {
-                grid-area: 1 / 1 / 2 / 2;
+                
             }
 
             .list-2 {
@@ -548,7 +547,7 @@
             }
 
             .list-3 {
-                grid-area: 1 / 3 / 2 / 4;
+                grid-column: span 2;                
                 text-align: right;
             }
 

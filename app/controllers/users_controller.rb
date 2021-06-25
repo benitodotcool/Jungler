@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   def index
     @users = User.tagged_with(current_user.tag_list).where.not(id: current_user.id).shuffle
     @user_select = user_selected
+    @user_tag_list = current_user.tag_list.join
     @conversations = Conversation.all
     @messages = Message.order("created_at DESC").all
     @user_game_stat = UserGameStat.find_by(user_id:current_user.id)
@@ -53,14 +54,14 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
-    @summoner_name_origin = User.find(@user.id).summoner_name
+    @summoner_name_origin = User.find(current_user.id).summoner_name
     respond_to do |format|
       if @user.update!(user_params)    
         if UserGameStat.exists?(user_id:current_user.id) == false
           @user_game_stat = UserGameStat.create!(user_id: current_user.id)
         end
         
-        @summoner_request = User.find(@user.id).summoner_request
+        @summoner_request = User.find(current_user.id).summoner_request
         if @summoner_name_origin != @summoner_request
         get_api_summoner(@summoner_request)
         
@@ -75,6 +76,7 @@ class UsersController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
+    
     end       
   end
 
@@ -138,7 +140,7 @@ class UsersController < ApplicationController
     
     
     def is_match_exists?(user)
-      condition_1 = Match.exists?(requestor_id:current_user.id, receiver_id: user.id)
+      condition_1 = Match.exists?(requestor_id:current_user.id, receiver_id: user.id, users_tag_list: current_user.tag_list)
       if condition_1 == true 
         return true
       end
@@ -146,16 +148,18 @@ class UsersController < ApplicationController
 
     
       
-    def get_api_summoner(summoner_name)
-        
-        @summoner_name = ERB::Util.url_encode(summoner_name.delete(' ').downcase)
+    def get_api_summoner(summoner_request)
+        begin
+        @summoner_name = summoner_request
+        @summoner_request = ERB::Util.url_encode(summoner_request.delete(' ').downcase)
         @env =  ENV['RIOT_API_KEY']
          #Call Summoner
-      
+        rescue
+        else
       begin
-        @response_summoner = RestClient.get ("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/#{@summoner_name}?api_key=#{@env}")
+        @response_summoner = RestClient.get ("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/#{@summoner_request}?api_key=#{@env}")
       rescue
-        if @summoner_name == ""
+        if @summoner_request == ""
           respond_to do |format|
             format.html {redirect_to edit_user_path(current_user.id), notice: "Veuillez saisir au moins un summoner_name" }
             end
@@ -214,7 +218,7 @@ class UsersController < ApplicationController
             level: @level
           )
       
-          @summoner_name = CGI::unescape(@summoner_name)
+          @summoner_request = CGI::unescape(@summoner_request)
           @user = User.find(current_user.id)
           @user.update!(icon_profile_id:@icon_profile_id, summoner_name:@summoner_name)
         
@@ -232,7 +236,7 @@ class UsersController < ApplicationController
       end
         
       #binding.pry
-    
+    end
     end
 
   

@@ -1,6 +1,7 @@
 .connected-true-container {
     display: grid;
     grid-template-rows: auto auto auto auto 1fr;
+    width: 100%;
 
     .head {
         margin-bottom: calc(var(--small-padding) + 10px);
@@ -73,6 +74,10 @@
 
     .description {
         margin-bottom: var(--medium-padding);
+        max-width: 100%;
+        p {
+            overflow-wrap: anywhere;
+        }
     }
 
     .roles {
