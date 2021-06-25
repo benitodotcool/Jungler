@@ -14,8 +14,6 @@
 //= require activestorage
 //= require_tree .
 //= require particules
-//= require tilt
 //= require nav_action
 //= require message_margin
 //= require conversation_name
-//= require change_color

@@ -1,58 +1,94 @@
- 
-  <%= form_with(model: user, local: true) do |form| %>
-  <div class="notice-swipe">
-    <p id="notice"><%= notice %></p>
-  </div> 
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> interdit à cet utilisateur d'être enregistré:</h2>
+<div class="main-content-edit-profile">
 
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>   
-
-
-<section id="editprofile">
-<div class="card-container">
-	<h3>
-  <div class="field">
-        <%= form.label :Nom_invocateur %><br>
-        <%= form.text_field :summoner_name, class:"textedit" %><br>
-        <%= form.label :Mon_style_de_jeu %><br>
-        <%= form.select :tag_list, ["Relax", "Peer-Learning", "Try-Hard"]%>
-        <%= form.submit "Changer de nom", class:"input-send" %>
-
-        
-  </div>
+    <div class="form-grid">
     
-    </h3>
-    <h6>
+        <div class="form-content">
 
-         <div class="fieldedit">
-           <%= form.label :email %><br>
-          <%= form.text_field :email, class:"textedit" %><br>
-            <%= form.submit "Changer de mail", class:"input-send" %>
-        </div> 
+            <%= form_with(model: user, local: true) do |form| %>
 
+                <div class="container-devise">
 
-    </h6>
-      
-         <div class="field">
-          <%= form.hidden_field :user_game_stat_id, value: current_user.id %>
+                    <div class="devise-field">
+                        <div class="title">
+                            <%= form.label :Nom_dinvocateur %>
+                        </div>                        
+                        <%= form.text_field :summoner_request, autofocus: true, class:"input inset" %>
+                    </div>
+
+                    <div class="devise-field">
+                        <div class="title">
+                            <%= form.label :Mon_style_de_jeu %>
+                        </div>                        
+                        <%= form.select :tag_list, ["Relax", "Peer-Gaming", "Try-Hard"], class:"dropdown-tags"%>
+                    </div>
+
+                    <%begin%>
+                    <%= form.hidden_field :user_game_stat_id, value: @user_game_stat.id %>
+                    <%rescue%>      
+                    <%end%>
+
+                    <div class="devise-field span-2">
+                        <div class="title">
+                            <%= form.label :description %>
+                        </div>                        
+                        <%= form.text_field :description, class:"input inset span-2" %>
+                    </div>
+
+                    <div class="devise-field">
+                        <div class="title">
+                          <%= form.label :Rôle_primaire %>
+                        </div>                        
+                        <%= form.select :primary_role, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"], class:"dropdown-tags"%>
+                    </div>
+
+                    <div class="devise-field">
+                        <div class="title">
+                            <%= form.label :Rôle_secondaire %>
+                        </div>                        
+                        <%= form.select :secondary_role, ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"], class:"dropdown-tags"%>
+                    </div>
+
+                </div>
+
+      <%= form.submit "Mettre à jour", class: "input-send" %> 
+
+                    
+                <!-- </div> of container-devise ending in render 'user_game_stats/form' -->
+
+                <% if user.errors.any? %>
+
+                    <%= pluralize(@user.errors.count, "error") %> interdit à cet utilisateur d'être enregistré:
+                    <ul>
+                        <% @user.errors.full_messages.each do |message| %>
+                            <li><%= message %></li>
+                        <% end %>
+                    </ul>
+
+                <% end %>   
+
+            <% end %>
+
         </div>
+
+    </div>
+
+</div>
+
+
+
+
+         
         
   
       
-  <%end%> 
-     
-<%if current_user.summoner_name != nil %>
-  <%= render 'user_game_stats/form', user_game_stat: @user_game_stat%>
-<%end%>
+
+
+
+
+
+
  
+
 
 
 

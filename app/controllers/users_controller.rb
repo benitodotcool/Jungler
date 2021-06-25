@@ -2,9 +2,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update ]
   before_action :set_user_game_stat, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
-  before_action :user_authorized?, only: %i[update destroy ]
-  before_action :incomplete_profile_redirect, only: %i[index]
-  
+  before_action :user_authorized?, only: %i[edit update destroy ]
+  before_action :incomplete_profile_redirect?, only: %i[index]
   require 'pry'
   require 'dotenv'
   Dotenv.load('.env')
@@ -15,13 +14,15 @@ class UsersController < ApplicationController
   def index
     @users = User.tagged_with(current_user.tag_list).where.not(id: current_user.id).shuffle
     @user_select = user_selected
+    @user_tag_list = current_user.tag_list.join
     @conversations = Conversation.all
     @messages = Message.order("created_at DESC").all
+    @user_game_stat = UserGameStat.find_by(user_id:current_user.id)
   end
 
   # GET /users/1 or /users/1.json
   def show
-
+    @user_game_stat = UserGameStat.find_by(user_id:current_user.id)
   end
 
   # GET /users/new
@@ -30,15 +31,9 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit        
-    @user = User.find(params[:id])
-      if @user.id == current_user.id
-        return true 
-      else
-        flash[:alert] = "Accès interdit !"
-        redirect_to root_path
-        return false
-      end
+  def edit
+    @user_game_stat = UserGameStat.find_by(user_id:current_user.id)        
+    
   end
 
   # POST /users or /users.json
@@ -49,7 +44,7 @@ class UsersController < ApplicationController
         format.html { redirect_to @user, notice: "User was successfully created." }
         format.json { render :show, status: :created, location: @user }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_entity, notice: "User was successfully created."  }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -59,22 +54,30 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
-      
-      if @user.update!(user_params)  
-        
+    @summoner_name_origin = User.find(current_user.id).summoner_name
+    respond_to do |format|
+      if @user.update!(user_params)    
         if UserGameStat.exists?(user_id:current_user.id) == false
           @user_game_stat = UserGameStat.create!(user_id: current_user.id)
         end
-
+        
+        @summoner_request = User.find(current_user.id).summoner_request
+        if @summoner_name_origin != @summoner_request
+        get_api_summoner(@summoner_request)
+        
+        format.html {redirect_to users_path, notice: "fin de l'appel API" }
+        
+        else
+        format.html {redirect_to users_path, notice: "pas d'appel API" }
+        format.js {}
+        end
+        return
       else
-        respond_to do |format|
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
-      end 
-      @summoner_name = User.find(params[:id]).summoner_name
-      get_api_summoner(@summoner_name)
-          
+    
+    end       
   end
 
     
@@ -99,7 +102,11 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:summoner_name, :id, :user_game_stat_id, :email, :tag_list)
+      begin
+        params.require(:user).permit(:summoner_request,:summoner_name, :id, :user_game_stat_id, :email, :tag_list,:primary_role, :secondary_role, :description)
+      rescue
+        params.permit(:summoner_name, :id, :user_game_stat_id, :email, :tag_list)
+      end
     end
 
     def set_user_game_stat
@@ -133,7 +140,7 @@ class UsersController < ApplicationController
     
     
     def is_match_exists?(user)
-      condition_1 = Match.exists?(requestor_id:current_user.id, receiver_id: user.id)
+      condition_1 = Match.exists?(requestor_id:current_user.id, receiver_id: user.id, users_tag_list: current_user.tag_list)
       if condition_1 == true 
         return true
       end
@@ -141,19 +148,26 @@ class UsersController < ApplicationController
 
     
       
-    def get_api_summoner(summoner_name)
-
-        
-        @summoner_name = summoner_name.delete(' ').downcase
+    def get_api_summoner(summoner_request)
+        begin
+        @summoner_name = summoner_request
+        @summoner_request = ERB::Util.url_encode(summoner_request.delete(' ').downcase)
         @env =  ENV['RIOT_API_KEY']
          #Call Summoner
+        rescue
+        else
       begin
-        @response_summoner = RestClient.get ("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/#{@summoner_name}?api_key=#{@env}")
+        @response_summoner = RestClient.get ("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/#{@summoner_request}?api_key=#{@env}")
       rescue
+        if @summoner_request == ""
+          respond_to do |format|
+            format.html {redirect_to edit_user_path(current_user.id), notice: "Veuillez saisir au moins un summoner_name" }
+            end
+        else
         respond_to do |format|
-          format.html {render :edit, notice: "Oups! Il ya eu un couac"  }
+          format.html {redirect_to edit_user_path(current_user.id), notice: "Votre summoner_name n'est pas reconnu" }
           end
-       
+        end
       else 
         response_summoner_in_hash = eval(@response_summoner.body)
         @summoner_id              = response_summoner_in_hash.values_at(:id).join
@@ -204,23 +218,25 @@ class UsersController < ApplicationController
             level: @level
           )
       
-          if @ugs.description.nil?
+          @summoner_request = CGI::unescape(@summoner_request)
+          @user = User.find(current_user.id)
+          @user.update!(icon_profile_id:@icon_profile_id, summoner_name:@summoner_name)
+        
+          if @user.description.nil?
             @description = "Je recherche d'autres joueurs stylay pour faire une équipe canon !"
             @ugs.update!( description: @description)
           end
-
-          @user = User.find(current_user.id)
-          @user.update!(icon_profile_id:@icon_profile_id)
             
           respond_to do |format|
-            format.html {redirect_to edit_user_path(current_user.id), notice: "fin de l'appel API" }
+            if @summoner_id != nil
+            format.html {redirect_to users_path, notice: "fin de l'appel API" }
+            else
             end
-        
-      
+          end
       end
         
       #binding.pry
-    
+    end
     end
 
   

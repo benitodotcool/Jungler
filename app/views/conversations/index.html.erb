@@ -11,9 +11,24 @@
                         <div class="user-photo">
                         
                             <%if conversation.participant_a.id == current_user.id%>
-                                <%=conversation.participant_b.summoner_name[0]%>
+                                <%begin%>
+                                    <%if conversation.participant_b.icon_profile_id != nil %>
+                                        <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{conversation.participant_b.icon_profile_id}.png"%>>
+                                    <%else%>
+                                        <%=conversation.participant_b.summoner_name[0]%>
+                                    <%end%>
+                                <%rescue%>
+                                <%end%>
                             <%else%>
-                                <%=conversation.participant_a.summoner_name[0]%>
+                                <%begin%>
+                                    <%if conversation.participant_b.icon_profile_id != nil %>
+                                        <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{conversation.participant_a.icon_profile_id}.png"%>>
+                                    <%else%>
+                                        <%=conversation.participant_b.summoner_name[0]%>
+                                    <%end%>
+                                <%rescue%>
+                                    
+                                <%end%>
                             <%end%>
                         </div>
                         <div class="user-info">
@@ -27,8 +42,8 @@
                             </h4>
                             <div class="last-message">
                             
-                                <div class="content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit, autem.</div>
-                                <div class="time">15m</div>
+                                <div class="content"><%= @content %></div> 
+                                <div class="time"><%=@time_ago %> </div> 
                             </div>
                         </div>
                     </div>
@@ -36,9 +51,17 @@
             <%end%>
             
         </div>
+
+        <%if @conversations.join.to_i == 0  %>
         <div class="conversation-right-index">
-            <h3 class="conversation-alert">Clique sur la gauche pour naviguer dans tes conversations</h3>
+            <h3 class="conversation-alert">Tu n'as pas encore de message</h3>
         </div>
-    
+        <%else%>
+        <div class="conversation-right-index">
+            <h3 class="conversation-alert">Clique sur la gauche aaaa pour naviguer dans tes conversations</h3>
+        </div>
+        <%end%>
+        
+ 
     </div>
 </div>
