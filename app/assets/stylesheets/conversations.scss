@@ -1,7 +1,7 @@
 .main-content-conversations {
     grid-area: 2 / 1 / 3 / 2;
     display: grid;
-    grid-template-columns: 2fr 5fr;
+    grid-template-columns: 200px 1fr;
     grid-column-gap: var(--small-padding);
     position: relative;
     height: 100%;
@@ -95,10 +95,51 @@
     }
 
     .conversation-right-index {
-        display: grid;
-        place-items: center;
         grid-area: 1 / 2 / 2 / 3;
-        text-align: center;
+        margin-bottom: var(--small-padding);
+        border-radius: var(--small-border-radius);
+        background-color: var(--secondary-dark-color);
+        padding: var(--small-padding);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
+        .title {
+
+            padding-top: calc(var(--small-padding) + 6px);
+            font-size: var(--big-font-size);
+            line-height: 1;
+            font-weight: 700;
+
+            &::before {
+                position: absolute;
+                transform: translateY(-30px);
+                content: "bêta 1.0";
+                font-size: 12px;
+                text-transform: uppercase;
+                background-color: var(--info-color);
+                padding: 2px 5px 2px 5px;
+                margin-right: 10px;
+                border-radius: 5px;
+                font-weight: 800;
+            }
+
+        }
+
+        .img {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            transform: translate(25%, -5%);
+            max-height: 65%;
+
+            img {
+                width: 75%;
+            }
+
+        }
+
     }
 
     .conversation-right {
