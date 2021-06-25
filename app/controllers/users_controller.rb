@@ -71,12 +71,12 @@ class UsersController < ApplicationController
         get_api_summoner(@summoner_request)
         
         format.html {redirect_to users_path, notice: "fin de l'appel API" }
-        
+        return
         else
         format.html {redirect_to users_path, notice: "pas d'appel API" }
-        format.js {}
         end
-        return
+        format.js {}
+        
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }

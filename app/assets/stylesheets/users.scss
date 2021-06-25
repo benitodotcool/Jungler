@@ -67,103 +67,123 @@
       display: grid;
       place-items: center;
       padding: var(--small-padding);
+      grid-template-rows: auto 1fr auto;
       grid-row-gap: var(--small-padding);
       background-color: var(--secondary-dark-color);
       border-radius: var(--small-border-radius);
-      border: 1px solid var(--main-color);
       width: 100%;
       height: 100%;
 
-      .level {
-        position: absolute;
-        top: 0;
-        right: 0;
+      .head {
         display: grid;
-        place-items: center;
-        height: 50px;
-        width: 50px;
-        border-radius: 18px;
-        background-color: var(--main-color);
-        transform: translate(50%, -50%);
-      }
-
-      .summoner-name {
+        grid-template-columns: 150px 1fr;
+        grid-column-gap: var(--small-padding);
         width: 100%;
-        height: 100%;
-        border-bottom: 1px solid var(--dark-grey-color);
+        margin-bottom: 15px;
 
-        & * {
-          overflow-wrap: break-word;
-          text-align: left;
-        }
-      }
+        .user-photo {
+          position: relative;
 
-      .description {
-        font-size: var(--small-font-size);
-        border-bottom: 1px solid var(--dark-grey-color);
-        padding-bottom: var(--small-padding);
-        color: var(--medium-grey-color);
-      }
+          .photo {
+            width: 150px;
+            height: 150px;
 
-      .roles {
-        display: grid;
-        align-self: start;
-        grid-template-columns: 1fr 1px 1fr;
-        grid-template-rows: 1fr;
-        grid-column-gap: 5px;
-        width: 100%;
-
-        .role {
-          display: grid;
-          place-items: center;
-
-          .role-name {
-            font-size: var(--tiny-font-size);
-            color: var(--medium-grey-color);
-            font-weight: 500;
-            padding-bottom: calc(var(--small-padding) / 2);
-          }
-  
-          .role-icon {
-            & * {
-              width: 30px;
-              height: auto;
+            img {
+              height: 150px;
+              border-radius: var(--medium-border-radius);
+              border: 2px solid var(--main-color);
+              box-shadow: 0px 10px 25px 10px var(--main-color-shadow);
             }
           }
 
-        }
-
-        .separator {
-          background-color: var(--dark-grey-color);
-        }
-
-      }
-  
-      .best-champs {
-        width: 100%;
-        height: 100%;
-        border-top: 1px solid var(--dark-grey-color);
-        padding-top: var(--small-padding);
-
-        .title {
-          padding-bottom: calc(var(--small-padding) / 2);
-        }
-
-        .champ-icon {
-          display: flex;
-
-          & * {
+          p {
+            position: absolute;
             display: grid;
-            place-items: center;
-            height: 40px;
-            width: 40px;
-            border-radius: 50%;
-            background-color: var(--medium-grey-color);
-            margin-right: 5px;
+            font-weight: 800;
+            background-color: var(--main-color);
+            border-radius: 10px;
+            width: 75px;
+            transform: translate(50%, -50%);
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 5px;
           }
         }
 
+        .user-info {
+          h1 {
+            padding-bottom: var(--small-padding);
+          }
+        }
       }
+
+      .content {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: var(--small-padding);
+
+        .cell {
+          padding: var(--small-padding);
+          background-color: var(--secondary-dark-color);
+          border-radius: var(--small-border-radius);
+          transition: all 0.4s ease-out;
+
+          &:hover {
+            border: 1px solid var(--main-color);
+            box-shadow: 0px 10px 25px 10px var(--main-color-shadow);
+          }
+        }
+
+        .roles {
+          width: 100%;
+
+        }
+
+        .best-champs {
+          width: 100%;
+          height: 100%;
+          display: grid;
+          grid-auto-flow: column;
+          place-items: center;
+
+          .champ {
+
+            .img-container {
+              height: 75x;
+              width: 75px;
+              overflow: hidden;
+              border: 2px solid var(--main-color);
+              border-radius: var(--small-border-radius);
+
+              img {
+                height: 75px;
+                width: 75px;                
+                transform: scale(1.2);
+                
+              }
+
+            }
+
+            .masteries {
+              background-color: var(--main-color);
+              border-radius: 8px;
+              width: 40px;
+              text-align: center;
+              transform: translate(calc(75px / 2 - 20px), -50%);
+              padding-bottom: 2px;
+              padding-top: 2px;
+            }
+          }
+        }
+      }
+
+
+
+
+
+ 
+
 
       .btn-wrapper {
         display: grid;
@@ -173,7 +193,32 @@
         height: 100%;
         width: 100%;
 
-        & * {
+        .cell {
+          padding: calc(var(--small-padding) / 2);
+          border-radius: var(--small-border-radius);
+          background-color: var(--secondary-dark-color);
+          width: 100%;
+
+          &:nth-child(1) {
+            transition: all 0.4s ease-out;
+            &:hover {
+              box-shadow: 0px 10px 25px 5px var(--warning-color-shadow);
+              border: 1px solid var(--warning-color);
+            }
+          }
+
+          &:nth-child(2) {
+            transition: all 0.4s ease-out;
+            &:hover {
+              box-shadow: 0px 10px 25px 5px var(--green-color-shadow);
+              border: 1px solid var(--green-color);
+            }
+          }
+
+        }
+
+        a {
+          width: 100%;
           height: 50px;
           display: grid;
           place-items: center;
@@ -189,7 +234,6 @@
         }
 
         #btn-no {
-          border: 1px solid var(--warning-color);
           color: var(--warning-color);
           transition: all 0.4s ease-out;
 
@@ -201,7 +245,6 @@
         }
 
         #btn-yes {
-          border: 1px solid var(--green-color);
           color: var(--green-color);
           transition: all 0.4s ease-out;
 
