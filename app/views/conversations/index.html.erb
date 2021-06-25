@@ -52,11 +52,11 @@
             
         </div>
 
-        <%if @conversations.join.to_i == 0  %>
+        <%if @conversations.count == 0  %>
         <div class="conversation-right-index">
             <h3 class="conversation-alert">Tu n'as pas encore de message</h3>
         </div>
-        <%else%>
+        <%elsif @conversations.count != 0%>
         <div class="conversation-right-index">
             <h3 class="conversation-alert">Clique sur la gauche aaaa pour naviguer dans tes conversations</h3>
         </div>
