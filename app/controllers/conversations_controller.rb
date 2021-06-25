@@ -7,19 +7,16 @@ class ConversationsController < ApplicationController
 
   def index
     @conversations = conversations_allowed
-    @messages= Message.all
-
     @user_game_stat = UserGameStat.find_by(user_id:current_user.id)
+    
   end
 
   # GET /conversations/1 or /conversations/1.json
   def show
-    @conversation_id = params[:id]
-    @current_conversation= Conversation.find(@conversation_id )
-    @messages= Message.all
+    @conversation_id = @conversation.id
+    @current_conversation= Conversation.find(@conversation.id )
+    @messages= Message.where(conversation_id:@conversation.id)
     @conversations = conversations_allowed
-    #@content = if Message.where(conversation_id:@conversation.id).last.content != nil
-    #@time_ago = Message.where(conversation_id:@conversation.id).last.updated_at.strftime( "%H:%M")
     @user_game_stat = UserGameStat.find_by(user_id:current_user.id)
   
   end
