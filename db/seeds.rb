@@ -8,17 +8,128 @@
 
 #regular Users Seed
 @number = 20
+
+@champions = ['Support Jungler',
+  'HEART F STEEL',
+  'Yikeru',
+  'WRDN',
+  'ivern to rank 1',
+  'holyphoenix fan',
+  'EMENES',
+  'Shending LP',
+  'Odysseus131',
+  'Cheatersunited',
+  'GAL Elramir',
+  't4rzan1',
+  'WatchMyPuppets',
+  'IAimToMisbehave',
+  'noway2u',
+  'Robính00D',
+  'hovno z kose',
+  'Elite500',
+  'Blake Hotz',
+  'solomaker',
+  'TECH NOIR',
+  'WntFindMeLolPros',
+  'RGO Odi11',
+  'Mike Wazοwski',
+  'darkchri99',
+  'GW Stormax',
+  'papi oscαr',
+  'Schuhbart',
+  'Kldfar',
+  'Darlik1',
+  'Sunflοwer',
+  'Princess Kuba',
+  'Rychly',
+  'SUP Ksaez',
+  'Benben',
+  'Babus',
+  'Rirua',
+  'eiforya',
+  'Mental Himalaya',
+  'Envy Carry',
+  '7Lovers',
+  'GO CloudMaker',
+  'Stor Olle',
+  'Zergsting',
+  'Nothing Compares',
+  'Sebekx',
+  'TPAA Eyhro',
+  'Jeg Elsker Faxe',
+  'autépé140',
+  'Chongus',
+  'AØH']
+
+@icone_profile_id = [
+4668,
+909,
+3897,
+3150,
+4982,
+4881,
+23,
+4621,
+4249,
+3584,
+29,
+4653,
+4838,
+7,
+268,
+4087,
+3150,
+4271,
+4496,
+3150,
+4983,
+29,
+4450,
+4570,
+1149,
+3889,
+4027,
+1589,
+3186,
+2098,
+7,
+4570,
+1625,
+693,
+745,
+4078,
+22,
+22,
+3226,
+1387,
+4942,
+4878,
+23,
+27,
+4881,
+4213,
+4986,
+4780,
+20,
+4572,
+3838
+]
+
+#@champion_icon_profile_id = Hash[@champions.zip(@icone_profile_id.map(&:to_i))]
+
+
 lol_roles = ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]
 1.times do |i|
   user = User.create!(
     email: "admin@jungler.com",
     password: "azerty",
-    summoner_name: Faker::Superhero.name,
+    summoner_name:@champions[i] ,
     user_game_stat_id: i+1,
     primary_role: lol_roles.sample,
     secondary_role: lol_roles.sample,
     description: Faker::Lorem.characters(number: 63),
-    tag_list: ["Peer-Gaming", "Relax", "Try-Hard"].sample
+    tag_list: ["Peer-Gaming", "Relax", "Try-Hard"].sample,
+    icon_profile_id: @icone_profile_id[i]
   ) 
 end
 lol_roles = ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle"]
@@ -26,12 +137,13 @@ lol_roles = ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle
   user = User.create!(
     email: Faker::Internet.email,
     password: "0123456789",
-    summoner_name: Faker::Superhero.name,
+    summoner_name: @champions[i+1],
     user_game_stat_id: i+2,
     tag_list: ["Peer-Gaming", "Relax", "Try-Hard"].sample,
     primary_role: lol_roles.sample,
     secondary_role: lol_roles.sample,
-    description: Faker::Lorem.characters(number: 63)
+    description: Faker::Lorem.characters(number: 63),
+    icon_profile_id:@icone_profile_id[i+1]
   ) 
 end
 
@@ -50,10 +162,10 @@ champions =[266,103,84,12,32,34,1,523,22,136,268,432,53,63,201,51,164,69,31,42,1
     level: Faker::Number.between(from: 1, to: 500),
     summoner_id: Faker::Lorem.characters(number: 63),
     first_champion_id: @first_champion_id,
-    first_champion_level: Faker::Number.between(from: 1, to: 7),
+    first_champion_level: Faker::Number.between(from: 5, to: 7),
     first_champion_name: CHAMPIONS.fetch(@first_champion_id),
     second_champion_id: @second_champion_id,
-    second_champion_level: Faker::Number.between(from: 1, to: 7),
+    second_champion_level: Faker::Number.between(from: 3, to: 7),
     second_champion_name: CHAMPIONS.fetch(@second_champion_id),
     third_champion_id: @third_champion_id,
     third_champion_level: Faker::Number.between(from: 1, to: 7),
@@ -63,24 +175,24 @@ end
 
 @number.times do 
   match = Match.create!(
-    requestor_id: Faker::Number.between(from: 1, to: @number),
+    requestor_id: Faker::Number.between(from: 2, to:(@number+1)),
     receiver_id: 1,
     users_tag_list: ["Peer-Gaming", "Relax", "Try-Hard"].sample,
     status: Faker::Boolean.boolean
   )
 end
 
-1.times do 
-  conversation = Conversation.create!(
-    participant_a_id: 1,
-    participant_b_id: 2,
-  )
-end
+#1.times do 
+#  conversation = Conversation.create!(
+#    participant_a_id: 1,
+#    participant_b_id: 2,
+#  )
+#end#
 
-10.times do 
-  message = Message.create!(
-    conversation_id: 1,
-    user_id: Faker::Number.between(from: 1, to: 2),
-    content: Faker::Lorem.sentence(word_count:2)
-  )
-end
+#10.times do 
+#  message = Message.create!(
+#    conversation_id: 1,
+#    user_id: Faker::Number.between(from: 1, to: 2),
+#    content: Faker::Lorem.sentence(word_count:2)
+#  )
+#end
