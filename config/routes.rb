@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   root 'landing_page#index'
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   get '/404' , to: 'errors#not_found'
   get '/422' , to: 'errors#unacceptable'
   get '/500' , to: 'errors#server_error'
@@ -30,4 +31,9 @@ Rails.application.routes.draw do
   match '/422', via: :all, to: 'errors#unprocessable_entity'
   match '/500', via: :all, to: 'errors#server_error'
 >>>>>>> development
+=======
+  get '/404' , to: 'errors#not_found'
+  get '/422' , to: 'errors#unacceptable'
+  get '/500' , to: 'errors#server_error'
+>>>>>>> dbd5b27bb95c764a2eed7463eeaff9fcbac1030b
 end
