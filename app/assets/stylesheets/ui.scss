@@ -1,6 +1,6 @@
 .container {
   display: grid;
-  grid-template-columns: 101px repeat(7, 1fr);
+  grid-template-columns: 101px repeat(5, 1fr) repeat(2, 200px);
   width: 100vw;
   height: 100vh;
 }
@@ -27,6 +27,10 @@
 
   }
 
+}
+
+#notice {
+  color: var(--green-color);
 }
 
 .inset {

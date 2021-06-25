@@ -1,4 +1,4 @@
-<div class="swipe-cards">
+<div class="swipe-cards" id="lol">
 
     <div class="level">    
         <h3><%= @user_select.id %></h3>
@@ -50,10 +50,10 @@
 <div class="btn-wrapper"> 
 
     <span>
-        <%= link_to "NON", matches_path(:requestor_id => current_user.id.to_i,:receiver_id => @user_select.id.to_i, status:false), method: :post,id:'btn-no' %>
+        <%= link_to "NON", matches_path(:requestor_id => current_user.id.to_i,:receiver_id => @user_select.id.to_i,:users_tag_list => @user_tag_list, status:false), method: :post,id:'btn-no' %>
     </span>
     <span>
-        <%= link_to "OUI ", matches_path(:requestor_id => current_user.id.to_i,:receiver_id => @user_select.id.to_i, status:true), method: :post,id:'btn-yes'%>
+        <%= link_to "OUI ", matches_path(:requestor_id => current_user.id.to_i,:receiver_id => @user_select.id.to_i,:users_tag_list => @user_tag_list, status:true), method: :post,id:'btn-yes'%>
     </span> 
 
 </div>

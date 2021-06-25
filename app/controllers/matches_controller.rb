@@ -26,7 +26,7 @@ class MatchesController < ApplicationController
     @match = Match.new(match_params)
     @user_swipped_id =  params[:receiver_id]
     @current_user_id = params[:requestor_id]
-    @user_swipped = User.find(@user_swipped_id )
+    @user_swipped = User.find(@user_swipped_id)
     respond_to do |format|
       if @match.save 
         if is_set? #tododev
@@ -68,15 +68,16 @@ class MatchesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def match_params
-      params.permit(:requestor_id,:receiver_id,:status)
+      params.permit(:requestor_id,:receiver_id,:status, :users_tag_list)
     end
 
     def is_set?
     
      @user_swipped_id =  params[:receiver_id]
      @current_user_id = params[:requestor_id]
-      condition_1 = Match.exists?(requestor_id: @current_user_id, receiver_id:@user_swipped_id, status: true)#tododev
-      condition_2 = Match.exists?(requestor_id:@user_swipped_id, receiver_id:@current_user_id, status: true)#tododev
+     @users_tag_list = params[:users_tag_list]
+      condition_1 = Match.exists?(requestor_id: @current_user_id, receiver_id:@user_swipped_id,users_tag_list:@users_tag_list, status: true)
+      condition_2 = Match.exists?(requestor_id:@user_swipped_id, receiver_id:@current_user_id,users_tag_list:@users_tag_list, status: true)
       
       if condition_1 == true && condition_2 == true 
 

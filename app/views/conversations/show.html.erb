@@ -11,9 +11,24 @@
                         <div class="user-photo">
                         
                             <%if conversation.participant_a.id == current_user.id%>
-                                <%=conversation.participant_b.summoner_name[0]%>
+                                <%begin%>
+                                    <%if conversation.participant_b.icon_profile_id != nil %>
+                                        <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{conversation.participant_b.icon_profile_id}.png"%>>
+                                    <%else%>
+                                        <%=conversation.participant_b.summoner_name[0]%>
+                                    <%end%>
+                                <%rescue%>
+                                <%end%>
                             <%else%>
-                                <%=conversation.participant_a.summoner_name[0]%>
+                                <%begin%>
+                                    <%if conversation.participant_b.icon_profile_id != nil %>
+                                        <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{conversation.participant_a.icon_profile_id}.png"%>>
+                                    <%else%>
+                                        <%=conversation.participant_b.summoner_name[0]%>
+                                    <%end%>
+                                <%rescue%>
+                                    
+                                <%end%>
                             <%end%>
                         </div>
                         <div class="user-info">

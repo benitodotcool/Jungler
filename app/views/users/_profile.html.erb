@@ -1,58 +1,132 @@
-<%begin%>
+<div class="head">
 
-	<%if current_user.icon_profile_id.nil?%>
+    <div class="left" data-tilt>
 
-	<%else%>
-		<img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{current_user.icon_profile_id }.png"%>>
-	<%end%>
-
-	<%rescue%>
-
-<%end%>
-
-
-
-<%begin%>
-
-	<%if @user_game_stat.nil?%>
-
-	<%else%>
-		<%if @user_game_stat.level.nil?%>
-		<h4>Niveau <%=@user_game_stat.level%></h3>
-		<p><%=@user_game_stat.description%></p>
-		<p><%=current_user.tag_list%></p>
-		<p><%=@user_game_stat.primary_role%></p>
-		<p><%=@user_game_stat.secondary_role%></p>
+		<%if current_user.icon_profile_id.nil?%>
+		<%else%>
+            <div class="profile-img">
+                <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{current_user.icon_profile_id}.png"%>>
+            </div>			
 		<%end%>
-	<%end%>
 
-	<%rescue%>
-	
-<%end%>
+        <%begin%>
+        <%if @user_game_stat.nil?%>
+        <%else%>
+            <%if @user_game_stat.level.nil? == false%>
+                <div class="level">
+                    <h4><%=@user_game_stat.level%></h4>
+                </div>                
+            <%end%>
+        <%end%>
+        <%rescue%>	
+        <%end%>        
+    
+    </div>
 
+    <div class="right">
 
+        <div class="summoner-name">
+            <h2><%=current_user.summoner_name%></h2>
+        </div>        
 
+        <%begin%>
+        <%if @user_game_stat.nil?%>
+        <%else%>
+            <% if @user_game_stat.level.nil? == false %>
 
-<%begin%>
+                <div class="current-user-tag">
+                    <p><%=current_user.tag_list%></p>
+                </div>                  
 
-	<%if @user_game_stat.nil?%>
-	<%else%>
-		<h6>Champions joués</h6>
+            <%end%>
+        <%end%>
+        <%rescue%>	
+        <%end%>
+    
+    </div>
 
-		<%=@user_game_stat.first_champion_name%> 
-		<img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@user_game_stat.first_champion_name}.png"%>>
-		<%=@user_game_stat.first_champion_level%> 
+</div>
 
-		<%=@user_game_stat.second_champion_name%>
-		<img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@user_game_stat.second_champion_name}.png"%>>
-		<%=@user_game_stat.second_champion_level%>
+<hr>
 
-		<%=@user_game_stat.third_champion_name%>
-		<img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@user_game_stat.third_champion_name}.png"%>>
-		<%=@user_game_stat.third_champion_level%>
-		
-	<%end%>
+<% if current_user.description == "" %>
+    <div class="empty"></div>
+<%else%>
+    <div class="description">
+        <p><%=current_user.description%></p>
+    </div>
+<% end %>
 
-	<%rescue%>
+<div class="roles">
 
-<%end%>
+    <div class="role inset" data-tilt>
+        <h4>Rôle principal</h4>
+        <% if current_user.primary_role == "Top-lane" %>
+            <img src="../lol_icons/toplane.png">
+        <% elsif current_user.primary_role == "Mid-lane" %>
+            <img src="../lol_icons/midlaner.png">
+        <% elsif current_user.primary_role == "Bot-lane Support" %>
+            <img src="../lol_icons/support.png" class="small">
+        <% elsif current_user.primary_role == "Bot-lane ADC" %>
+            <img src="../lol_icons/adc.png">
+        <% elsif current_user.primary_role == "Jungle" %>
+            <img src="../lol_icons/jungler.png" class="small">            
+        <% end %>
+    </div>
+
+    <div class="role inset" data-tilt>
+        <h4>Rôle secondaire</h4>
+        <% if current_user.secondary_role == "Top-lane" %>
+            <img src="../lol_icons/toplane.png">
+        <% elsif current_user.secondary_role == "Mid-lane" %>
+            <img src="../lol_icons/midlaner.png">
+        <% elsif current_user.secondary_role == "Bot-lane Support" %>
+            <img src="../lol_icons/support.png" class="small">
+        <% elsif current_user.secondary_role == "Bot-lane ADC" %>
+            <img src="../lol_icons/adc.png">
+        <% elsif current_user.secondary_role == "Jungle" %>
+            <img src="../lol_icons/jungler.png" class="small">            
+        <% end %>
+    </div>
+
+</div>
+
+<div class="champions">
+
+    <%begin%>
+
+        <%if @user_game_stat.nil?%>
+        <%else%>
+
+            <div class="container-champions">
+
+                <div class="champion">
+                    <div class="img-container">
+                        <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@user_game_stat.first_champion_name}.png"%>>
+                    </div>                    
+                    <h4 class="masteries"><%=@user_game_stat.first_champion_level%></h4>
+                </div>
+
+                <div class="champion">
+                    <div class="img-container">
+                        <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@user_game_stat.second_champion_name}.png"%>>
+                    </div>
+                    <h4 class="masteries"><%=@user_game_stat.second_champion_level%></h4>
+                </div>
+
+                <div class="champion">
+                    <div class="img-container">
+                        <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@user_game_stat.third_champion_name}.png"%>>
+                    </div>
+                    <h4 class="masteries"><%=@user_game_stat.third_champion_level%></h4>
+                </div>                
+            
+            </div>
+            
+        <%end%>
+
+        <%rescue%>
+
+    <%end%>
+
+</div>

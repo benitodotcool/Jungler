@@ -3,13 +3,13 @@ class MessagesController < ApplicationController
 
   # GET /messages or /messages.json
   def index
-    @messages = Message.all
+    @messages = Message.where(conversation_id:params[:id])
    
   end
 
   # GET /messages/1 or /messages/1.json
   def show
-    
+    @conversation_id = params[:id]
   end
 
   # GET /messages/new
