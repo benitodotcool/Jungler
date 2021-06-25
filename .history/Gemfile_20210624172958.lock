@@ -267,10 +267,7 @@ DEPENDENCIES
   pry
   puma (~> 3.11)
   rails (= 5.2.3)
-<<<<<<< HEAD
-=======
   rest-client
->>>>>>> 2ccedf21410a92baa75a4bc8c59326b8b0c9e0b1
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
