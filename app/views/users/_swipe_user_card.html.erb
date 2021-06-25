@@ -1,93 +1,104 @@
 <div class="swipe-cards">
 
-    <div class="level">    
-        <h3><%= @user_select.id %></h3>
-    </div>
 
-    <div class="summoner-name">
-        <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{@user_select.icon_profile_id}.png"%>>
-        <h2><%= @user_select.summoner_name %></h2>
-        <h2><%= @user_select.tag_list%></h2>
-    </div>
 
-    <div class="description">
-        <p><%= @user_select.description %></p> 
-        <p><%= @ugs_selected.level%>
-    </div>
 
-    <div class="roles">
+    <div class="head">
 
-        <div class="role">
-            <h4>Rôle principal</h4>
-            <% if @user_select.primary_role == "Top-lane" %>
-                <img src="../lol_icons/toplane.png">
-            <% elsif @user_select.primary_role == "Mid-lane" %>
-                <img src="../lol_icons/midlaner.png">
-            <% elsif @user_select.primary_role == "Bot-lane Support" %>
-                <img src="../lol_icons/support.png" class="small">
-            <% elsif @user_select.primary_role == "Bot-lane ADC" %>
-                <img src="../lol_icons/adc.png">
-            <% elsif @user_select.primary_role == "Jungle" %>
-                <img src="../lol_icons/jungler.png" class="small">            
-            <% end %>
+        <div class="level">    
+            <h3><%= @user_select.id %></h3>
         </div>
 
-        <div class="separator"></div>
-
-        <div class="role">
-            <h4>Rôle secondaire</h4>
-            <% if @user_select.secondary_role == "Top-lane" %>
-                <img src="../lol_icons/toplane.png">
-            <% elsif @user_select.secondary_role == "Mid-lane" %>
-                <img src="../lol_icons/midlaner.png">
-            <% elsif @user_select.secondary_role == "Bot-lane Support" %>
-                <img src="../lol_icons/support.png" class="small">
-            <% elsif @user_select.secondary_role == "Bot-lane ADC" %>
-                <img src="../lol_icons/adc.png">
-            <% elsif @user_select.secondary_role == "Jungle" %>
-                <img src="../lol_icons/jungler.png" class="small">            
-            <% end %>   
+        <div class="summoner-name">
+            <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{@user_select.icon_profile_id}.png"%>>
+            <h2><%= @user_select.summoner_name %></h2>
+            <h2><%= @user_select.tag_list%></h2>
         </div>
+
+        <div class="description">
+            <p><%= @user_select.description %></p> 
+            <p><%= @ugs_selected.level%>
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="content">
     
-    </div>
+        <div class="roles">
 
-    <div class="best-champs">
+            <div class="role">
+                <h4>Rôle principal</h4>
+                <% if @user_select.primary_role == "Top-lane" %>
+                    <img src="../lol_icons/toplane.png">
+                <% elsif @user_select.primary_role == "Mid-lane" %>
+                    <img src="../lol_icons/midlaner.png">
+                <% elsif @user_select.primary_role == "Bot-lane Support" %>
+                    <img src="../lol_icons/support.png" class="small">
+                <% elsif @user_select.primary_role == "Bot-lane ADC" %>
+                    <img src="../lol_icons/adc.png">
+                <% elsif @user_select.primary_role == "Jungle" %>
+                    <img src="../lol_icons/jungler.png" class="small">            
+                <% end %>
+            </div>
 
-        <h5 class="title">Meilleurs champions</h5>
+            <div class="separator"></div>
 
-        <div class="champ-icon">
-            <div class="first">
-            <div class="img-container">
-                        <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@ugs_selected.first_champion_name}.png"%>>
-                    </div>                    
-                    <h4 class="masteries"><%=@ugs_selected.first_champion_level%></h4>
+            <div class="role">
+                <h4>Rôle secondaire</h4>
+                <% if @user_select.secondary_role == "Top-lane" %>
+                    <img src="../lol_icons/toplane.png">
+                <% elsif @user_select.secondary_role == "Mid-lane" %>
+                    <img src="../lol_icons/midlaner.png">
+                <% elsif @user_select.secondary_role == "Bot-lane Support" %>
+                    <img src="../lol_icons/support.png" class="small">
+                <% elsif @user_select.secondary_role == "Bot-lane ADC" %>
+                    <img src="../lol_icons/adc.png">
+                <% elsif @user_select.secondary_role == "Jungle" %>
+                    <img src="../lol_icons/jungler.png" class="small">            
+                <% end %>   
             </div>
-            <div class="second">
-            <div class="img-container">
-                <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@ugs_selected.second_champion_name}.png"%>>
-            </div>
-                <h4 class="masteries"><%=@ugs_selected.second_champion_level%></h4>
-            </div>
-            <div class="third">
+        
+        </div>
+
+        <div class="best-champs">
+
+            <h5 class="title">Meilleurs champions</h5>
+
+            <div class="champ-icon">
+                <div class="first">
                 <div class="img-container">
-                    <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@ugs_selected.third_champion_name}.png"%>>
+                            <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@ugs_selected.first_champion_name}.png"%>>
+                        </div>                    
+                        <h4 class="masteries"><%=@ugs_selected.first_champion_level%></h4>
                 </div>
-                    <h4 class="masteries"><%=@ugs_selected.third_champion_level%></h4>
+                <div class="second">
+                <div class="img-container">
+                    <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@ugs_selected.second_champion_name}.png"%>>
+                </div>
+                    <h4 class="masteries"><%=@ugs_selected.second_champion_level%></h4>
+                </div>
+                <div class="third">
+                    <div class="img-container">
+                        <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@ugs_selected.third_champion_name}.png"%>>
+                    </div>
+                        <h4 class="masteries"><%=@ugs_selected.third_champion_level%></h4>
+                </div>
             </div>
+        
         </div>
     
-    </div>    
+    </div>
+
+    <div class="btn-wrapper"> 
+
+        <%= link_to "une autre fois", matches_path(:requestor_id => current_user.id.to_i,:receiver_id => @user_select.id.to_i,:users_tag_list => @user_tag_list, status:false), method: :post,id:'btn-no' %>
+
+        <%= link_to "je veux jouer avec toi", matches_path(:requestor_id => current_user.id.to_i,:receiver_id => @user_select.id.to_i,:users_tag_list => @user_tag_list, status:true), method: :post,id:'btn-yes'%>
+
+    </div>
 
 </div>
-
-<div class="btn-wrapper"> 
-
-    <span>
-        <%= link_to "NON", matches_path(:requestor_id => current_user.id.to_i,:receiver_id => @user_select.id.to_i,:users_tag_list => @user_tag_list, status:false), method: :post,id:'btn-no' %>
-    </span>
-    <span>
-        <%= link_to "OUI ", matches_path(:requestor_id => current_user.id.to_i,:receiver_id => @user_select.id.to_i,:users_tag_list => @user_tag_list, status:true), method: :post,id:'btn-yes'%>
-    </span> 
-
-</div>
-
