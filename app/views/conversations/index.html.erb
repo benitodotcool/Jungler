@@ -3,6 +3,8 @@
         <h1 class="title">Conversations</h1>
     </div>
     <div class="main-content-conversations">
+
+
         <div class="conversation-left">
                         
             <%  @conversations.reverse_each do |conversation| %>
@@ -11,9 +13,24 @@
                         <div class="user-photo">
                         
                             <%if conversation.participant_a.id == current_user.id%>
-                                <%=conversation.participant_b.summoner_name[0]%>
+                                <%begin%>
+                                    <%if conversation.participant_b.icon_profile_id != nil %>
+                                        <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{conversation.participant_b.icon_profile_id}.png"%>>
+                                    <%else%>
+                                        <%=conversation.participant_b.summoner_name[0]%>
+                                    <%end%>
+                                <%rescue%>
+                                <%end%>
                             <%else%>
-                                <%=conversation.participant_a.summoner_name[0]%>
+                                <%begin%>
+                                    <%if conversation.participant_b.icon_profile_id != nil %>
+                                        <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{conversation.participant_a.icon_profile_id}.png"%>>
+                                    <%else%>
+                                        <%=conversation.participant_b.summoner_name[0]%>
+                                    <%end%>
+                                <%rescue%>
+                                    
+                                <%end%>
                             <%end%>
                         </div>
                         <div class="user-info">
@@ -23,8 +40,12 @@
                                 <%else%>
                                     <%=conversation.participant_a.summoner_name%>
                                 <%end%>
+                            
                             </h4>
-                            <div class="last-message">    
+                            <div class="last-message">
+                            
+                                <div class="content"><%= @content %></div> 
+                                <div class="time"><%=@time_ago %> </div> 
                             </div>
                         </div>
                     </div>
@@ -33,12 +54,25 @@
             
         </div>
         
-        <div class="conversation-right-index inset" data-tilt>
-            <div class="title">Clique sur la gauche pour naviguer dans tes conversations</div>
-            <div class="img">
-                <img src="lol_champions/yasuo.png">   
-            </div>            
-        </div>
-    
+
+
+        <%if @conversations.join.to_i == 0  %>
+
+            <div class="conversation-right-index-none inset" data-tilt>
+                <div class="title">Malheureuseusement tu n'as pas encore de conversations</div>
+            </div>
+
+        <%else%>
+
+            <div class="conversation-right-index inset" data-tilt>
+                <div class="title">Clique sur la gauche pour naviguer dans tes conversations</div>
+                <div class="img">
+                    <img src="lol_champions/yasuo.png">   
+                </div>
+            </div>
+
+        <%end%>        
+ 
     </div>
+
 </div>
