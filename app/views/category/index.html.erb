@@ -6,18 +6,32 @@
         <% @users.reverse_each do |user|%>
             <% if user.id != current_user.id%>
                 <%if user.user_game_stat != nil%>
-            <div class="cell inset" data-tilt>
-                <div class="head">
-                    <h4><%= user.summoner_name%></h4>
-                    <h5><%= user.user_game_stat.level%></h5>
-                    <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{user.icon_profile_id}.png"%>>
-                </div>
-                <div class="content">
-                    <p><%=user.primary_role%></p>
-                    <p><%=user.secondary_role%></p>
-                    <p><%=user.tag_list%></p>
-                </div>
-            </div>
+
+                    <div class="community-cell inset" data-tilt>
+
+                        <div class="head">
+
+                            <div class="icon-user">                                
+                                <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{user.icon_profile_id}.png"%>>
+                                <h5><%= user.user_game_stat.level%></h5>
+                            </div>
+
+                            <div class="content-community">
+                                <h4><%= user.summoner_name%></h4>
+                                <h5><%=user.tag_list%><h5>                        
+                            </div>                            
+
+                        </div>
+
+                        <div class="content">
+
+                            <p><%=user.primary_role%></p>
+                            <p><%=user.secondary_role%></p>
+                            
+                        </div>
+
+                    </div>
+
                 <%end%>
             <%end%>
         <%end%>
