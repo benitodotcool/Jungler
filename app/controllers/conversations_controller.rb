@@ -3,7 +3,6 @@ class ConversationsController < ApplicationController
   before_action :authenticate_user!
   before_action :user_authorized?, only: %i[ show edit update destroy ]
   before_action :incomplete_profile_redirect?
-  # GET /conversations or /conversations.json
 
   def index
     @conversations = conversations_allowed
@@ -11,7 +10,6 @@ class ConversationsController < ApplicationController
     render stream: true
   end
 
-  # GET /conversations/1 or /conversations/1.json
   def show
     @conversation_id = @conversation.id
     @current_conversation= Conversation.find(@conversation.id )
@@ -21,16 +19,13 @@ class ConversationsController < ApplicationController
     render stream: true
   end
 
-  # GET /conversations/new
   def new
     @conversation = Conversation.new
   end
 
-  # GET /conversations/1/edit
   def edit
   end
 
-  # POST /conversations or /conversations.json
   def create
     @conversation = Conversation.new(conversation_params)
 
@@ -45,7 +40,6 @@ class ConversationsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /conversations/1 or /conversations/1.json
   def update
     respond_to do |format|
       if @conversation.update(conversation_params)
@@ -58,7 +52,6 @@ class ConversationsController < ApplicationController
     end
   end
 
-  # DELETE /conversations/1 or /conversations/1.json
   def destroy
     @conversation.destroy
     respond_to do |format|
@@ -68,12 +61,10 @@ class ConversationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_conversation
       @conversation = Conversation.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def conversation_params
       params.fetch(:conversation, {})
     end

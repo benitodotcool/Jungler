@@ -56,7 +56,7 @@
 <% end %>
 
 <div class="roles">
-
+    <%if current_user.primary_role != nil%>
     <div class="role" data-tilt>
         <h4>Rôle principal</h4>
         <% if current_user.primary_role == "Top-lane" %>
@@ -64,14 +64,15 @@
         <% elsif current_user.primary_role == "Mid-lane" %>
             <%= image_tag 'midlaner.png'%>
         <% elsif current_user.primary_role == "Bot-lane Support" %>
-            <%= image_tag 'lupport.png', class:"small"%>
+            <%= image_tag 'support.png', class:"small"%>
         <% elsif current_user.primary_role == "Bot-lane ADC" %>
             <%= image_tag 'adc.png'%>
         <% elsif current_user.primary_role == "Jungle" %>
             <%= image_tag 'jungler.png', class:"small"%>            
         <% end %>
     </div>
-
+    <%end%>
+    <%if current_user.secondary_role != nil%>
     <div class="role" data-tilt>
         <h4>Rôle secondaire</h4>
         <% if current_user.secondary_role == "Top-lane" %>
@@ -86,45 +87,45 @@
             <%= image_tag 'jungler.png', class:"small"%>            
         <% end %>
     </div>
-
+    <%end%>
 </div>
 
 <div class="champions">
-
-    <%begin%>
-
-        <%if @user_game_stat.nil?%>
-        <%else%>
-
+            <%begin%>
             <div class="container-champions">
 
                 <div class="champion" data-tilt>
+                <%if @user_game_stat.first_champion_name != nil%>
                     <div class="img-container">
                         <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@user_game_stat.first_champion_name}.png"%>>
                     </div>                    
                     <h4 class="masteries"><%=@user_game_stat.first_champion_level%></h4>
+                <%end%>
                 </div>
 
                 <div class="champion" data-tilt>
+                    <%if @user_game_stat.second_champion_name != nil%>
                     <div class="img-container">
                         <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@user_game_stat.second_champion_name}.png"%>>
                     </div>
                     <h4 class="masteries"><%=@user_game_stat.second_champion_level%></h4>
+                    <%end%>
                 </div>
 
                 <div class="champion" data-tilt>
+                    <%if @user_game_stat.second_champion_name != nil %>
                     <div class="img-container">
                         <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@user_game_stat.third_champion_name}.png"%>>
                     </div>
                     <h4 class="masteries"><%=@user_game_stat.third_champion_level%></h4>
-                </div>                
-            
+                    <%end%>
+                </div>        
+                <%rescue%>        
+             <%end%>
             </div>
             
-        <%end%>
 
-        <%rescue%>
 
-    <%end%>
+    
 
 </div>
