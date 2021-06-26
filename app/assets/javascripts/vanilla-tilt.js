@@ -506,6 +506,3 @@ if (typeof document !== "undefined") {
 return VanillaTilt;
 
 }());
-
-
-console.log('NTM')

@@ -31,7 +31,7 @@
                             
                 <%  @conversations.reverse_each do |conversation| %>
                     <a href="<%=conversation_path(conversation.id)%>" class="conversation-focus">
-                        <div class="conversation-name">
+                        <div class="conversation-name inset">
                             <div class="user-photo">
                             
                                 <%if conversation.participant_a.id == current_user.id%>
@@ -61,14 +61,8 @@
                                         <%=conversation.participant_b.summoner_name%>
                                     <%else%>
                                         <%=conversation.participant_a.summoner_name%>
-                                    <%end%>
-                                
+                                    <%end%>                                
                                 </h4>
-                                <div class="last-message">
-                                
-                                    <div class="content"><%= @content %></div> 
-                                    <div class="time"><%=@time_ago %> </div> 
-                                </div>
                             </div>
                         </div>
                     </a>

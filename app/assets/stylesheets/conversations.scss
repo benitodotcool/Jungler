@@ -34,10 +34,11 @@
             grid-template-rows: 1fr;
             grid-column-gap: 10px;
             transition: all 0.25s ease-out;
+            background-color: var(--secondary-dark-color);
+            transition: all 0.4s ease-out;
 
             &:hover {
-                background-color: var(--secondary-dark-color);
-                transition: all 0.25s ease-out;
+                border: 1px solid var(--main-color);
             }
 
             .user-photo {
@@ -50,13 +51,20 @@
                 color: var(--light-grey-color);
                 font-size: 20px;
                 font-weight: 500;
+
+                img {
+                    height: 40px;
+                    width: 40px;
+                    border-radius: 50%;
+                    border: 2px solid var(--main-color);
+                }
             }
 
             .user-info {
                 width: 100%;
+                height: 100%;
                 display: grid;
-                grid-template-rows: repeat(2, 1fr);
-                grid-row-gap: 5px;
+                place-items: center;
 
                 .name {
                     font-size: var(--small-font-size);
@@ -65,27 +73,6 @@
                     white-space: nowrap;
                     overflow: hidden;
                     text-overflow: ellipsis;
-                }
-
-                .last-message {
-                    display: grid;
-                    grid-template-columns: 1fr auto;
-                    grid-column-gap: 10px;
-                    color: var(--medium-grey-color);
-                    font-size: var(--tiny-font-size);
-
-                    .content {
-                        width: 100%; 
-                        white-space: nowrap;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                        font-weight: 500;
-                    }
-
-                    .time {
-                        font-weight: 600;
-                    }
-
                 }
 
             }
@@ -252,6 +239,7 @@
     
                 ul {
                     display: flex;
+                    visibility: hidden;
 
                     .head-icons:nth-child(1) {
                         margin-left: 0;
