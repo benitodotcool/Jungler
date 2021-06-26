@@ -112,7 +112,18 @@
 
         .user-info {
           h1 {
-            padding-bottom: var(--small-padding);
+            padding-bottom: calc(var(--small-padding) / 2);
+          }
+
+          h4 {
+            position: absolute;
+            margin-top: var(--small-padding);
+            font-size: 12px;
+            text-transform: uppercase;
+            background-color: var(--main-color);
+            padding: 2px 5px 2px 5px;
+            border-radius: 5px;
+            font-weight: 800;
           }
         }
       }
