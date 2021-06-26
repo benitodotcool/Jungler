@@ -7,7 +7,7 @@ class User < ApplicationRecord
   acts_as_taggable_on :tags
   #validations 
   validates :email, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
-  #validates :summoner_name, uniqueness: true, presence: true, on: :update
+  validates :summoner_name, uniqueness: true, on: :update
   
   has_many :request_as_requestor, foreign_key: 'requestor_id', class_name: 'Match'
   has_many :receivers, through: :request_as_requestor
@@ -29,9 +29,5 @@ class User < ApplicationRecord
     UserMailer.welcome_email(self).deliver_now
   end
 
-
-  
-
- 
   
 end
