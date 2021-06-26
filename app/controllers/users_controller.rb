@@ -49,7 +49,7 @@ class UsersController < ApplicationController
         format.html { redirect_to @user, notice: "Invocateur créé avec succès." }
         format.json { render :show, status: :created, location: @user }
       else
-        format.html { render :new, status: :unprocessable_entity, notice: "Invocateur créé avec succès."  }
+        format.html { render :new, status: :unprocessable_entity, notice: "Oups il y a un couac ! "  }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -70,16 +70,15 @@ class UsersController < ApplicationController
         if @summoner_name_origin != @summoner_request
         get_api_summoner(@summoner_request)
         
-        format.html {redirect_to users_path, notice: "fin de l'appel API" }
+        format.html {redirect_to users_path, success: "fin de l'appel API" }
         return
         else
-        format.html {redirect_to users_path, notice: "pas d'appel API" }
+        format.html {redirect_to users_path, success: "pas d'appel API" }
         end
         format.js {}
         
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.html {redirect_to edit_user_path(current_user.id), notice: "oups il y a eu un couac" }
       end
     
     end       
@@ -229,12 +228,12 @@ class UsersController < ApplicationController
         
           if @user.description.nil?
             @description = "Je recherche d'autres joueurs stylay pour faire une équipe canon !"
-            @ugs.update!( description: @description)
+            @user.update!( description: @description)
           end
             
           respond_to do |format|
             if @summoner_id != nil
-            format.html {redirect_to users_path, notice: "fin de l'appel API" }
+            format.html {redirect_to users_path, success: "fin de l'appel API" }
             else
             end
           end
