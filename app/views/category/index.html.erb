@@ -3,34 +3,174 @@
         <h1 class="title">Communauté</h1>
     </div>
     <div class="main-content-category">
+
         <% @users.reverse_each do |user|%>
+
             <% if user.id != current_user.id%>
+
                 <%if user.user_game_stat != nil%>
 
-                    <div class="community-cell inset" data-tilt>
+                    <% if user.tag_list == ["Peer-Gaming"] %>
 
-                        <div class="head">
+                        <div class="community-cell-peer-gaming inset" data-tilt>
 
-                            <div class="icon-user">                                
-                                <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{user.icon_profile_id}.png"%>>
-                                <h5><%= user.user_game_stat.level%></h5>
+                            <div class="head-community">
+
+                                <div class="icon-user">                                
+                                    <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{user.icon_profile_id}.png"%>>
+                                    <h5><%= user.user_game_stat.level%></h5>
+                                </div>
+
+                                <div class="content-community">
+                                    <h4><%= user.summoner_name %></h4>
+                                    <h5><%= user.tag_list %></h5>
+                                </div>                            
+
                             </div>
 
-                            <div class="content-community">
-                                <h4><%= user.summoner_name%></h4>
-                                <h5><%=user.tag_list%><h5>                        
-                            </div>                            
+                            <div class="content">
+
+                                <div class="role" data-tilt>
+                                    <% if user.primary_role == "Top-lane" %>
+                                        <%= image_tag 'toplane.png'%>
+                                    <% elsif user.primary_role == "Mid-lane" %>
+                                        <%= image_tag 'midlaner.png'%>
+                                    <% elsif user.primary_role == "Bot-lane Support" %>
+                                        <%= image_tag 'support.png', class:"small"%>
+                                    <% elsif user.primary_role == "Bot-lane ADC" %>
+                                        <%= image_tag 'adc.png'%>
+                                    <% elsif user.primary_role == "Jungle" %>
+                                        <%= image_tag 'jungler.png', class:"small"%>            
+                                    <% end %>
+                                </div>
+
+                                <div class="role" data-tilt>
+                                    <% if user.secondary_role == "Top-lane" %>
+                                        <%= image_tag 'toplane.png'%>
+                                    <% elsif user.secondary_role == "Mid-lane" %>
+                                        <%= image_tag 'midlaner.png'%>
+                                    <% elsif user.secondary_role == "Bot-lane Support" %>
+                                        <%= image_tag 'support.png', class:"small"%>
+                                    <% elsif user.secondary_role == "Bot-lane ADC" %>
+                                        <%= image_tag 'adc.png'%>
+                                    <% elsif user.secondary_role == "Jungle" %>
+                                        <%= image_tag 'jungler.png', class:"small"%>            
+                                    <% end %>
+                                </div>
+                                
+                            </div>
 
                         </div>
 
-                        <div class="content">
+                    <% end %>
 
-                            <p><%=user.primary_role%></p>
-                            <p><%=user.secondary_role%></p>
-                            
+                    <% if user.tag_list == ["Relax"] %>
+
+                        <div class="community-cell-relax inset" data-tilt>
+
+                            <div class="head-community">
+
+                                <div class="icon-user">                                
+                                    <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{user.icon_profile_id}.png"%>>
+                                    <h5><%= user.user_game_stat.level%></h5>
+                                </div>
+
+                                <div class="content-community">
+                                    <h4><%= user.summoner_name %></h4>
+                                    <h5><%= user.tag_list %></h5>
+                                </div>                            
+
+                            </div>
+
+                            <div class="content">
+
+                                <div class="role" data-tilt>
+                                    <% if user.primary_role == "Top-lane" %>
+                                        <%= image_tag 'toplane.png'%>
+                                    <% elsif user.primary_role == "Mid-lane" %>
+                                        <%= image_tag 'midlaner.png'%>
+                                    <% elsif user.primary_role == "Bot-lane Support" %>
+                                        <%= image_tag 'support.png', class:"small"%>
+                                    <% elsif user.primary_role == "Bot-lane ADC" %>
+                                        <%= image_tag 'adc.png'%>
+                                    <% elsif user.primary_role == "Jungle" %>
+                                        <%= image_tag 'jungler.png', class:"small"%>            
+                                    <% end %>
+                                </div>
+
+                                <div class="role" data-tilt>
+                                    <% if user.secondary_role == "Top-lane" %>
+                                        <%= image_tag 'toplane.png'%>
+                                    <% elsif user.secondary_role == "Mid-lane" %>
+                                        <%= image_tag 'midlaner.png'%>
+                                    <% elsif user.secondary_role == "Bot-lane Support" %>
+                                        <%= image_tag 'support.png', class:"small"%>
+                                    <% elsif user.secondary_role == "Bot-lane ADC" %>
+                                        <%= image_tag 'adc.png'%>
+                                    <% elsif user.secondary_role == "Jungle" %>
+                                        <%= image_tag 'jungler.png', class:"small"%>            
+                                    <% end %>
+                                </div>
+                                
+                            </div>
+
                         </div>
 
-                    </div>
+                    <% end %>
+
+                    <% if user.tag_list == ["Try-Hard"] %>
+
+                        <div class="community-cell-try-hard inset" data-tilt>
+
+                            <div class="head-community">
+
+                                <div class="icon-user">                                
+                                    <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/profileicon/#{user.icon_profile_id}.png"%>>
+                                    <h5><%= user.user_game_stat.level%></h5>
+                                </div>
+
+                                <div class="content-community">
+                                    <h4><%= user.summoner_name %></h4>
+                                    <h5><%= user.tag_list %></h5>
+                                </div>                            
+
+                            </div>
+
+                            <div class="content">
+
+                                <div class="role" data-tilt>
+                                    <% if user.primary_role == "Top-lane" %>
+                                        <%= image_tag 'toplane.png'%>
+                                    <% elsif user.primary_role == "Mid-lane" %>
+                                        <%= image_tag 'midlaner.png'%>
+                                    <% elsif user.primary_role == "Bot-lane Support" %>
+                                        <%= image_tag 'support.png', class:"small"%>
+                                    <% elsif user.primary_role == "Bot-lane ADC" %>
+                                        <%= image_tag 'adc.png'%>
+                                    <% elsif user.primary_role == "Jungle" %>
+                                        <%= image_tag 'jungler.png', class:"small"%>            
+                                    <% end %>
+                                </div>
+
+                                <div class="role" data-tilt>
+                                    <% if user.secondary_role == "Top-lane" %>
+                                        <%= image_tag 'toplane.png'%>
+                                    <% elsif user.secondary_role == "Mid-lane" %>
+                                        <%= image_tag 'midlaner.png'%>
+                                    <% elsif user.secondary_role == "Bot-lane Support" %>
+                                        <%= image_tag 'support.png', class:"small"%>
+                                    <% elsif user.secondary_role == "Bot-lane ADC" %>
+                                        <%= image_tag 'adc.png'%>
+                                    <% elsif user.secondary_role == "Jungle" %>
+                                        <%= image_tag 'jungler.png', class:"small"%>            
+                                    <% end %>
+                                </div>
+                                
+                            </div>
+
+                        </div>
+
+                    <% end %>
 
                 <%end%>
             <%end%>
