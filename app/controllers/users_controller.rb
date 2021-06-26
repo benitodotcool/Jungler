@@ -10,14 +10,16 @@ class UsersController < ApplicationController
   require 'rest-client'
   
   def index
+    
     @users = User.tagged_with(current_user.tag_list).where.not(id: current_user.id).shuffle
     @user_select = user_selected
     @user_tag_list = current_user.tag_list.join
     @conversations = Conversation.all
     @messages = Message.order("created_at DESC").all
     @user_game_stat = UserGameStat.find_by(user_id:current_user.id)
+    
     begin
-    @ugs_selected = UserGameStat.find_by(user_id:@user_select.id)
+      @ugs_selected = UserGameStat.find_by(user_id:@user_select.id)
     rescue
       @ugs_selected = 0
     end
@@ -118,6 +120,8 @@ class UsersController < ApplicationController
       
       @users.map do |user|
         if is_match_exists?(user)
+            next
+        elsif user.summoner_name.nil?
             next
         end
         return  @user_select = user
