@@ -221,9 +221,9 @@ class UsersController < ApplicationController
           @user = User.find(current_user.id)
           @user.update!(icon_profile_id:@icon_profile_id, summoner_name:@summoner_name)
           
-          if @user.description.nil?
-            @description = "Je recherche d'autres joueurs stylay pour faire une équipe canon !"
-            @user.update!( description: @description)
+          if @user.description == ""
+            description = "Rejoins-moi dans la Jungle !"
+            @user.update!(description: description)
           end
           respond_to do |format|
             if @summoner_id != nil
