@@ -91,38 +91,40 @@
 </div>
 
 <div class="champions">
-
-
-
-        <%if @user_game_stat.nil?%>
-        <%else%>
-
+            <%begin%>
             <div class="container-champions">
 
                 <div class="champion" data-tilt>
+                <%if @user_game_stat.first_champion_name != nil%>
                     <div class="img-container">
                         <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@user_game_stat.first_champion_name}.png"%>>
                     </div>                    
                     <h4 class="masteries"><%=@user_game_stat.first_champion_level%></h4>
+                <%end%>
                 </div>
 
                 <div class="champion" data-tilt>
+                    <%if @user_game_stat.second_champion_name != nil%>
                     <div class="img-container">
                         <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@user_game_stat.second_champion_name}.png"%>>
                     </div>
                     <h4 class="masteries"><%=@user_game_stat.second_champion_level%></h4>
+                    <%end%>
                 </div>
 
                 <div class="champion" data-tilt>
+                    <%if @user_game_stat.second_champion_name != nil %>
                     <div class="img-container">
                         <img src=<%="https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/#{@user_game_stat.third_champion_name}.png"%>>
                     </div>
                     <h4 class="masteries"><%=@user_game_stat.third_champion_level%></h4>
-                </div>                
-            
+                    <%end%>
+                </div>        
+                <%rescue%>        
+             <%end%>
             </div>
             
-        <%end%>
+
 
     
 

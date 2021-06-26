@@ -1,5 +1,4 @@
 class CategoryController < ApplicationController
-  before_action :authenticate_user!
   before_action :incomplete_profile_redirect?
   def index
     @users = User.all

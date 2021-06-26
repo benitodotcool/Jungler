@@ -152,13 +152,17 @@ class UsersController < ApplicationController
       begin
         @response_summoner = RestClient.get ("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/#{@summoner_request}?api_key=#{@env}")
       rescue
-        if @summoner_request == ""
+        if @summoner_request == "" &&  @summoner_name_origin == nil
           respond_to do |format|
-            format.html {redirect_to edit_user_path(current_user.id), notice: "Veuillez saisir au moins un nom d'invocateur valide" }
+            format.html {redirect_to edit_user_path(current_user.id), notice: "Tu dois renseigner un nom d'invocateur !" }
+            end
+        elsif @summoner_request == "" &&  @summoner_name_origin != nil
+          respond_to do |format|
+            format.html {redirect_to users_path, notice: "Gloire à toi, #{@summoner_name_origin}" }
             end
         else
         respond_to do |format|
-          format.html {redirect_to edit_user_path(current_user.id), notice: "Votre nom d'invocateur n'est pas reconnu" }
+          format.html {redirect_to edit_user_path(current_user.id), notice: "#{summoner_request} n'est pas un nom d'invocateur valide !" }
           end
         end
       else 

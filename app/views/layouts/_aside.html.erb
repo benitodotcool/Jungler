@@ -7,12 +7,21 @@
 <div class="aside-container inset-main-color">
 
     <div class="aside-content">
+        
+        
+        <% if user_signed_in? && current_user.summoner_name == nil %>
 
-        <% if user_signed_in? %>
+            <div class="connected-true-container">
+                <p> Complète ton profil pour commencer l'aventure (bouton vers Edition de profil ?)</p>
+            </div>            
+
+        <% elsif user_signed_in? && current_user.summoner_name != nil %>
 
             <div class="connected-true-container">
                 <%= render "users/profile" %>
             </div>            
+
+
 
         <% else %>
 
