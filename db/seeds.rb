@@ -131,6 +131,7 @@ lol_roles = ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle
   user = User.create!(
     email: "admin@jungler.com",
     password: "azerty",
+    summoner_request:@champions[i] ,
     summoner_name:@champions[i] ,
     user_game_stat_id: i+1,
     primary_role: lol_roles.sample,
@@ -145,6 +146,7 @@ lol_roles = ["Top-lane", "Mid-lane", "Bot-lane Support", "Bot-lane ADC", "Jungle
   user = User.create!(
     email: Faker::Internet.email,
     password: "0123456789",
+    summoner_request: @champions[i+1],
     summoner_name: @champions[i+1],
     user_game_stat_id: i+2,
     tag_list: ["Peer-Gaming", "Relax", "Try-Hard"].sample,
