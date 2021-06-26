@@ -28,30 +28,30 @@
             <div class="role inset" data-tilt>
                 <h4>Rôle principal</h4>
                 <% if @user_select.primary_role == "Top-lane" %>
-                    <img src="../lol_icons/toplane.png">
+                    <%= image_tag 'toplane.png'%>
                 <% elsif @user_select.primary_role == "Mid-lane" %>
-                    <img src="../lol_icons/midlaner.png">
+                    <%= image_tag 'midlaner.png'%>
                 <% elsif @user_select.primary_role == "Bot-lane Support" %>
-                    <img src="../lol_icons/support.png" class="small">
+                    <%= image_tag 'support.png', class:"small"%>
                 <% elsif @user_select.primary_role == "Bot-lane ADC" %>
-                    <img src="../lol_icons/adc.png">
+                    <%= image_tag 'adc.png'%>
                 <% elsif @user_select.primary_role == "Jungle" %>
-                    <img src="../lol_icons/jungler.png" class="small">            
+                    <%= image_tag 'jungler.png', class:"small"%>            
                 <% end %>
             </div>
 
             <div class="role inset" data-tilt>
                 <h4>Rôle secondaire</h4>
                 <% if @user_select.secondary_role == "Top-lane" %>
-                    <img src="../lol_icons/toplane.png">
+                    <%= image_tag 'toplane.png'%>
                 <% elsif @user_select.secondary_role == "Mid-lane" %>
-                    <img src="../lol_icons/midlaner.png">
+                    <%= image_tag 'midlaner.png'%>
                 <% elsif @user_select.secondary_role == "Bot-lane Support" %>
-                    <img src="../lol_icons/support.png" class="small">
+                    <%= image_tag 'support.png', class:"small"%>
                 <% elsif @user_select.secondary_role == "Bot-lane ADC" %>
-                    <img src="../lol_icons/adc.png">
+                    <%= image_tag 'adc.png'%>
                 <% elsif @user_select.secondary_role == "Jungle" %>
-                    <img src="../lol_icons/jungler.png" class="small">            
+                    <%= image_tag 'jungler.png', class:"small"%>            
                 <% end %>   
             </div>
         
@@ -90,11 +90,11 @@
     <div class="btn-wrapper"> 
 
         <div class="cell inset" data-tilt>
-            <%= link_to "une autre fois", matches_path(:requestor_id => current_user.id.to_i,:receiver_id => @user_select.id.to_i,:users_tag_list => @user_tag_list, status:false), method: :post,id:'btn-no' %>
+            <%= link_to "une autre fois", matches_path(:requestor_id => current_user.id.to_i,:receiver_id => @user_select.id.to_i,:users_tag_list => @user_tag_list, status:false), method: :post,id:'btn-no',data: { disable_with: "En cours..." } %>
         </div>
 
         <div class="cell inset" data-tilt>
-            <%= link_to "je veux jouer avec toi", matches_path(:requestor_id => current_user.id.to_i,:receiver_id => @user_select.id.to_i,:users_tag_list => @user_tag_list, status:true), method: :post,id:'btn-yes'%>
+            <%= link_to "je veux jouer avec toi", matches_path(:requestor_id => current_user.id.to_i,:receiver_id => @user_select.id.to_i,:users_tag_list => @user_tag_list, status:true), method: :post,id:'btn-yes',data: { disable_with: "En cours..." }%>
         </div>
 
     </div>

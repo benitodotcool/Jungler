@@ -1,0 +1,8 @@
+         <% @messages.sort.reverse.each do |message| %>  
+             <% if message.user_id == current_user.id %>
+                 <div class="message message-send"><%=message.content%></div>                    
+             <% else %>
+                 <div class="message message-received"><%=message.content%></div>                    
+             <%end%>
+         <%end%>
+         <p class="conversation-date"><%=@current_conversation.created_at.strftime( "%d/%m/%Y %H:%M")%></p>

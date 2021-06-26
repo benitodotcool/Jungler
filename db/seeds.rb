@@ -9,7 +9,8 @@
 #regular Users Seed
 @number = 20
 
-@champions = ['Support Jungler',
+@champions = [
+  'Support Jungler',
   'HEART F STEEL',
   'Yikeru',
   'WRDN',
@@ -23,7 +24,7 @@
   't4rzan1',
   'WatchMyPuppets',
   'IAimToMisbehave',
-  'noway2u',
+  'Cipe and Senna',
   'Robính00D',
   'hovno z kose',
   'Elite500',
@@ -76,7 +77,7 @@
 4653,
 4838,
 7,
-268,
+22,
 4087,
 3150,
 4271,

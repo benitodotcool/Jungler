@@ -8,7 +8,7 @@ class ConversationsController < ApplicationController
   def index
     @conversations = conversations_allowed
     @user_game_stat = UserGameStat.find_by(user_id:current_user.id)
-    
+    render stream: true
   end
 
   # GET /conversations/1 or /conversations/1.json
@@ -18,7 +18,7 @@ class ConversationsController < ApplicationController
     @messages= Message.where(conversation_id:@conversation.id)
     @conversations = conversations_allowed
     @user_game_stat = UserGameStat.find_by(user_id:current_user.id)
-  
+    render stream: true
   end
 
   # GET /conversations/new

@@ -14,7 +14,7 @@
                     <div class="title">Plus aucun utilisateurs ne correspond à tes réglages</div>
                     <p>Nous t'invitons à revoir tes filtres en bas de page.</p>
                     <div class="img">
-                        <img src="lol_champions/varus.png">   
+                        <%= image_tag 'varus.png'%>   
                     </div>
                 </div>
 
@@ -28,19 +28,19 @@
                 <li class="color peer-gaming" id="peer-gaming-btn">
                     <%= form_with(url: user_path(current_user.id), method: "patch", remote: true) do |form|%>
                         <%= form.hidden_field :tag_list, value: "Peer-Gaming" %>
-                        <%= form.submit "Peer-Gaming",  class:"input-send-swipe", id:"active-peer" %>
+                        <%= form.submit "Peer-Gaming",  class:"input-send-swipe",data: { disable_with: "Peer-Gaming" }, id:"active-peer" %>
                     <% end %>
                 </li>
                 <li class="color relax" id="relax-btn">
                     <%= form_with(url: user_path(current_user.id), method: "patch", remote: true) do |form|%>
                         <%= form.hidden_field :tag_list, value: "Relax"%>
-                        <%= form.submit "Relax",  class:"input-send-swipe", id:"active-relax" %>
+                        <%= form.submit "Relax",  class:"input-send-swipe",data: { disable_with: "Relax" }, id:"active-relax" %>
                     <% end %>
                 </li>
                 <li class="color tryhard" id="tryhard-btn">
                     <%= form_with(url: user_path(current_user.id), method: "patch", remote: true) do |form|%>
                         <%= form.hidden_field :tag_list, value: "Try-Hard"%>
-                        <%= form.submit "Try-Hard",  class:"input-send-swipe", id:"active-tryhard" %>
+                        <%= form.submit "Try-Hard",  class:"input-send-swipe",data: { disable_with: "Try-Hard" }, id:"active-tryhard" %>
                     <% end %>
                 </li>               
                 
