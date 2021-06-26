@@ -28,19 +28,19 @@
                 <li class="color peer-gaming" id="peer-gaming-btn">
                     <%= form_with(url: user_path(current_user.id), method: "patch", remote: true) do |form|%>
                         <%= form.hidden_field :tag_list, value: "Peer-Gaming" %>
-                        <%= form.submit "Peer-Gaming",  class:"input-send-swipe" %>
+                        <%= form.submit "Peer-Gaming",  class:"input-send-swipe", id:"active-peer" %>
                     <% end %>
                 </li>
                 <li class="color relax" id="relax-btn">
                     <%= form_with(url: user_path(current_user.id), method: "patch", remote: true) do |form|%>
                         <%= form.hidden_field :tag_list, value: "Relax"%>
-                        <%= form.submit "Relax",  class:"input-send-swipe" %>
+                        <%= form.submit "Relax",  class:"input-send-swipe", id:"active-relax" %>
                     <% end %>
                 </li>
                 <li class="color tryhard" id="tryhard-btn">
                     <%= form_with(url: user_path(current_user.id), method: "patch", remote: true) do |form|%>
                         <%= form.hidden_field :tag_list, value: "Try-Hard"%>
-                        <%= form.submit "Try-Hard",  class:"input-send-swipe" %>
+                        <%= form.submit "Try-Hard",  class:"input-send-swipe", id:"active-tryhard" %>
                     <% end %>
                 </li>               
                 

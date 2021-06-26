@@ -345,6 +345,12 @@
         }
       }
 
+      .active-state-peer-gaming {
+        color: var(--light-grey-color);
+        box-shadow: 0px -5px 25px 10px var(--green-color-shadow);
+        background-color: var(--green-color);
+      }
+
       .relax {
         border: 1px solid var(--blue-color);
 
@@ -361,6 +367,12 @@
         }
       }
 
+      .active-state-relax {
+        color: var(--light-grey-color);
+        box-shadow: 0px -5px 25px 10px var(--blue-color-shadow);
+        background-color: var(--blue-color);
+      }
+
       .tryhard {
         border: 1px solid var(--orange-color);
 
@@ -375,6 +387,12 @@
         & *:hover {
             color: var(--light-grey-color);
         }
+      }
+
+      .active-state-try-hard {
+        color: var(--light-grey-color);
+        box-shadow: 0px -5px 25px 10px var(--orange-color-shadow);
+        background-color: var(--orange-color);
       }
     }    
   }

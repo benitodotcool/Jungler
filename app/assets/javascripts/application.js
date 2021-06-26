@@ -17,3 +17,4 @@
 //= require nav_action
 //= require message_margin
 //= require conversation_name
+//= require swipe_btn_color
