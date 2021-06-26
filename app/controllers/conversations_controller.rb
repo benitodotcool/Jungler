@@ -31,11 +31,9 @@ class ConversationsController < ApplicationController
 
     respond_to do |format|
       if @conversation.save
-        format.html { redirect_to @conversation, notice: "Nouvelle conversation créée." }
-        format.json { render :show, status: :created, location: @conversation }
+        format.html { redirect_to @conversation, success: "Nouvelle conversation créée." }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @conversation.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,11 +41,10 @@ class ConversationsController < ApplicationController
   def update
     respond_to do |format|
       if @conversation.update(conversation_params)
-        format.html { redirect_to @conversation, notice: "Conversation à jour." }
+        format.html { redirect_to @conversation, success: "Conversation à jour." }
         format.json { render :show, status: :ok, location: @conversation }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @conversation.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -55,7 +52,7 @@ class ConversationsController < ApplicationController
   def destroy
     @conversation.destroy
     respond_to do |format|
-      format.html { redirect_to @conversation, notice: "Conversation supprimée avec succès." }
+      format.html { redirect_to @conversation, success: "Conversation supprimée avec succès." }
       format.json { head :no_content }
     end
   end

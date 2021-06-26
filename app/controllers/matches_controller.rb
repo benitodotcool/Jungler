@@ -25,7 +25,7 @@ class MatchesController < ApplicationController
     respond_to do |format|
       if @match.save 
         if is_set? 
-        format.html { redirect_to users_path, notice: "MATCH avec #{@user_swipped.summoner_name}, va voir dans tes conversations !!"}
+        format.html { redirect_to users_path, success: "MATCH avec #{@user_swipped.summoner_name}, va voir dans tes conversations !!"}
         else 
         format.html { redirect_to users_path }
         end
@@ -36,7 +36,7 @@ class MatchesController < ApplicationController
   def destroy
     @match.destroy
     respond_to do |format|
-      format.html { redirect_to matches_url, notice: "Match supprimé avec succès." }
+      format.html { redirect_to matches_url, warning: "Match supprimé avec succès." }
       format.json { head :no_content }
     end
   end

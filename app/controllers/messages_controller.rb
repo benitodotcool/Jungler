@@ -23,11 +23,10 @@ class MessagesController < ApplicationController
   
     respond_to do |format|
       if @message.save #todoDev
-        format.html { redirect_to conversation_path(@conversation_id), notice: "Ton message a bien été envoyé!." }
+        format.html { redirect_to conversation_path(@conversation_id), success: "Ton message a bien été envoyé! Utilise le bouton refresh pour voir la réponse de l'autre joueur !" }
         format.json { render :show, status: :created, location: @message }
       else
-        format.html { redirect_to conversation_path(@conversation_id), notice: "Le message ne peut pas être vide !"}
-        format.json { render json: @message.errors, status: :unprocessable_entity }
+        format.html { redirect_to conversation_path(@conversation_id), warning: "Le message ne peut pas être vide !"}
       end
     end
   end
@@ -35,7 +34,7 @@ class MessagesController < ApplicationController
   def destroy
     @message.destroy
     respond_to do |format|
-      format.html { redirect_to messages_url, notice: "Ton message a bien été supprimé." }
+      format.html { redirect_to messages_url, success: "Ton message a bien été supprimé." }
       format.json { head :no_content }
     end
   end

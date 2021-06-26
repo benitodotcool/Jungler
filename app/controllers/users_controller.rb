@@ -43,10 +43,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: "Invocateur créé avec succès." }
+        format.html { redirect_to @user, success: "Profil créé avec succès." }
         format.json { render :show, status: :created, location: @user }
       else
-        format.html { render :new, notice: "Oups il y a un couac ! "  }
+        format.html { render :new, warning: "Oups il y a un couac ! "  }
       end
     end
   
@@ -82,7 +82,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: "Invocateur supprimé." }
+      format.html { redirect_to users_url, danger: "Invocateur supprimé." }
       format.json { head :no_content }
     end
   end
@@ -156,15 +156,15 @@ class UsersController < ApplicationController
           
           if @summoner_request == "" &&  @summoner_name_origin == nil
             respond_to do |format|
-              format.html {redirect_to edit_user_path(current_user.id), notice: "Tu dois renseigner un nom d'invocateur !" }
+              format.html {redirect_to edit_user_path(current_user.id), warning: "Tu dois renseigner un nom d'invocateur !" }
               end
           elsif @summoner_request == "" &&  @summoner_name_origin != nil
             respond_to do |format|
-              format.html {redirect_to users_path, notice: "Gloire à toi, #{@summoner_name_origin}" }
+              format.html {redirect_to users_path, success: "Gloire à toi, #{@summoner_name_origin}" }
               end
           else
           respond_to do |format|
-            format.html {redirect_to edit_user_path(current_user.id), notice: "#{summoner_request} n'est pas un nom d'invocateur valide !" }
+            format.html {redirect_to edit_user_path(current_user.id), warning: "#{summoner_request} n'est pas un nom d'invocateur valide !" }
             end
           end
         else 
