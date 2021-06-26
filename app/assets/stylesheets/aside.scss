@@ -141,29 +141,34 @@ aside {
             cursor: pointer;
           }
 
-          &:hover svg#icon-logout g {
-            stroke: var(--danger-color);
-            transition: all 0.3s ease-out;       
+          #icon-logout {
+            g{
+              transition: all 0.25s ease-out; 
+            }
+            &:hover g {
+              stroke: var(--danger-color);
+            }                  
           }
 
-          &:hover svg#icon-login g {
-            stroke: var(--green-color);
-            transition: all 0.3s ease-out;
+          #icon-login {
+            g {
+              transition: all 0.25s ease-out; 
+            }
+            &:hover g {
+              stroke: var(--green-color);
+            }
           }
 
-          &:hover svg#icon-settings g {
-            stroke: var(--light-grey-color);
-            transition: all 0.3s ease-out;
+          #icon-settings {
+            g {
+              transition: all 0.25s ease-out;
+            }
+            &:hover g {
+              stroke: var(--light-grey-color);
+            }            
           }
-
         }
-
       }
-
     }
-
   }
-
 }
-
-  

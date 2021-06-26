@@ -248,6 +248,24 @@
     
             }
 
+            #delete-icon {
+                g {
+                    transition: all 0.25s ease-out;
+                }
+                &:hover g {
+                    stroke: var(--danger-color);
+                }
+            }
+
+            #download-icon {
+                g {
+                    transition: all 0.25s ease-out;
+                }
+
+                &:hover g {
+                    stroke: var(--green-color);
+                }
+            }
         }        
 
         .conversation-content {
