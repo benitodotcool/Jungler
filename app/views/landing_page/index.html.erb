@@ -11,14 +11,12 @@
                 </div>
                 <div class="cta-container">
                     Gratuit
-                    <a href="<%= new_user_registration_path %>">
-                        <p class="cta-btn">Découvrir</p>
-                    </a>                    
+                    <%= link_to 'Découvrir', new_user_registration_path, class:"cta-btn"%>                  
                 </div>
             
             </div>
             <div class="right">                
-                <img src="lol_champions/akali.png">                
+                <%=image_tag 'akali.png'%>                
             </div>
         </div>
 
@@ -29,7 +27,7 @@
 
         <div class="cell-5">
             <h1>Un algorithme unique et des joueurs passionnés.</h1>
-            <p>Jungler te propose une mise en relation avec les joueurs qui te correspondent. Match, organise et planifie ta session de jeu pour qu'elle redevienne une partie de plaisir.</p>
+            <p>Jungler te propose une mise en relation avec les joueurs qui te correspondent. "Match", organise et planifie ta session de jeu pour qu'elle redevienne une partie de plaisir.</p>
         </div>
 
         <div class="cell cell-6 grid-cell-6-2 inset" data-tilt>
@@ -63,14 +61,14 @@
                 <div class="description">
                     <p>Coopérer d’égal à égal avec des joueurs de ton niveau et progresser ensemble !</p>
                     <div class="btn-discover">
-                        <a href="<%= new_user_registration_path %>">Découvrir</a>   
+                        <%= link_to 'Découvrir', new_user_registration_path %>   
                     </div>
                            
                 </div>
             
             </div>
             <div class="right">                
-                <img src="lol_champions/thresh.png">                
+                <%= image_tag 'thresh.png'%>                
             </div>
         </div>
         <div class="cell cell-11 grid-cell-6-2 inset" data-tilt>
@@ -82,14 +80,14 @@
                 <div class="description">
                     <p>Fais de toi de nouveaux amis en jouant sans te mettre la pression !</p>
                     <div class="btn-discover">
-                        <a href="<%= new_user_registration_path %>">Découvrir</a>   
+                        <%= link_to 'Découvrir', new_user_registration_path %>   
                     </div>
                            
                 </div>
             
             </div>
             <div class="right">                
-                <img src="lol_champions/jinx.png">                
+                <%= image_tag 'jinx.png'%>                
             </div>
         </div>
         <div class="cell cell-12 grid-cell-6-2 inset" data-tilt>
@@ -101,23 +99,21 @@
                 <div class="description">
                     <p>Rencontre les joueurs les plus motivés afin de repousser tes limites !</p>
                     <div class="btn-discover">
-                        <a href="<%= new_user_registration_path %>">Découvrir</a>   
+                        <%= link_to 'Découvrir', new_user_registration_path %>   
                     </div>
                            
                 </div>
             
             </div>
             <div class="right">                
-                <img src="lol_champions/leona.png">                
+                <%= image_tag 'leona.png'%>                
             </div>
         </div>
 
 
         <div class="cell-13 grid-cell-6-1">
             <div class="cta-container">
-                <a href="<%= new_user_registration_path %>">
-                    <p class="cta-btn">Découvrir</p>
-                </a>                    
+                <%= link_to 'Découvrir', new_user_registration_path, class:"cta-btn"%>                    
             </div>        
         </div>
 
