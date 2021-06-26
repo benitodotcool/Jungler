@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   
-  add_notice_types :success, :warning, :danger, :info
+  add_flash_types :success, :warning, :danger, :info
   
   private
 
