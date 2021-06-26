@@ -56,7 +56,7 @@
 <% end %>
 
 <div class="roles">
-
+    <%if current_user.primary_role != nil%>
     <div class="role" data-tilt>
         <h4>Rôle principal</h4>
         <% if current_user.primary_role == "Top-lane" %>
@@ -64,14 +64,15 @@
         <% elsif current_user.primary_role == "Mid-lane" %>
             <%= image_tag 'midlaner.png'%>
         <% elsif current_user.primary_role == "Bot-lane Support" %>
-            <%= image_tag 'lupport.png', class:"small"%>
+            <%= image_tag 'support.png', class:"small"%>
         <% elsif current_user.primary_role == "Bot-lane ADC" %>
             <%= image_tag 'adc.png'%>
         <% elsif current_user.primary_role == "Jungle" %>
             <%= image_tag 'jungler.png', class:"small"%>            
         <% end %>
     </div>
-
+    <%end%>
+    <%if current_user.secondary_role != nil%>
     <div class="role" data-tilt>
         <h4>Rôle secondaire</h4>
         <% if current_user.secondary_role == "Top-lane" %>
@@ -86,12 +87,12 @@
             <%= image_tag 'jungler.png', class:"small"%>            
         <% end %>
     </div>
-
+    <%end%>
 </div>
 
 <div class="champions">
 
-    <%begin%>
+
 
         <%if @user_game_stat.nil?%>
         <%else%>
@@ -123,8 +124,6 @@
             
         <%end%>
 
-        <%rescue%>
-
-    <%end%>
+    
 
 </div>

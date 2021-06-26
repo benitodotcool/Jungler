@@ -2,15 +2,13 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update ]
   before_action :set_user_game_stat, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
-  before_action :user_authorized?, only: %i[edit update destroy ]
+  before_action :user_authorized?, only: %i[show edit update destroy ]
   before_action :incomplete_profile_redirect?, only: %i[index]
   require 'pry'
   require 'dotenv'
   Dotenv.load('.env')
   require 'rest-client'
-  #before_action :is_profile_completed?
   
-  # GET /users or /users.json
   def index
     @users = User.tagged_with(current_user.tag_list).where.not(id: current_user.id).shuffle
     @user_select = user_selected
@@ -25,23 +23,19 @@ class UsersController < ApplicationController
     end
   end
   
-  # GET /users/1 or /users/1.json
   def show
     @user_game_stat = UserGameStat.find_by(user_id:current_user.id)
   end
 
-  # GET /users/new
   def new
     @user = User.new
   end
 
-  # GET /users/1/edit
   def edit
     @user_game_stat = UserGameStat.find_by(user_id:current_user.id)        
     
   end
 
-  # POST /users or /users.json
   def create
     @user = User.new(user_params)
     respond_to do |format|
@@ -49,47 +43,39 @@ class UsersController < ApplicationController
         format.html { redirect_to @user, notice: "Invocateur créé avec succès." }
         format.json { render :show, status: :created, location: @user }
       else
-        format.html { render :new, status: :unprocessable_entity, notice: "Oups il y a un couac ! "  }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.html { render :new, notice: "Oups il y a un couac ! "  }
       end
     end
   
   end
-  #binding.pry
 
-  # PATCH/PUT /users/1 or /users/1.json
   def update
     @summoner_name_origin = User.find(current_user.id).summoner_name
     respond_to do |format|
+      
       if @user.update!(user_params)    
+        
+        @summoner_request = User.find(current_user.id).summoner_request
+        
         if UserGameStat.exists?(user_id:current_user.id) == false
           @user_game_stat = UserGameStat.create!(user_id: current_user.id)
         end
-        
-        @summoner_request = User.find(current_user.id).summoner_request
+
         if @summoner_name_origin != @summoner_request
-        get_api_summoner(@summoner_request)
-        
-        format.html {redirect_to users_path, success: "fin de l'appel API" }
-        return
+          get_api_summoner(@summoner_request)
+          return
         else
-        format.html {redirect_to users_path, success: "pas d'appel API" }
+          format.html {redirect_to users_path, success: "C'est bien noté #{@summoner_name_origin} !" }
         end
-        format.js {}
-        
+          format.js {}
+  
       else
-        format.html {redirect_to edit_user_path(current_user.id), notice: "oups il y a eu un couac" }
+        format.html {redirect_to root_path(current_user.id), warning: "Oups il y a eu un couac" }
       end
     
     end       
   end
 
-    
-      
-      #binding.pry
-
-
-  # DELETE /users/1 or /users/1.json
   def destroy
     @user.destroy
     respond_to do |format|
@@ -99,12 +85,10 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def user_params
       begin
         params.require(:user).permit(:summoner_request,:summoner_name, :id, :user_game_stat_id, :email, :tag_list,:primary_role, :secondary_role, :description)
@@ -122,8 +106,9 @@ class UsersController < ApplicationController
       if @user.id == current_user.id
         return true 
       else
-        flash[:alert] = "Tu n'es pas autorisé à faire ça !"
-        redirect_to root_path
+        respond_to do |format|
+          format.html { redirect_to root_path, danger: "Tu ne peux pas faire cela !" }
+        end
         return false
       end 
     end
@@ -233,13 +218,12 @@ class UsersController < ApplicationController
             
           respond_to do |format|
             if @summoner_id != nil
-            format.html {redirect_to users_path, success: "fin de l'appel API" }
+            format.html {redirect_to users_path, success: "Gloire à toi, #{@summoner_request} ! " }
             else
             end
           end
       end
         
-      #binding.pry
     end
     end
 
