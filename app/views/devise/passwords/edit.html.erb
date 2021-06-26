@@ -1,29 +1,50 @@
-<div class="form-container">
-<div class="title-container">
-<h2>Changer votre mot de passe</h2>
-</div>
+<div class="main-wrapper" id="landing_page-focus">
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
+    <div class="main-head">
+        <h1 class="title">Changer votre mot de passe</h1>
+    </div>
 
-  <div class="field">
-    <%= f.label :password, "Nouveau mot de passe" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> caractères minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
-  </div>
+    <div class="main-content-edit-profile">
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirmer le nouveau mot de passe" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+        <div class="form-grid">
+        
+            <div class="form-content">
 
-  <div class="actions">
-    <%= f.submit "Changer mon mot de passe" %>
-  </div>
-<% end %>
+                <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+                    <%= f.hidden_field :reset_password_token %>
 
-<%= render "devise/shared/links" %>
+                    <div class="container-devise">
+
+                        <div class="devise-field">
+                            <div class="title">
+                                <%= f.label :Nouveau_mot_de_passe %>
+                            </div>                        
+                            <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class:"login-field", class:"input inset" %>
+                        </div>
+
+                        <div class="devise-field">
+                            <div class="title">
+                                <%= f.label :Confirmation_nouveau_mot_de_passe %>
+                            </div>                        
+                            <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "new-password", class:"login-field", class:"input inset" %>
+                        </div>
+
+                    </div>
+
+                    <%= f.submit "Changer mon mot de passe", class: "input-send" %>
+
+                    <%= render "devise/shared/error_messages", resource: resource %> 
+
+                <% end %>
+
+            </div>
+
+            <div class="form-cta-bottom">
+                <%= render "devise/shared/links" %>
+            </div>
+
+        </div>
+
+    </div>
+
 </div>

@@ -46,6 +46,7 @@
             <%end%>
             
         </div>
+
         <div class="conversation-right">
             <div class="conversation-head-mask">
                 <div class="conversation-head inset">  
@@ -57,9 +58,36 @@
                             <%=@current_conversation.participant_a.summoner_name%>
                         <%end%>
                     </h3>
-            
-                </div>
-            
+
+                    <ul>
+                        <li class="head-icons" onclick="history.go(0)">
+                            <svg id="download-icon" class="icon" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <title>Iconly/Light/Download</title>
+                                <g id="Iconly/Light/Download" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                                    <g id="Downlaod" transform="translate(2.000000, 3.000000)" stroke="var(--medium-grey-color)" stroke-width="1.5">
+                                        <line x1="16.1427" y1="6.4156" x2="4.1017" y2="6.4156" id="Stroke-1" transform="translate(10.122200, 6.415600) rotate(-270.000000) translate(-10.122200, -6.415600) "></line>
+                                        <polyline id="Stroke-3" transform="translate(10.122200, 10.972400) rotate(-270.000000) translate(-10.122200, -10.972400) " points="8.6582 8.0564 11.5862 10.9724 8.6582 13.8884"></polyline>
+                                        <path d="M4,6.617 L4,5.684 C4,3.649 5.649,2 7.685,2 L12.569,2 C14.599,2 16.244,3.645 16.244,5.675 L16.244,16.815 C16.244,18.85 14.594,20.5 12.559,20.5 L7.674,20.5 C5.645,20.5 4,18.854 4,16.825 L4,15.883" id="Stroke-4" transform="translate(10.122000, 11.250000) rotate(-270.000000) translate(-10.122000, -11.250000) "></path>
+                                    </g>
+                                </g>
+                            </svg>
+                        </li>
+                        <li class="head-icons">
+                            <a href="<%= conversation_path(@conversation_id) %>" data-method="delete">
+                                <svg id="delete-icon" class="icon" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <title>Iconly/Light/Delete</title>
+                                    <g id="Iconly/Light/Delete" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                                        <g id="Delete" transform="translate(3.000000, 2.000000)" stroke="var(--medium-grey-color)" stroke-width="1.5">
+                                            <path d="M16.3249,7.4682 C16.3249,7.4682 15.7819,14.2032 15.4669,17.0402 C15.3169,18.3952 14.4799,19.1892 13.1089,19.2142 C10.4999,19.2612 7.8879,19.2642 5.2799,19.2092 C3.9609,19.1822 3.1379,18.3782 2.9909,17.0472 C2.6739,14.1852 2.1339,7.4682 2.1339,7.4682" id="Stroke-1"></path>
+                                            <line x1="17.7082" y1="4.2397" x2="0.7502" y2="4.2397" id="Stroke-3"></line>
+                                            <path d="M14.4406,4.2397 C13.6556,4.2397 12.9796,3.6847 12.8256,2.9157 L12.5826,1.6997 C12.4326,1.1387 11.9246,0.7507 11.3456,0.7507 L7.1126,0.7507 C6.5336,0.7507 6.0256,1.1387 5.8756,1.6997 L5.6326,2.9157 C5.4786,3.6847 4.8026,4.2397 4.0176,4.2397" id="Stroke-5"></path>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </a>                          
+                        </li>
+                    </ul>            
+                </div>            
             </div>
 
             <div class="conversation-content">                
