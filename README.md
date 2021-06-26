@@ -2,16 +2,15 @@
 
 ## 1. Présentation
 
-Les jeux en ligne sont comme une grande Jungle : il est difficile de trouver des compagnons de routes pour découvrir ensemble un univers, de trouver des mentors qui pourraient nous épauler, ou encore de connaître les joueurs motivés pour repousser nos propres limites.
+League of Legends est une grande Jungle : il est difficile de trouver des compagnons de routes pour découvrir ensemble un univers, de trouver des mentors qui pourraient nous épauler, ou encore de connaître les joueurs motivés pour repousser nos propres limites.
 
-Beaucoup de joueurs se plaignent des systèmes de "matchmaking" mis en place. Jungler propose à ses utilisateurs un système de mise en relation basé sur des critères entièrement personnalisable et devient **LA** solution.
+Beaucoup de joueurs se plaignent du système de "matchmaking" mis en place. Jungler propose à ses utilisateurs un système de mise en relation basé sur des critères entièrement personnalisable et devient **LA** solution.
 
 Les utilisateurs de "Jungler" auraient le choix entre quatre objectifs:
 
 * Relax: Vous êtes là pour passer un bon moment complètement chill.
 * Peer-Gaming: Vous êtes là pour apprendre ensemble, se donner des tips et évoluer en binôme.
 * Try-Hard: Vous n'êtes pas là pour blaguer, vous voulez gagner.
-* Coaching (payant pour le “coaché”): Vous voulez apprendre par le biais d'un mentor ayant un classement élevé ou vous voulez partager vos connaissances à des joueurs qui n'attendent que ça.
 
 
 
@@ -23,11 +22,10 @@ Les utilisateurs de "Jungler" auraient le choix entre quatre objectifs:
 	* Statistiques (Nombre d'inscrits/nombre de “match”/nombre de message échangés etc.)
 
 * **Logging:**
-    * Création d'un utilisateur (omniAuth/multiAuth)
-	* Choix des jeux
+    * Création d'un utilisateur
+	* Renseignement de son pseudo LoL
 
 * **Espace utilisateurs:**
-    * Choix des jeux
 	* Mise en place des filtres
 	* Choix de l'objectif
 
@@ -35,19 +33,10 @@ Les utilisateurs de "Jungler" auraient le choix entre quatre objectifs:
     * Accès autorisé seulement si un utilisateur est connecté
 	* Possibilité de “swiper” à droite = Je veux jouer avec toi
 	* Possibilité de “swiper” à gauche = Je ne veux pas jouer avec toi
-	* Possibilité de “superswiper” vers le haut = **JE VEUX ABSOLUMENT JOUER AVEC TOI**
-	* Possibilité de revenir en arrière X fois
-	* Publicité envisagée tous les X profils (elle match avec tout le monde)
 
-* **Système de messagerie instantanée:**
+* **Système de messagerie:**
     * Une conversation se déclenche lorsque deux utilisateur se matchs mutuellement
-	* Possibilité d'envoyer des messages (ex: 140 caractères max)
-	* Possibilité de liker des messages
-	* Possibilité de partager ses derniers exploits
-	* Possibilité d'envoyer une demande d'ajout d'amis
-	* Si match avec un coach, possiblité d'envoyer une demande pour un crénau (accès calendrier)
-
-
+	* Les utilisateurs peuvent s'envoyer autant de messages qu'ils veulent et les retrouver dans la section appropriée.
 
 
 ## 3. Concrètement et techniquement
@@ -70,14 +59,13 @@ Les utilisateurs de "Jungler" auraient le choix entre quatre objectifs:
     * Boutons
 	* Cards
 	* Formulaires
-	* Animation “swipe”
 	* Icons
-	* Système de messagerie instantanée
+	* Système de messagerie
 	* Récupération d'images via les APIs
 
 * **3.3. Backend**
 
-    * Connexion à plusieurs APIs
+    * Connexion à l'API League of Legends
 	* Algorithme de mise en relation
 	* Messagerie/Stockage/Permissions
 
@@ -122,35 +110,16 @@ Les utilisateurs de "Jungler" auraient le choix entre quatre objectifs:
 
 * **Page profil des utilisateurs**
 
-    * Visualisation de toutes les informations nécessaires relatives au jeux
-    * Définition de critères par l'utilisateur
-        * *Optionnel: Voir ses amis*
-	    * *Optionnel: Voir son calendrier*
-		* *Optionnel: Connexion à son compte youtube pour partager ses dernières vidéos*
-		* *Optionnel: Connexion à son compte twitch pour partager ses derniers lives et/ou clips*
+    * Visualisation de toutes nos informations
+    * Accès à la modification de ses données & critères
 
 * **Fonctionnalité swipe droite/gauche**
 
 	* Création de l'algorithme de mise en relation
-	* Animation JavaScript
-	    * *Optionnel: Possibilité de “superswiper”*
-	    * *Optionnel: Possibilité de revenir en arrière*
 
 * **Espace messagerie entre utilisateurs**
 
-    * Les utilisateurs peuvent s'envoyer des messages instantanés
-        * *Optionnel: Possibilité de supprimer ses propres messages*
-	    * *Optionnel: Possibilité de partager ses derniers exploits*
-	    * *Optionnel: Possibilité de liker des messages*
-	    * *Optionnel: Possibilité d'ajouter en amis ses matchs*
-	    * *Optionnel: Possibilité de réserver un créneau avec un utilisateur ayant l'attribut “coach”*
-
-* **Espace coaching** *(optionnel)*
-
-	* Gestionnaire de calendrier pour les utilisateurs ayant l'attribut “coach”
-    * Ajout de commentaires et/ou d'une note après une séance de coaching
-	* Gestion des paiements.
-
+    * Les utilisateurs peuvent s'envoyer des messages et changer de conversation à n'importe quel moment
 
 
 
@@ -158,11 +127,8 @@ Les utilisateurs de "Jungler" auraient le choix entre quatre objectifs:
 
 Manu aKa *“Aide Moussaillons”* sur le discord
 
-## 7. Jeux envisagées
 
-* League Of Legends
-
-## 8. Liens utiles
+## 7. Liens utiles
 
 Pour pouvoir profiter pleinement des fonctionnalités de l'application et sir vous n'avez pas de pseudo Lol, nous vous invitons à en choisir un parmis le ladder EUW.
 * https://euw.op.gg/ranking/ladder/
@@ -179,7 +145,8 @@ Heroku App :
 
 	Enjoy ! 
 
-
-
 Trello :
 * https://trello.com/b/wNGE7wl8/projet-final-jungler
+
+Inspiration pour le design global de l'application
+* https://dribbble.com/shots/15661139-PlayStation-Dashboard
