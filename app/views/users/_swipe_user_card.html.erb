@@ -92,11 +92,11 @@
     <div class="btn-wrapper"> 
 
         <div class="cell inset" data-tilt>
-            <%= link_to "une autre fois", matches_path(:requestor_id => current_user.id.to_i,:receiver_id => @user_select.id.to_i,:users_tag_list => @user_tag_list, status:false), method: :post,id:'btn-no' %>
+            <%= link_to "une autre fois", matches_path(:requestor_id => current_user.id.to_i,:receiver_id => @user_select.id.to_i,:users_tag_list => @user_tag_list, status:false), method: :post,id:'btn-no',data: { disable_with: "En cours..." } %>
         </div>
 
         <div class="cell inset" data-tilt>
-            <%= link_to "je veux jouer avec toi", matches_path(:requestor_id => current_user.id.to_i,:receiver_id => @user_select.id.to_i,:users_tag_list => @user_tag_list, status:true), method: :post,id:'btn-yes'%>
+            <%= link_to "je veux jouer avec toi", matches_path(:requestor_id => current_user.id.to_i,:receiver_id => @user_select.id.to_i,:users_tag_list => @user_tag_list, status:true), method: :post,id:'btn-yes',data: { disable_with: "En cours..." }%>
         </div>
 
     </div>
