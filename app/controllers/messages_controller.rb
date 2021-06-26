@@ -28,7 +28,7 @@ class MessagesController < ApplicationController
   
     respond_to do |format|
       if @message.save #todoDev
-        format.html { redirect_to conversation_path(@conversation_id), notice: "Message was successfully created." }
+        format.html { redirect_to conversation_path(@conversation_id), notice: "Ton message a bien été envoyé!." }
         format.json { render :show, status: :created, location: @message }
       else
         format.html { redirect_to conversation_path(@conversation_id), notice: "Le message ne peut pas être vide !"}
