@@ -164,6 +164,9 @@ Manu aKa *“Aide Moussaillons”* sur le discord
 
 ## 8. Liens utiles
 
+Pour pouvoir profiter pleinement des fonctionnalités de l'application et sir vous n'avez pas de pseudo Lol, nous vous invitons à en choisir un parmis le ladder EUW.
+* https://euw.op.gg/ranking/ladder/
+
 Executive Summary :
 * https://docs.google.com/document/d/1ZrUvCgAX_t_tUI4eBxj2L8EY6-BQ_yFWLFN2T4e7nSc/
 

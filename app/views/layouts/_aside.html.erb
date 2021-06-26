@@ -11,17 +11,17 @@
         
         <% if user_signed_in? && current_user.summoner_name == nil %>
 
-            <div class="connected-true-container">
-                <p> Complète ton profil pour commencer l'aventure (bouton vers Edition de profil ?)</p>
+            <div class="connected-false-container">
+                <div class="content">
+                    <h3>Bienvenue et merci pour ton inscription. Maintenant nous t'invitons à compléter ton profil afin de pouvoir commencer à swiper!</h3>
+                </div>                
             </div>            
 
         <% elsif user_signed_in? && current_user.summoner_name != nil %>
 
             <div class="connected-true-container">
                 <%= render "users/profile" %>
-            </div>            
-
-
+            </div>
 
         <% else %>
 
