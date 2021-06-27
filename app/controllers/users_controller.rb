@@ -1,9 +1,5 @@
 class UsersController < ApplicationController
-<<<<<<< HEAD
   include UsersHelper
-=======
-
->>>>>>> a72d0ea9e51ba6e76721e2af52490d4f31aa0ca5
   before_action :set_user, only: %i[ show edit update ]
   before_action :set_user_game_stat, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
