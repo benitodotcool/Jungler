@@ -109,6 +109,27 @@
     }
 }
 
+.btn-main {
+    display: grid;
+    align-content: flex-end;
+    font-weight: 500;
+    color: var(--main-color);
+    padding: 3px 15px 3px 15px;
+    border: 1px solid var(--main-color);
+    border-radius: 10px;
+    transition: all 0.3s ease-out;
+    font-size: var(--small-font-size);
+    cursor: pointer;
+    text-decoration: none;
+    margin-left: calc(var(--small-padding) / 2);
+    
+    &:hover {
+        color: var(--light-grey-color);
+        background-color: var(--main-color);
+        box-shadow: 0px 5px 25px 5px var(--main-color-shadow);
+    }
+}
+
 .input-send {
     color: var(--light-grey-color);
     background-color: var(--main-color);
