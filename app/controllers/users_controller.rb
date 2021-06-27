@@ -10,8 +10,7 @@ class UsersController < ApplicationController
   require 'dotenv'
   Dotenv.load('.env')  
   
-  def index
-    
+  def index    
     @users = User.tagged_with(current_user.tag_list).where.not(id: current_user.id).shuffle
     @user_select = user_selected
     @user_tag_list = current_user.tag_list.join
