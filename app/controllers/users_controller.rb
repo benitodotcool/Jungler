@@ -35,8 +35,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user_game_stat = UserGameStat.find_by(user_id:current_user.id)        
-    
+    @user_game_stat = UserGameStat.find_by(user_id:current_user.id)    
   end
 
   def create

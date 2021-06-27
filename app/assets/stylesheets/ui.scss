@@ -30,31 +30,23 @@
 }
 
 .alert-error {
-  background-color: #f2dede;
-  border-color: #eed3d7;
-  color: #b94a48;
-  text-align: left;
+  color: var(--danger-color);
+  text-align: right;
 }
 
 .alert-alert {
-  background-color: #f2dede;
-  border-color: #eed3d7;
-  color: #b94a48;
-  text-align: left;
+  color: var(--danger-color);
+  text-align: right;
 }
 
 .alert-success {
-  background-color: #dff0d8;
-  border-color: #d6e9c6;
-  color: #468847;
-  text-align: left;
+  color: var(--green-color);
+  text-align: right;
 }
 
-.alert-notice {
-  background-color: #dff0d8;
-  border-color: #d6e9c6;
-  color: #468847;
-  text-align: left;
+.alert-warning {
+  color: var(--warning-color);
+  text-align: right;
 }
 
 .inset {
@@ -120,4 +112,3 @@
   }
 
 }
-
