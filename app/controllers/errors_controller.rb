@@ -12,4 +12,4 @@ class ErrorsController < ApplicationController
       render status: 422
   end
   
-  end
+end

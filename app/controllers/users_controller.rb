@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
+<<<<<<< HEAD
   include UsersHelper
+=======
+
+>>>>>>> a72d0ea9e51ba6e76721e2af52490d4f31aa0ca5
   before_action :set_user, only: %i[ show edit update ]
   before_action :set_user_game_stat, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
@@ -8,11 +12,9 @@ class UsersController < ApplicationController
   require 'rest-client'
   require 'pry'
   require 'dotenv'
-  Dotenv.load('.env')
+  Dotenv.load('.env')  
   
-  
-  def index
-    
+  def index    
     @users = User.tagged_with(current_user.tag_list).where.not(id: current_user.id).shuffle
     @user_select = user_selected
     @user_tag_list = current_user.tag_list.join
@@ -141,12 +143,12 @@ class UsersController < ApplicationController
     end
 
   
-    def tagged
-      if params[:tag].present?
-        @users = User.tagged_with(params[:tag])
-      else
-        @users = User.all
-      end
+  def tagged
+    if params[:tag].present?
+      @users = User.tagged_with(params[:tag])
+    else
+      @users = User.all
     end
+  end
 
 end

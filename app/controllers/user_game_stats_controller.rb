@@ -7,14 +7,8 @@ class UserGameStatsController < ApplicationController
     @user_game_stats = UserGameStat.all
   end
 
-  def show
-  end
-
   def new
     @user_game_stats = UserGameStat.new
-  end
-
-  def edit
   end
 
   def create
@@ -31,8 +25,7 @@ class UserGameStatsController < ApplicationController
     end
   end
 
-  def update
-    
+  def update    
     respond_to do |format|
       
       if @user_game_stats.update(user_game_stat_params)

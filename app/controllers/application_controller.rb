@@ -9,8 +9,7 @@ class ApplicationController < ActionController::Base
   end
   
   
-  def after_sign_in_path_for(resource_or_scope)
-  
+  def after_sign_in_path_for(resource_or_scope)  
     if is_profile_completed? 
       stored_location_for(resource_or_scope) || users_path 
     else
@@ -50,10 +49,5 @@ class ApplicationController < ActionController::Base
     @conversations = condition_1 + condition_2
 
   end
-  
-  #binding.pry
-  #binding.pry
-
-  
   
 end
