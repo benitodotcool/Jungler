@@ -4,4 +4,42 @@
 
 .main-content-discovery {
     height: 100%;
+    display: grid;
+    grid-gap: var(--small-padding);
+    padding-bottom: var(--small-padding);
+
+    .cell-discovery {
+        padding: var(--small-padding);
+        background-color: var(--secondary-dark-color);
+        border-radius: var(--small-border-radius);
+
+        a {
+            color: var(--main-color);
+            text-decoration: none;
+        }
+
+        h1 {
+            padding-bottom: var(--small-padding);
+        }
+
+        .p-after-li {
+            padding-top: var(--small-padding);
+        }
+
+        p:not(:last-child) {
+            padding-bottom: var(--small-padding);
+        }
+
+        ul {
+            padding-left: var(--small-padding);
+
+            li {
+                list-style-type: disc;
+            }
+
+            li:not(:last-child) {
+                padding-bottom: calc(var(--small-padding) / 2);
+            }
+        }
+    }
 }
