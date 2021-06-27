@@ -149,6 +149,10 @@
             p {
                 width: 75%;
             }
+
+            p:not(:last-child) {
+                padding-bottom: var(--small-padding);
+            }
         }
 
         .cell-5 {
@@ -167,14 +171,44 @@
             p {
                 width: 75%;
             }
+
+            p:not(:last-child) {
+                padding-bottom: var(--small-padding);
+            }
         }
 
         .cell-6 {
             grid-area: 7 / 1 / 9 / 7;
-            height: 40vh;
-            display: grid;
-            place-items: center;
-            margin-top: var(--medium-padding);  
+            height: auto;
+            margin-top: var(--medium-padding);             
+            
+            .title {
+                padding-bottom: var(--small-padding);
+
+                & * {
+                    font-size: var(--big-font-size);
+                    line-height: 1;
+                }
+
+                &::before {
+                    vertical-align: 100%;
+                    content: "filtre";
+                    font-size: 12px;
+                    text-transform: uppercase;
+                    background-color: var(--info-color);
+                    padding: 2px 5px 2px 5px;
+                    border-radius: 5px;
+                    font-weight: 800;
+                }
+            }
+            .description {
+                p {
+                    padding-bottom: var(--small-padding); 
+                }
+                .last {
+                    padding-bottom: 0;
+                }
+            }
         }
 
         .cell-7 {            
