@@ -1,3 +1,60 @@
-// Place all the styles related to the errors controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.main-head-errors {
+    grid-area: 1 / 1 / 2 / 2;
+    display: grid;
+    place-items: center;
+  
+    .title {
+      justify-self: start;
+      grid-auto-flow: column;
+  
+      &::before {
+        vertical-align: 40%;
+        content: "attention";
+        font-size: 12px;
+        text-transform: uppercase;
+        background-color: var(--warning-color);
+        padding: 2px 5px 2px 5px;
+        margin-right: 10px;
+        border-radius: 5px;
+        color: var(--main-bg-dark-color);
+      }  
+    }  
+  }
+
+.main-content-errors {
+    position: relative;
+    grid-area: 2 / 1 / 3 / 2;
+    display: grid;
+    place-items: center;
+    grid-row-gap: var(--medium-padding);
+    grid-column-gap: var(--small-padding); 
+    margin-bottom: var(--small-padding);
+    background-color: var(--secondary-dark-color);
+    border-radius: var(--small-border-radius);
+    overflow: hidden;
+
+    .content {
+        text-align: center;
+        height: 100%;
+        width: 100%;
+
+        h1 {
+            font-size: 20vw;
+            color: var(--dark-grey-color);
+            opacity: 0.3;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            display: grid;
+            place-items: center;
+        }
+
+        p {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            display: grid;
+            place-items: center;
+        }
+    }
+}
