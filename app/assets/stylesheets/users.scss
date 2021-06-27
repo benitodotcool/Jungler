@@ -67,7 +67,7 @@
       display: grid;
       place-items: center;
       padding: var(--small-padding);
-      grid-template-rows: auto 1fr auto;
+      grid-template-rows: 100px 1fr 50px;
       grid-row-gap: var(--small-padding);
       background-color: var(--secondary-dark-color);
       border-radius: var(--small-border-radius);
@@ -76,7 +76,7 @@
 
       .head {
         display: grid;
-        grid-template-columns: 150px 1fr;
+        grid-template-columns: 100px 1fr;
         grid-column-gap: var(--small-padding);
         width: 100%;
         margin-bottom: 15px;
@@ -85,11 +85,11 @@
           position: relative;
 
           .photo {
-            width: 150px;
-            height: 150px;
+            width: 100px;
+            height: 100px;
 
             img {
-              height: 150px;
+              height: 100px;
               border-radius: var(--medium-border-radius);
               border: 2px solid var(--main-color);
               box-shadow: 0px 10px 25px 10px var(--main-color-shadow);
@@ -102,22 +102,22 @@
             font-weight: 800;
             background-color: var(--main-color);
             border-radius: 10px;
-            width: 75px;
+            width: 50px;
             transform: translate(50%, -50%);
             text-align: center;
-            padding-top: 5px;
-            padding-bottom: 5px;
+            padding-top: 2px;
+            padding-bottom: 2px;
           }
         }
 
         .user-info {
-          h1 {
-            padding-bottom: calc(var(--small-padding) / 2);
-          }
+            h1 {
+                margin-bottom: 5px;
+            }
 
           h4 {
             position: absolute;
-            margin-top: var(--small-padding);
+            margin-top: 12px;
             font-size: 12px;
             text-transform: uppercase;
             background-color: var(--main-color);
@@ -130,6 +130,7 @@
 
       .content {
         width: 100%;
+        height: 100%;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-column-gap: var(--small-padding);
@@ -155,9 +156,8 @@
           .role {
             display: grid;
             place-items: center;
-            height: 100px;
+            height: 100%;
             color: var(--medium-grey-color);
-
             background-color: var(--secondary-dark-color);
             border-radius: var(--small-border-radius);
             padding-top: calc(var(--small-padding) / 2);
@@ -192,6 +192,7 @@
           display: grid;
           grid-auto-flow: column;
           place-items: center;
+          grid-gap: var(--small-padding);
 
           .champ {
 
@@ -233,7 +234,6 @@
         width: 100%;
 
         .cell {
-          padding: calc(var(--small-padding) / 2);
           border-radius: var(--small-border-radius);
           background-color: var(--secondary-dark-color);
           width: 100%;
