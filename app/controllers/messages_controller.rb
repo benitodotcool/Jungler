@@ -2,8 +2,7 @@ class MessagesController < ApplicationController
   before_action :set_message, only: %i[ show edit update destroy ]
 
   def index
-    @messages = Message.where(conversation_id:params[:id])
-   
+    @messages = Message.where(conversation_id:params[:id])   
   end
 
   def show
@@ -12,9 +11,6 @@ class MessagesController < ApplicationController
 
   def new
     @message = Message.new
-  end
-
-  def edit
   end
 
   def create

@@ -1,4 +1,5 @@
 class ConversationsController < ApplicationController
+
   before_action :set_conversation, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
   before_action :user_authorized?, only: %i[ show edit update destroy ]
@@ -23,9 +24,6 @@ class ConversationsController < ApplicationController
     @conversation = Conversation.new
   end
 
-  def edit
-  end
-
   def create
     @conversation = Conversation.new(conversation_params)
 
@@ -34,17 +32,6 @@ class ConversationsController < ApplicationController
         format.html { redirect_to @conversation, success: "Nouvelle conversation créée." }
       else
         format.html { render :new, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def update
-    respond_to do |format|
-      if @conversation.update(conversation_params)
-        format.html { redirect_to @conversation, success: "Conversation à jour." }
-        format.json { render :show, status: :ok, location: @conversation }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
       end
     end
   end

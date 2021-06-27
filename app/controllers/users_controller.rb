@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   before_action :set_user, only: %i[ show edit update ]
   before_action :set_user_game_stat, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
@@ -7,8 +8,7 @@ class UsersController < ApplicationController
   require 'rest-client'
   require 'pry'
   require 'dotenv'
-  Dotenv.load('.env')
-  
+  Dotenv.load('.env')  
   
   def index
     
@@ -233,14 +233,13 @@ class UsersController < ApplicationController
         end
       end
     end
-
   
-    def tagged
-      if params[:tag].present?
-        @users = User.tagged_with(params[:tag])
-      else
-        @users = User.all
-      end
+  def tagged
+    if params[:tag].present?
+      @users = User.tagged_with(params[:tag])
+    else
+      @users = User.all
     end
+  end
 
 end
